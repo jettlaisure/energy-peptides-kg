@@ -2,6 +2,9 @@
 
 Consistent studio shots of every labelled SKU, generated from the real label files (`inbox/labels/`).
 Same vial model, lens, rotation and lighting for every product; only the label and vial size (from the graph) change.
+The vial follows ISO 8362-1 (2R: Ø16 × 35 mm, 13 mm finish; 6R: Ø22 × 40 mm, 20 mm finish) and was matched against the
+photos of FSD's real vials on the Freedom certificates: tight shoulder, freeze-drying stopper visible in the neck, satin
+silver seal, thin flip-off button. Add `&seal=gold` to the scene URL for a gold seal.
 
 ```bash
 # 1. render at 2x (needs a Python with Playwright + its Chromium; the harness venv has both)
