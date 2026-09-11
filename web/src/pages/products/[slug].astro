@@ -40,7 +40,11 @@ const unverified = p.components.some((c) => c.confidence !== 'high');
   <div class="container">
     <nav class="crumbs t-small" aria-label="Breadcrumb"><a href="/products/">Catalog</a><span class="faint">/</span><a href={`/products/#${p.composition_slug}`}>{p.composition_class}</a></nav>
     <section class="top">
-      <div class="art"><VialArt product={p} size="hero" /></div>
+      <div class="art">
+        {p.images?.portrait
+          ? <img class="shot" src={p.images.portrait} alt={`${familyName(p)} ${sizeLabel(p)} vial with the Energy Peptides label. For research use only.`} width="1600" height="2000" fetchpriority="high" />
+          : <VialArt product={p} size="hero" />}
+      </div>
       <div class="panel buy stack">
         <p class="eyebrow">{p.composition_class}</p>
         <h1 class="t-section"><span class="name">{familyName(p)}</span> <span class="dim amt">{sizeLabel(p)}</span></h1>
@@ -143,6 +147,7 @@ const unverified = p.components.some((c) => c.confidence !== 'high');
 <style>
   .crumbs { display: flex; gap: var(--s2); padding-block: var(--s5); }
   .crumbs a { color: var(--text-dim); }
+  .shot { width: 100%; height: auto; aspect-ratio: 4 / 5; object-fit: cover; display: block; border: var(--hairline); border-radius: var(--radius); background: #EFEEEA; }
   .top { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); gap: var(--s6); align-items: start; }
   .buy { padding: var(--s6); gap: var(--s4); }
   .amt { font-weight: 400; }

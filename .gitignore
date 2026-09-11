@@ -9,3 +9,4 @@ site/pages/*.draft.md
 data/graph-map.html
 .DS_Store
 .claude/settings.local.json
+render/out/

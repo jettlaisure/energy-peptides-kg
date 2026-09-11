@@ -1,0 +1,139 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>vial render</title>
+<style>html,body{margin:0;background:#000;overflow:hidden}canvas{display:block}</style>
+<script type="importmap">{"imports":{"three":"./vendor/three/three.module.js","three/addons/":"./vendor/three/addons/"}}</script>
+</head><body>
+<script type="module">
+import * as THREE from 'three';
+import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
+
+const q = new URLSearchParams(location.search);
+const W = +q.get('w') || 1600, H = +q.get('h') || 1600;
+const VIAL_ML = +q.get('vial') || 3;
+const U_CENTER = +q.get('u') || 0.385;           // label u that faces the camera (same for every product)
+const THEME = q.get('bg') || 'offwhite';
+const BG = THEME === 'navy'
+  ? { top: '#13224A', bottom: '#060C1F', floor: '#0A1530', shadow: 0.55 }
+  : { top: '#F7F7F5', bottom: '#ECEBE7', floor: '#ECEBE7', shadow: 0.16 };
+
+const renderer = new THREE.WebGLRenderer({ antialias: true, preserveDrawingBuffer: true });
+renderer.setPixelRatio(1); renderer.setSize(W, H);
+renderer.outputColorSpace = THREE.SRGBColorSpace;
+renderer.toneMapping = THREE.NeutralToneMapping; renderer.toneMappingExposure = 1.0;
+renderer.shadowMap.enabled = true; renderer.shadowMap.type = THREE.VSMShadowMap;
+document.body.appendChild(renderer.domElement);
+
+const scene = new THREE.Scene();
+const pmrem = new THREE.PMREMGenerator(renderer);
+function studioEnv() {
+  const env = new THREE.Scene();
+  const wall = new THREE.Mesh(new THREE.BoxGeometry(200, 120, 200), new THREE.MeshBasicMaterial({ color: new THREE.Color(0.55, 0.55, 0.55), side: THREE.BackSide }));
+  wall.position.y = 40; env.add(wall);
+  const soft = (w, h, x, y, z, ry, k) => { const m = new THREE.Mesh(new THREE.PlaneGeometry(w, h), new THREE.MeshBasicMaterial({ color: new THREE.Color(k, k, k), side: THREE.DoubleSide }));
+    m.position.set(x, y, z); m.rotation.y = ry; env.add(m); };
+  const flag = (w, h, x, y, z, ry) => { const m = new THREE.Mesh(new THREE.PlaneGeometry(w, h), new THREE.MeshBasicMaterial({ color: 0x000000, side: THREE.DoubleSide }));
+    m.position.set(x, y, z); m.rotation.y = ry; env.add(m); };
+  soft(18, 90, -55, 40, 30, Math.PI / 2.6, 9);      // tall key strip, front-left
+  soft(10, 90, 60, 40, -10, -Math.PI / 2.2, 5);     // rim strip, back-right
+  const top = new THREE.Mesh(new THREE.PlaneGeometry(80, 80), new THREE.MeshBasicMaterial({ color: new THREE.Color(3, 3, 3), side: THREE.DoubleSide }));
+  top.rotation.x = Math.PI / 2; top.position.y = 95; env.add(top);
+  flag(30, 90, -40, 40, -50, Math.PI / 4);           // black cards: give the glass its dark edges
+  flag(30, 90, 45, 40, 45, -Math.PI / 4);
+  flag(40, 90, 0, 40, 95, Math.PI);                  // behind the camera, darkens the centre reflection
+  return env;
+}
+scene.environment = pmrem.fromScene(studioEnv(), 0.015).texture;
+scene.environmentIntensity = 1.0;
+
+// ---- seamless studio sweep: unlit backdrop + floor in exact brand colours (not tone mapped) ----
+function gradientTex(top, bottom) {
+  const c = document.createElement('canvas'); c.width = 4; c.height = 512;
+  const g = c.getContext('2d'); const gr = g.createLinearGradient(0, 0, 0, 512);
+  gr.addColorStop(0, top); gr.addColorStop(1, bottom); g.fillStyle = gr; g.fillRect(0, 0, 4, 512);
+  const t = new THREE.CanvasTexture(c); t.colorSpace = THREE.SRGBColorSpace; return t;
+}
+const back = new THREE.Mesh(new THREE.PlaneGeometry(400, 160), new THREE.MeshBasicMaterial({ map: gradientTex(BG.top, BG.bottom), toneMapped: false }));
+back.position.set(0, 80, -60); scene.add(back);
+const floor = new THREE.Mesh(new THREE.PlaneGeometry(400, 200), new THREE.MeshBasicMaterial({ color: BG.floor, toneMapped: false }));
+floor.rotation.x = -Math.PI / 2; floor.position.set(0, 0, 40); scene.add(floor);
+const shadowCatcher = new THREE.Mesh(new THREE.PlaneGeometry(200, 200), new THREE.ShadowMaterial({ opacity: BG.shadow }));
+shadowCatcher.rotation.x = -Math.PI / 2; shadowCatcher.position.y = 0.01; shadowCatcher.receiveShadow = true; scene.add(shadowCatcher);
+
+// soft contact shadow directly under the vial
+function contactTex() {
+  const c = document.createElement('canvas'); c.width = c.height = 256; const g = c.getContext('2d');
+  const gr = g.createRadialGradient(128, 128, 0, 128, 128, 128);
+  gr.addColorStop(0, 'rgba(0,0,0,0.55)'); gr.addColorStop(0.45, 'rgba(0,0,0,0.22)'); gr.addColorStop(1, 'rgba(0,0,0,0)');
+  g.fillStyle = gr; g.fillRect(0, 0, 256, 256); return new THREE.CanvasTexture(c);
+}
+
+// ---- vial dimensions (mm) ----
+const V = VIAL_ML >= 5 ? { r: 10.6, body: 30, h: 41 } : { r: 8.5, body: 27, h: 36 };
+const neckR = V.r * 0.74, lipR = neckR + 0.35;
+const contact = new THREE.Mesh(new THREE.PlaneGeometry(V.r * 4.2, V.r * 4.2), new THREE.MeshBasicMaterial({ map: contactTex(), transparent: true, depthWrite: false, opacity: THEME === 'navy' ? 0.9 : 0.6 }));
+contact.rotation.x = -Math.PI / 2; contact.position.y = 0.02; scene.add(contact);
+
+// glass: lathe profile, bottom to lip
+const pts = [];
+pts.push(new THREE.Vector2(0.001, 0), new THREE.Vector2(V.r - 1.2, 0), new THREE.Vector2(V.r - 0.35, 0.25), new THREE.Vector2(V.r, 1.1));
+pts.push(new THREE.Vector2(V.r, V.body));
+for (let i = 1; i <= 12; i++) { const t = i / 12; const e = 1 - Math.pow(1 - t, 2);
+  pts.push(new THREE.Vector2(V.r - (V.r - neckR) * e, V.body + (V.h - 5.4 - V.body) * t)); }
+pts.push(new THREE.Vector2(neckR, V.h - 3.6), new THREE.Vector2(lipR, V.h - 3.4), new THREE.Vector2(lipR, V.h - 1.6), new THREE.Vector2(neckR - 1.4, V.h - 1.5), new THREE.Vector2(0.001, V.h - 1.5));
+const glass = new THREE.Mesh(new THREE.LatheGeometry(pts, 160), new THREE.MeshPhysicalMaterial({
+  color: 0xffffff, metalness: 0, roughness: 0.0, transmission: 1, thickness: 1.6, ior: 1.52, dispersion: 0.2,
+  specularIntensity: 1, envMapIntensity: 1.25, attenuationColor: new THREE.Color('#E4F1EE'), attenuationDistance: 40, transparent: false }));
+glass.castShadow = true; scene.add(glass);
+
+// lyophilized cake: slightly domed, matte, off-white
+const cakeH = VIAL_ML >= 5 ? 7 : 5.2, cakeR = V.r - 0.9;
+const cp = [new THREE.Vector2(0.001, 1.15), new THREE.Vector2(cakeR, 1.15), new THREE.Vector2(cakeR, 1.15 + cakeH * 0.92), new THREE.Vector2(cakeR * 0.8, 1.15 + cakeH), new THREE.Vector2(0.001, 1.15 + cakeH * 1.03)];
+const cake = new THREE.Mesh(new THREE.LatheGeometry(cp, 96), new THREE.MeshStandardMaterial({ color: '#EDE8DC', roughness: 1 }));
+scene.add(cake);
+
+// aluminium crimp (brushed gold) + flip-off cap (brand navy)
+const crimpTop = V.h + 0.6, crimpBot = V.h - 4.2;
+const crimp = new THREE.Mesh(new THREE.CylinderGeometry(lipR + 0.45, lipR + 0.45, crimpTop - crimpBot, 128, 1, false),
+  new THREE.MeshPhysicalMaterial({ color: '#C9A456', metalness: 1, roughness: 0.32, clearcoat: 0.2 }));
+crimp.position.y = (crimpTop + crimpBot) / 2; crimp.castShadow = true; scene.add(crimp);
+const capH = 3.1;
+const capProfile = [new THREE.Vector2(0.001, crimpTop), new THREE.Vector2(lipR + 0.55, crimpTop), new THREE.Vector2(lipR + 0.6, crimpTop + capH - 0.6),
+  new THREE.Vector2(lipR + 0.2, crimpTop + capH - 0.05), new THREE.Vector2(0.001, crimpTop + capH)];
+const cap = new THREE.Mesh(new THREE.LatheGeometry(capProfile, 128), new THREE.MeshPhysicalMaterial({ color: '#0F1D40', roughness: 0.3, clearcoat: 0.5, clearcoatRoughness: 0.18, envMapIntensity: 0.8 }));
+cap.castShadow = true; scene.add(cap);
+
+// label: real print file wrapped at the same rotation for every product
+const LABEL_H = VIAL_ML >= 5 ? 19 : 16, LABEL_W = LABEL_H * (1400 / 780), rL = V.r + 0.06;
+const thetaLength = LABEL_W / rL;
+const labelTex = await new THREE.TextureLoader().loadAsync(q.get('label'));
+labelTex.colorSpace = THREE.SRGBColorSpace; labelTex.anisotropy = renderer.capabilities.getMaxAnisotropy();
+const label = new THREE.Mesh(new THREE.CylinderGeometry(rL, rL, LABEL_H, 256, 1, true, -U_CENTER * thetaLength, thetaLength),
+  new THREE.MeshPhysicalMaterial({ map: labelTex, roughness: 0.5, clearcoat: 0.3, clearcoatRoughness: 0.18, envMapIntensity: 0.45, side: THREE.FrontSide,
+    transparent: true, opacity: 1, depthWrite: true }));   // transparent = excluded from the glass's refraction texture (no ghost print at the edge)
+label.position.y = 2.2 + LABEL_H / 2 + (V.body - 2.2 - LABEL_H) / 2; label.castShadow = true; scene.add(label);
+// white paper backing: what the glass shows of the label's inside, instead of mirrored print
+const backing = new THREE.Mesh(new THREE.CylinderGeometry(rL - 0.02, rL - 0.02, LABEL_H, 256, 1, true, -U_CENTER * thetaLength, thetaLength),
+  new THREE.MeshStandardMaterial({ color: '#F4F2EC', roughness: 0.9, side: THREE.BackSide }));
+backing.position.y = label.position.y; scene.add(backing);
+
+// ---- lights: soft key from the left, fill, warm rim on the glass edge ----
+scene.add(new THREE.HemisphereLight(0xffffff, THEME === 'navy' ? 0x0a1530 : 0xe6e4df, 0.7));
+const key = new THREE.DirectionalLight(0xffffff, 1.7); key.position.set(-35, 140, 55); key.castShadow = true;
+key.shadow.mapSize.set(2048, 2048); key.shadow.radius = 22; key.shadow.blurSamples = 32; key.shadow.bias = -0.0006;
+Object.assign(key.shadow.camera, { left: -40, right: 40, top: 60, bottom: -20, near: 1, far: 300 }); scene.add(key);
+const rim = new THREE.DirectionalLight(0xffe7b8, 1.6); rim.position.set(70, 40, -60); scene.add(rim);
+const fill = new THREE.DirectionalLight(0xffffff, 0.5); fill.position.set(60, 20, 80); scene.add(fill);
+
+// ---- camera: long lens, slight elevation, vial fills ~64% of frame height ----
+const aspect = W / H;
+const camera = new THREE.PerspectiveCamera(14, aspect, 1, 2000);
+const target = new THREE.Vector3(0, V.h * 0.5, 0);
+const frameH = (V.h + 4) / (aspect < 1 ? 0.56 : 0.64);          // world height the frame should cover at the vial
+const dist = (frameH / 2) / Math.tan(THREE.MathUtils.degToRad(14 / 2));
+camera.position.set(0, target.y + dist * Math.sin(THREE.MathUtils.degToRad(6)), dist * Math.cos(THREE.MathUtils.degToRad(6)));
+camera.lookAt(target.x, target.y - (aspect < 1 ? V.h * 0.08 : 0), target.z);
+
+renderer.render(scene, camera); renderer.render(scene, camera);   // second pass settles transmission
+window.__png = renderer.domElement.toDataURL('image/png');
+window.__done = true;
+</script></body></html>

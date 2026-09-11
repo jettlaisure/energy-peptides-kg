@@ -79,6 +79,9 @@ def build(store: Store) -> dict:
         related = sorted({store.get(e["src"])["attrs"].get("slug") for cid in comp_ids for e in store.edges(cid, "CONTAINS", "in")
                           if e["src"] != p["id"] and store.get(e["src"])["attrs"].get("status") == "active"} - {None})
         on_hand = stock.get(p["name"], {}).get("on_hand", 0)
+        img_dir = ROOT / "web" / "public" / "img" / "products"
+        images = {fmt: f"/img/products/{a.get('slug')}-{fmt}.webp" for fmt in ("square", "portrait")
+                  if (img_dir / f"{a.get('slug')}-{fmt}.webp").exists()}
         classes = [(c.get("class") or c.get("kind") or "").strip() for c in comps]
         comp_class = "Peptide blend" if len(comps) > 1 else (classes[0][:1].upper() + classes[0][1:] if classes and classes[0] else "Research compound")
         comp_slug = re.sub(r"[^a-z0-9]+", "-", comp_class.lower()).strip("-")
@@ -90,7 +93,7 @@ def build(store: Store) -> dict:
             "in_stock": on_hand > 0 and a.get("status") == "active", "on_hand": on_hand,
             "components": comps, "research_area": {"name": area["name"], "slug": area["slug"]} if area else None,
             "claims": claims, "studies": studies, "faqs": [faq_all[i] for i in sorted(faq_ids)],
-            "assets": assets, "coa": coa, "batches": batches, "related_slugs": related,
+            "assets": assets, "coa": coa, "batches": batches, "related_slugs": related, "images": images,
             "page": {"title": page["attrs"].get("title"), "meta_description": page["attrs"].get("meta_description")} if page else None,
         })
     products.sort(key=lambda x: (x["category"] != "peptide", x["name"]))
