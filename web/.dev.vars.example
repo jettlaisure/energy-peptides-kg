@@ -1,0 +1,8 @@
+# Copy to .dev.vars (gitignored). Local dev reads these as Cloudflare env vars.
+PAYMENT_MODE=stub
+TAGADA_API_KEY=
+TAGADA_STORE_ID=
+TAGADA_WEBHOOK_SECRET=
+TAGADA_BASE_URL=https://api.tagada.io
+TAGADA_ENV=test
+TAGADA_PAYMENT_FLOW_ID=

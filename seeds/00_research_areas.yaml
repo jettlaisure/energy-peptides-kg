@@ -1,0 +1,13 @@
+# INTERNAL grouping for SEO clusters and study work. Never shown on the site (brand rule BR-CATEGORIES).
+type: ResearchArea
+source: seeds/00_research_areas.yaml
+confidence: high
+items:
+  - {name: Tissue repair and recovery, attrs: {slug: tissue-repair, summary: "Peptides examined in preclinical wound, tendon, ligament and muscle models."}}
+  - {name: Skin and cosmetic research, attrs: {slug: skin, summary: "Copper peptides and related compounds studied in dermal and cosmetic-science contexts."}}
+  - {name: Metabolic research, attrs: {slug: metabolic, summary: "Incretin and multi-receptor agonist peptides studied in metabolic and body-composition models."}}
+  - {name: Longevity and aging research, attrs: {slug: longevity, summary: "Compounds examined in aging, cellular-metabolism and lifespan models."}}
+  - {name: Growth hormone axis, attrs: {slug: growth-hormone-axis, summary: "GHRH analogues and secretagogues studied for their effect on GH release in laboratory settings."}}
+  - {name: Mitochondrial research, attrs: {slug: mitochondrial, summary: "Mitochondria-derived and mitochondria-targeted peptides studied in cellular bioenergetics models."}}
+  - {name: Melanocortin research, attrs: {slug: melanocortin, summary: "α-MSH analogues studied at melanocortin receptors in laboratory models."}}
+  - {name: Inflammation research, attrs: {slug: inflammation, summary: "Peptides examined in preclinical inflammation and immune models."}}

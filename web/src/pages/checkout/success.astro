@@ -1,0 +1,18 @@
+---
+import Base from '../../layouts/Base.astro';
+import { site } from '../../lib/catalog';
+---
+<Base title="Order received" description="Order confirmation.">
+  <section class="section container narrow stack">
+    <p class="eyebrow">Order received</p>
+    <h1 class="t-section">Thank you.</h1>
+    <p class="t-lede">Your order <strong class="value" data-order></strong> has been received. A confirmation is on its way to your email, followed by a shipping notice.</p>
+    <p class="compliance">{site.compliance_line}</p>
+    <p><a class="btn btn-secondary" href="/products/">Back to the catalog</a></p>
+  </section>
+  <script>
+    const id = new URLSearchParams(location.search).get('order');
+    const el = document.querySelector('[data-order]'); if (el) el.textContent = id ?? '';
+  </script>
+</Base>
+<style>.narrow { max-width: 44rem; gap: var(--s5); }</style>

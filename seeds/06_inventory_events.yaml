@@ -1,0 +1,13 @@
+# Append-only ledger. Never edit past events; correct with an 'adjusted' event and a reason.
+# IE-0001..0007 are the opening stock count from the 2026-09-09 sheet.
+type: InventoryEvent
+source: inbox/Energy-inventory-2026-09-09.numbers
+confidence: high
+items:
+  - {name: IE-0001, attrs: {kind: received, quantity: 5,  occurred_on: "2026-09-09", reference: "opening stock count"}, edges: [{rel: AFFECTS, to: "Batch:LOT-TBD-EP-RT-20"}]}
+  - {name: IE-0002, attrs: {kind: received, quantity: 10, occurred_on: "2026-09-09", reference: "opening stock count"}, edges: [{rel: AFFECTS, to: "Batch:LOT-TBD-EP-BPC-10"}]}
+  - {name: IE-0003, attrs: {kind: received, quantity: 8,  occurred_on: "2026-09-09", reference: "opening stock count"}, edges: [{rel: AFFECTS, to: "Batch:LOT-TBD-EP-B1-20"}]}
+  - {name: IE-0004, attrs: {kind: received, quantity: 8,  occurred_on: "2026-09-09", reference: "opening stock count"}, edges: [{rel: AFFECTS, to: "Batch:LOT-TBD-EP-CU-50"}]}
+  - {name: IE-0005, attrs: {kind: received, quantity: 10, occurred_on: "2026-09-09", reference: "opening stock count"}, edges: [{rel: AFFECTS, to: "Batch:LOT-TBD-EP-CU-100"}]}
+  - {name: IE-0006, attrs: {kind: received, quantity: 8,  occurred_on: "2026-09-09", reference: "opening stock count"}, edges: [{rel: AFFECTS, to: "Batch:LOT-TBD-EP-NAD-500"}]}
+  - {name: IE-0007, attrs: {kind: received, quantity: 9,  occurred_on: "2026-09-09", reference: "opening stock count"}, edges: [{rel: AFFECTS, to: "Batch:LOT-TBD-EP-BAC-10"}]}

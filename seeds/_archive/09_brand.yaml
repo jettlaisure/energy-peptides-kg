@@ -1,0 +1,39 @@
+# DRAFT brand voice. Edit freely — this file IS the brand guide the agents read. Keep 'scope' accurate.
+type: BrandRule
+source: seeds/09_brand.yaml (draft)
+confidence: medium
+items:
+  - name: BR-TONE
+    attrs: {category: tone, scope: [all],
+            text: "Precise, calm, scientific. We sound like a careful lab supplier, not a supplement brand.",
+            do: ["short declarative sentences", "name the model and the citation", "state limits plainly"],
+            dont: ["hype words: miracle, breakthrough, game-changer, powerful, proven", "exclamation marks", "urgency tricks"]}
+  - name: BR-VOCAB
+    attrs: {category: vocabulary, scope: [all],
+            text: "Controlled vocabulary for compounds and people.",
+            do: ["research peptide", "compound", "researchers", "laboratory", "study / trial", "lot / batch", "certificate of analysis (COA)"],
+            dont: ["supplement", "dose / dosage (for humans)", "patients", "users", "results you'll see", "benefits"]}
+  - name: BR-PRODUCT-PAGE-STRUCTURE
+    attrs: {category: structure, scope: [product_page],
+            text: "Section order is fixed: 1 Overview (2-3 sentences), 2 Specifications table (sequence, formula, MW, CAS, form, size, purity spec), 3 Research background (cited, model named), 4 Quality and COA, 5 FAQ (2-4 items), 6 RUO disclaimer.",
+            do: ["one H1: '<Product name>'", "Specifications as a table"], dont: ["marketing paragraphs before the specifications", "more than 600 words"]}
+  - name: BR-COA-STATEMENT
+    attrs: {category: structure, scope: [product_page, faq],
+            text: "Standard sentence for the Quality section: 'Every lot ships with a third-party certificate of analysis reporting HPLC purity and mass-spectrometry identity.'"}
+  - name: BR-FORMATTING
+    attrs: {category: formatting, scope: [all],
+            text: "Sentence-case headings. Metric units. Purity written as '≥99% (HPLC)'. Peptide codes uppercase with hyphen (BPC-157). Numbers with units, never bare."}
+  - name: BR-SEO
+    attrs: {category: seo, scope: [product_page, faq, blog, seo],
+            text: "Meta title ≤60 characters, ends with '| Energy Peptides'. Meta description ≤155 characters, factual. Primary keyword appears once in the first 100 words and in the H1; never stuffed. Slug is the product slug from the graph.",
+            do: ["internal links to the research-area page and to blends containing the same peptide"], dont: ["keyword lists in copy", "'best' / 'top' superlatives"]}
+  - name: BR-FAQ
+    attrs: {category: structure, scope: [faq],
+            text: "Question as an H3 in plain language. Answer ≤80 words. Factual answers cite a verified study or a graph attribute; otherwise answer with what the company does (COA, storage, RUO), not what the compound does."}
+  - name: BR-MARKETING
+    attrs: {category: tone, scope: [marketing, email, social, ads],
+            text: "Marketing copy is short (email ≤120 words, social ≤280 characters), one call to action, product facts only: what it is, lot purity, COA availability, price, stock. Never effects.",
+            dont: ["countdowns and false scarcity", "emoji in email subject lines", "effects language of any kind"]}
+  - name: BR-VISUAL
+    attrs: {category: visual, scope: [all],
+            text: "TODO — fill in: primary colour, accent colour, typeface, logo usage (assets/logo/energy-peptides-logo.svg), photography style (plain white background vial shots)."}

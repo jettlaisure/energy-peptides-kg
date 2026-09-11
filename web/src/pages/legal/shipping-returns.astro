@@ -1,0 +1,23 @@
+---
+import Base from '../../layouts/Base.astro';
+---
+<Base title="Shipping and returns" description="Shipping and returns for Energy Peptides.">
+  <section class="section container legal-page">
+    <p class="eyebrow">Policy</p>
+    <h1 class="t-section">Shipping and returns</h1>
+    <div class="prose measure">
+<h2>Shipping</h2>
+<p>Orders ship within the United States only. Flat-rate shipping is $9.95; orders over $150 ship free. Lyophilized peptides are shipped sealed with cold packs where appropriate. Orders placed before 2 pm ET on a business day usually ship the same day.</p>
+<h2>Returns</h2>
+<p>Research materials cannot be returned once shipped. If a shipment arrives damaged or incorrect, contact TODO@energypeptides.us within 7 days of delivery with your order number and a photo, and we will replace or refund it.</p>
+<p class="muted">Placeholder policy drafted 2026-09-09. Adjust carriers, cut-off times and rates to your operation.</p>
+    </div>
+  </section>
+</Base>
+<style>
+  .legal-page { max-width: var(--measure); display: grid; gap: var(--s5); }
+  .prose h2 { font-size: 22px; font-weight: 700; margin-top: var(--s5); }
+  .prose p, .prose li { color: var(--text-dim); margin-top: var(--s2); }
+  .prose ul { padding-left: 1.2rem; }
+  .prose .muted { color: var(--text-faint); font-size: 14px; }
+</style>

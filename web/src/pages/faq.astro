@@ -1,0 +1,21 @@
+---
+import Base from '../layouts/Base.astro';
+import FaqList from '../components/FaqList.astro';
+import { catalog } from '../lib/catalog';
+const general = catalog.faq.filter((f) => f.about.length === 0);
+const specific = catalog.faq.filter((f) => f.about.length > 0);
+---
+<Base title="FAQ" description="Storage, batch testing, research-use policy and product questions.">
+  <section class="section container narrow">
+    <p class="eyebrow">FAQ</p>
+    <h1 class="t-section">Questions</h1>
+    <h2 class="t-sub sub">Ordering, quality and policy</h2>
+    <FaqList items={general} />
+    <h2 class="t-sub sub">Products</h2>
+    <FaqList items={specific} />
+  </section>
+</Base>
+<style>
+  .narrow { max-width: var(--measure); display: grid; gap: var(--s4); }
+  .sub { margin-top: var(--s5); }
+</style>

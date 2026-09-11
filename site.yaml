@@ -1,0 +1,14 @@
+# Site-level facts that are not graph knowledge. Read by `kg export --format site`.
+brand: Energy Peptides
+seller: Energy Wellness Club LLC
+domain: energypeptides.us
+contact_email: TODO@energypeptides.us
+currency: USD
+compliance_line: "For Research Use Only — Not for Human Consumption"   # site default
+compliance_line_alt: "For Research Use Only - Not for Human Use"          # as printed on labels; approved as interchangeable (2026-09-10)
+ruo_line: "For laboratory research use only. Not for human or veterinary use."   # long form for policy pages
+attestation: "I confirm I am 21 or older and am purchasing these products solely for laboratory research. I understand they are not for human or veterinary use."
+shipping_usd: 9.95
+free_shipping_over_usd: 150
+ships_to: US only
+testing_line: "Every batch is tested by HPLC and mass spectrometry against a purity specification of ≥99%. Certificates of analysis are available on request."

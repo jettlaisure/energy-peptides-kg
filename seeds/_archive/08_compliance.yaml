@@ -1,0 +1,36 @@
+# DRAFT policy, distilled from industry norms (FDA research-use-only framing, FTC advertising substantiation,
+# payment-processor rules). NOT legal advice. Review every rule with counsel, then raise confidence to high.
+type: ComplianceRule
+source: seeds/08_compliance.yaml (draft, not legal advice)
+confidence: medium
+items:
+  - name: CR-RUO
+    attrs: {severity: blocker, scope: [all], basis: "RUO framing; payment-processor terms",
+            text: "Every product is sold for laboratory research use only. State 'For laboratory research use only. Not for human or veterinary use.' on every product page, cart, checkout and product email."}
+  - name: CR-NO-MEDICAL-CLAIMS
+    attrs: {severity: blocker, scope: [all], basis: "FD&C Act drug definition; FTC substantiation",
+            text: "Never state or imply that a product diagnoses, treats, cures, prevents or mitigates any disease or condition, or improves human health, performance, appearance or recovery."}
+  - name: CR-NO-HUMAN-DOSING
+    attrs: {severity: blocker, scope: [all], basis: "RUO framing",
+            text: "No human dosing, administration, injection, cycling or 'protocol' guidance. Reconstitution and storage information is limited to laboratory handling of the compound."}
+  - name: CR-PRECLINICAL-FRAMING
+    attrs: {severity: major, scope: [product_page, faq, blog, social, email, ads], basis: "FTC substantiation",
+            text: "Describe research strictly in the terms of the cited study: name the model (in vitro, rodent, human) and never extrapolate animal or in-vitro findings to people."}
+  - name: CR-VERIFIED-CITATIONS
+    attrs: {severity: blocker, scope: [all], basis: "internal accuracy policy",
+            text: "Cite only Study nodes with verified=true. Unverified or absent citations mean the sentence is removed, not softened."}
+  - name: CR-NO-TESTIMONIALS
+    attrs: {severity: major, scope: [all], basis: "FTC endorsement guides; RUO framing",
+            text: "No customer testimonials, reviews or anecdotes describing effects of a compound."}
+  - name: CR-NO-BRAND-COMPARISON
+    attrs: {severity: major, scope: [all], basis: "trademark; FTC comparative advertising",
+            text: "Do not name prescription brands (Ozempic, Wegovy, Mounjaro, Zepbound) or imply equivalence to or substitution for an approved drug."}
+  - name: CR-NO-APPROVAL-IMPLICATION
+    attrs: {severity: blocker, scope: [all], basis: "FDA",
+            text: "Never state or imply FDA/EMA approval. Do not use 'pharmaceutical grade', 'clinically proven' or 'safe'. 'Not evaluated or approved by the FDA' may be stated."}
+  - name: CR-PURCHASER-ATTESTATION
+    attrs: {severity: major, scope: [checkout, product_page], basis: "RUO framing; processor terms",
+            text: "Purchaser must attest they are 21+ and buying for laboratory research. The attestation checkbox is mandatory at checkout."}
+  - name: CR-COA-LINK
+    attrs: {severity: minor, scope: [product_page], basis: "internal transparency policy",
+            text: "Every live product page links the most recent published COA for that product."}

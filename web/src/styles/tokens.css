@@ -1,0 +1,48 @@
+/* Energy Peptides — design tokens v1.0 (from the brand reference, inbox/brand.html).
+   Dark-ground identity: navy carries the page; paper is reserved for documents and forms. Single theme by design. */
+:root {
+  color-scheme: dark;
+  /* surface */
+  --void: #060C1F;
+  --navy: #0D1B3E;
+  --navy-lift: #13224A;
+  --rule: #21386E;
+  --rule-soft: #182B58;
+  --paper: #F4F6FA;
+  /* brand */
+  --gold-hi: #F0D48A;
+  --gold: #D4AF5F;
+  --gold-lo: #B8860B;
+  --gold-ink: #8A6410;                       /* the only gold for text on light surfaces */
+  --gold-grad: linear-gradient(135deg, #F5E3B0, #D9B96B 42%, #C39A45 72%, #B8860B);
+  --steel: #6E8CB8;
+  --powder: #A8B4DC;                         /* spec values, figures */
+  /* text on navy */
+  --text: #EEF2F9;
+  --text-dim: #9FB2CE;
+  --text-faint: #6C82A6;
+  /* text on paper */
+  --paper-text: #0D1B3E;
+  --paper-dim: #4A5C80;
+  --paper-rule: #CDD5E4;
+  --paper-field: #FFFFFF;
+  /* one semantic colour for form errors only */
+  --danger: #E8A3A3;
+  /* type */
+  --sans: "Satoshi", "Helvetica Neue", Arial, sans-serif;
+  --mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+  /* space — 4px base */
+  --s1: 4px; --s2: 8px; --s3: 12px; --s4: 16px; --s5: 24px; --s6: 32px; --s7: 48px; --s8: 64px; --s9: 96px; --s10: 128px;
+  /* form */
+  --radius-sm: 2px;
+  --radius: 4px;
+  --hairline: 1px solid var(--rule);
+  --glow-gold: 0 0 24px rgba(240, 212, 138, .28);
+  /* layout */
+  --container: 1200px;
+  --gutter: 32px;
+  --measure: 720px;
+  --section: var(--s10);
+  --section-sm: var(--s8);
+}
+@media (max-width: 720px) { :root { --gutter: 20px; --section: var(--s8); --section-sm: var(--s7); } }

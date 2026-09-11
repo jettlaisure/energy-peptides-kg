@@ -1,0 +1,25 @@
+type: Keyword
+source: seeds/11_keywords.yaml
+confidence: medium
+items:
+  - {name: retatrutide research peptide, attrs: {intent: transactional, priority: high}, edges: [{rel: ABOUT, to: "Peptide:Retatrutide"}]}
+  - {name: buy retatrutide 20mg, attrs: {intent: transactional, priority: high}, edges: [{rel: ABOUT, to: "Product:Retatrutide 20mg"}]}
+  - {name: bpc-157 peptide, attrs: {intent: transactional, priority: high}, edges: [{rel: ABOUT, to: "Peptide:BPC-157"}]}
+  - {name: bpc-157 10mg, attrs: {intent: transactional, priority: high}, edges: [{rel: ABOUT, to: "Product:BPC-157 10mg"}]}
+  - {name: what is bpc-157, attrs: {intent: informational, priority: medium}, edges: [{rel: ABOUT, to: "Peptide:BPC-157"}]}
+  - {name: wolverine peptide blend, attrs: {intent: transactional, priority: high}, edges: [{rel: ABOUT, to: "Product:BPC-157 / TB-500 20mg"}]}
+  - {name: bpc-157 tb-500 blend, attrs: {intent: transactional, priority: high}, edges: [{rel: ABOUT, to: "Product:BPC-157 / TB-500 20mg"}]}
+  - {name: ghk-cu peptide, attrs: {intent: transactional, priority: medium}, edges: [{rel: ABOUT, to: "Peptide:GHK-Cu"}]}
+  - {name: ghk-cu 100mg, attrs: {intent: transactional, priority: medium}, edges: [{rel: ABOUT, to: "Product:GHK-Cu 100mg"}]}
+  - {name: nad+ research, attrs: {intent: informational, priority: medium}, edges: [{rel: ABOUT, to: "Compound:NAD+"}]}
+  - {name: bacteriostatic water 10ml, attrs: {intent: transactional, priority: medium}, edges: [{rel: ABOUT, to: "Product:Bacteriostatic water 10ml"}]}
+  - {name: how to store lyophilized peptides, attrs: {intent: informational, priority: medium}}
+  - {name: peptide certificate of analysis, attrs: {intent: informational, priority: low}}
+  - {name: tirzepatide research peptide, attrs: {intent: transactional, priority: high}, edges: [{rel: ABOUT, to: "Peptide:Tirzepatide"}]}
+  - {name: mots-c peptide, attrs: {intent: transactional, priority: medium}, edges: [{rel: ABOUT, to: "Peptide:MOTS-c"}]}
+  - {name: ss-31 peptide, attrs: {intent: transactional, priority: medium}, edges: [{rel: ABOUT, to: "Peptide:SS-31"}]}
+  - {name: klow peptide blend, attrs: {intent: transactional, priority: high}, edges: [{rel: ABOUT, to: "Product:BPC-157 / TB-500 / KPV / GHK-Cu 80mg"}]}
+  - {name: kpv peptide, attrs: {intent: transactional, priority: low}, edges: [{rel: ABOUT, to: "Peptide:KPV"}]}
+  - {name: ipamorelin peptide, attrs: {intent: transactional, priority: medium}, edges: [{rel: ABOUT, to: "Peptide:Ipamorelin"}]}
+  - {name: tesamorelin peptide, attrs: {intent: transactional, priority: medium}, edges: [{rel: ABOUT, to: "Peptide:Tesamorelin"}]}
+  - {name: melanotan 2 research peptide, attrs: {intent: transactional, priority: medium}, edges: [{rel: ABOUT, to: "Peptide:Melanotan II"}]}

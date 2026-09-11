@@ -1,0 +1,14 @@
+type: ResearchArea
+source: seeds/00_research_areas.yaml
+confidence: high
+items:
+  - name: Tissue repair and recovery
+    attrs: {slug: tissue-repair, summary: "Peptides examined in preclinical wound, tendon, ligament and muscle models."}
+  - name: Growth hormone axis
+    attrs: {slug: growth-hormone-axis, summary: "GHRH analogues and secretagogues studied for their effect on GH release in laboratory settings."}
+  - name: Metabolic research
+    attrs: {slug: metabolic, summary: "Incretin and lipolytic peptides studied in metabolic and body-composition models."}
+  - name: Skin and cosmetic research
+    attrs: {slug: skin, summary: "Copper peptides and related compounds studied in dermal and cosmetic-science contexts."}
+  - name: Longevity and aging research
+    attrs: {slug: longevity, summary: "Peptides examined in aging, telomerase and lifespan models."}

@@ -1,0 +1,28 @@
+# Chemistry checked against PubChem 2026-09-10 and approved by Jett.
+type: Compound
+source: PubChem check 2026-09-10, approved by Jett
+confidence: high
+items:
+- name: NAD+
+  aliases:
+  - NAD
+  - Nicotinamide adenine dinucleotide
+  - beta-NAD
+  - β-NAD
+  attrs:
+    kind: small molecule
+    molecular_formula: C21H27N7O14P2
+    molecular_weight: 663.4
+    cas_number: 53-84-9
+    summary: Nicotinamide adenine dinucleotide, a coenzyme present in all living cells, supplied buffered as a lyophilized powder for laboratory research.
+  edges:
+  - rel: RESEARCHED_FOR
+    to: ResearchArea:Longevity and aging research
+- name: Bacteriostatic water
+  aliases:
+  - bac water
+  - BAC water
+  - bacteriostatic water 0.9% benzyl alcohol
+  attrs:
+    kind: solvent
+    summary: Sterile water containing 0.9% benzyl alcohol as a bacteriostatic preservative, used to reconstitute lyophilized compounds in the laboratory.

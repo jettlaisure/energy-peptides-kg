@@ -1,0 +1,39 @@
+---
+import Lockup from './Lockup.astro';
+const path = Astro.url.pathname;
+const nav = [
+  { href: '/products/', label: 'Catalog' },
+  { href: '/faq/', label: 'FAQ' },
+  { href: '/legal/research-use-only/', label: 'Research use policy' },
+];
+---
+<header class="site-header">
+  <div class="container bar">
+    <a class="brand" href="/" aria-label="Energy Peptides home"><Lockup height={38} /></a>
+    <nav aria-label="Primary">
+      {nav.map((n) => <a href={n.href} aria-current={path.startsWith(n.href) ? 'page' : undefined}>{n.label}</a>)}
+    </nav>
+    <a class="cart-link" href="/cart/">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M3 4h2l2.4 11.2a1 1 0 0 0 1 .8h8.9a1 1 0 0 0 1-.8L20 8H6.2"/><circle cx="9.5" cy="19.5" r="1.2"/><circle cx="16.5" cy="19.5" r="1.2"/></svg>
+      <span>Cart</span><span class="count num" data-cart-count hidden>0</span>
+    </a>
+  </div>
+</header>
+<script>
+  import { cartCount } from '../lib/cart';
+  const el = document.querySelector<HTMLElement>('[data-cart-count]');
+  const paint = (n: number) => { if (!el) return; el.textContent = String(n); el.hidden = n === 0; };
+  paint(cartCount());
+  document.addEventListener('cart:change', (e) => paint((e as CustomEvent).detail.count));
+</script>
+<style>
+  .site-header { position: sticky; top: 0; z-index: 20; background: var(--void); border-bottom: var(--hairline); }
+  .bar { display: flex; align-items: center; gap: var(--s7); height: 72px; }
+  .brand { text-decoration: none; display: inline-flex; }
+  nav { display: flex; gap: var(--s5); margin-left: auto; }
+  nav a { color: var(--text-dim); font-size: 14px; font-weight: 500; padding: 6px 0; border-bottom: 1px solid transparent; text-decoration: none; }
+  nav a:hover, nav a[aria-current="page"] { color: var(--text); border-bottom-color: var(--gold); }
+  .cart-link { display: inline-flex; align-items: center; gap: 8px; color: var(--text); font-size: 14px; font-weight: 500; text-decoration: none; }
+  .count { font-size: 11px; background: var(--gold-grad); color: var(--navy); border-radius: 999px; padding: 2px 7px; font-weight: 700; }
+  @media (max-width: 640px) { nav { display: none; } }
+</style>

@@ -1,0 +1,50 @@
+# The claim library. Copy may only use status=approved claims. Prohibited claims are kept so verifiers can
+# match near-paraphrases. Add new claims here as 'pending' and approve them by editing status.
+type: Claim
+source: seeds/10_claims.yaml
+confidence: high
+items:
+  - name: CL-1
+    attrs: {status: approved, scope: [product_page, faq, blog], rationale: "Chemical description; no effect claimed.",
+            text: "BPC-157 is a synthetic pentadecapeptide (15 amino acids) whose sequence is derived from a protein found in human gastric juice."}
+    edges: [{rel: ABOUT, to: "Peptide:BPC-157"}, {rel: GOVERNED_BY, to: "ComplianceRule:CR-NO-MEDICAL-CLAIMS"}]
+  - name: CL-2
+    attrs: {status: approved, scope: [product_page, blog, faq], rationale: "Names the model; describes what studies examined, not outcomes in humans.",
+            text: "Preclinical studies in rodent models have examined BPC-157 in tendon, ligament and muscle injury models."}
+    edges: [{rel: ABOUT, to: "Peptide:BPC-157"}, {rel: SUPPORTED_BY, to: "Study:Chang 2011 BPC 157 tendon healing"}, {rel: GOVERNED_BY, to: "ComplianceRule:CR-PRECLINICAL-FRAMING"}]
+  - name: CL-3
+    attrs: {status: prohibited, scope: [all], rationale: "Treatment claim; extrapolates animal data to humans.",
+            text: "BPC-157 heals tendon injuries and speeds up recovery."}
+    edges: [{rel: ABOUT, to: "Peptide:BPC-157"}, {rel: GOVERNED_BY, to: "ComplianceRule:CR-NO-MEDICAL-CLAIMS"}]
+  - name: CL-4
+    attrs: {status: approved, scope: [product_page, faq, blog], rationale: "Chemical description.",
+            text: "TB-500 is a synthetic peptide corresponding to the sequence of thymosin beta-4, a naturally occurring actin-binding protein."}
+    edges: [{rel: ABOUT, to: "Peptide:TB-500"}, {rel: GOVERNED_BY, to: "ComplianceRule:CR-NO-MEDICAL-CLAIMS"}]
+  - name: CL-5
+    attrs: {status: prohibited, scope: [all], rationale: "Brand comparison implying substitution; effect claim.",
+            text: "Semaglutide research peptide — the same compound as Ozempic, for weight loss."}
+    edges: [{rel: ABOUT, to: "Peptide:Semaglutide"}, {rel: GOVERNED_BY, to: "ComplianceRule:CR-NO-BRAND-COMPARISON"}, {rel: GOVERNED_BY, to: "ComplianceRule:CR-NO-MEDICAL-CLAIMS"}]
+  - name: CL-6
+    attrs: {status: approved, scope: [product_page, faq], rationale: "Describes the class and that trials exist, without outcomes; restates RUO.",
+            text: "Semaglutide is a GLP-1 receptor agonist that has been studied in human clinical trials for metabolic outcomes. Energy Peptides supplies it for laboratory research only."}
+    edges: [{rel: ABOUT, to: "Peptide:Semaglutide"}, {rel: SUPPORTED_BY, to: "Study:Wilding 2021 STEP 1 semaglutide"}, {rel: GOVERNED_BY, to: "ComplianceRule:CR-PRECLINICAL-FRAMING"}]
+  - name: CL-7
+    attrs: {status: prohibited, scope: [all], rationale: "Testimonial + cosmetic effect claim.",
+            text: "Researchers report improved skin elasticity after using GHK-Cu."}
+    edges: [{rel: ABOUT, to: "Peptide:GHK-Cu"}, {rel: GOVERNED_BY, to: "ComplianceRule:CR-NO-TESTIMONIALS"}, {rel: GOVERNED_BY, to: "ComplianceRule:CR-NO-MEDICAL-CLAIMS"}]
+  - name: CL-8
+    attrs: {status: approved, scope: [product_page, faq, blog], rationale: "Chemical description.",
+            text: "GHK-Cu is a naturally occurring copper-binding tripeptide (glycyl-L-histidyl-L-lysine) found in human plasma."}
+    edges: [{rel: ABOUT, to: "Peptide:GHK-Cu"}, {rel: SUPPORTED_BY, to: "Study:Pickart 2018 GHK-Cu gene data review"}, {rel: GOVERNED_BY, to: "ComplianceRule:CR-NO-MEDICAL-CLAIMS"}]
+  - name: CL-9
+    attrs: {status: approved, scope: [product_page, faq, blog], rationale: "Chemical description; distinguishes DAC form.",
+            text: "CJC-1295 (without DAC) is a modified 29-amino-acid analogue of growth hormone-releasing hormone (GHRH 1-29)."}
+    edges: [{rel: ABOUT, to: "Peptide:CJC-1295"}, {rel: GOVERNED_BY, to: "ComplianceRule:CR-NO-MEDICAL-CLAIMS"}]
+  - name: CL-10
+    attrs: {status: approved, scope: [product_page, faq, blog], rationale: "Literature characterisation, model named in the study node.",
+            text: "Ipamorelin is a synthetic pentapeptide characterised in the literature as a selective growth hormone secretagogue."}
+    edges: [{rel: ABOUT, to: "Peptide:Ipamorelin"}, {rel: SUPPORTED_BY, to: "Study:Raun 1998 ipamorelin secretagogue"}, {rel: GOVERNED_BY, to: "ComplianceRule:CR-PRECLINICAL-FRAMING"}]
+  - name: CL-11
+    attrs: {status: pending, scope: [product_page], rationale: "Needs the Anisimov citation located and verified first.",
+            text: "Epithalon is a synthetic tetrapeptide (Ala-Glu-Asp-Gly) that has been studied in rodent aging models."}
+    edges: [{rel: ABOUT, to: "Peptide:Epithalon"}, {rel: SUPPORTED_BY, to: "Study:Anisimov 2003 Epitalon aging mice"}, {rel: GOVERNED_BY, to: "ComplianceRule:CR-VERIFIED-CITATIONS"}]

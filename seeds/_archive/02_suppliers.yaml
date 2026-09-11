@@ -1,0 +1,8 @@
+type: Supplier
+source: seeds/02_suppliers.yaml
+confidence: low
+items:
+  - name: Supplier A Labs
+    attrs: {country: TODO, contact: TODO, notes: "PLACEHOLDER — replace with the real manufacturer of record."}
+  - name: Supplier B Biotech
+    attrs: {country: TODO, contact: TODO, notes: "PLACEHOLDER."}

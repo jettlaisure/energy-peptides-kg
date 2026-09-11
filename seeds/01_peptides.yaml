@@ -1,0 +1,188 @@
+# Chemistry checked 2026-09-10 against PubChem, the FDA substance registry and certificate mass-spectrometry peaks;
+# approved by Jett the same day. New peptides enter at confidence medium until checked and approved the same way.
+type: Peptide
+source: PubChem / FDA GSRS / certificate MS check 2026-09-10, approved by Jett
+confidence: high
+items:
+- name: BPC-157
+  aliases:
+  - BPC157
+  - BPC 157
+  - Body Protection Compound-157
+  - Pentadecapeptide BPC 157
+  attrs:
+    sequence: GEPPPGKPADDAGLV
+    molecular_formula: C62H98N16O22
+    molecular_weight: 1419.5
+    cas_number: 137525-51-0
+    class: gastric pentadecapeptide
+    summary: Synthetic 15-amino-acid peptide whose sequence is derived from a protein found in human gastric juice.
+  edges:
+  - rel: RESEARCHED_FOR
+    to: ResearchArea:Tissue repair and recovery
+- name: TB-500
+  aliases:
+  - TB500
+  - TB 500
+  - Thymosin Beta-4
+  - Thymosin β4
+  - Tβ4
+  - Thymosin beta 4 fragment
+  attrs:
+    molecular_weight: 4963.4
+    cas_number: 77591-33-4
+    class: thymosin beta-4 analogue
+    summary: Synthetic peptide corresponding to the full 43-amino-acid sequence of thymosin beta-4, a naturally occurring actin-binding protein.
+    molecular_formula: C212H350N56O78S
+  edges:
+  - rel: RESEARCHED_FOR
+    to: ResearchArea:Tissue repair and recovery
+- name: GHK-Cu
+  aliases:
+  - Copper peptide GHK-Cu
+  - GHK copper
+  - GHK-Cu peptide
+  - Glycyl-L-histidyl-L-lysine copper
+  - Prezatide copper
+  attrs:
+    sequence: GHK
+    molecular_weight: 402.9
+    cas_number: 89030-95-5
+    class: copper-binding tripeptide
+    summary: Naturally occurring copper-binding tripeptide (glycyl-L-histidyl-L-lysine) found in human plasma.
+    molecular_formula: C14H23CuN6O4
+  edges:
+  - rel: RESEARCHED_FOR
+    to: ResearchArea:Skin and cosmetic research
+  - rel: RESEARCHED_FOR
+    to: ResearchArea:Tissue repair and recovery
+- name: Retatrutide
+  aliases:
+  - LY3437943
+  - Reta
+  attrs:
+    molecular_weight: 4731.3
+    cas_number: 2381089-83-2
+    class: GIP / GLP-1 / glucagon triple receptor agonist
+    summary: Synthetic peptide that acts as an agonist at the GIP, GLP-1 and glucagon receptors, studied in metabolic research.
+  edges:
+  - rel: RESEARCHED_FOR
+    to: ResearchArea:Metabolic research
+- name: Tirzepatide
+  aliases:
+  - LY3298176
+  - Tirz
+  attrs:
+    molecular_weight: 4813.5
+    cas_number: 2023788-19-2
+    class: GIP / GLP-1 dual receptor agonist
+    summary: Synthetic peptide that acts as an agonist at the GIP and GLP-1 receptors, studied in metabolic research.
+    molecular_formula: C225H348N48O68
+  edges:
+  - rel: RESEARCHED_FOR
+    to: ResearchArea:Metabolic research
+- name: KPV
+  aliases:
+  - Lys-Pro-Val
+  - KPV peptide
+  - alpha-MSH 11-13
+  attrs:
+    sequence: KPV
+    molecular_weight: 342.4
+    class: alpha-MSH-derived tripeptide
+    summary: Tripeptide (lysine-proline-valine) corresponding to the C-terminal fragment of α-melanocyte-stimulating hormone, studied in preclinical inflammation
+      models.
+    cas_number: 67727-97-3
+    molecular_formula: C16H30N4O4
+  edges:
+  - rel: RESEARCHED_FOR
+    to: ResearchArea:Inflammation research
+- name: Ipamorelin
+  aliases:
+  - NNC 26-0161
+  - Ipa
+  attrs:
+    molecular_formula: C38H49N9O5
+    molecular_weight: 711.9
+    cas_number: 170851-70-4
+    class: growth hormone secretagogue (pentapeptide)
+    summary: Synthetic pentapeptide characterised in the literature as a selective growth hormone secretagogue.
+  edges:
+  - rel: RESEARCHED_FOR
+    to: ResearchArea:Growth hormone axis
+- name: Tesamorelin
+  aliases:
+  - TH9507
+  - Tesa
+  attrs:
+    molecular_weight: 5136.0
+    cas_number: 218949-48-5
+    class: GHRH analogue
+    summary: Synthetic analogue of growth hormone-releasing hormone (GHRH 1-44) with an N-terminal trans-3-hexenoic acid modification.
+    molecular_formula: C221H366N72O67S
+  edges:
+  - rel: RESEARCHED_FOR
+    to: ResearchArea:Growth hormone axis
+- name: MOTS-c
+  aliases:
+  - MOTSc
+  - MOTS c
+  - mitochondrial open reading frame of the 12S rRNA type-c
+  attrs:
+    molecular_weight: 2174.6
+    cas_number: 1627580-64-6
+    class: mitochondrial-derived peptide
+    summary: 16-amino-acid peptide encoded within the mitochondrial 12S rRNA gene, studied in cellular metabolism models.
+    molecular_formula: C101H152N28O22S2
+  edges:
+  - rel: RESEARCHED_FOR
+    to: ResearchArea:Mitochondrial research
+  - rel: RESEARCHED_FOR
+    to: ResearchArea:Metabolic research
+- name: SS-31
+  aliases:
+  - SS31
+  - Elamipretide
+  - MTP-131
+  - Bendavia
+  - D-Arg-Dmt-Lys-Phe-NH2
+  attrs:
+    molecular_weight: 639.8
+    cas_number: 736992-21-5
+    class: mitochondria-targeted tetrapeptide
+    summary: Synthetic aromatic-cationic tetrapeptide that localises to the inner mitochondrial membrane, studied in bioenergetics models.
+    molecular_formula: C32H49N9O5
+  edges:
+  - rel: RESEARCHED_FOR
+    to: ResearchArea:Mitochondrial research
+- name: Melanotan II
+  aliases:
+  - Melanotan 2
+  - MT-II
+  - MT2
+  - MT-2
+  attrs:
+    molecular_weight: 1024.2
+    cas_number: 121062-08-6
+    class: alpha-MSH analogue (cyclic heptapeptide)
+    summary: Synthetic cyclic heptapeptide analogue of α-melanocyte-stimulating hormone, studied at melanocortin receptors in laboratory models.
+    molecular_formula: C50H69N15O9
+  edges:
+  - rel: RESEARCHED_FOR
+    to: ResearchArea:Melanocortin research
+- name: Melanotan I
+  aliases:
+  - Melanotan 1
+  - MT-I
+  - MT1
+  - Afamelanotide
+  - '[Nle4, D-Phe7]-α-MSH'
+  attrs:
+    molecular_weight: 1646.8
+    cas_number: 75921-69-6
+    class: alpha-MSH analogue (linear 13-mer)
+    summary: Synthetic linear 13-amino-acid analogue of α-melanocyte-stimulating hormone, studied at melanocortin receptors in laboratory models.
+    molecular_formula: C78H111N21O19
+  edges:
+  - rel: RESEARCHED_FOR
+    to: ResearchArea:Melanocortin research

@@ -1,0 +1,53 @@
+---
+/* Placeholder vial until product photography lands. Label follows the real print file (inbox/labels):
+   navy field, gold hairline border, amino-chain mark left, vertical gold rule, ENERGY PEPTIDES tracked in gold,
+   product name white, amount gold, research-use line gold, "3 mL vial size" steel. Never on white (§04 Imagery). */
+import { labelName, labelAmount, type Product } from '../lib/catalog';
+import flat from '../assets/mark-flat.svg?raw';
+interface Props { product: Product; size?: 'card' | 'hero' }
+const { product, size = 'card' } = Astro.props;
+const liquid = product.category === 'accessory';
+const label = labelName(product).toUpperCase();
+const amt = labelAmount(product);
+const uid = product.sku.replace(/[^a-z0-9]/gi, '');
+const nameSize = label.length > 22 ? 5.2 : label.length > 14 ? 7 : 10.5;
+const markInner = flat.replace(/^<svg[^>]*>|<\/svg>$/g, '');
+---
+<div class:list={['vial', size]} aria-hidden="true">
+  <svg viewBox="0 0 200 260" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <linearGradient id={`bg-${uid}`} x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0D1B3E"/><stop offset="1" stop-color="#060C1F"/></linearGradient>
+      <linearGradient id={`glass-${uid}`} x1="0" x2="1"><stop offset="0" stop-color="#101C3A"/><stop offset=".35" stop-color="#1B2C55"/><stop offset=".6" stop-color="#16264A"/><stop offset="1" stop-color="#0E1A38"/></linearGradient>
+      <linearGradient id={`rim-${uid}`} x1="0" x2="1"><stop offset="0" stop-color="#F5E3B0" stop-opacity="0"/><stop offset=".2" stop-color="#F0D48A" stop-opacity=".9"/><stop offset=".5" stop-color="#D4AF5F" stop-opacity=".2"/><stop offset="1" stop-color="#B8860B" stop-opacity="0"/></linearGradient>
+      <linearGradient id={`lab-${uid}`} x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#13224A"/><stop offset="1" stop-color="#0A1530"/></linearGradient>
+      <radialGradient id={`refl-${uid}`} cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#6E8CB8" stop-opacity=".35"/><stop offset="1" stop-color="#6E8CB8" stop-opacity="0"/></radialGradient>
+    </defs>
+    <rect width="200" height="260" fill={`url(#bg-${uid})`}/>
+    <ellipse cx="100" cy="236" rx="72" ry="10" fill="#0A0F1C"/>
+    <ellipse cx="100" cy="232" rx="48" ry="7" fill={`url(#refl-${uid})`}/>
+    <rect x="70" y="30" width="60" height="22" rx="4" fill="#13224A" stroke="#D4AF5F" stroke-width="1.2"/>
+    <rect x="66" y="50" width="68" height="10" rx="2" fill="#6E8CB8" opacity=".6"/>
+    <rect x="60" y="58" width="80" height="172" rx="12" fill={`url(#glass-${uid})`} stroke="#6E8CB8" stroke-opacity=".55"/>
+    <rect x="61" y="59" width="6" height="170" rx="3" fill={`url(#rim-${uid})`}/>
+    {liquid
+      ? <rect x="64" y="140" width="72" height="86" rx="10" fill="#1B2C55"/>
+      : <rect x="64" y="196" width="72" height="30" rx="9" fill="#A8B4DC" opacity=".9"/>}
+    {/* label: 1400×780 print file scaled to 76×42, laid out like the real one */}
+    <g transform="translate(62 108)">
+      <rect width="76" height="42" rx="1.5" fill={`url(#lab-${uid})`} stroke="#D4AF5F" stroke-width=".6"/>
+      <svg x="3" y="8" width="24" height="26" viewBox="9 14 344 182" set:html={markInner} />
+      <line x1="30" y1="5" x2="30" y2="37" stroke="#D4AF5F" stroke-width=".4"/>
+      <text x="33" y="8.5" font-family="Satoshi, Helvetica, Arial, sans-serif" font-weight="500" font-size="3.6" letter-spacing=".9" fill="#D4AF5F">ENERGY PEPTIDES</text>
+      <text x="33" y={label.length > 14 ? 19 : 21} font-family="Satoshi, Helvetica, Arial, sans-serif" font-weight="700" font-size={nameSize} fill="#EEF2F9" textLength={label.length > 14 ? 40 : undefined} lengthAdjust="spacingAndGlyphs">{label}</text>
+      <text x="33" y="29" font-family="Satoshi, Helvetica, Arial, sans-serif" font-weight="500" font-size="7" fill="#D4AF5F">{amt}</text>
+      <text x="33" y="35.5" font-family="Satoshi, Helvetica, Arial, sans-serif" font-weight="500" font-size="2.3" letter-spacing=".15" fill="#D4AF5F">FOR RESEARCH USE ONLY - NOT FOR HUMAN USE</text>
+      <text x="33" y="39" font-family="Satoshi, Helvetica, Arial, sans-serif" font-weight="400" font-size="2.3" fill="#6E8CB8">{liquid ? '10 mL BOTTLE' : '3 mL VIAL SIZE'}</text>
+    </g>
+  </svg>
+</div>
+<style>
+  .vial { border-radius: var(--radius); overflow: hidden; border: var(--hairline); }
+  .vial svg { width: 100%; height: 100%; }
+  .vial.card { aspect-ratio: 1; }
+  .vial.hero { aspect-ratio: 4 / 5; }
+</style>

@@ -1,0 +1,76 @@
+type: Product
+source: seeds/03_products.yaml
+confidence: high
+items:
+  - name: BPC-157 5mg
+    valid_from: "2026-09-01"   # price updated; pages featuring it before this date are stale
+    attrs: {sku: EP-BPC157-5, form: lyophilized powder, size_mg: 5, price_usd: 49.99, purity_spec: ">=99% (HPLC)", status: active, slug: bpc-157-5mg}
+    edges:
+      - {rel: CONTAINS, to: "Peptide:BPC-157", attrs: {amount_mg: 5}}
+      - {rel: BELONGS_TO, to: "ResearchArea:Tissue repair and recovery"}
+      - {rel: USES, to: "Asset:assets/img/bpc-157-vial.png"}
+  - name: BPC-157 10mg
+    attrs: {sku: EP-BPC157-10, form: lyophilized powder, size_mg: 10, price_usd: 84.99, purity_spec: ">=99% (HPLC)", status: active, slug: bpc-157-10mg}
+    edges:
+      - {rel: CONTAINS, to: "Peptide:BPC-157", attrs: {amount_mg: 10}}
+      - {rel: BELONGS_TO, to: "ResearchArea:Tissue repair and recovery"}
+      - {rel: USES, to: "Asset:assets/img/bpc-157-vial.png"}
+  - name: TB-500 5mg
+    attrs: {sku: EP-TB500-5, form: lyophilized powder, size_mg: 5, price_usd: 59.99, purity_spec: ">=99% (HPLC)", status: active, slug: tb-500-5mg}
+    edges:
+      - {rel: CONTAINS, to: "Peptide:TB-500", attrs: {amount_mg: 5}}
+      - {rel: BELONGS_TO, to: "ResearchArea:Tissue repair and recovery"}
+  - name: BPC-157 / TB-500 10mg
+    aliases: ["BPC-157 TB-500 blend 10mg", "Wolverine blend"]
+    attrs: {sku: EP-BPCTB-10, form: lyophilized powder, size_mg: 10, price_usd: 99.99, purity_spec: ">=99% (HPLC)", status: active, slug: bpc-157-tb-500-blend-10mg}
+    edges:
+      - {rel: CONTAINS, to: "Peptide:BPC-157", attrs: {amount_mg: 5}}
+      - {rel: CONTAINS, to: "Peptide:TB-500", attrs: {amount_mg: 5}}
+      - {rel: BELONGS_TO, to: "ResearchArea:Tissue repair and recovery"}
+  - name: CJC-1295 5mg
+    attrs: {sku: EP-CJC-5, form: lyophilized powder, size_mg: 5, price_usd: 44.99, purity_spec: ">=99% (HPLC)", status: active, slug: cjc-1295-no-dac-5mg}
+    edges:
+      - {rel: CONTAINS, to: "Peptide:CJC-1295", attrs: {amount_mg: 5}}
+      - {rel: BELONGS_TO, to: "ResearchArea:Growth hormone axis"}
+  - name: Ipamorelin 5mg
+    attrs: {sku: EP-IPA-5, form: lyophilized powder, size_mg: 5, price_usd: 39.99, purity_spec: ">=99% (HPLC)", status: active, slug: ipamorelin-5mg}
+    edges:
+      - {rel: CONTAINS, to: "Peptide:Ipamorelin", attrs: {amount_mg: 5}}
+      - {rel: BELONGS_TO, to: "ResearchArea:Growth hormone axis"}
+  - name: CJC-1295 / Ipamorelin 10mg
+    aliases: ["CJC Ipa blend"]
+    attrs: {sku: EP-CJCIPA-10, form: lyophilized powder, size_mg: 10, price_usd: 79.99, purity_spec: ">=99% (HPLC)", status: active, slug: cjc-1295-ipamorelin-blend-10mg}
+    edges:
+      - {rel: CONTAINS, to: "Peptide:CJC-1295", attrs: {amount_mg: 5}}
+      - {rel: CONTAINS, to: "Peptide:Ipamorelin", attrs: {amount_mg: 5}}
+      - {rel: BELONGS_TO, to: "ResearchArea:Growth hormone axis"}
+  - name: GHK-Cu 50mg
+    attrs: {sku: EP-GHK-50, form: lyophilized powder, size_mg: 50, price_usd: 54.99, purity_spec: ">=99% (HPLC)", status: active, slug: ghk-cu-50mg}
+    edges:
+      - {rel: CONTAINS, to: "Peptide:GHK-Cu", attrs: {amount_mg: 50}}
+      - {rel: BELONGS_TO, to: "ResearchArea:Skin and cosmetic research"}
+  - name: Semaglutide 5mg
+    attrs: {sku: EP-SEMA-5, form: lyophilized powder, size_mg: 5, price_usd: 129.99, purity_spec: ">=99% (HPLC)", status: active, slug: semaglutide-5mg}
+    edges:
+      - {rel: CONTAINS, to: "Peptide:Semaglutide", attrs: {amount_mg: 5}}
+      - {rel: BELONGS_TO, to: "ResearchArea:Metabolic research"}
+  - name: Tirzepatide 10mg
+    attrs: {sku: EP-TIRZ-10, form: lyophilized powder, size_mg: 10, price_usd: 179.99, purity_spec: ">=99% (HPLC)", status: coming_soon, slug: tirzepatide-10mg}
+    edges:
+      - {rel: CONTAINS, to: "Peptide:Tirzepatide", attrs: {amount_mg: 10}}
+      - {rel: BELONGS_TO, to: "ResearchArea:Metabolic research"}
+  - name: Epithalon 10mg
+    attrs: {sku: EP-EPI-10, form: lyophilized powder, size_mg: 10, price_usd: 49.99, purity_spec: ">=99% (HPLC)", status: active, slug: epithalon-10mg}
+    edges:
+      - {rel: CONTAINS, to: "Peptide:Epithalon", attrs: {amount_mg: 10}}
+      - {rel: BELONGS_TO, to: "ResearchArea:Longevity and aging research"}
+  - name: AOD-9604 5mg
+    attrs: {sku: EP-AOD-5, form: lyophilized powder, size_mg: 5, price_usd: 54.99, purity_spec: ">=99% (HPLC)", status: draft, slug: aod-9604-5mg}
+    edges:
+      - {rel: CONTAINS, to: "Peptide:AOD-9604", attrs: {amount_mg: 5}}
+      - {rel: BELONGS_TO, to: "ResearchArea:Metabolic research"}
+  - name: Tesamorelin 10mg
+    attrs: {sku: EP-TESA-10, form: lyophilized powder, size_mg: 10, price_usd: 89.99, purity_spec: ">=99% (HPLC)", status: active, slug: tesamorelin-10mg}
+    edges:
+      - {rel: CONTAINS, to: "Peptide:Tesamorelin", attrs: {amount_mg: 10}}
+      - {rel: BELONGS_TO, to: "ResearchArea:Growth hormone axis"}

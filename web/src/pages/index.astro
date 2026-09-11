@@ -1,0 +1,76 @@
+---
+import Base from '../layouts/Base.astro';
+import ProductGrid from '../components/ProductGrid.astro';
+import FaqList from '../components/FaqList.astro';
+import { products, catalog, site, compositionClasses } from '../lib/catalog';
+const compounds = products.filter((p) => p.category !== 'accessory');
+const faqPreview = catalog.faq.filter((f) => ['FAQ-3', 'FAQ-2', 'FAQ-6'].includes(f.id));
+---
+<Base title={`${site.brand} — research peptides, tested to a ≥99% purity specification`}>
+  <section class="hero container">
+    <p class="eyebrow">Research peptides · Tested to a ≥99% purity specification</p>
+    <h1 class="t-display">Research-grade peptides, tested batch by batch.</h1>
+    <p class="t-lede measure">Lyophilized peptides and laboratory compounds supplied to research settings. {site.testing_line}</p>
+    <div class="cluster">
+      <a class="btn btn-primary" href="/products/">Browse the catalog</a>
+      <a class="btn btn-quiet" href="/faq/#FAQ-3">How products are tested</a>
+    </div>
+  </section>
+
+  <section class="section container">
+    <div class="section-head">
+      <h2 class="t-section">Browse by composition</h2>
+      <p>Grouped by what each compound is, never by an intended use.</p>
+    </div>
+    <div class="classes">
+      {compositionClasses.map((c) => (
+        <a class="cls" href={`/products/#${c.slug}`}>
+          <span class="t-card">{c.name}</span>
+          <span class="dim t-small">{c.products.map((p) => p.family).filter((v, i, a) => a.indexOf(v) === i).join(' · ')}</span>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <section class="section container">
+    <div class="section-head">
+      <h2 class="t-section">Catalog</h2>
+      <p>Prices per vial. Amount per vial and the purity specification are stated on each product.</p>
+    </div>
+    <ProductGrid products={compounds} />
+  </section>
+
+  <section class="section container quality">
+    <div class="q">
+      <p class="eyebrow">Identity and purity</p>
+      <h3 class="t-sub">Tested batch by batch</h3>
+      <p class="dim">Every batch is analysed by HPLC and mass spectrometry for identity and purity against a ≥99% specification before it is offered. Certificates of analysis are held on file and available on request.</p>
+    </div>
+    <div class="q">
+      <p class="eyebrow">Handling</p>
+      <h3 class="t-sub">Lyophilized, sealed, cold-shipped</h3>
+      <p class="dim">Peptides are supplied as lyophilized powder in sealed vials, stored at −20 °C before dispatch. Handling and storage guidance is in the FAQ.</p>
+    </div>
+    <div class="q">
+      <p class="eyebrow">Policy</p>
+      <h3 class="t-sub">Research use only</h3>
+      <p class="dim">Every product is sold for laboratory research. Purchasers attest to this at checkout. <a href="/legal/research-use-only/">Read the policy</a>.</p>
+    </div>
+  </section>
+
+  <section class="section container">
+    <div class="section-head"><h2 class="t-section">Common questions</h2><a class="btn btn-quiet" href="/faq/">All questions</a></div>
+    <FaqList items={faqPreview} />
+  </section>
+</Base>
+<style>
+  .hero { padding-block: var(--section) var(--s8); display: grid; gap: var(--s5); max-width: 60rem; }
+  .hero h1 { max-width: 15ch; }
+  .classes { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: var(--s4); }
+  .cls { display: grid; gap: var(--s2); padding: var(--s5); border: var(--hairline); border-radius: var(--radius); color: var(--text); background: var(--navy); }
+  .cls:hover { background: var(--navy-lift); border-color: var(--steel); text-decoration: none; }
+  .quality { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--s7); }
+  .q { display: grid; gap: var(--s3); align-content: start; }
+  .q p.dim { font-size: 15px; }
+  @media (max-width: 760px) { .quality { grid-template-columns: 1fr; } }
+</style>

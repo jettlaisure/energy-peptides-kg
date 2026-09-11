@@ -1,0 +1,72 @@
+---
+import Base from '../layouts/Base.astro';
+import { products, site } from '../lib/catalog';
+const lite = products.map((p) => ({ sku: p.sku, name: p.name, slug: p.slug, price: Math.round(Number(p.price_usd) * 100), in_stock: p.in_stock && p.status === 'active' }));
+---
+<Base title="Cart" description="Your cart.">
+  <section class="section container narrow">
+    <p class="eyebrow">Cart</p>
+    <h1 class="t-section">Your cart</h1>
+    <div data-cart-root data-shipping={Math.round(site.shipping_usd * 100)} data-free={Math.round(site.free_shipping_over_usd * 100)}>
+      <p class="dim" data-empty>Your cart is empty. <a href="/products/">Browse the catalog</a>.</p>
+      <div class="table-wrap" data-table hidden>
+        <table class="lines"><thead><tr><th>Item</th><th>Qty</th><th class="r">Each</th><th class="r">Total</th><th></th></tr></thead><tbody data-lines></tbody></table>
+      </div>
+      <div class="totals" data-totals hidden>
+        <div><span class="dim">Subtotal</span><span class="value" data-subtotal></span></div>
+        <div><span class="dim">Shipping <span class="faint">({site.ships_to})</span></span><span class="value" data-ship></span></div>
+        <div class="grand"><span>Total</span><span class="value" data-total></span></div>
+        <p class="faint t-small">Sales tax, where applicable, is calculated on the invoice.</p>
+        <a class="btn btn-primary" href="/checkout/">Continue to checkout</a>
+      </div>
+    </div>
+  </section>
+  <script type="application/json" id="catalog-lite" set:html={JSON.stringify(lite)} />
+</Base>
+<script>
+  import { readCart, setQty } from '../lib/cart';
+  type Lite = { sku: string; name: string; slug: string; price: number; in_stock: boolean };
+  const cat: Lite[] = JSON.parse(document.getElementById('catalog-lite')!.textContent!);
+  const bySku = new Map(cat.map((c) => [c.sku, c]));
+  const root = document.querySelector<HTMLElement>('[data-cart-root]')!;
+  const fmt = (c: number) => new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(c / 100);
+  function paint() {
+    const lines = readCart().filter((l) => bySku.has(l.sku));
+    const tbody = root.querySelector('[data-lines]')!;
+    const empty = lines.length === 0;
+    root.querySelector<HTMLElement>('[data-empty]')!.hidden = !empty;
+    root.querySelector<HTMLElement>('[data-table]')!.hidden = empty;
+    root.querySelector<HTMLElement>('[data-totals]')!.hidden = empty;
+    let subtotal = 0;
+    tbody.innerHTML = '';
+    for (const l of lines) {
+      const c = bySku.get(l.sku)!;
+      const tot = c.price * l.qty; subtotal += tot;
+      const tr = document.createElement('tr');
+      tr.innerHTML = `<td><a class="name" href="/products/${c.slug}/">${c.name}</a>${c.in_stock ? '' : ' <span class="chip chip-off">Out of stock</span>'}</td>
+        <td><input type="number" min="0" max="20" value="${l.qty}" data-qty="${c.sku}" aria-label="Quantity for ${c.name}"></td>
+        <td class="r value">${fmt(c.price)}</td><td class="r value">${fmt(tot)}</td>
+        <td class="r"><button class="btn btn-quiet" data-remove="${c.sku}" aria-label="Remove ${c.name}">Remove</button></td>`;
+      tbody.appendChild(tr);
+    }
+    const ship = subtotal >= Number(root.dataset.free) ? 0 : Number(root.dataset.shipping);
+    root.querySelector('[data-subtotal]')!.textContent = fmt(subtotal);
+    root.querySelector('[data-ship]')!.textContent = ship === 0 ? 'Free' : fmt(ship);
+    root.querySelector('[data-total]')!.textContent = fmt(subtotal + ship);
+  }
+  root.addEventListener('change', (e) => { const t = e.target as HTMLInputElement; if (t.dataset.qty) { setQty(t.dataset.qty, Math.max(0, Math.min(20, Number(t.value) || 0))); paint(); } });
+  root.addEventListener('click', (e) => { const t = (e.target as HTMLElement).closest<HTMLElement>('[data-remove]'); if (t) { setQty(t.dataset.remove!, 0); paint(); } });
+  paint();
+</script>
+<style>
+  .narrow { max-width: 52rem; display: grid; gap: var(--s5); }
+  .lines { width: 100%; border-collapse: collapse; }
+  .lines th, .lines td { text-align: left; padding: var(--s3) var(--s2); border-bottom: var(--hairline); vertical-align: middle; }
+  .lines th { font-size: 11px; color: var(--steel); font-weight: 500; text-transform: uppercase; letter-spacing: .18em; }
+  .lines .r { text-align: right; }
+  .lines a.name { color: var(--text); }
+  .lines input { width: 72px; font: inherit; padding: 8px; border: var(--hairline); border-radius: var(--radius-sm); background: var(--navy); color: var(--text); text-align: center; }
+  .totals { display: grid; gap: var(--s2); justify-items: end; margin-top: var(--s5); }
+  .totals > div { display: flex; justify-content: space-between; gap: var(--s7); width: min(100%, 22rem); }
+  .grand { font-weight: 700; font-size: 19px; border-top: var(--hairline); padding-top: var(--s2); }
+</style>

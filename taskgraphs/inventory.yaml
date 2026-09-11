@@ -1,0 +1,10 @@
+name: inventory
+goal: Record stock movements and batches; keep the ledger append-only; surface expiries and low stock.
+input: {action: "receive | sell | reserve | release | adjust | damaged | expire | new-batch", details: "..."}
+nodes:
+  position: {kind: tool, run: "kg stock {product} --events", note: "always read the current position first"}
+  draft:    {kind: owner, needs: [position], rule: "Compose the seed entry: new Batch (05_batches.yaml, with OF_PRODUCT/SUPPLIED_BY/HAS_COA) and/or InventoryEvent (06_inventory_events.yaml, next IE-nnnn). Never edit past events; corrections are 'adjusted' events with a reason in reference."}
+  human_gate: {kind: human, needs: [draft], irreversible: "adjust | damaged | expire (write-downs)", note: "receive/sell/reserve/release need no gate: they are reversible by a counter-event"}
+  write_back: {kind: tool, needs: [human_gate], run: "kg ingest && kg validate && kg stock {product}"}
+  report:   {kind: tool, needs: [write_back], run: "kg gaps --expiry-days 90 --low-stock 3"}
+guardrails: {max_workers: 0, note: "Sequential by nature — one agent, no fan-out (the stop rule)."}

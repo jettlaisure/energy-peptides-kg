@@ -1,0 +1,45 @@
+# Lot numbers, purity and dates are ILLUSTRATIVE. Replace with real lots from your COAs.
+type: Batch
+source: seeds/05_batches.yaml (illustrative)
+confidence: medium
+items:
+  - name: EP-BPC157-5-L2409
+    attrs: {manufactured_on: "2024-09-15", expires_on: "2026-09-15", purity_measured: 99.4, coa_status: published, unit: vial}
+    edges:
+      - {rel: OF_PRODUCT, to: "Product:BPC-157 5mg"}
+      - {rel: SUPPLIED_BY, to: "Supplier:Supplier A Labs"}
+      - {rel: HAS_COA, to: "Asset:assets/coa/EP-BPC157-5-L2409.pdf"}
+  - name: EP-BPC157-5-L2603
+    attrs: {manufactured_on: "2026-03-01", expires_on: "2028-03-01", purity_measured: 99.6, coa_status: published, unit: vial}
+    edges:
+      - {rel: OF_PRODUCT, to: "Product:BPC-157 5mg"}
+      - {rel: SUPPLIED_BY, to: "Supplier:Supplier A Labs"}
+      - {rel: HAS_COA, to: "Asset:assets/coa/EP-BPC157-5-L2603.pdf"}
+  - name: EP-TB500-5-L2602
+    attrs: {manufactured_on: "2026-02-10", expires_on: "2028-02-10", purity_measured: 99.2, coa_status: published, unit: vial}
+    edges:
+      - {rel: OF_PRODUCT, to: "Product:TB-500 5mg"}
+      - {rel: SUPPLIED_BY, to: "Supplier:Supplier B Biotech"}
+      - {rel: HAS_COA, to: "Asset:assets/coa/EP-TB500-5-L2602.pdf"}
+  - name: EP-BPCTB-10-L2604
+    attrs: {manufactured_on: "2026-04-20", expires_on: "2028-04-20", purity_measured: 99.3, coa_status: published, unit: vial}
+    edges:
+      - {rel: OF_PRODUCT, to: "Product:BPC-157 / TB-500 10mg"}
+      - {rel: SUPPLIED_BY, to: "Supplier:Supplier A Labs"}
+      - {rel: HAS_COA, to: "Asset:assets/coa/EP-BPCTB-10-L2604.pdf"}
+  - name: EP-SEMA-5-L2605
+    attrs: {manufactured_on: "2026-05-05", expires_on: "2028-05-05", purity_measured: 99.1, coa_status: published, unit: vial}
+    edges:
+      - {rel: OF_PRODUCT, to: "Product:Semaglutide 5mg"}
+      - {rel: SUPPLIED_BY, to: "Supplier:Supplier B Biotech"}
+      - {rel: HAS_COA, to: "Asset:assets/coa/EP-SEMA-5-L2605.pdf"}
+  - name: EP-CJCIPA-10-L2601
+    attrs: {manufactured_on: "2026-01-12", expires_on: "2028-01-12", purity_measured: 99.0, coa_status: received, unit: vial}
+    edges:
+      - {rel: OF_PRODUCT, to: "Product:CJC-1295 / Ipamorelin 10mg"}
+      - {rel: SUPPLIED_BY, to: "Supplier:Supplier A Labs"}
+  - name: EP-GHK-50-L2512
+    attrs: {manufactured_on: "2025-12-01", expires_on: "2027-12-01", purity_measured: 99.5, coa_status: pending, unit: vial}
+    edges:
+      - {rel: OF_PRODUCT, to: "Product:GHK-Cu 50mg"}
+      - {rel: SUPPLIED_BY, to: "Supplier:Supplier B Biotech"}

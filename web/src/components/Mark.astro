@@ -1,0 +1,12 @@
+---
+/* Amino chain mark. `glow` = lit terminal ring with gold glow (the only glowing element allowed). */
+import glow from '../assets/mark.svg?raw';
+import flat from '../assets/mark-flat.svg?raw';
+interface Props { glow?: boolean; height?: number; class?: string }
+const { glow: lit = true, height = 36, class: cls = '' } = Astro.props;
+---
+<span class:list={['mark', cls]} style={`--h:${height}px`} set:html={lit ? glow : flat} />
+<style>
+  .mark { display: inline-block; height: var(--h); aspect-ratio: 344 / 182; }
+  .mark :global(svg) { width: 100%; height: 100%; }
+</style>

@@ -1,0 +1,12 @@
+name: marketing_copy
+goal: Compliant, on-brand email / social / ad copy for a product or research area.
+input: {seed: "Product:<name> | ResearchArea:<name>", channel: "email | social | ads"}
+nodes:
+  context:  {kind: tool, run: "kg context marketing {seed} --max-lines 150 > {context_file}"}
+  w_a:      {kind: worker, needs: [context], brief: "Variant A: product-fact angle (what it is, purity, COA, stock)."}
+  w_b:      {kind: worker, needs: [context], brief: "Variant B: research-area angle (which models the peptide has been studied in), approved claims only."}
+  v_compliance: {kind: verifier, needs: [w_a, w_b], question: "Any effects language, testimonial, brand comparison, dosing, approval implication? Quote + rule."}
+  v_brand:      {kind: verifier, needs: [w_a, w_b], question: "Length limits, one CTA, no hype/urgency, vocabulary list respected? Quote + rule."}
+  merge:    {kind: owner, needs: [v_compliance, v_brand], max_rounds: 2, loop_to: [v_compliance, v_brand], rule: "Pick the passing variant; if both pass present both."}
+  human_gate: {kind: human, needs: [merge], irreversible: send/post}
+guardrails: {max_workers: 2, max_verifiers: 2, max_rounds: 2, note: "No write-back: marketing copy is not graph knowledge. If a NEW claim was needed, add it to seeds/10_claims.yaml as pending."}

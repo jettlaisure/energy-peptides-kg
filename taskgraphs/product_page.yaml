@@ -1,0 +1,17 @@
+name: product_page
+goal: Create or refresh one product page from the graph, verified, gated, written back.
+input: {product: "Product:<name>"}
+state: {context_file, drafts: {}, verdicts: {}, round: 0, page_file}
+nodes:
+  context:   {kind: tool, run: "kg context product_page {product} --max-lines 250 > {context_file}",
+              note: "stage-9 recipe: only what the page needs; stock summary included; InventoryEvents excluded"}
+  w_copy:    {kind: worker, needs: [context], brief: "Overview + Research background. Use ONLY approved Claims; cite ONLY Study nodes with verified=True; name the model."}
+  w_specs:   {kind: worker, needs: [context], brief: "Specifications table + Quality/COA section from Product, Peptide, Batch, Asset facts. Flag any conf=medium/low value as 'verify'."}
+  w_seo_faq: {kind: worker, needs: [context], brief: "Meta title/description, H1, slug, internal links; pick 2-4 existing FAQItems; propose new ones marked NEW (status draft)."}
+  v_compliance: {kind: verifier, needs: [w_copy, w_specs, w_seo_faq], question: "Does any sentence violate a ComplianceRule in scope? Quote it, name the rule."}
+  v_brand:      {kind: verifier, needs: [w_copy, w_specs, w_seo_faq], question: "Does any sentence break a BrandRule (tone, vocabulary, structure, formatting, seo)? Quote it, name the rule."}
+  v_facts:      {kind: verifier, needs: [w_copy, w_specs, w_seo_faq], question: "Is every factual statement traceable to a line in the context file? List each untraceable statement."}
+  merge:     {kind: owner, needs: [v_compliance, v_brand, v_facts], rule: "Apply fixes; remove (never soften) anything failing v_facts or v_compliance. If any verdict still FAIL after round 2, stop and report.", loop_to: [v_compliance, v_brand, v_facts], max_rounds: 2}
+  human_gate: {kind: human, needs: [merge], irreversible: publish, present: "draft file + three verdicts + list of NEW FAQ items + any 'verify' flags"}
+  write_back: {kind: tool, needs: [human_gate], run: "append Page (+FEATURES/COVERS/TARGETS/INCLUDES_FAQ/USES/LINKS_TO edges) to seeds/13_pages.yaml; NEW FAQItems to seeds/12_faq.yaml as draft; kg ingest; kg validate"}
+guardrails: {max_workers: 3, max_verifiers: 3, max_rounds: 2, one_writer_per_file: true, no_full_graph_dump: true}

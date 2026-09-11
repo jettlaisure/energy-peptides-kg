@@ -1,0 +1,19 @@
+---
+/* Horizontal lockup: mark + stacked wordmark per §03 "Wordmark construction". */
+import Mark from './Mark.astro';
+interface Props { height?: number }
+const { height = 40 } = Astro.props;
+---
+<span class="lockup" style={`--h:${height}px`} aria-label="Energy Peptides" role="img">
+  <Mark height={height} />
+  <span class="words" aria-hidden="true">
+    <span class="energy">ENERGY</span>
+    <span class="peptides">PEPTIDES</span>
+  </span>
+</span>
+<style>
+  .lockup { display: inline-flex; align-items: center; gap: calc(var(--h) * .3); }
+  .words { display: flex; flex-direction: column; align-items: center; line-height: 1; }
+  .energy { font-weight: 900; font-size: calc(var(--h) * .55); letter-spacing: .01em; background: var(--gold-grad); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .peptides { font-weight: 500; font-size: calc(var(--h) * .55 * .34); letter-spacing: .56em; margin-left: .56em; color: var(--steel); margin-top: calc(var(--h) * .55 * .34 * .5); }
+</style>

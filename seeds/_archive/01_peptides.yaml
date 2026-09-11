@@ -1,0 +1,102 @@
+# Chemistry values are model-recalled seeds, NOT verified. Confirm each against the supplier COA / PubChem
+# and raise confidence to high in this file. `kg card Peptide:X` shows the current confidence.
+type: Peptide
+source: seeds/01_peptides.yaml (model-recalled, unverified 2026-09-08)
+confidence: medium
+items:
+  - name: BPC-157
+    aliases: [BPC157, "BPC 157", "Body Protection Compound-157", "Pentadecapeptide BPC 157"]
+    attrs:
+      sequence: GEPPPGKPADDAGLV
+      molecular_formula: C62H98N16O22
+      molecular_weight: 1419.5
+      cas_number: 137525-51-0
+      class: gastric pentadecapeptide
+      summary: "Synthetic 15-amino-acid peptide whose sequence is derived from a protein found in human gastric juice."
+    edges:
+      - {rel: RESEARCHED_FOR, to: "ResearchArea:Tissue repair and recovery"}
+  - name: TB-500
+    aliases: [TB500, "TB 500", "Thymosin Beta-4", "Thymosin β4", "Tβ4", "Thymosin beta 4 fragment"]
+    attrs:
+      molecular_weight: 4963.4
+      cas_number: 77591-33-4
+      class: thymosin beta-4 analogue
+      summary: "Synthetic peptide corresponding to the sequence of thymosin beta-4, a naturally occurring actin-binding protein."
+    edges:
+      - {rel: RESEARCHED_FOR, to: "ResearchArea:Tissue repair and recovery"}
+  - name: CJC-1295
+    aliases: [CJC1295, "CJC-1295 no DAC", "Mod GRF 1-29", "Modified GRF (1-29)"]
+    attrs:
+      molecular_weight: 3367.9
+      cas_number: 863288-34-0
+      class: GHRH analogue
+      summary: "Modified 29-amino-acid analogue of growth hormone-releasing hormone (GHRH 1-29); this listing is the no-DAC form."
+    edges:
+      - {rel: RESEARCHED_FOR, to: "ResearchArea:Growth hormone axis"}
+  - name: Ipamorelin
+    aliases: [NNC 26-0161]
+    attrs:
+      molecular_formula: C38H49N9O5
+      molecular_weight: 711.9
+      cas_number: 170851-70-4
+      class: growth hormone secretagogue (pentapeptide)
+      summary: "Synthetic pentapeptide characterised in the literature as a selective growth hormone secretagogue."
+    edges:
+      - {rel: RESEARCHED_FOR, to: "ResearchArea:Growth hormone axis"}
+  - name: GHK-Cu
+    aliases: [GHK-Cu peptide, "Copper peptide GHK-Cu", "GHK copper", "Glycyl-L-histidyl-L-lysine copper"]
+    attrs:
+      sequence: GHK
+      molecular_weight: 403.9
+      cas_number: 49557-75-7
+      class: copper-binding tripeptide
+      summary: "Naturally occurring copper-binding tripeptide (glycyl-L-histidyl-L-lysine) found in human plasma."
+    edges:
+      - {rel: RESEARCHED_FOR, to: "ResearchArea:Skin and cosmetic research"}
+      - {rel: RESEARCHED_FOR, to: "ResearchArea:Tissue repair and recovery"}
+  - name: Semaglutide
+    aliases: [NN9535]
+    attrs:
+      molecular_weight: 4113.6
+      cas_number: 910463-68-2
+      class: GLP-1 receptor agonist
+      summary: "GLP-1 receptor agonist peptide studied extensively in metabolic research."
+    edges:
+      - {rel: RESEARCHED_FOR, to: "ResearchArea:Metabolic research"}
+  - name: Tirzepatide
+    aliases: [LY3298176]
+    attrs:
+      molecular_weight: 4813.5
+      cas_number: 2023788-19-2
+      class: dual GIP/GLP-1 receptor agonist
+      summary: "Dual GIP and GLP-1 receptor agonist peptide studied in metabolic research."
+    edges:
+      - {rel: RESEARCHED_FOR, to: "ResearchArea:Metabolic research"}
+  - name: Epithalon
+    aliases: [Epitalon, "Epithalone", AEDG peptide]
+    attrs:
+      sequence: AEDG
+      molecular_weight: 390.4
+      cas_number: 307297-39-8
+      class: synthetic tetrapeptide
+      summary: "Synthetic tetrapeptide (Ala-Glu-Asp-Gly) studied in aging and telomerase models."
+    edges:
+      - {rel: RESEARCHED_FOR, to: "ResearchArea:Longevity and aging research"}
+  - name: AOD-9604
+    aliases: [AOD9604, "AOD 9604"]
+    attrs:
+      molecular_weight: 1815.1
+      cas_number: 221231-10-3
+      class: hGH fragment 176-191 analogue
+      summary: "Modified fragment of the C-terminus of human growth hormone (residues 176-191) studied in lipid-metabolism models."
+    edges:
+      - {rel: RESEARCHED_FOR, to: "ResearchArea:Metabolic research"}
+  - name: Tesamorelin
+    aliases: [TH9507]
+    attrs:
+      molecular_weight: 5135.9
+      cas_number: 218949-48-5
+      class: GHRH analogue
+      summary: "Synthetic analogue of growth hormone-releasing hormone (GHRH 1-44) with an N-terminal trans-3-hexenoic acid modification."
+    edges:
+      - {rel: RESEARCHED_FOR, to: "ResearchArea:Growth hormone axis"}

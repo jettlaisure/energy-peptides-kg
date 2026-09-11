@@ -1,0 +1,43 @@
+---
+import Mark from './Mark.astro';
+import { site } from '../lib/catalog';
+const year = new Date().getFullYear();
+---
+<footer class="site-footer">
+  <div class="container grid">
+    <div class="stack">
+      <Mark glow={false} height={30} />
+      <p class="dim t-small">Research peptides and laboratory compounds, tested batch by batch to a ≥99% purity specification. Ships within the {site.ships_to.replace(' only', '')}.</p>
+    </div>
+    <div>
+      <p class="eyebrow">Catalog</p>
+      <ul>
+        <li><a href="/products/">Browse by composition</a></li>
+        <li><a href="/products/#supplies">Laboratory supplies</a></li>
+      </ul>
+    </div>
+    <div>
+      <p class="eyebrow">Company</p>
+      <ul>
+        <li><a href="/faq/">FAQ</a></li>
+        <li><a href="/legal/research-use-only/">Research use policy</a></li>
+        <li><a href="/legal/shipping-returns/">Shipping and returns</a></li>
+        <li><a href="/legal/terms/">Terms of sale</a></li>
+        <li><a href="/legal/privacy/">Privacy</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="container legal">
+    <p class="compliance">{site.compliance_line}</p>
+    <p class="faint t-small">Products have not been evaluated or approved by the FDA. Purchasers attest that they are 21 or older and buying for laboratory research. © {year} {site.seller}. {site.brand} is a brand of {site.seller}.</p>
+  </div>
+</footer>
+<style>
+  .site-footer { margin-top: var(--section); background: var(--void); border-top: var(--hairline); padding-block: var(--s8) var(--s6); }
+  .grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: var(--s7); }
+  ul { list-style: none; margin: var(--s3) 0 0; padding: 0; display: grid; gap: var(--s2); }
+  ul a { color: var(--text-dim); font-size: 14px; }
+  ul a:hover { color: var(--text); }
+  .legal { border-top: var(--hairline); margin-top: var(--s7); padding-top: var(--s5); display: grid; gap: var(--s3); }
+  @media (max-width: 720px) { .grid { grid-template-columns: 1fr; } }
+</style>

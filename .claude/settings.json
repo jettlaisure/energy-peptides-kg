@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "deny": [
+      "Read(//Users/jettlaisure/projects/energy-peptides-kg/data/graph-map.html)",
+      "Read(//Users/jettlaisure/projects/energy-peptides-kg/kg/vendor/**)",
+      "Read(//Users/jettlaisure/projects/energy-peptides-kg/data/graph.db)"
+    ]
+  }
+}

@@ -1,0 +1,170 @@
+---
+import Base from '../../layouts/Base.astro';
+import VialArt from '../../components/VialArt.astro';
+import FaqList from '../../components/FaqList.astro';
+import ProductGrid from '../../components/ProductGrid.astro';
+import { products, productsBySlug, money, cents, sizeLabel, familyName, compositionLine, unitLabel, site, type Product } from '../../lib/catalog';
+import { getCollection, render } from 'astro:content';
+
+export async function getStaticPaths() {
+  return products.map((p) => ({ params: { slug: p.slug } }));
+}
+const p = productsBySlug.get(Astro.params.slug!)!;
+const copy = (await getCollection('productCopy')).find((e) => e.data.product === p.name || e.id === p.slug);
+const Content = copy ? (await render(copy)).Content : null;
+
+const cited = p.claims.filter((c) => c.citations.length > 0);
+const plain = p.claims.filter((c) => c.citations.length === 0);
+const related = p.related_slugs.map((s) => productsBySlug.get(s)).filter((x): x is Product => Boolean(x));
+const title = p.page?.title ?? `${p.name} | ${site.brand}`;
+const description = p.page?.meta_description ?? `${familyName(p)} ${sizeLabel(p)} ${p.form}, tested to a ≥99% purity specification. ${site.compliance_line}.`;
+const stock = p.status === 'coming_soon' ? { cls: 'chip-off', text: 'Coming soon' } : p.in_stock ? { cls: 'chip-on', text: 'In stock' } : { cls: 'chip-off', text: 'Out of stock' };
+const canBuy = p.in_stock && p.status === 'active';
+const specRows: [string, string, boolean][] = [];
+for (const c of p.components) {
+  const pre = p.components.length > 1 ? `${c.name} · ` : '';
+  if (c.amount_mg) specRows.push([`${pre}Amount per vial`, `${c.amount_mg} mg`, true]);
+  if (c.sequence) specRows.push([`${pre}Sequence`, c.sequence, false]);
+  if (c.molecular_formula) specRows.push([`${pre}Molecular formula`, c.molecular_formula, false]);
+  if (c.molecular_weight) specRows.push([`${pre}Molecular weight`, `${c.molecular_weight} g/mol`, false]);
+  if (c.cas_number) specRows.push([`${pre}CAS number`, c.cas_number, false]);
+  if (c.class || c.kind) specRows.push([`${pre}Composition class`, (c.class ?? c.kind ?? '') as string, false]);
+}
+if (p.size_ml) specRows.push(['Volume', `${p.size_ml} ml`, true]);
+specRows.push(['Form', p.form ?? '', false]);
+if (p.purity_spec) specRows.push(['Purity specification', p.purity_spec.replace('>=', '≥'), true]);
+specRows.push(['SKU', p.sku, false]);
+const unverified = p.components.some((c) => c.confidence !== 'high');
+---
+<Base title={title} description={description}>
+  <div class="container">
+    <nav class="crumbs t-small" aria-label="Breadcrumb"><a href="/products/">Catalog</a><span class="faint">/</span><a href={`/products/#${p.composition_slug}`}>{p.composition_class}</a></nav>
+    <section class="top">
+      <div class="art"><VialArt product={p} size="hero" /></div>
+      <div class="panel buy stack">
+        <p class="eyebrow">{p.composition_class}</p>
+        <h1 class="t-section"><span class="name">{familyName(p)}</span> <span class="dim amt">{sizeLabel(p)}</span></h1>
+        {compositionLine(p) && <p class="comp value">{p.display_name && <span class="dim">{p.components.length}-peptide blend · </span>}{compositionLine(p)} <span class="dim">per vial</span></p>}
+        <p class="t-lede">{p.components.length > 1
+          ? `Supplied as a lyophilized powder, all ${p.components.length} peptides together in a single sealed 3 mL vial.`
+          : p.components.map((c) => c.summary).filter(Boolean).join(' ')}</p>
+        <div class="price-row">
+          <span class="value price">{money(cents(p.price_usd))}</span>
+          <span class="dim t-small">{unitLabel(p)}</span>
+          <span class:list={['chip', stock.cls]}>{stock.text}</span>
+        </div>
+        <form class="add" data-add-to-cart data-sku={p.sku}>
+          <label class="qty"><span class="sr-only">Quantity</span><input type="number" name="qty" min="1" max="20" value="1" inputmode="numeric" /></label>
+          <button class="btn btn-primary" type="submit" disabled={!canBuy}>{canBuy ? 'Add to cart' : stock.text}</button>
+          <span class="added t-small" data-added hidden>Added. <a href="/cart/">View cart</a></span>
+        </form>
+        <p class="compliance">{site.compliance_line}</p>
+      </div>
+    </section>
+
+    <section class="body">
+      <div class="main stack">
+        {(plain.length > 0 || Content) && (
+          <section class="block">
+            <h2 class="t-sub">Overview</h2>
+            {plain.map((c) => <p class="claim">{c.text}</p>)}
+            {Content && <div class="measure"><Content /></div>}
+          </section>
+        )}
+        <section class="block paper doc" id="specifications">
+          <div class="doc-head"><p class="eyebrow">Specification</p><h2 class="t-sub">{p.name}</h2></div>
+          <div class="table-wrap"><table class="spec">
+            <tbody>{specRows.map(([k, v, em]) => <tr><th scope="row">{k}</th><td class:list={{ em }}>{v}</td></tr>)}</tbody>
+          </table></div>
+          {unverified && <p class="dim t-small">Reference chemistry values are awaiting final verification. The identity of every batch is confirmed by mass spectrometry.</p>}
+        </section>
+        <section class="block paper doc" id="quality">
+          <div class="doc-head"><p class="eyebrow">Quality and testing</p><h2 class="t-sub">Tested batch by batch</h2></div>
+          <table class="spec"><tbody>
+            <tr><th scope="row">Purity specification</th><td class="em">{p.purity_spec ? p.purity_spec.replace('>=', '≥') : '—'}</td></tr>
+            <tr><th scope="row">Methods</th><td>HPLC purity, mass-spectrometry identity</td></tr>
+            <tr><th scope="row">Certificate of analysis</th><td>Available on request · <a href={`mailto:${site.contact_email}?subject=${encodeURIComponent('COA request: ' + p.name)}`}>request</a></td></tr>
+          </tbody></table>
+          <p class="dim t-small">{site.testing_line}</p>
+        </section>
+        {cited.length > 0 && (
+          <section class="block" id="research">
+            <h2 class="t-sub">Research background</h2>
+            {cited.map((c) => (
+              <p class="claim">{c.text} {c.citations.map((s) => <cite class="cite">[{s.name.split(' ')[0]} et al., {s.journal}, {s.year}{s.model ? `; ${s.model === 'review' ? 'review' : s.model + ' study'}` : ''}{s.pmid ? `; PMID ${s.pmid}` : ''}]</cite>)}</p>
+            ))}
+            <p class="faint t-small">Statements describe what the cited studies examined, in the model used by the study.</p>
+          </section>
+        )}
+        {p.faqs.length > 0 && (
+          <section class="block" id="faq">
+            <h2 class="t-sub">Questions</h2>
+            <FaqList items={p.faqs} />
+          </section>
+        )}
+      </div>
+      <aside class="side stack">
+        <div class="panel pad stack">
+          <p class="eyebrow">At a glance</p>
+          <dl class="glance">
+            <div><dt>Form</dt><dd>{p.form}</dd></div>
+            <div><dt>Amount</dt><dd class="value">{sizeLabel(p)} per vial</dd></div>
+            <div><dt>Storage</dt><dd>{p.category === 'accessory' ? 'Room temperature, sealed' : '−20 °C, sealed, away from light'}</dd></div>
+            <div><dt>Ships</dt><dd>{site.ships_to}</dd></div>
+          </dl>
+        </div>
+        <div class="panel pad stack">
+          <p class="eyebrow">Sold for research</p>
+          <p class="dim t-small">Purchasers attest at checkout that they are 21 or older and buying for laboratory research. <a href="/legal/research-use-only/">Policy</a>.</p>
+        </div>
+      </aside>
+    </section>
+
+    {related.length > 0 && (
+      <section class="section">
+        <div class="section-head"><h2 class="t-sub">Also containing {p.components.map((c) => c.name).join(' or ')}</h2></div>
+        <ProductGrid products={related} />
+      </section>
+    )}
+  </div>
+</Base>
+<script>
+  import { addToCart } from '../../lib/cart';
+  document.querySelectorAll<HTMLFormElement>('[data-add-to-cart]').forEach((form) => {
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const qty = Math.max(1, Math.min(20, Number((form.elements.namedItem('qty') as HTMLInputElement).value) || 1));
+      addToCart(form.dataset.sku!, qty);
+      const added = form.querySelector<HTMLElement>('[data-added]');
+      if (added) added.hidden = false;
+    });
+  });
+</script>
+<style>
+  .crumbs { display: flex; gap: var(--s2); padding-block: var(--s5); }
+  .crumbs a { color: var(--text-dim); }
+  .top { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); gap: var(--s6); align-items: start; }
+  .buy { padding: var(--s6); gap: var(--s4); }
+  .amt { font-weight: 400; }
+  .comp { font-size: 15px; font-weight: 500; margin-top: calc(-1 * var(--s2)); }
+  .price-row { display: flex; align-items: baseline; gap: var(--s3); }
+  .price { font-size: 34px; font-weight: 700; letter-spacing: -0.02em; }
+  .add { display: flex; gap: var(--s3); align-items: center; flex-wrap: wrap; }
+  .qty input { width: 72px; font: inherit; padding: 11px 10px; border: var(--hairline); border-radius: var(--radius-sm); background: var(--navy); color: var(--text); text-align: center; }
+  .added { color: var(--text-dim); }
+  .body { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 4fr); gap: var(--s7); margin-top: var(--s8); }
+  .main { gap: var(--s6); }
+  .block { display: grid; gap: var(--s3); }
+  .doc { padding: var(--s5) var(--s6); }
+  .doc-head { display: grid; gap: var(--s1); margin-bottom: var(--s3); }
+  .doc .t-sub { letter-spacing: -0.01em; }
+  .coa-btn { border-color: var(--gold-ink); color: var(--gold-ink); }
+  .claim { color: var(--text-dim); max-width: var(--measure); }
+  .cite { font-size: 12px; color: var(--text-faint); font-style: normal; }
+  .pad { padding: var(--s5); }
+  .glance { margin: 0; display: grid; gap: var(--s2); }
+  .glance div { display: grid; grid-template-columns: 1fr 1.4fr; gap: var(--s2); font-size: 14px; }
+  .glance dt { color: var(--text-faint); }
+  .glance dd { margin: 0; }
+  @media (max-width: 820px) { .top, .body { grid-template-columns: 1fr; } .buy { padding: var(--s5); } }
+</style>

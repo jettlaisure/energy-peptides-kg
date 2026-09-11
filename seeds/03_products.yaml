@@ -1,0 +1,586 @@
+# Full catalog: 20 products from inbox/product-list-full.pdf + bacteriostatic water from the 2026-09-09 sheet = 21 SKUs.
+# SKU pattern EP-<CODE>-<total mg>. Codes: RT retatrutide, TZ tirzepatide, BPC, B1/B2 blends (component-named; nicknames are aliases only),
+# KPV, CU GHK-Cu, IPA ipamorelin, TESA tesamorelin, MOTS, SS SS-31, MT1/MT2 melanotan, NAD, BAC.
+# Everything is sold by the single 3 mL vial (Jett, 2026-09-10) — no kits.
+# KLOW is the printed label name of EP-B2-80 (display_name); it is always shown with components and amounts.
+# Drafts (Retatrutide 15mg, GLOW 70mg) have labels but no pricing yet: status draft keeps them off the site.
+# status: active = stocked per the 2026-09-09 count; coming_soon = listed, not purchasable until a lot + count enter the ledger.
+# 80 mg blend split per Jett (2026-09-10): GHK-Cu 50 mg, BPC-157 10 mg, TB-500 10 mg, KPV 10 mg.
+# cost_usd is internal: never enters copy contexts or the site.
+# purity_spec is the specification (Jett, 2026-09-10); the site shows only the per-lot COA figure.
+type: Product
+source: inbox/product-list-full.pdf (2026-09-10) + inbox/Energy-inventory-2026-09-09.numbers
+confidence: high
+items:
+- name: Retatrutide 10mg
+  valid_from: '2026-09-10'
+  attrs:
+    sku: EP-RT-10
+    category: peptide
+    form: lyophilized powder
+    size_mg: 10
+    price_usd: 149.0
+    cost_usd: 8.5
+    status: coming_soon
+    slug: retatrutide-10mg
+    purity_spec: '>=99% (HPLC)'
+    vial_ml: 3
+  edges:
+  - rel: CONTAINS
+    to: Peptide:Retatrutide
+    attrs:
+      amount_mg: 10
+  - rel: BELONGS_TO
+    to: ResearchArea:Metabolic research
+  - rel: USES
+    to: Asset:inbox/labels/Retatrutide-10mg_label.png
+    source: inbox/labels (2026-09-10)
+- name: Retatrutide 20mg
+  valid_from: '2026-09-10'
+  attrs:
+    sku: EP-RT-20
+    category: peptide
+    form: lyophilized powder
+    size_mg: 20
+    price_usd: 199.0
+    cost_usd: 13.5
+    status: active
+    slug: retatrutide-20mg
+    purity_spec: '>=99% (HPLC)'
+    vial_ml: 3
+  edges:
+  - rel: CONTAINS
+    to: Peptide:Retatrutide
+    attrs:
+      amount_mg: 20
+  - rel: BELONGS_TO
+    to: ResearchArea:Metabolic research
+  - rel: USES
+    to: Asset:inbox/labels/Retatrutide-20mg_label.png
+    source: inbox/labels (2026-09-10)
+  aliases:
+  - rt20
+- name: Retatrutide 30mg
+  valid_from: '2026-09-10'
+  attrs:
+    sku: EP-RT-30
+    category: peptide
+    form: lyophilized powder
+    size_mg: 30
+    price_usd: 249.0
+    cost_usd: 17.5
+    status: coming_soon
+    slug: retatrutide-30mg
+    purity_spec: '>=99% (HPLC)'
+    vial_ml: 3
+  edges:
+  - rel: CONTAINS
+    to: Peptide:Retatrutide
+    attrs:
+      amount_mg: 30
+  - rel: BELONGS_TO
+    to: ResearchArea:Metabolic research
+  - rel: USES
+    to: Asset:inbox/labels/Retatrutide-30mg_label.png
+    source: inbox/labels (2026-09-10)
+- name: Tirzepatide 10mg
+  valid_from: '2026-09-10'
+  attrs:
+    sku: EP-TZ-10
+    category: peptide
+    form: lyophilized powder
+    size_mg: 10
+    price_usd: 99.0
+    cost_usd: 4.5
+    status: coming_soon
+    slug: tirzepatide-10mg
+    purity_spec: '>=99% (HPLC)'
+    vial_ml: 3
+  edges:
+  - rel: CONTAINS
+    to: Peptide:Tirzepatide
+    attrs:
+      amount_mg: 10
+  - rel: BELONGS_TO
+    to: ResearchArea:Metabolic research
+  - rel: USES
+    to: Asset:inbox/labels/Tirzepatide-10mg_label.png
+    source: inbox/labels (2026-09-10)
+- name: Tirzepatide 15mg
+  valid_from: '2026-09-10'
+  attrs:
+    sku: EP-TZ-15
+    category: peptide
+    form: lyophilized powder
+    size_mg: 15
+    price_usd: 114.0
+    cost_usd: 6.0
+    status: coming_soon
+    slug: tirzepatide-15mg
+    purity_spec: '>=99% (HPLC)'
+    vial_ml: 3
+  edges:
+  - rel: CONTAINS
+    to: Peptide:Tirzepatide
+    attrs:
+      amount_mg: 15
+  - rel: BELONGS_TO
+    to: ResearchArea:Metabolic research
+  - rel: USES
+    to: Asset:inbox/labels/Tirzepatide-15mg_label.png
+    source: inbox/labels (2026-09-10)
+- name: Tirzepatide 20mg
+  valid_from: '2026-09-10'
+  attrs:
+    sku: EP-TZ-20
+    category: peptide
+    form: lyophilized powder
+    size_mg: 20
+    price_usd: 129.0
+    cost_usd: 7.0
+    status: coming_soon
+    slug: tirzepatide-20mg
+    purity_spec: '>=99% (HPLC)'
+    vial_ml: 3
+  edges:
+  - rel: CONTAINS
+    to: Peptide:Tirzepatide
+    attrs:
+      amount_mg: 20
+  - rel: BELONGS_TO
+    to: ResearchArea:Metabolic research
+  - rel: USES
+    to: Asset:inbox/labels/Tirzepatide-20mg_label.png
+    source: inbox/labels (2026-09-10)
+- name: Tirzepatide 30mg
+  valid_from: '2026-09-10'
+  attrs:
+    sku: EP-TZ-30
+    category: peptide
+    form: lyophilized powder
+    size_mg: 30
+    price_usd: 159.0
+    cost_usd: 8.5
+    status: coming_soon
+    slug: tirzepatide-30mg
+    purity_spec: '>=99% (HPLC)'
+    vial_ml: 3
+  edges:
+  - rel: CONTAINS
+    to: Peptide:Tirzepatide
+    attrs:
+      amount_mg: 30
+  - rel: BELONGS_TO
+    to: ResearchArea:Metabolic research
+  - rel: USES
+    to: Asset:inbox/labels/Tirzepatide-30mg_label.png
+    source: inbox/labels (2026-09-10)
+- name: BPC-157 10mg
+  valid_from: '2026-09-10'
+  attrs:
+    sku: EP-BPC-10
+    category: peptide
+    form: lyophilized powder
+    size_mg: 10
+    price_usd: 59.0
+    cost_usd: 5.5
+    status: active
+    slug: bpc-157-10mg
+    purity_spec: '>=99% (HPLC)'
+    vial_ml: 3
+  edges:
+  - rel: CONTAINS
+    to: Peptide:BPC-157
+    attrs:
+      amount_mg: 10
+  - rel: BELONGS_TO
+    to: ResearchArea:Tissue repair and recovery
+  - rel: USES
+    to: Asset:inbox/labels/BPC-157-10mg_label.png
+    source: inbox/labels (2026-09-10)
+  aliases:
+  - bpc10
+- name: BPC-157 / TB-500 20mg
+  valid_from: '2026-09-10'
+  attrs:
+    sku: EP-B1-20
+    category: peptide
+    form: lyophilized powder
+    size_mg: 20
+    price_usd: 99.0
+    cost_usd: 18.0
+    status: active
+    slug: bpc-157-tb-500-20mg
+    purity_spec: '>=99% (HPLC)'
+    vial_ml: 3
+  edges:
+  - rel: CONTAINS
+    to: Peptide:BPC-157
+    attrs:
+      amount_mg: 10
+  - rel: CONTAINS
+    to: Peptide:TB-500
+    attrs:
+      amount_mg: 10
+  - rel: BELONGS_TO
+    to: ResearchArea:Tissue repair and recovery
+  - rel: USES
+    to: Asset:inbox/labels/BPC-157-TB-500-20mg_label.png
+    source: inbox/labels (2026-09-10)
+  aliases:
+  - Wolverine
+  - Wolverine (BPC-157 + TB-500)
+  - Blend B-1
+  - bb20
+  - EP-BB-20
+- name: BPC-157 / TB-500 / KPV / GHK-Cu 80mg
+  valid_from: '2026-09-10'
+  attrs:
+    sku: EP-B2-80
+    category: peptide
+    form: lyophilized powder
+    size_mg: 80
+    price_usd: 306.0
+    cost_usd: 17.0
+    status: coming_soon
+    slug: klow-80mg
+    purity_spec: '>=99% (HPLC)'
+    vial_ml: 3
+    display_name: KLOW
+  edges:
+  - rel: CONTAINS
+    to: Peptide:BPC-157
+    attrs:
+      amount_mg: 10
+    source: Jett, 2026-09-10
+    confidence: high
+  - rel: CONTAINS
+    to: Peptide:TB-500
+    attrs:
+      amount_mg: 10
+    source: Jett, 2026-09-10
+    confidence: high
+  - rel: CONTAINS
+    to: Peptide:KPV
+    attrs:
+      amount_mg: 10
+    source: Jett, 2026-09-10
+    confidence: high
+  - rel: CONTAINS
+    to: Peptide:GHK-Cu
+    attrs:
+      amount_mg: 50
+    source: Jett, 2026-09-10
+    confidence: high
+  - rel: BELONGS_TO
+    to: ResearchArea:Tissue repair and recovery
+  - rel: USES
+    to: Asset:inbox/labels/KLOW-80mg_label.png
+    source: inbox/labels (2026-09-10)
+  aliases:
+  - KLOW
+  - Blend B-2
+- name: KPV 10mg
+  valid_from: '2026-09-10'
+  attrs:
+    sku: EP-KPV-10
+    category: peptide
+    form: lyophilized powder
+    size_mg: 10
+    price_usd: 90.0
+    cost_usd: 5.5
+    status: coming_soon
+    slug: kpv-10mg
+    purity_spec: '>=99% (HPLC)'
+    vial_ml: 3
+  edges:
+  - rel: CONTAINS
+    to: Peptide:KPV
+    attrs:
+      amount_mg: 10
+  - rel: BELONGS_TO
+    to: ResearchArea:Inflammation research
+  - rel: USES
+    to: Asset:inbox/labels/KPV-10mg_label.png
+    source: inbox/labels (2026-09-10)
+- name: GHK-Cu 50mg
+  valid_from: '2026-09-10'
+  attrs:
+    sku: EP-CU-50
+    category: peptide
+    form: lyophilized powder
+    size_mg: 50
+    price_usd: 60.0
+    cost_usd: 3.8
+    status: active
+    slug: ghk-cu-50mg
+    purity_spec: '>=99% (HPLC)'
+    vial_ml: 3
+  edges:
+  - rel: CONTAINS
+    to: Peptide:GHK-Cu
+    attrs:
+      amount_mg: 50
+  - rel: BELONGS_TO
+    to: ResearchArea:Skin and cosmetic research
+  - rel: USES
+    to: Asset:inbox/labels/GHK-Cu-50mg_label.png
+    source: inbox/labels (2026-09-10)
+  aliases:
+  - cu50
+- name: GHK-Cu 100mg
+  valid_from: '2026-09-10'
+  attrs:
+    sku: EP-CU-100
+    category: peptide
+    form: lyophilized powder
+    size_mg: 100
+    price_usd: 100.0
+    cost_usd: 4.0
+    status: active
+    slug: ghk-cu-100mg
+    purity_spec: '>=99% (HPLC)'
+    vial_ml: 3
+  edges:
+  - rel: CONTAINS
+    to: Peptide:GHK-Cu
+    attrs:
+      amount_mg: 100
+  - rel: BELONGS_TO
+    to: ResearchArea:Skin and cosmetic research
+  - rel: USES
+    to: Asset:inbox/labels/GHK-Cu-100mg_label.png
+    source: inbox/labels (2026-09-10)
+  aliases:
+  - cu100
+- name: Ipamorelin 10mg
+  valid_from: '2026-09-10'
+  attrs:
+    sku: EP-IPA-10
+    category: peptide
+    form: lyophilized powder
+    size_mg: 10
+    price_usd: 45.0
+    cost_usd: 5.5
+    status: coming_soon
+    slug: ipamorelin-10mg
+    purity_spec: '>=99% (HPLC)'
+    vial_ml: 3
+  edges:
+  - rel: CONTAINS
+    to: Peptide:Ipamorelin
+    attrs:
+      amount_mg: 10
+  - rel: BELONGS_TO
+    to: ResearchArea:Growth hormone axis
+  - rel: USES
+    to: Asset:inbox/labels/Ipamorelin-10mg_label.png
+    source: inbox/labels (2026-09-10)
+- name: Tesamorelin 20mg
+  valid_from: '2026-09-10'
+  attrs:
+    sku: EP-TESA-20
+    category: peptide
+    form: lyophilized powder
+    size_mg: 20
+    price_usd: 180.0
+    cost_usd: 29.0
+    status: coming_soon
+    slug: tesamorelin-20mg
+    purity_spec: '>=99% (HPLC)'
+    vial_ml: 3
+  edges:
+  - rel: CONTAINS
+    to: Peptide:Tesamorelin
+    attrs:
+      amount_mg: 20
+  - rel: BELONGS_TO
+    to: ResearchArea:Growth hormone axis
+  - rel: USES
+    to: Asset:inbox/labels/Tesamorelin-20mg_label.png
+    source: inbox/labels (2026-09-10)
+  aliases:
+  - Tesamorelin (2x10mg)
+- name: MOTS-c 10mg
+  valid_from: '2026-09-10'
+  attrs:
+    sku: EP-MOTS-10
+    category: peptide
+    form: lyophilized powder
+    size_mg: 10
+    price_usd: 79.0
+    cost_usd: 5.5
+    status: coming_soon
+    slug: mots-c-10mg
+    purity_spec: '>=99% (HPLC)'
+    vial_ml: 3
+  edges:
+  - rel: CONTAINS
+    to: Peptide:MOTS-c
+    attrs:
+      amount_mg: 10
+  - rel: BELONGS_TO
+    to: ResearchArea:Mitochondrial research
+  - rel: USES
+    to: Asset:inbox/labels/MOTS-c-10mg_label.png
+    source: inbox/labels (2026-09-10)
+- name: SS-31 30mg
+  valid_from: '2026-09-10'
+  attrs:
+    sku: EP-SS-30
+    category: peptide
+    form: lyophilized powder
+    size_mg: 30
+    price_usd: 135.0
+    cost_usd: 27.0
+    status: coming_soon
+    slug: ss-31-30mg
+    purity_spec: '>=99% (HPLC)'
+    vial_ml: 3
+  edges:
+  - rel: CONTAINS
+    to: Peptide:SS-31
+    attrs:
+      amount_mg: 30
+  - rel: BELONGS_TO
+    to: ResearchArea:Mitochondrial research
+  - rel: USES
+    to: Asset:inbox/labels/SS-31-30mg_label.png
+    source: inbox/labels (2026-09-10)
+  aliases:
+  - SS-31 (3x10mg)
+  - Elamipretide 30mg
+- name: Melanotan II 10mg
+  valid_from: '2026-09-10'
+  attrs:
+    sku: EP-MT2-10
+    category: peptide
+    form: lyophilized powder
+    size_mg: 10
+    price_usd: 45.0
+    cost_usd: 5.0
+    status: coming_soon
+    slug: melanotan-ii-10mg
+    purity_spec: '>=99% (HPLC)'
+    vial_ml: 3
+  edges:
+  - rel: CONTAINS
+    to: Peptide:Melanotan II
+    attrs:
+      amount_mg: 10
+  - rel: BELONGS_TO
+    to: ResearchArea:Melanocortin research
+  - rel: USES
+    to: Asset:inbox/labels/Melanotan-2-10mg_label.png
+    source: inbox/labels (2026-09-10)
+  aliases:
+  - Melanotan 2 10mg
+- name: Melanotan I 10mg
+  valid_from: '2026-09-10'
+  attrs:
+    sku: EP-MT1-10
+    category: peptide
+    form: lyophilized powder
+    size_mg: 10
+    price_usd: 50.0
+    cost_usd: 5.5
+    status: coming_soon
+    slug: melanotan-i-10mg
+    purity_spec: '>=99% (HPLC)'
+    vial_ml: 3
+  edges:
+  - rel: CONTAINS
+    to: Peptide:Melanotan I
+    attrs:
+      amount_mg: 10
+  - rel: BELONGS_TO
+    to: ResearchArea:Melanocortin research
+  - rel: USES
+    to: Asset:inbox/labels/Melanotan-1-10mg_label.png
+    source: inbox/labels (2026-09-10)
+  aliases:
+  - Melanotan 1 10mg
+- name: NAD+ 500mg
+  valid_from: '2026-09-10'
+  attrs:
+    sku: EP-NAD-500
+    category: compound
+    form: lyophilized powder
+    size_mg: 500
+    price_usd: 70.0
+    cost_usd: 7.5
+    status: active
+    slug: nad-plus-500mg
+    purity_spec: '>=99% (HPLC)'
+    vial_ml: 3
+  edges:
+  - rel: CONTAINS
+    to: Compound:NAD+
+    attrs:
+      amount_mg: 500
+  - rel: BELONGS_TO
+    to: ResearchArea:Longevity and aging research
+  - rel: USES
+    to: Asset:inbox/labels/NAD-plus-500mg_label.png
+    source: inbox/labels (2026-09-10)
+  aliases:
+  - Nad500
+  - nad500
+- name: Bacteriostatic water 10ml
+  aliases:
+  - bac water
+  - bac10
+  - bac water 10 ml
+  valid_from: '2026-09-09'
+  attrs:
+    sku: EP-BAC-10
+    category: accessory
+    form: solution
+    size_ml: 10
+    price_usd: 10.0
+    cost_usd: 2.5
+    status: active
+    slug: bacteriostatic-water-10ml
+  edges:
+  - rel: CONTAINS
+    to: Compound:Bacteriostatic water
+- name: Retatrutide 15mg
+  valid_from: '2026-09-10'
+  attrs:
+    sku: EP-RT-15
+    category: peptide
+    form: lyophilized powder
+    size_mg: 15
+    status: draft
+    slug: retatrutide-15mg
+    purity_spec: '>=99% (HPLC)'
+    vial_ml: 3
+  edges:
+  - rel: CONTAINS
+    to: Peptide:Retatrutide
+    attrs:
+      amount_mg: 15
+  - rel: BELONGS_TO
+    to: ResearchArea:Metabolic research
+  - rel: USES
+    to: Asset:inbox/labels/Retatrutide-15mg_label.png
+    source: inbox/labels (2026-09-10)
+- name: GLOW 70mg
+  aliases:
+  - GLOW
+  - Blend B-3
+  valid_from: '2026-09-10'
+  attrs:
+    sku: EP-B3-70
+    display_name: GLOW
+    category: peptide
+    form: lyophilized powder
+    size_mg: 70
+    status: draft
+    slug: glow-70mg
+    purity_spec: '>=99% (HPLC)'
+    vial_ml: 3
+  edges:
+  - rel: USES
+    to: Asset:inbox/labels/GLOW-70mg_label.png
+    source: inbox/labels (2026-09-10)

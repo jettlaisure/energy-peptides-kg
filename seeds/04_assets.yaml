@@ -1,0 +1,43 @@
+# Add product photos, COA PDFs and the logo file here as they exist. Paths are repo-relative or URLs.
+type: Asset
+source: seeds/04_assets.yaml
+confidence: high
+items:
+  - name: assets/logo/energy-peptides-logo.svg
+    attrs: {asset_type: logo, alt_text: "Energy Peptides logo"}
+  # Certificates of analysis received 2026-09-10 (inbox/coa). Not published: several carry other clients' names.
+  - {name: inbox/coa/GHK 100MG JANOSHIK.png, attrs: {asset_type: coa, alt_text: "Janoshik test report, GHK-Cu 100 mg, batch 2026.08.10"}}
+  - {name: inbox/coa/NAD 500MG JANOSHIK.png, attrs: {asset_type: coa, alt_text: "Janoshik test report, NAD+ 500 mg, clear caps silver crimp"}}
+  - {name: inbox/coa/RETA 10MG JANOSHIK.png, attrs: {asset_type: coa, alt_text: "Janoshik test report, Retatrutide 10 mg"}}
+  - {name: inbox/coa/RETA 10MG TESTIDES.jpg, attrs: {asset_type: coa, alt_text: "Testides certificate, Retatrutide 10 mg"}}
+  - {name: inbox/coa/RETA 20MG FREEDOM.jpg, attrs: {asset_type: coa, alt_text: "Freedom Diagnostics certificate, Retatrutide 20 mg, lot FSD0704"}}
+  - {name: inbox/coa/RETA 30MG JANOSHIK.png, attrs: {asset_type: coa, alt_text: "Janoshik test report, Retatrutide 30 mg"}}
+  - {name: inbox/coa/KPV 10MG FREEDOM.jpg, attrs: {asset_type: coa, alt_text: "Freedom Diagnostics certificate, KPV 10 mg, dark blue cap"}}
+  - {name: inbox/coa/TESA 10MG JANOSHIK.jpg, attrs: {asset_type: coa, alt_text: "Janoshik endotoxin report, Tesamorelin 10 mg, batch FSD0716"}}
+  - {name: inbox/coa/TRIZ 30MG FREEDOM.jpg, attrs: {asset_type: coa, alt_text: "Freedom Diagnostics certificate, Tirzepatide 30 mg, lot FSD0618"}}
+  - {name: inbox/coa/TRIZ 30MG JANOSHIK.png, attrs: {asset_type: coa, alt_text: "Janoshik test report, Tirzepatide 30 mg"}}
+  - {name: inbox/coa/TRIZ 60MG JANOSHIK.jpg, attrs: {asset_type: coa, alt_text: "Janoshik test report, Tirzepatide ~60 mg samples, batch FSD0619 gold cap (no matching SKU)"}}
+  - {name: inbox/coa/WOLVERINE 20MG FREEDOM.jpg, attrs: {asset_type: coa, alt_text: "Freedom Diagnostics certificate, BPC-157 10 mg / TB-500 10 mg, red cap"}}
+  # Label print files received 2026-09-10 (inbox/labels). 1400×780 px, navy field, gold border, amino-chain mark, 3 mL vial.
+  - {name: inbox/labels/NAD-plus-500mg_label.png, attrs: {asset_type: image, alt_text: "Vial label, NAD plus 500mg"}}
+  - {name: inbox/labels/Ipamorelin-10mg_label.png, attrs: {asset_type: image, alt_text: "Vial label, Ipamorelin 10mg"}}
+  - {name: inbox/labels/GHK-Cu-100mg_label.png, attrs: {asset_type: image, alt_text: "Vial label, GHK Cu 100mg"}}
+  - {name: inbox/labels/SS-31-30mg_label.png, attrs: {asset_type: image, alt_text: "Vial label, SS 31 30mg"}}
+  - {name: inbox/labels/Melanotan-1-10mg_label.png, attrs: {asset_type: image, alt_text: "Vial label, Melanotan 1 10mg"}}
+  - {name: inbox/labels/Retatrutide-10mg_label.png, attrs: {asset_type: image, alt_text: "Vial label, Retatrutide 10mg"}}
+  - {name: inbox/labels/Tesamorelin-20mg_label.png, attrs: {asset_type: image, alt_text: "Vial label, Tesamorelin 20mg"}}
+  - {name: inbox/labels/KPV-10mg_label.png, attrs: {asset_type: image, alt_text: "Vial label, KPV 10mg"}}
+  - {name: inbox/labels/Tirzepatide-30mg_label.png, attrs: {asset_type: image, alt_text: "Vial label, Tirzepatide 30mg"}}
+  - {name: inbox/labels/Melanotan-2-10mg_label.png, attrs: {asset_type: image, alt_text: "Vial label, Melanotan 2 10mg"}}
+  - {name: inbox/labels/Retatrutide-15mg_label.png, attrs: {asset_type: image, alt_text: "Vial label, Retatrutide 15mg (draft SKU, not yet priced)"}}
+  - {name: inbox/labels/Tirzepatide-20mg_label.png, attrs: {asset_type: image, alt_text: "Vial label, Tirzepatide 20mg"}}
+  - {name: inbox/labels/Retatrutide-20mg_label.png, attrs: {asset_type: image, alt_text: "Vial label, Retatrutide 20mg"}}
+  - {name: inbox/labels/Tirzepatide-15mg_label.png, attrs: {asset_type: image, alt_text: "Vial label, Tirzepatide 15mg"}}
+  - {name: inbox/labels/BPC-157-10mg_label.png, attrs: {asset_type: image, alt_text: "Vial label, BPC 157 10mg"}}
+  - {name: inbox/labels/KLOW-80mg_label.png, attrs: {asset_type: image, alt_text: "Vial label, KLOW 80mg"}}
+  - {name: inbox/labels/Retatrutide-30mg_label.png, attrs: {asset_type: image, alt_text: "Vial label, Retatrutide 30mg"}}
+  - {name: inbox/labels/Tirzepatide-10mg_label.png, attrs: {asset_type: image, alt_text: "Vial label, Tirzepatide 10mg"}}
+  - {name: inbox/labels/GHK-Cu-50mg_label.png, attrs: {asset_type: image, alt_text: "Vial label, GHK Cu 50mg"}}
+  - {name: inbox/labels/BPC-157-TB-500-20mg_label.png, attrs: {asset_type: image, alt_text: "Vial label, BPC 157 TB 500 20mg"}}
+  - {name: inbox/labels/GLOW-70mg_label.png, attrs: {asset_type: image, alt_text: "Vial label, GLOW 70mg (draft SKU, composition and pricing pending)"}}
+  - {name: inbox/labels/MOTS-c-10mg_label.png, attrs: {asset_type: image, alt_text: "Vial label, MOTS c 10mg"}}

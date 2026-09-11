@@ -1,0 +1,59 @@
+# The site map as the graph sees it. The write-back step of every page task appends here.
+type: Page
+source: seeds/13_pages.yaml
+confidence: high
+items:
+  - name: /
+    attrs: {title: "Energy Peptides — research peptides with published COAs", page_type: home, status: live, last_updated: "2026-08-01", file: site/pages/index.md}
+    edges: [{rel: USES, to: "Asset:assets/logo/energy-peptides-logo.svg"}, {rel: LINKS_TO, to: "Page:/products/bpc-157-5mg"}, {rel: LINKS_TO, to: "Page:/faq"}]
+  - name: /products/bpc-157-5mg
+    attrs: {title: "BPC-157 5mg | Energy Peptides", page_type: product, status: live, last_updated: "2026-08-20", file: site/pages/products/bpc-157-5mg.md,
+            meta_description: "BPC-157 5mg lyophilized research peptide, ≥99% purity (HPLC), third-party COA for every lot. For laboratory research use only."}
+    edges:
+      - {rel: FEATURES, to: "Product:BPC-157 5mg"}
+      - {rel: COVERS, to: "Peptide:BPC-157"}
+      - {rel: BELONGS_TO, to: "ResearchArea:Tissue repair and recovery"}
+      - {rel: TARGETS, to: "Keyword:bpc-157 peptide"}
+      - {rel: TARGETS, to: "Keyword:buy bpc-157"}
+      - {rel: INCLUDES_FAQ, to: "FAQItem:FAQ-1"}
+      - {rel: INCLUDES_FAQ, to: "FAQItem:FAQ-4"}
+      - {rel: USES, to: "Asset:assets/img/bpc-157-vial.png"}
+      - {rel: USES, to: "Asset:assets/coa/EP-BPC157-5-L2603.pdf"}
+      - {rel: LINKS_TO, to: "Page:/research-areas/tissue-repair"}
+  - name: /products/tb-500-5mg
+    attrs: {title: "TB-500 5mg | Energy Peptides", page_type: product, status: live, last_updated: "2026-08-20", file: site/pages/products/tb-500-5mg.md,
+            meta_description: "TB-500 5mg lyophilized research peptide, ≥99% purity (HPLC), third-party COA for every lot. For laboratory research use only."}
+    edges:
+      - {rel: FEATURES, to: "Product:TB-500 5mg"}
+      - {rel: COVERS, to: "Peptide:TB-500"}
+      - {rel: BELONGS_TO, to: "ResearchArea:Tissue repair and recovery"}
+      - {rel: TARGETS, to: "Keyword:tb-500 peptide"}
+      - {rel: INCLUDES_FAQ, to: "FAQItem:FAQ-5"}
+      - {rel: USES, to: "Asset:assets/img/tb-500-vial.png"}
+      - {rel: USES, to: "Asset:assets/coa/EP-TB500-5-L2602.pdf"}
+  - name: /faq
+    attrs: {title: "FAQ | Energy Peptides", page_type: faq, status: live, last_updated: "2026-08-10", file: site/pages/faq.md}
+    edges:
+      - {rel: INCLUDES_FAQ, to: "FAQItem:FAQ-1"}
+      - {rel: INCLUDES_FAQ, to: "FAQItem:FAQ-2"}
+      - {rel: INCLUDES_FAQ, to: "FAQItem:FAQ-3"}
+      - {rel: INCLUDES_FAQ, to: "FAQItem:FAQ-4"}
+      - {rel: INCLUDES_FAQ, to: "FAQItem:FAQ-5"}
+      - {rel: INCLUDES_FAQ, to: "FAQItem:FAQ-6"}
+      - {rel: TARGETS, to: "Keyword:how to store lyophilized peptides"}
+      - {rel: TARGETS, to: "Keyword:peptide certificate of analysis"}
+  - name: /research/bpc-157
+    attrs: {title: "What is BPC-157? Structure, origin and research models | Energy Peptides", page_type: blog, status: draft, last_updated: "2026-09-01", file: site/pages/research/bpc-157.md}
+    edges:
+      - {rel: COVERS, to: "Peptide:BPC-157"}
+      - {rel: TARGETS, to: "Keyword:what is bpc-157"}
+      - {rel: LINKS_TO, to: "Page:/products/bpc-157-5mg"}
+  - name: /research-areas/tissue-repair
+    attrs: {title: "Tissue repair and recovery research peptides | Energy Peptides", page_type: category, status: live, last_updated: "2026-08-05", file: site/pages/research-areas/tissue-repair.md}
+    edges:
+      - {rel: COVERS, to: "ResearchArea:Tissue repair and recovery"}
+      - {rel: BELONGS_TO, to: "ResearchArea:Tissue repair and recovery"}
+      - {rel: LINKS_TO, to: "Page:/products/bpc-157-5mg"}
+      - {rel: LINKS_TO, to: "Page:/products/tb-500-5mg"}
+  - name: /legal/research-use-only
+    attrs: {title: "Research use only policy | Energy Peptides", page_type: legal, status: live, last_updated: "2026-07-01", file: site/pages/legal/research-use-only.md}

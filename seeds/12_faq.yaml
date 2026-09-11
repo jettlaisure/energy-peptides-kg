@@ -1,0 +1,37 @@
+type: FAQItem
+source: seeds/12_faq.yaml
+confidence: high
+items:
+  - name: FAQ-1
+    attrs: {status: approved, question: "What is BPC-157?",
+            answer: "BPC-157 is a synthetic pentadecapeptide (15 amino acids) whose sequence is derived from a protein found in human gastric juice. Energy Peptides supplies it as a lyophilized powder for laboratory research only."}
+    edges: [{rel: ABOUT, to: "Peptide:BPC-157"}]
+  - name: FAQ-2
+    attrs: {status: approved, question: "How should lyophilized peptides be stored?",
+            answer: "Unopened lyophilized vials are stored at -20 °C, protected from light. Keep vials sealed until use in the laboratory."}
+  - name: FAQ-3
+    attrs: {status: approved, question: "Are the products tested?",
+            answer: "Yes. Every batch is tested by HPLC and mass spectrometry against a purity specification of 99% or higher before it is offered. Certificates of analysis are held on file for each batch and are available on request."}
+  - name: FAQ-4
+    attrs: {status: approved, question: "Is BPC-157 approved by the FDA?",
+            answer: "No. BPC-157 has not been evaluated or approved by the FDA for any use. Energy Peptides sells it for laboratory research only, not for human or veterinary use."}
+    edges: [{rel: ABOUT, to: "Peptide:BPC-157"}]
+  - name: FAQ-5
+    attrs: {status: approved, question: "What is the difference between TB-500 and thymosin beta-4?",
+            answer: "Thymosin beta-4 is a naturally occurring 43-amino-acid actin-binding protein. TB-500 is the name used for the synthetic peptide supplied for research. Its identity is confirmed by mass spectrometry in batch testing."}
+    edges: [{rel: ABOUT, to: "Peptide:TB-500"}]
+  - name: FAQ-6
+    attrs: {status: approved, question: "Are Energy Peptides products for human use?",
+            answer: "No. Every product is for laboratory research use only and is not for human or veterinary use. Purchasers attest at checkout that they are 21 or older and buying for research."}
+  - name: FAQ-7
+    attrs: {status: approved, question: "What is in the BPC-157 / TB-500 blend?",
+            answer: "Each vial contains 10 mg BPC-157 and 10 mg TB-500 as a 20 mg lyophilized blend. Both peptides are identity-confirmed by mass spectrometry in batch testing."}
+    edges: [{rel: ABOUT, to: "Product:BPC-157 / TB-500 20mg"}]
+  - name: FAQ-8
+    attrs: {status: approved, question: "What is bacteriostatic water used for?",
+            answer: "Bacteriostatic water is sterile water with 0.9% benzyl alcohol as a preservative. In the laboratory it is used to reconstitute lyophilized compounds. Each 10 ml bottle is for research use only."}
+    edges: [{rel: ABOUT, to: "Compound:Bacteriostatic water"}]
+  - name: FAQ-9
+    attrs: {status: draft, question: "What is retatrutide?",
+            answer: "DRAFT — write from CL-7 once the Jastreboff 2023 citation is verified."}
+    edges: [{rel: ABOUT, to: "Peptide:Retatrutide"}, {rel: SUPPORTED_BY, to: "Study:Jastreboff 2023 retatrutide phase 2"}]

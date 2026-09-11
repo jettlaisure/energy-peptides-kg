@@ -1,0 +1,21 @@
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "energy-peptides",
+  "compatibility_date": "2026-09-08",
+  "compatibility_flags": ["nodejs_compat", "global_fetch_strictly_public"],
+  "main": "@astrojs/cloudflare/entrypoints/server",
+  "assets": { "directory": "./dist", "binding": "ASSETS" },
+  "observability": { "enabled": true },
+  // Preview hostname on the real zone. Swap for "energypeptides.us" (+ "www.") at launch.
+  "routes": [{ "pattern": "preview.energypeptides.us", "custom_domain": true }],
+  // Non-secret configuration. Secrets (TAGADA_API_KEY, TAGADA_STORE_ID, TAGADA_WEBHOOK_SECRET) are set with
+  // `wrangler secret put <NAME>` in production and in `.dev.vars` locally — never here.
+  "vars": {
+    "PAYMENT_MODE": "tagada",                     // sandbox store until Kashu attaches the live processor
+    "TAGADA_BASE_URL": "https://api.tagada.io",
+    "TAGADA_ENV": "test"
+  },
+  "d1_databases": [
+    { "binding": "DB", "database_name": "energy-peptides-orders", "database_id": "65d0803d-9ddc-46ff-b137-f7bc3363f4e6" }
+  ]
+}

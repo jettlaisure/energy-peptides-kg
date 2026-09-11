@@ -1,0 +1,14 @@
+name: faq_seo
+goal: Add FAQ items and/or SEO coverage for a peptide, product or research area, driven by `kg gaps`.
+input: {seed: "Peptide:<name> | Product:<name> | ResearchArea:<name>"}
+nodes:
+  gaps:     {kind: tool, run: "kg gaps", note: "pick untargeted keywords and uncited verified studies for this seed"}
+  context:  {kind: tool, needs: [gaps], run: "kg context faq_seo {seed} --max-lines 200 > {context_file}"}
+  w_faq:    {kind: worker, needs: [context], brief: "Draft 3-5 FAQItems (question ≤12 words, answer ≤80 words). Answers describe what the company does or chemistry facts from the context; cite only verified studies."}
+  w_seo:    {kind: worker, needs: [context], brief: "For each untargeted keyword: which existing page should target it (add TARGETS edge) or propose a new page (title, slug, meta, outline)."}
+  v_compliance: {kind: verifier, needs: [w_faq, w_seo], question: "Any sentence violating a ComplianceRule in scope faq/all? Quote + rule."}
+  v_facts:      {kind: verifier, needs: [w_faq, w_seo], question: "Every factual sentence traceable to the context file? List failures."}
+  merge:    {kind: owner, needs: [v_compliance, v_facts], max_rounds: 2, loop_to: [v_compliance, v_facts]}
+  human_gate: {kind: human, needs: [merge], irreversible: publish}
+  write_back: {kind: tool, needs: [human_gate], run: "seeds/12_faq.yaml (+ABOUT/SUPPORTED_BY), seeds/13_pages.yaml (+TARGETS/INCLUDES_FAQ), kg ingest, kg validate"}
+guardrails: {max_workers: 2, max_verifiers: 2, max_rounds: 2}

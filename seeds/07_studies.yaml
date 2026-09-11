@@ -1,0 +1,172 @@
+# Studies checked against PubMed 2026-09-10 (PMIDs resolved, findings re-read against abstracts) and approved by Jett
+# the same day. New studies enter with verified: false until checked and approved the same way.
+type: Study
+source: PubMed check 2026-09-10, approved by Jett
+confidence: high
+items:
+- name: Chang 2011 BPC 157 tendon healing
+  attrs:
+    pmid: '21030672'
+    year: 2011
+    journal: Journal of Applied Physiology
+    model: in vitro
+    verified: true
+    finding: Examined outgrowth, survival and migration of cultured rat Achilles tendon fibroblasts exposed to BPC 157.
+  edges:
+  - rel: INVESTIGATES
+    to: Peptide:BPC-157
+- name: Sikiric 2016 BPC 157 brain-gut axis review
+  attrs:
+    pmid: '27138887'
+    year: 2016
+    journal: Current Neuropharmacology
+    model: review
+    verified: true
+    finding: Review of the authors' research on BPC 157 in the context of the brain-gut axis.
+  edges:
+  - rel: INVESTIGATES
+    to: Peptide:BPC-157
+- name: Goldstein 2012 thymosin beta4 review
+  attrs:
+    pmid: '22074294'
+    year: 2012
+    journal: Expert Opinion on Biological Therapy
+    model: review
+    verified: true
+    finding: Review of thymosin beta-4 as a naturally occurring actin-binding peptide and of its basic properties.
+  edges:
+  - rel: INVESTIGATES
+    to: Peptide:TB-500
+- name: Malinda 1999 thymosin beta4 wound healing
+  attrs:
+    pmid: '10469335'
+    year: 1999
+    journal: Journal of Investigative Dermatology
+    model: rodent
+    verified: true
+    finding: Examined topical and intraperitoneal thymosin beta-4 in a rat full-thickness wound model, measuring re-epithelialization and wound contraction.
+  edges:
+  - rel: INVESTIGATES
+    to: Peptide:TB-500
+- name: Pickart 2018 GHK-Cu gene data review
+  attrs:
+    pmid: '29986520'
+    year: 2018
+    journal: International Journal of Molecular Sciences
+    model: review
+    verified: true
+    finding: Review of the biology of the human peptide GHK (glycyl-L-histidyl-L-lysine) and its copper complex, including gene-expression data.
+  edges:
+  - rel: INVESTIGATES
+    to: Peptide:GHK-Cu
+- name: Jastreboff 2023 retatrutide phase 2
+  attrs:
+    pmid: '37366315'
+    year: 2023
+    journal: New England Journal of Medicine
+    model: human
+    verified: true
+    finding: Phase 2, double-blind, randomized, placebo-controlled trial of retatrutide, a GIP, GLP-1 and glucagon receptor agonist, in adults with obesity.
+  edges:
+  - rel: INVESTIGATES
+    to: Peptide:Retatrutide
+- name: Covarrubias 2021 NAD+ metabolism review
+  attrs:
+    pmid: '33353981'
+    year: 2021
+    journal: Nature Reviews Molecular Cell Biology
+    model: review
+    verified: true
+    finding: Review of NAD+ as a coenzyme for redox reactions and cofactor for NAD+-dependent enzymes, and of its metabolism in ageing.
+  edges:
+  - rel: INVESTIGATES
+    to: Compound:NAD+
+- name: Jastreboff 2022 SURMOUNT-1 tirzepatide
+  attrs:
+    pmid: '35658024'
+    year: 2022
+    journal: New England Journal of Medicine
+    model: human
+    verified: true
+    finding: Phase 3, double-blind, randomized, controlled trial of once-weekly tirzepatide in 2539 adults with obesity.
+  edges:
+  - rel: INVESTIGATES
+    to: Peptide:Tirzepatide
+- name: Raun 1998 ipamorelin secretagogue
+  attrs:
+    pmid: '9849822'
+    year: 1998
+    journal: European Journal of Endocrinology
+    model: rodent
+    verified: true
+    finding: Described the development and pharmacology of ipamorelin, a pentapeptide growth hormone secretagogue, tested in primary rat pituitary cells and in animal
+      models.
+  edges:
+  - rel: INVESTIGATES
+    to: Peptide:Ipamorelin
+- name: Falutz 2007 tesamorelin HIV lipodystrophy
+  attrs:
+    pmid: '18057338'
+    year: 2007
+    journal: New England Journal of Medicine
+    model: human
+    verified: true
+    finding: Randomized trial of the growth hormone-releasing factor analogue tesamorelin in 412 patients with HIV and abdominal fat accumulation.
+  edges:
+  - rel: INVESTIGATES
+    to: Peptide:Tesamorelin
+- name: Kannengiesser 2008 KPV murine colitis
+  attrs:
+    pmid: '18092346'
+    year: 2008
+    journal: Inflammatory Bowel Diseases
+    model: rodent
+    verified: true
+    finding: Examined the melanocortin-derived tripeptide KPV in murine models of inflammatory bowel disease.
+  edges:
+  - rel: INVESTIGATES
+    to: Peptide:KPV
+- name: Lee 2015 MOTS-c metabolic homeostasis
+  attrs:
+    pmid: '25738459'
+    year: 2015
+    journal: Cell Metabolism
+    model: rodent
+    verified: true
+    finding: Identified MOTS-c, a 16-amino-acid peptide encoded in the mitochondrial 12S rRNA, and examined it in mouse metabolic models.
+  edges:
+  - rel: INVESTIGATES
+    to: Peptide:MOTS-c
+- name: Szeto 2014 SS-31 cardiolipin review
+  attrs:
+    pmid: '24117165'
+    year: 2014
+    journal: British Journal of Pharmacology
+    model: review
+    verified: true
+    finding: Review of SS-31 as a cardiolipin-binding compound acting at the inner mitochondrial membrane.
+  edges:
+  - rel: INVESTIGATES
+    to: Peptide:SS-31
+- name: Dorr 1996 melanotan-II phase I
+  attrs:
+    pmid: '8637402'
+    year: 1996
+    journal: Life Sciences
+    model: human
+    verified: true
+    finding: Pilot, placebo-controlled phase I study of melanotan-II, a cyclic heptapeptide analogue of alpha-MSH, in three male volunteers.
+  edges:
+  - rel: INVESTIGATES
+    to: Peptide:Melanotan II
+- name: Langendonk 2015 afamelanotide EPP
+  attrs:
+    pmid: '26132941'
+    year: 2015
+    journal: New England Journal of Medicine
+    model: human
+    verified: true
+    finding: Two multicenter, randomized, placebo-controlled trials of afamelanotide implants in patients with erythropoietic protoporphyria.
+  edges:
+  - rel: INVESTIGATES
+    to: Peptide:Melanotan I

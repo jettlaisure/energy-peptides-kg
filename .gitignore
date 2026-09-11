@@ -1,0 +1,11 @@
+data/graph.db
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+review/
+site/pages/*.draft.md
+.env
+data/graph-map.html
+.DS_Store
+.claude/settings.local.json

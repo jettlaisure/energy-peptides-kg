@@ -1,0 +1,21 @@
+# Append-only ledger. Never edit past events; add an 'adjusted' event to correct.
+type: InventoryEvent
+source: seeds/06_inventory_events.yaml (illustrative)
+confidence: high
+items:
+  - {name: IE-0001, attrs: {kind: received, quantity: 200, occurred_on: "2024-10-01", reference: PO-2024-09}, edges: [{rel: AFFECTS, to: "Batch:EP-BPC157-5-L2409"}]}
+  - {name: IE-0002, attrs: {kind: sold, quantity: 180, occurred_on: "2026-06-30", reference: "orders 2024-10..2026-06 (aggregate)"}, edges: [{rel: AFFECTS, to: "Batch:EP-BPC157-5-L2409"}]}
+  - {name: IE-0003, attrs: {kind: damaged, quantity: 4, occurred_on: "2026-07-02", reference: "cold-chain failure, shipment 7731"}, edges: [{rel: AFFECTS, to: "Batch:EP-BPC157-5-L2409"}]}
+  - {name: IE-0004, attrs: {kind: received, quantity: 300, occurred_on: "2026-03-20", reference: PO-2026-03}, edges: [{rel: AFFECTS, to: "Batch:EP-BPC157-5-L2603"}]}
+  - {name: IE-0005, attrs: {kind: sold, quantity: 95, occurred_on: "2026-08-31", reference: "orders 2026-03..2026-08 (aggregate)"}, edges: [{rel: AFFECTS, to: "Batch:EP-BPC157-5-L2603"}]}
+  - {name: IE-0006, attrs: {kind: reserved, quantity: 10, occurred_on: "2026-09-05", reference: "wholesale hold, order W-118"}, edges: [{rel: AFFECTS, to: "Batch:EP-BPC157-5-L2603"}]}
+  - {name: IE-0007, attrs: {kind: received, quantity: 150, occurred_on: "2026-02-25", reference: PO-2026-02}, edges: [{rel: AFFECTS, to: "Batch:EP-TB500-5-L2602"}]}
+  - {name: IE-0008, attrs: {kind: sold, quantity: 60, occurred_on: "2026-08-31", reference: "orders (aggregate)"}, edges: [{rel: AFFECTS, to: "Batch:EP-TB500-5-L2602"}]}
+  - {name: IE-0009, attrs: {kind: received, quantity: 120, occurred_on: "2026-05-01", reference: PO-2026-04}, edges: [{rel: AFFECTS, to: "Batch:EP-BPCTB-10-L2604"}]}
+  - {name: IE-0010, attrs: {kind: sold, quantity: 112, occurred_on: "2026-08-31", reference: "orders (aggregate)"}, edges: [{rel: AFFECTS, to: "Batch:EP-BPCTB-10-L2604"}]}
+  - {name: IE-0011, attrs: {kind: received, quantity: 80, occurred_on: "2026-05-15", reference: PO-2026-05}, edges: [{rel: AFFECTS, to: "Batch:EP-SEMA-5-L2605"}]}
+  - {name: IE-0012, attrs: {kind: sold, quantity: 35, occurred_on: "2026-08-31", reference: "orders (aggregate)"}, edges: [{rel: AFFECTS, to: "Batch:EP-SEMA-5-L2605"}]}
+  - {name: IE-0013, attrs: {kind: received, quantity: 100, occurred_on: "2026-01-20", reference: PO-2026-01}, edges: [{rel: AFFECTS, to: "Batch:EP-CJCIPA-10-L2601"}]}
+  - {name: IE-0014, attrs: {kind: sold, quantity: 70, occurred_on: "2026-08-31", reference: "orders (aggregate)"}, edges: [{rel: AFFECTS, to: "Batch:EP-CJCIPA-10-L2601"}]}
+  - {name: IE-0015, attrs: {kind: received, quantity: 60, occurred_on: "2025-12-10", reference: PO-2025-12}, edges: [{rel: AFFECTS, to: "Batch:EP-GHK-50-L2512"}]}
+  - {name: IE-0016, attrs: {kind: adjusted, quantity: -2, occurred_on: "2026-06-01", reference: "cycle count correction"}, edges: [{rel: AFFECTS, to: "Batch:EP-GHK-50-L2512"}]}

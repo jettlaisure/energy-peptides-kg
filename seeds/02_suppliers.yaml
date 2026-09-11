@@ -1,0 +1,7 @@
+type: Supplier
+source: inbox/coa/* (manufacturer field on every certificate, 2026-09-10)
+confidence: high
+items:
+  - name: FSD
+    aliases: [Supplier A Labs, "FSD wholesale"]
+    attrs: {country: CN, contact: TODO, notes: "Main supplier (China). Manufacturer of record on all 13 certificates received 2026-09-10. Jett reports every shipment tests above 99% purity."}

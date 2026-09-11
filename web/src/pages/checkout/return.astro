@@ -1,0 +1,25 @@
+---
+/* 3-D Secure return page: the issuer redirects here; we poll the payment status server-side. */
+import Base from '../../layouts/Base.astro';
+---
+<Base title="Confirming payment" description="Confirming your payment.">
+  <section class="section container narrow stack">
+    <p class="eyebrow">Checkout</p>
+    <h1 class="t-section" data-title>Confirming your payment…</h1>
+    <p class="dim" data-msg>This usually takes a few seconds.</p>
+  </section>
+  <script>
+    import { clearCart } from '../../lib/cart';
+    const params = new URLSearchParams(location.search);
+    const orderId = params.get('order');
+    const title = document.querySelector('[data-title]')!, msg = document.querySelector('[data-msg]')!;
+    async function poll(n = 0) {
+      const r = await fetch(`/api/payment-status?order=${encodeURIComponent(orderId ?? '')}`).then((x) => x.json()).catch(() => ({ status: 'error' }));
+      if (r.status === 'paid') { clearCart(); location.href = `/checkout/success/?order=${encodeURIComponent(orderId ?? '')}`; return; }
+      if (r.status === 'failed' || r.status === 'error') { title.textContent = 'The payment was not completed.'; msg.innerHTML = 'No charge was made. <a href="/checkout/">Return to checkout</a> to try again.'; return; }
+      if (n < 30) setTimeout(() => poll(n + 1), 2000); else { title.textContent = 'Still confirming.'; msg.textContent = 'We will email you as soon as the payment is confirmed.'; }
+    }
+    poll();
+  </script>
+</Base>
+<style>.narrow { max-width: 44rem; }</style>

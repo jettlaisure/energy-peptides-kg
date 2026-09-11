@@ -1,0 +1,291 @@
+ Energy Peptides Identity 
+
+ Brand Reference — v1.0
+
+## Energy Peptides
+
+ The working identity for the Energy Peptides research-use-only line: one mark, one typeface, a navy-and-gold system built for glass, for print, and for the web. Everything a designer or developer needs to build the site without guessing.
+
+ Issued 10 Sept 2026 
+ Supersedes Packaging Spec v1 
+
+ 01 — The Mark
+
+## Amino chain
+
+ Five hexagonal rings ascending left to right, joined by steel-blue bonds, with two side-chain stubs. The top-right ring is lit — it is the only element in the identity permitted to glow, and it is what makes the mark read as energy rather than as generic chemistry. The ascent and the lit terminal ring are both load-bearing: never level the chain, never move the light.
+
+ ENERGY
+
+ PEPTIDES
+
+ ENERGY
+
+ PEPTIDES
+
+### Primary lockup
+
+ Stacked — default 
+
+ ENERGY
+
+ PEPTIDES
+
+### Horizontal lockup
+
+ Site header, letterhead 
+
+### Mark alone
+
+ Favicon, cap, social avatar 
+
+ Clear space
+
+ Keep clear on all four sides by 1× , where × is the height of a single hexagon ring. Nothing — type, rule, photo edge, or button — enters that field.
+
+ Minimum size
+
+ Mark alone 24 px 8 mm 
+
+ Horizontal lockup 140 px 32 mm 
+
+ Stacked lockup 96 px 22 mm 
+
+ Widths for the lockups, height for the mark. Below 24 px drop the inner ring bonds — they fill in and the mark turns to mud on a vial cap or a browser tab.
+
+ Do
+
+ Place the mark on #0D1B3E or darker. It is a dark-ground identity.
+
+ Use the gold gradient, not a flat fill, at any size above 24 px.
+
+ Reproduce the lit ring at full brightness, or drop the glow entirely for one-colour print.
+
+ On photography, sit the lockup on a solid navy plate rather than directly on the image.
+
+ Don't
+
+ Rotate, mirror, arch, or level the chain — the ascent is the mark.
+
+ Move the light to another ring, or add a second glowing ring.
+
+ Substitute flat yellow ( #FFD700 and similar) for the brushed gold.
+
+ Outline, emboss, or drop-shadow the wordmark.
+
+ Set the lockup on white without redrawing it in the light-surface palette.
+
+ Rebuild the chain with a different ring count.
+
+ 02 — Colour
+
+## Navy, gold, steel
+
+ Deep navy is the ground and carries roughly 80% of any surface. Gold is the single accent — one gold element per view, load-bearing. Steel blue is the connective tissue: bonds, eyebrows, secondary type. Periwinkle is drawn from the lyophilised powder itself and is reserved for data and spec values.
+
+ Void #060C1F Page ground behind navy surfaces 
+
+ Brand Navy #0D1B3E Core surface, label field, logo plate 
+
+ Navy Lift #13224A Raised cards, hover states 
+
+ Rule #21386E Hairlines, dividers, input borders 
+
+ Brushed Gold gradient 135° The mark, primary buttons, rules 
+
+ Gold Highlight #F0D48A Gold text on navy, lit ring 
+
+ Gold #D4AF5F Flat gold, icons, borders 
+
+ Gold Ink #8A6410 The only gold for text on light surfaces 
+
+ Steel Blue #6E8CB8 Eyebrows, bonds, secondary type 
+
+ Periwinkle #A8B4DC Spec values, figures, chart marks 
+
+ Text #EEF2F9 Body copy on navy 
+
+ Paper #F4F6FA Light section ground 
+
+ Contrast — measured, WCAG 2.1
+
+ Foreground On Brand Navy On Paper Verdict 
+
+ Text #EEF2F9 15.0 : 1 1.1 : 1 Navy only 
+
+ Gold Highlight #F0D48A 11.7 : 1 1.4 : 1 Navy only 
+
+ Gold #D4AF5F 8.1 : 1 2.1 : 1 Never gold text on white 
+
+ Periwinkle #A8B4DC 8.2 : 1 2.1 : 1 Navy only 
+
+ Steel Blue #6E8CB8 4.9 : 1 3.4 : 1 Navy AA; large text only on paper 
+
+ Gold Ink #8A6410 1.6 : 1 5.0 : 1 Paper AA 
+
+ Brand Navy #0D1B3E — 15.6 : 1 Paper AA 
+
+ The trap: #D4AF5F on white is 2.1 : 1 and fails every threshold. Any light section — a form, a COA table, a printed invoice — swaps to Gold Ink #8A6410 for gold-coloured text and Brand Navy for body copy. Gold gradient fills are fine on light grounds as long as no text sits in them.
+
+ Light surface — reference
+
+### Certificate of Analysis
+
+ Light sections use Paper #F4F6FA , Brand Navy body copy, and Gold Ink for emphasis . Reserve them for documents and data: COAs, batch records, forms. Marketing pages stay on navy.
+
+ 03 — Typography
+
+## Satoshi, five weights
+
+ Satoshi by Indian Type Foundry, via fontshare.com . One family does the whole system — hierarchy comes from weight and letter-spacing, never from a second face. Self-host the WOFF2 web kit rather than hotlinking; confirm the current licence terms on Fontshare before launch. Fallback stack: "Helvetica Neue", Arial, sans-serif .
+
+ Retatrutide Black · 900 · display & wordmark 
+
+ Tesamorelin Bold · 700 · headings, product names 
+
+ Lyophilised Powder Medium · 500 · labels, buttons, eyebrows 
+
+ 10 mL vial, sealed Regular · 400 · body copy 
+
+ Research use only Light · 300 · lede, 20 px and above 
+
+ Light 300 below 20 px disappears against navy — it is a display weight here, not a body weight. Satoshi also ships italics and a 300–900 variable file; the variable is the better web payload if the build supports it.
+
+ Type scale
+
+ Role Size Line Weight Tracking 
+
+ Display 60 / 38 1.05 900 −0.035em 
+
+ Section heading 34 / 26 1.10 900 −0.02em 
+
+ Subhead 22 1.25 700 −0.015em 
+
+ Card title 17 1.35 700 −0.005em 
+
+ Lede 19 1.60 300 0 
+
+ Body 16 1.65 400 0 
+
+ Small / caption 14 1.55 400 0 
+
+ Eyebrow / label 11 1.20 500 +0.18em 
+
+ Compliance line 10 1.30 500 +0.16em 
+
+ Desktop / mobile where two figures are given. Measure caps at 65–70 characters . Product names ( BPC-157 , GHK-Cu ) always set in Bold 700 with the hyphen unbroken — never let a peptide name wrap.
+
+ Wordmark construction
+
+ ENERGY — Satoshi Black 900, all caps, tracking +0.01em, gold gradient at 135°.
+
+ PEPTIDES — Satoshi Medium 500, all caps, tracking +0.56em , Steel Blue, optically centred to the cap width of ENERGY above it.
+
+ Cap height of PEPTIDES is 0.34× the cap height of ENERGY. Baseline gap equals the x-height of PEPTIDES.
+
+ 04 — Web Foundations
+
+## Build tokens
+
+ Drop-in custom properties, plus the layout and component decisions the site needs settled before the first page is built.
+
+ /* Energy Peptides — design tokens v1.0 */ 
+ :root {
+ /* surface */ 
+ --ep-void: #060C1F ;
+ --ep-navy: #0D1B3E ;
+ --ep-navy-lift: #13224A ;
+ --ep-rule: #21386E ;
+ --ep-paper: #F4F6FA ;
+
+ /* brand */ 
+ --ep-gold-hi: #F0D48A ;
+ --ep-gold: #D4AF5F ;
+ --ep-gold-lo: #B8860B ;
+ --ep-gold-ink: #8A6410 ; /* gold text on light only */ 
+ --ep-gold-grad: linear-gradient(135deg,#F5E3B0,#D9B96B 42%,#C39A45 72%,#B8860B) ;
+ --ep-steel: #6E8CB8 ;
+ --ep-powder: #A8B4DC ;
+
+ /* text */ 
+ --ep-text: #EEF2F9 ;
+ --ep-text-dim: #9FB2CE ;
+ --ep-text-faint: #6C82A6 ;
+
+ /* type */ 
+ --ep-sans: "Satoshi","Helvetica Neue",Arial,sans-serif ;
+
+ /* space — 4px base */ 
+ --ep-1: 4px ; --ep-2: 8px ; --ep-3: 12px ; --ep-4: 16px ;
+ --ep-5: 24px ; --ep-6: 32px ; --ep-7: 48px ; --ep-8: 64px ;
+ --ep-9: 96px ; --ep-10: 128px ;
+
+ /* form */ 
+ --ep-radius-sm: 2px ;
+ --ep-radius: 4px ;
+ --ep-hairline: 1px solid var(--ep-rule) ;
+ --ep-glow-gold: 0 0 24px rgba(240,212,138,.28) ;
+} 
+
+ Grid & rhythm
+
+ Content max 1200 px , 12 columns, 24 px gutters. Page gutter 32 px desktop / 20 px mobile. Long-form measure caps at 720 px inside the 1200. Section rhythm 128 px desktop, 64 px mobile. Everything lands on an 8 px baseline.
+
+ Form & elevation
+
+ Radii stay small — 2 px on controls, 4 px on panels, full pill only on status chips. No soft drop shadows anywhere; separation comes from hairlines and a one-step navy lift. The only permitted glow is gold, on the lit ring and on primary-button hover.
+
+ Controls
+
+ Request COA 
+ View catalogue 
+ Documentation 
+
+ Primary: gold gradient, Brand Navy label at 700 — 8.1 : 1, the only filled button on a page. Secondary: 1 px gold border, transparent, Gold Highlight label. Quiet: Steel Blue with a rule-coloured underline at 5 px offset. Focus ring is a 2 px Gold Highlight outline at 2 px offset — never remove it.
+
+ Imagery
+
+ Vials shot on a dark charcoal matte surface against a navy gradient, soft-box side light with a warm gold rim on the glass edge and cap, shallow depth of field, subtle reflection beneath. Powder reads periwinkle #A8B4DC under this light — keep it, it is a brand cue. Product shots are square (1:1) for grids and 4:5 for editorial. Never composite a vial onto white.
+
+ Existing renders: energy-peptides-vial-hero.png (1:1), energy-peptides-vial-trio.png (4:5), energy-peptides-label-flat.png (print label). All carry placeholder SKU copy — reshoot or re-render per real SKU before launch.
+
+ 05 — Copy Rules
+
+## Research-use-only language
+
+ This is the constraint that shapes the site more than any colour choice. Every product page, meta description, alt text, and button label is written so nothing on the site states or implies a human use, an effect, or an outcome. Design decisions that create a slot for effect copy — a "Benefits" tab, a "Shop by goal" filter, a testimonial block — should not be built.
+
+ Don't ship Ship instead Why 
+
+ Healing & Recovery Composition class Names an intended human use 
+
+ GLP-1 / Weight Management Composition class Names a use and a mechanism 
+
+ Growth & Performance Composition class Names an intended human use 
+
+ KLOW, GLOW, "stack" Blend B-1, B-2, B-3 Consumer-culture vocabulary 
+
+ Shop by goal Browse by composition Goal = intended use 
+
+ Dosage / protocol guidance Decline outright Directs human administration 
+
+ Reconstitution-to-injection steps Handling & storage only Directs human administration 
+
+ "Purity >99% HPLC verified" Per-lot figure from the COA Blanket claim with no document behind it 
+
+ Required on every product view
+
+ For Research Use Only — Not for Human Consumption
+
+ Compliance line at 10 px / +0.16em, Gold Highlight on navy or Brand Navy on paper. It sits inside the product panel, above the fold, not in the footer. Same wording everywhere — no shortened variants.
+
+ Open before launch
+
+ COA links are blank on all 22 SKUs, and purity is blank on all 22. The COA is what the whole research-use position rests on — a product page with a compliance line and no document behind it is weaker than no page at all. Design the product template with the COA link as a required, prominent element so the gap is visible while it is being filled.
+
+ Energy Peptides — Brand Reference v1.0
+
+ Amino chain mark · Satoshi · Navy & brushed gold
+
+ Internal document — not for distribution
+

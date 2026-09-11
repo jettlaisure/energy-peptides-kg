@@ -1,0 +1,63 @@
+# Lots. Where a certificate exists its identifiers are the lot; where the lab assigned no batch number the lab
+# reference is used and lot_marker records the physical marker (cap colour). coa_status stays 'received' until
+# Jett decides which certificates to publish (several name other clients). Opening stock events attach to the
+# lots marked "in stock"; placeholder LOT-TBD-* lots remain where no certificate exists yet.
+type: Batch
+source: inbox/coa/* (read 2026-09-10) + inbox/Energy-inventory-2026-09-09.numbers
+confidence: medium
+items:
+  # ---- stocked SKUs ----
+  - name: FSD0704
+    aliases: [LOT-TBD-EP-RT-20]
+    attrs: {coa_status: received, unit: vial, purity_measured: 99.88, content_measured_mg: 23.72, coa_lab: Freedom Diagnostics, coa_reference: FSD-2606240149,
+            coa_date: "2026-06-26", coa_client: "FSD - Judy", identity_method: LC-MS, notes: "Retatrutide 20 mg. Purple cap in photo. CONFIRM this is the lot in stock."}
+    edges: [{rel: OF_PRODUCT, to: "Product:Retatrutide 20mg"}, {rel: SUPPLIED_BY, to: "Supplier:FSD"}, {rel: HAS_COA, to: "Asset:inbox/coa/RETA 20MG FREEDOM.jpg"}]
+  - name: FSD-2026.08.10
+    aliases: [LOT-TBD-EP-CU-100]
+    attrs: {coa_status: received, unit: vial, purity_measured: 99.341, content_measured_mg: 96.94, coa_lab: Janoshik, coa_reference: "#225308", coa_verify_key: VQRQEHXKTNBG,
+            coa_date: "2026-08-27", coa_client: Anonymous, identity_method: "GHK-Cu analysis (GHK 81.13 mg, Cu 15.81 mg)", notes: "GHK-Cu 100 mg. CONFIRM this is the lot in stock."}
+    edges: [{rel: OF_PRODUCT, to: "Product:GHK-Cu 100mg"}, {rel: SUPPLIED_BY, to: "Supplier:FSD"}, {rel: HAS_COA, to: "Asset:inbox/coa/GHK 100MG JANOSHIK.png"}]
+  - name: FREEDOM-2608031083
+    aliases: [LOT-TBD-EP-B1-20]
+    attrs: {coa_status: received, unit: vial, purity_measured: 99.79, coa_lab: Freedom Diagnostics, coa_reference: Texp2608031083, coa_date: "2026-08-07",
+            coa_client: Texpat Peptides, identity_method: "LC-MS (Thymosin Beta-4 / BPC-157)", endotoxin: "Pass, 2 replicates, USP <85>", lot_marker: red cap,
+            notes: "BPC-157 10 mg / TB-500 10 mg. Net content not requested. Commissioned by another reseller. CONFIRM this is the lot in stock."}
+    edges: [{rel: OF_PRODUCT, to: "Product:BPC-157 / TB-500 20mg"}, {rel: SUPPLIED_BY, to: "Supplier:FSD"}, {rel: HAS_COA, to: "Asset:inbox/coa/WOLVERINE 20MG FREEDOM.jpg"}]
+  - name: JANOSHIK-198253
+    aliases: [LOT-TBD-EP-NAD-500]
+    attrs: {coa_status: received, unit: vial, content_measured_mg: 607.25, coa_lab: Janoshik, coa_reference: "#198253", coa_verify_key: 8MKNCEAQJRFG, coa_date: "2026-07-10",
+            coa_client: J H Test Group, identity_method: "NAD+ ID and amount", lot_marker: "clear caps, silver crimp",
+            notes: "NAD+ 500 mg. Identity and content only — NO purity figure on this report. CONFIRM this is the lot in stock."}
+    edges: [{rel: OF_PRODUCT, to: "Product:NAD+ 500mg"}, {rel: SUPPLIED_BY, to: "Supplier:FSD"}, {rel: HAS_COA, to: "Asset:inbox/coa/NAD 500MG JANOSHIK.png"}]
+  - {name: LOT-TBD-EP-BPC-10, attrs: {coa_status: pending, unit: vial, notes: "BPC-157 10 mg — no certificate received"}, edges: [{rel: OF_PRODUCT, to: "Product:BPC-157 10mg"}, {rel: SUPPLIED_BY, to: "Supplier:FSD"}]}
+  - {name: LOT-TBD-EP-CU-50, attrs: {coa_status: pending, unit: vial, notes: "GHK-Cu 50 mg — no certificate received (only the 100 mg was tested)"}, edges: [{rel: OF_PRODUCT, to: "Product:GHK-Cu 50mg"}, {rel: SUPPLIED_BY, to: "Supplier:FSD"}]}
+  - {name: LOT-TBD-EP-BAC-10, attrs: {coa_status: pending, unit: bottle, notes: "Bacteriostatic water — no certificate"}, edges: [{rel: OF_PRODUCT, to: "Product:Bacteriostatic water 10ml"}]}
+  # ---- coming-soon SKUs with certificates ----
+  - name: JANOSHIK-200303
+    attrs: {coa_status: received, unit: vial, purity_measured: 99.076, content_measured_mg: 11.34, coa_lab: Janoshik, coa_reference: "#200303", coa_verify_key: M8C75WGFS393,
+            coa_date: "2026-07-08", coa_client: FSD, identity_method: "GLP-1 blind test (Retatrutide identified)", notes: "Retatrutide 10 mg. No batch number assigned."}
+    edges: [{rel: OF_PRODUCT, to: "Product:Retatrutide 10mg"}, {rel: SUPPLIED_BY, to: "Supplier:FSD"}, {rel: HAS_COA, to: "Asset:inbox/coa/RETA 10MG JANOSHIK.png"}]
+  - name: TESTIDES-071326-02
+    attrs: {coa_status: received, unit: vial, purity_measured: 99.04, content_measured_mg: 10.54, coa_lab: Testides, coa_reference: DHOL-RETA-10-071326-02, coa_date: "2026-08-06",
+            coa_client: Endura North Research Canada, identity_method: HPLC-UV, lot_marker: blue transparent cap, notes: "Retatrutide 10 mg, second certificate; commissioned by another reseller."}
+    edges: [{rel: OF_PRODUCT, to: "Product:Retatrutide 10mg"}, {rel: SUPPLIED_BY, to: "Supplier:FSD"}, {rel: HAS_COA, to: "Asset:inbox/coa/RETA 10MG TESTIDES.jpg"}]
+  - name: JANOSHIK-200305
+    attrs: {coa_status: received, unit: vial, purity_measured: 99.689, content_measured_mg: 33.68, coa_lab: Janoshik, coa_reference: "#200305", coa_verify_key: 153AS83TRUFK,
+            coa_date: "2026-07-08", coa_client: FSD, identity_method: "GLP-1 blind test (Retatrutide identified)", notes: "Retatrutide 30 mg. No batch number assigned. File received twice."}
+    edges: [{rel: OF_PRODUCT, to: "Product:Retatrutide 30mg"}, {rel: SUPPLIED_BY, to: "Supplier:FSD"}, {rel: HAS_COA, to: "Asset:inbox/coa/RETA 30MG JANOSHIK.png"}]
+  - name: FSD0618
+    attrs: {coa_status: received, unit: vial, purity_measured: 99.20, content_measured_mg: 31.10, coa_lab: Freedom Diagnostics, coa_reference: FSD-2606240150, coa_date: "2026-06-26",
+            coa_client: "FSD - Judy", identity_method: LC-MS, lot_marker: black cap, notes: "Tirzepatide 30 mg."}
+    edges: [{rel: OF_PRODUCT, to: "Product:Tirzepatide 30mg"}, {rel: SUPPLIED_BY, to: "Supplier:FSD"}, {rel: HAS_COA, to: "Asset:inbox/coa/TRIZ 30MG FREEDOM.jpg"}]
+  - name: JANOSHIK-200307
+    attrs: {coa_status: received, unit: vial, purity_measured: 99.770, content_measured_mg: 34.92, coa_lab: Janoshik, coa_reference: "#200307", coa_verify_key: ATJDVMGU2XNL,
+            coa_date: "2026-07-08", coa_client: FSD, identity_method: "GLP-1 blind test (Tirzepatide identified)", notes: "Tirzepatide 30 mg, second certificate. No batch number assigned."}
+    edges: [{rel: OF_PRODUCT, to: "Product:Tirzepatide 30mg"}, {rel: SUPPLIED_BY, to: "Supplier:FSD"}, {rel: HAS_COA, to: "Asset:inbox/coa/TRIZ 30MG JANOSHIK.png"}]
+  - name: FREEDOM-2607160534
+    attrs: {coa_status: received, unit: vial, purity_measured: 99.67, content_measured_mg: 11.90, coa_lab: Freedom Diagnostics, coa_reference: FSD-2607160534, coa_date: "2026-07-20",
+            coa_client: "FSD - Judy", identity_method: LC-MS, lot_marker: dark blue cap, notes: "KPV 10 mg."}
+    edges: [{rel: OF_PRODUCT, to: "Product:KPV 10mg"}, {rel: SUPPLIED_BY, to: "Supplier:FSD"}, {rel: HAS_COA, to: "Asset:inbox/coa/KPV 10MG FREEDOM.jpg"}]
+  - name: FSD0716
+    attrs: {coa_status: received, unit: vial, coa_lab: Janoshik, coa_reference: "#172607", coa_verify_key: BBINAWJM6IVG, coa_date: "2026-06-18", coa_client: "FSD Tesa 10MG",
+            endotoxin: "<10 EU/vial (1.222 estimate)", notes: "Tesamorelin 10 mg vial (the SKU is a single 20 mg vial). ENDOTOXIN ONLY — no purity or identity on this report."}
+    edges: [{rel: OF_PRODUCT, to: "Product:Tesamorelin 20mg"}, {rel: SUPPLIED_BY, to: "Supplier:FSD"}, {rel: HAS_COA, to: "Asset:inbox/coa/TESA 10MG JANOSHIK.jpg"}]

@@ -1,0 +1,61 @@
+# Brand rules distilled from the Energy Peptides Brand Reference v1.0 (inbox/brand.html, issued 10 Sept 2026).
+# The reference document is authoritative; these rules are what agents check copy and layouts against.
+type: BrandRule
+source: inbox/brand.html (Brand Reference v1.0, 2026-09-10)
+confidence: high
+items:
+  - name: BR-TONE
+    attrs: {category: tone, scope: [all],
+            text: "Precise, calm, documentary. We sound like a careful laboratory supplier: short declarative sentences, the model and the citation named, limits stated plainly.",
+            do: ["state what a compound is and what a study examined", "state the purity specification and that certificates are available on request"],
+            dont: ["hype words: miracle, breakthrough, game-changer, powerful, proven", "exclamation marks", "urgency tricks"]}
+  - name: BR-VOCAB
+    attrs: {category: vocabulary, scope: [all],
+            text: "Controlled vocabulary. Nothing states or implies a human use, an effect, or an outcome.",
+            do: ["research peptide", "compound", "composition class", "researchers", "laboratory", "study / trial", "lot", "certificate of analysis (COA)", "amount per vial", "handling and storage"],
+            dont: ["supplement", "dose / dosage / protocol / cycle", "patients", "users", "benefits", "results", "goal", "Healing & Recovery", "Weight Management", "Growth & Performance", "stack", "Wolverine (third-party trademark)", "Shop by goal"]}
+  - name: BR-CATEGORIES
+    attrs: {category: structure, scope: [product_page, seo, marketing],
+            text: "Browse by composition class, never by goal or intended use. Blends are named by their components (BPC-157 / TB-500). Amended 2026-09-10 (Jett): a nickname printed on the vial label (KLOW) may be used as the product's display name, but only with every component and its amount shown alongside it, and never with copy that explains or implies what the name means. Nicknames not on a label, and third-party trademarks (Wolverine), stay off the site. Research-area names from the graph are internal only.",
+            dont: ["Benefits tab", "Shop by goal filter", "testimonial block"]}
+  - name: BR-COMPLIANCE-LINE
+    attrs: {category: structure, scope: [product_page, checkout, marketing],
+            text: "Required on every product view: one of the two approved, interchangeable lines (Jett, 2026-09-10) — 'For Research Use Only — Not for Human Consumption' (site default) or 'For Research Use Only - Not for Human Use' (as printed on the vial labels). 10 px / +0.16em, Gold Highlight on navy or Brand Navy on paper, inside the product panel above the fold. No other variants or shortenings."}
+  - name: BR-PRODUCT-PAGE-STRUCTURE
+    attrs: {category: structure, scope: [product_page],
+            text: "Section order: product panel (composition class eyebrow, name, lede, price, stock chip, add to cart, compliance line), Overview, Specification (paper, includes the purity specification), Quality and testing (paper: the standard testing sentence, certificates on request), Research background (verified citations only), Questions.",
+            do: ["one H1: the product name"], dont: ["Benefits section", "more than 600 words", "lot-specific purity figures or certificate links (certificates are internal, available on request)"]}
+  - name: BR-COA-STATEMENT
+    attrs: {category: structure, scope: [product_page, faq],
+            text: "Standard sentence (decision 2026-09-10, certificates not published): 'Every batch is tested by HPLC and mass spectrometry against a purity specification of ≥99%. Certificates of analysis are available on request.' Never state a lot-specific purity figure on the site; never claim a certificate ships with the product."}
+  - name: BR-FORMATTING
+    attrs: {category: formatting, scope: [all],
+            text: "Sentence-case headings. Metric units. Peptide names in Bold 700 with the hyphen unbroken (BPC-157, GHK-Cu) — never let a name wrap. Numbers always carry units. Measure 65–70 characters."}
+  - name: BR-TYPE
+    attrs: {category: visual, scope: [all],
+            text: "One typeface: Satoshi (Indian Type Foundry, Fontshare), self-hosted WOFF2, five weights. Display 60/38 900 −0.035em; section 34/26 900 −0.02em; subhead 22 700; card 17 700; lede 19 300; body 16/1.65 400; small 14; eyebrow 11 500 +0.18em; compliance 10 500 +0.16em. Light 300 only at 20 px and above."}
+  - name: BR-COLOUR
+    attrs: {category: visual, scope: [all],
+            text: "Navy-and-gold, dark-ground identity. Void #060C1F page ground; Brand Navy #0D1B3E core surface (~80% of any view); Navy Lift #13224A raised cards and hover; Rule #21386E hairlines. Gold is the single accent: one gold element per view. Brushed gold gradient 135° (#F5E3B0→#D9B96B→#C39A45→#B8860B) for the mark, primary buttons, rules; Gold Highlight #F0D48A for gold text on navy and the lit ring; Gold #D4AF5F flat gold for icons and borders; Gold Ink #8A6410 is the only gold for text on light surfaces. Steel Blue #6E8CB8 eyebrows, bonds, secondary type. Periwinkle #A8B4DC spec values and figures. Text #EEF2F9 / dim #9FB2CE / faint #6C82A6. Paper #F4F6FA light ground, reserved for documents and forms (COA tables, forms), with Brand Navy body copy.",
+            dont: ["gold text on white (#D4AF5F on white is 2.1:1)", "flat yellow #FFD700", "soft drop shadows", "a second glowing element"]}
+  - name: BR-MARK
+    attrs: {category: visual, scope: [all],
+            text: "Amino chain mark: five hexagonal rings ascending left to right, steel-blue bonds, two side-chain stubs, top-right ring lit gold — the only element permitted to glow. Wordmark: ENERGY in Satoshi Black 900 caps +0.01em gold gradient; PEPTIDES in Medium 500 caps +0.56em Steel Blue, cap height 0.34× ENERGY, optically centred. Clear space 1× ring height. Minimum: mark 24 px, horizontal lockup 140 px, stacked 96 px. Place on #0D1B3E or darker; on photography use a navy plate.",
+            dont: ["rotate, mirror, arch or level the chain", "move the light or add a second lit ring", "outline, emboss or drop-shadow the wordmark", "set the lockup on white without the light-surface redraw"]}
+  - name: BR-LAYOUT
+    attrs: {category: visual, scope: [all],
+            text: "Content max 1200 px, 12 columns, 24 px gutters; page gutter 32 desktop / 20 mobile; long-form measure 720 px; section rhythm 128 desktop / 64 mobile; 8 px baseline; 4 px spacing base. Radii 2 px controls, 4 px panels, pill only on status chips. Separation by hairline and one-step navy lift, never shadow. Primary button gold gradient with navy 700 label (one per page); secondary 1 px gold border with Gold Highlight label; quiet Steel Blue with rule-coloured underline at 5 px offset; focus ring 2 px Gold Highlight at 2 px offset."}
+  - name: BR-IMAGERY
+    attrs: {category: visual, scope: [all],
+            text: "Vials on a dark charcoal matte surface against a navy gradient, soft-box side light, warm gold rim on glass edge and cap, shallow depth of field, subtle reflection. Powder reads periwinkle — keep it. Square 1:1 for grids, 4:5 editorial. Never composite a vial onto white. Existing renders carry placeholder SKU copy: reshoot per real SKU before launch."}
+  - name: BR-SEO
+    attrs: {category: seo, scope: [product_page, faq, blog, seo],
+            text: "Meta title ≤60 characters ending '| Energy Peptides'. Meta description ≤155 characters, factual, no use or outcome language. Primary keyword once in the first 100 words and in the H1. Slug is the product slug from the graph.",
+            do: ["internal links between products sharing a component"], dont: ["keyword lists in copy", "'best' / 'top' superlatives", "goal-based landing pages"]}
+  - name: BR-FAQ
+    attrs: {category: structure, scope: [faq],
+            text: "Question in plain language, answer ≤80 words. Factual answers cite a verified study or a graph attribute; otherwise answer with what the company does (COA, storage, RUO), never what the compound does. Handling and storage only — no reconstitution-to-administration steps."}
+  - name: BR-MARKETING
+    attrs: {category: tone, scope: [marketing, email, social, ads],
+            text: "Email ≤120 words, social ≤280 characters, one call to action, product facts only: what it is, lot purity from the COA, certificate availability, price, stock. Never effects.",
+            dont: ["countdowns and false scarcity", "emoji in subject lines", "effects language of any kind"]}

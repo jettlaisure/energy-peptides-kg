@@ -1,0 +1,141 @@
+---
+import Base from '../../layouts/Base.astro';
+import { products, site } from '../../lib/catalog';
+const lite = products.map((p) => ({ sku: p.sku, name: p.name, price: Math.round(Number(p.price_usd) * 100), in_stock: p.in_stock && p.status === 'active' }));
+const paymentMode = import.meta.env.PUBLIC_PAYMENT_MODE ?? 'stub';
+const tokenizerEnv = import.meta.env.PUBLIC_TOKENIZER_ENV === 'sandbox' ? 'sandbox' : 'production';
+const states = ['AL','AK','AZ','AR','CA','CO','CT','DE','DC','FL','GA','HI','ID','IL','IN','IA','KS','KY','LA','ME','MD','MA','MI','MN','MS','MO','MT','NE','NV','NH','NJ','NM','NY','NC','ND','OH','OK','OR','PA','RI','SC','SD','TN','TX','UT','VT','VA','WA','WV','WI','WY'];
+---
+<Base title="Checkout" description="Secure checkout.">
+  <section class="section container">
+    <p class="eyebrow">Checkout</p>
+    <h1 class="t-section">Checkout</h1>
+    {paymentMode === 'stub' && <p class="notice" style="margin-top:var(--s4)">Test mode. No card is charged and no card number is required; orders are recorded as test orders.</p>}
+    {paymentMode !== 'stub' && import.meta.env.PUBLIC_TAGADA_ENV !== 'live' && <p class="notice" style="margin-top:var(--s4)">Test mode. Payments run against the sandbox processor: any card number is accepted and nothing is charged.</p>}
+    <form class="co" id="checkout" data-mode={paymentMode} data-tokenizer-env={tokenizerEnv} data-shipping={Math.round(site.shipping_usd * 100)} data-free={Math.round(site.free_shipping_over_usd * 100)} novalidate>
+      <div class="paper form stack">
+        <fieldset class="stack">
+          <legend class="t-sub">Contact</legend>
+          <div class="field"><label for="email">Email</label><input id="email" name="email" type="email" autocomplete="email" required /><span class="hint">Your order confirmation goes here.</span></div>
+          <div class="grid-2">
+            <div class="field"><label for="firstName">First name</label><input id="firstName" name="firstName" autocomplete="given-name" required /></div>
+            <div class="field"><label for="lastName">Last name</label><input id="lastName" name="lastName" autocomplete="family-name" required /></div>
+          </div>
+        </fieldset>
+        <fieldset class="stack">
+          <legend class="t-sub">Shipping address <span class="dim">({site.ships_to})</span></legend>
+          <div class="field"><label for="organization">Laboratory or organization <span class="dim">(optional)</span></label><input id="organization" name="organization" autocomplete="organization" /></div>
+          <div class="field"><label for="line1">Street address</label><input id="line1" name="line1" autocomplete="address-line1" required /></div>
+          <div class="field"><label for="line2">Apartment, suite, building <span class="dim">(optional)</span></label><input id="line2" name="line2" autocomplete="address-line2" /></div>
+          <div class="grid-2">
+            <div class="field"><label for="city">City</label><input id="city" name="city" autocomplete="address-level2" required /></div>
+            <div class="field"><label for="state">State</label><select id="state" name="state" autocomplete="address-level1" required><option value="">Select</option>{states.map((s) => <option value={s}>{s}</option>)}</select></div>
+          </div>
+          <div class="grid-2">
+            <div class="field"><label for="postalCode">ZIP</label><input id="postalCode" name="postalCode" autocomplete="postal-code" inputmode="numeric" pattern="[0-9]{5}(-[0-9]{4})?" required /></div>
+            <div class="field"><label for="phone">Phone <span class="dim">(for the carrier)</span></label><input id="phone" name="phone" type="tel" autocomplete="tel" /></div>
+          </div>
+        </fieldset>
+        <fieldset class="stack" data-card-fields hidden={paymentMode === 'stub'}>
+          <legend class="t-sub">Card</legend>
+          <p class="hint">Card details go directly to the payment tokenizer and never touch our servers.</p>
+          <div class="field"><label for="cardholderName">Name on card</label><input id="cardholderName" name="cardholderName" autocomplete="cc-name" /></div>
+          <div class="field"><label for="cardNumber">Card number</label><input id="cardNumber" name="cardNumber" autocomplete="cc-number" inputmode="numeric" /></div>
+          <div class="grid-2">
+            <div class="field"><label for="expiryDate">Expiry (MM/YY)</label><input id="expiryDate" name="expiryDate" autocomplete="cc-exp" placeholder="MM/YY" /></div>
+            <div class="field"><label for="cvc">Security code</label><input id="cvc" name="cvc" autocomplete="cc-csc" inputmode="numeric" /></div>
+          </div>
+        </fieldset>
+        <fieldset class="stack attest">
+          <legend class="t-sub">Research-use attestation</legend>
+          <label class="check"><input type="checkbox" name="attestation" required /><span>{site.attestation}</span></label>
+          <p class="hint">Products have not been evaluated or approved by the FDA. <a href="/legal/research-use-only/" target="_blank" rel="noopener">Research use policy</a> · <a href="/legal/terms/" target="_blank" rel="noopener">Terms of sale</a>.</p>
+        </fieldset>
+        <p class="notice notice-error" data-error hidden></p>
+        <div class="cluster"><button class="btn btn-primary big" type="submit" data-submit>Place order</button><span class="compliance">{site.compliance_line}</span></div>
+      </div>
+      <aside class="summary panel">
+        <p class="eyebrow">Order summary</p>
+        <ul data-summary-lines class="sum-lines"></ul>
+        <div class="tot"><span class="dim">Subtotal</span><span class="value" data-subtotal></span></div>
+        <div class="tot"><span class="dim">Shipping</span><span class="value" data-ship></span></div>
+        <div class="tot"><span class="dim">Sales tax</span><span class="faint t-small">on invoice</span></div>
+        <div class="tot grand"><span>Total</span><span class="value" data-total></span></div>
+        <p class="t-small"><a class="btn btn-quiet" href="/cart/">Edit cart</a></p>
+      </aside>
+    </form>
+  </section>
+  <script type="application/json" id="catalog-lite" set:html={JSON.stringify(lite)} />
+</Base>
+<script>
+  import { readCart, clearCart } from '../../lib/cart';
+  type Lite = { sku: string; name: string; price: number; in_stock: boolean };
+  const cat: Lite[] = JSON.parse(document.getElementById('catalog-lite')!.textContent!);
+  const bySku = new Map(cat.map((c) => [c.sku, c]));
+  const form = document.getElementById('checkout') as HTMLFormElement;
+  const fmt = (c: number) => new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(c / 100);
+  const lines = readCart().filter((l) => bySku.has(l.sku) && bySku.get(l.sku)!.in_stock);
+  const ul = form.querySelector('[data-summary-lines]')!;
+  let subtotal = 0;
+  for (const l of lines) { const c = bySku.get(l.sku)!; subtotal += c.price * l.qty; const li = document.createElement('li'); li.innerHTML = `<span><span class="name">${c.name}</span> <span class="dim">× ${l.qty}</span></span><span class="value">${fmt(c.price * l.qty)}</span>`; ul.appendChild(li); }
+  const ship = subtotal >= Number(form.dataset.free) ? 0 : Number(form.dataset.shipping);
+  form.querySelector('[data-subtotal]')!.textContent = fmt(subtotal);
+  form.querySelector('[data-ship]')!.textContent = ship === 0 ? 'Free' : fmt(ship);
+  form.querySelector('[data-total]')!.textContent = fmt(subtotal + ship);
+  const submit = form.querySelector<HTMLButtonElement>('[data-submit]')!;
+  const errEl = form.querySelector<HTMLElement>('[data-error]')!;
+  if (lines.length === 0) { submit.disabled = true; errEl.hidden = false; errEl.textContent = 'Your cart is empty.'; }
+  const showError = (m: string) => { errEl.textContent = m; errEl.hidden = false; submit.disabled = false; submit.textContent = 'Place order'; };
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    errEl.hidden = true;
+    if (!form.reportValidity()) return;
+    submit.disabled = true; submit.textContent = 'Processing…';
+    const fd = new FormData(form);
+    const v = (k: string) => String(fd.get(k) ?? '').trim();
+    let tagadaToken = 'stub';
+    let scaRequired = false;
+    if (form.dataset.mode === 'tagada') {
+      try {
+        const { Tokenizer, createTagadaToken } = await import('@tagadapay/core-js');
+        const tok = new Tokenizer({ environment: form.dataset.tokenizerEnv as 'sandbox' | 'production' });
+        await tok.initialize();
+        const raw = await tok.tokenizeCardRaw({ cardNumber: v('cardNumber').replace(/\s+/g, ''), expiryDate: v('expiryDate'), cvc: v('cvc'), cardholderName: v('cardholderName') });
+        tagadaToken = createTagadaToken(raw);
+        scaRequired = Boolean((raw as any)?.metadata?.auth?.scaRequired);
+      } catch (err) { return showError('The card could not be verified. Check the number, expiry and security code and try again.'); }
+    }
+    const body = {
+      items: lines.map((l) => ({ sku: l.sku, qty: l.qty })),
+      customer: { email: v('email'), firstName: v('firstName'), lastName: v('lastName'), phone: v('phone') },
+      shipping: { organization: v('organization'), line1: v('line1'), line2: v('line2'), city: v('city'), state: v('state'), postalCode: v('postalCode'), country: 'US' },
+      attestation: fd.get('attestation') === 'on',
+      tagadaToken, scaRequired,
+    };
+    let res: Response;
+    try { res = await fetch('/api/checkout', { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify(body) }); }
+    catch { return showError('We could not reach the server. Check your connection and try again.'); }
+    const out = await res.json().catch(() => ({}));
+    if (!res.ok) return showError(out.error ?? 'The order could not be placed.');
+    if (out.status === 'requires_action' && out.redirectUrl) { window.location.href = out.redirectUrl; return; }
+    if (out.status === 'paid') { clearCart(); window.location.href = `/checkout/success/?order=${encodeURIComponent(out.orderId)}`; return; }
+    showError(out.error ?? 'The payment was not approved. No charge was made.');
+  });
+</script>
+<style>
+  .co { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 4fr); gap: var(--s6); margin-top: var(--s6); align-items: start; }
+  .form { padding: var(--s6); gap: var(--s6); }
+  fieldset { border: 0; padding: 0; margin: 0; }
+  legend { margin-bottom: var(--s3); }
+  .check { display: flex; gap: var(--s3); align-items: start; font-size: 14px; color: var(--paper-text); }
+  .check input { margin-top: 4px; width: 18px; height: 18px; accent-color: var(--navy); }
+  .attest { padding: var(--s4); border: 1px solid var(--paper-rule); border-radius: var(--radius); background: #FFFFFF; }
+  .big { padding: 14px 24px; font-size: 16px; }
+  .summary { padding: var(--s5); display: grid; gap: var(--s3); position: sticky; top: 92px; }
+  .sum-lines { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--s2); font-size: 14px; }
+  .sum-lines li { display: flex; justify-content: space-between; gap: var(--s4); }
+  .tot { display: flex; justify-content: space-between; font-size: 14px; border-top: var(--hairline); padding-top: var(--s2); }
+  .grand { font-weight: 700; font-size: 17px; color: var(--text); }
+  @media (max-width: 820px) { .co { grid-template-columns: 1fr; } .summary { position: static; } .form { padding: var(--s5); } }
+</style>

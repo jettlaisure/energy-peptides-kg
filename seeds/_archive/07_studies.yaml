@@ -1,0 +1,55 @@
+# Citations are model-recalled and UNVERIFIED. verified stays false until a human opens the PMID/DOI and
+# confirms the finding sentence. CR-VERIFIED-CITATIONS blocks citing anything with verified=false.
+type: Study
+source: seeds/07_studies.yaml (model-recalled, unverified 2026-09-08)
+confidence: medium
+items:
+  - name: Chang 2011 BPC 157 tendon healing
+    attrs: {pmid: "21030672", year: 2011, journal: "Journal of Applied Physiology", model: rodent, verified: false,
+            finding: "Examined the effect of BPC 157 on tendon fibroblast outgrowth, survival and migration in a rat Achilles tendon model."}
+    edges: [{rel: INVESTIGATES, to: "Peptide:BPC-157"}]
+  - name: Sikiric 2016 BPC 157 brain-gut axis review
+    attrs: {pmid: "27138887", year: 2016, journal: "Current Neuropharmacology", model: review, verified: false,
+            finding: "Review of preclinical work on BPC 157 across gastrointestinal and central nervous system models."}
+    edges: [{rel: INVESTIGATES, to: "Peptide:BPC-157"}]
+  - name: Goldstein 2012 thymosin beta4 review
+    attrs: {pmid: "22074294", year: 2012, journal: "Expert Opinion on Biological Therapy", model: review, verified: false,
+            finding: "Review describing thymosin beta-4 as an actin-sequestering peptide studied in tissue-repair models."}
+    edges: [{rel: INVESTIGATES, to: "Peptide:TB-500"}]
+  - name: Malinda 1999 thymosin beta4 wound healing
+    attrs: {pmid: "10469335", year: 1999, journal: "Journal of Investigative Dermatology", model: rodent, verified: false,
+            finding: "Reported accelerated dermal wound closure with topical and intraperitoneal thymosin beta-4 in a rat model."}
+    edges: [{rel: INVESTIGATES, to: "Peptide:TB-500"}]
+  - name: Teichman 2006 CJC-1295 GH secretion
+    attrs: {pmid: "16352683", year: 2006, journal: "Journal of Clinical Endocrinology and Metabolism", model: human, verified: false,
+            finding: "Characterised GH and IGF-1 responses to CJC-1295 (DAC form) in healthy adults; note this is the DAC form, not the no-DAC product."}
+    edges: [{rel: INVESTIGATES, to: "Peptide:CJC-1295"}]
+  - name: Raun 1998 ipamorelin secretagogue
+    attrs: {pmid: "9849822", year: 1998, journal: "European Journal of Endocrinology", model: rodent, verified: false,
+            finding: "Described ipamorelin as a selective GH secretagogue in in-vitro and rat models."}
+    edges: [{rel: INVESTIGATES, to: "Peptide:Ipamorelin"}]
+  - name: Pickart 2018 GHK-Cu gene data review
+    attrs: {pmid: "30011867", year: 2018, journal: "International Journal of Molecular Sciences", model: review, verified: false,
+            finding: "Review of GHK-Cu biology including its occurrence in human plasma and gene-expression data."}
+    edges: [{rel: INVESTIGATES, to: "Peptide:GHK-Cu"}]
+  - name: Wilding 2021 STEP 1 semaglutide
+    attrs: {pmid: "33567185", year: 2021, journal: "New England Journal of Medicine", model: human, verified: false,
+            finding: "Phase 3 trial of once-weekly semaglutide 2.4 mg in adults with overweight or obesity."}
+    edges: [{rel: INVESTIGATES, to: "Peptide:Semaglutide"}]
+  - name: Jastreboff 2022 SURMOUNT-1 tirzepatide
+    attrs: {pmid: "35658024", year: 2022, journal: "New England Journal of Medicine", model: human, verified: false,
+            finding: "Phase 3 trial of once-weekly tirzepatide in adults with obesity."}
+    edges: [{rel: INVESTIGATES, to: "Peptide:Tirzepatide"}]
+  - name: Heffernan 2001 AOD9604 lipid metabolism
+    attrs: {pmid: "11713193", year: 2001, journal: "Endocrinology", model: rodent, verified: false,
+            finding: "Examined hGH and its fragment AOD9604 on lipid metabolism in obese mice."}
+    edges: [{rel: INVESTIGATES, to: "Peptide:AOD-9604"}]
+  - name: Falutz 2007 tesamorelin HIV lipodystrophy
+    attrs: {pmid: "18057338", year: 2007, journal: "New England Journal of Medicine", model: human, verified: false,
+            finding: "Trial of a GHRH analogue (tesamorelin) on visceral adiposity in HIV-infected patients."}
+    edges: [{rel: INVESTIGATES, to: "Peptide:Tesamorelin"}]
+  - name: Anisimov 2003 Epitalon aging mice
+    attrs: {year: 2003, journal: "Biogerontology", model: rodent, verified: false,
+            finding: "Reported effects of Epitalon on aging biomarkers and lifespan in female SHR mice. PMID not recalled — locate before verifying."}
+    edges: [{rel: INVESTIGATES, to: "Peptide:Epithalon"}]
+    confidence: low

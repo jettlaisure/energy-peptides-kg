@@ -1,0 +1,20 @@
+type: Asset
+source: seeds/04_assets.yaml
+confidence: high
+items:
+  - name: assets/logo/energy-peptides-logo.svg
+    attrs: {asset_type: logo, alt_text: "Energy Peptides logo"}
+  - name: assets/img/bpc-157-vial.png
+    attrs: {asset_type: image, alt_text: "BPC-157 lyophilized powder vial, Energy Peptides label"}
+  - name: assets/img/tb-500-vial.png
+    attrs: {asset_type: image, alt_text: "TB-500 lyophilized powder vial, Energy Peptides label"}
+  - name: assets/coa/EP-BPC157-5-L2409.pdf
+    attrs: {asset_type: coa, alt_text: "Certificate of analysis, BPC-157 5mg lot L2409"}
+  - name: assets/coa/EP-BPC157-5-L2603.pdf
+    attrs: {asset_type: coa, alt_text: "Certificate of analysis, BPC-157 5mg lot L2603"}
+  - name: assets/coa/EP-TB500-5-L2602.pdf
+    attrs: {asset_type: coa, alt_text: "Certificate of analysis, TB-500 5mg lot L2602"}
+  - name: assets/coa/EP-BPCTB-10-L2604.pdf
+    attrs: {asset_type: coa, alt_text: "Certificate of analysis, BPC-157 / TB-500 10mg lot L2604"}
+  - name: assets/coa/EP-SEMA-5-L2605.pdf
+    attrs: {asset_type: coa, alt_text: "Certificate of analysis, Semaglutide 5mg lot L2605"}

@@ -1,0 +1,37 @@
+---
+import Base from '../../layouts/Base.astro';
+import ProductGrid from '../../components/ProductGrid.astro';
+import { products, site, compositionClasses } from '../../lib/catalog';
+const supplies = products.filter((p) => p.category === 'accessory');
+const groups = compositionClasses.filter((c) => c.products.some((p) => p.category !== 'accessory'));
+---
+<Base title="Catalog" description={`All ${site.brand} research peptides and laboratory supplies, grouped by composition, tested to a ≥99% purity specification. ${site.compliance_line}.`}>
+  <section class="section container">
+    <div class="section-head">
+      <div><p class="eyebrow">Catalog</p><h1 class="t-section">Browse by composition</h1></div>
+      <p>{products.length} products. Prices per vial; every batch tested to a ≥99% purity specification.</p>
+    </div>
+    <nav class="cluster jump" aria-label="Composition classes">
+      {groups.map((c) => <a class="chip" href={`#${c.slug}`}>{c.name}</a>)}
+      {supplies.length > 0 && <a class="chip" href="#supplies">Laboratory supplies</a>}
+    </nav>
+  </section>
+  {groups.map((c) => (
+    <section class="section container" id={c.slug}>
+      <div class="section-head"><h2 class="t-sub">{c.name}</h2></div>
+      <ProductGrid products={c.products.filter((p) => p.category !== 'accessory')} />
+    </section>
+  ))}
+  {supplies.length > 0 && (
+    <section class="section container" id="supplies">
+      <div class="section-head"><h2 class="t-sub">Laboratory supplies</h2><p>Solvents and consumables for handling and storage in the laboratory.</p></div>
+      <ProductGrid products={supplies} />
+    </section>
+  )}
+</Base>
+<style>
+  .jump { margin-top: var(--s2); }
+  .jump .chip { text-decoration: none; }
+  .jump .chip::before { display: none; }
+  .jump .chip:hover { color: var(--text); border-color: var(--steel); }
+</style>

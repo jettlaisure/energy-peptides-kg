@@ -1,0 +1,29 @@
+{
+  "name": "web",
+  "type": "module",
+  "version": "0.0.1",
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "scripts": {
+    "dev": "wrangler types && astro dev",
+    "build": "npm run catalog && wrangler types && astro build",
+    "preview": "npm run build && wrangler dev",
+    "astro": "astro",
+    "generate-types": "wrangler types",
+    "catalog": "cd .. && uv run kg export --format site --out web/src/data/catalog.json",
+    "deploy": "npm run build && wrangler deploy",
+    "db:migrate:local": "wrangler d1 execute energy-peptides-orders --local --file=./schema.sql",
+    "db:migrate": "wrangler d1 execute energy-peptides-orders --remote --file=./schema.sql",
+    "serve": "wrangler dev --port 8788"
+  },
+  "dependencies": {
+    "@astrojs/cloudflare": "^14.3.1",
+    "@tagadapay/core-js": "^3.2.0",
+    "astro": "^7.3.2",
+    "wrangler": "^4.130.0"
+  },
+  "allowScripts": {
+    "esbuild": true
+  }
+}

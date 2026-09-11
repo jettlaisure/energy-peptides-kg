@@ -1,0 +1,274 @@
+# Energy Peptides knowledge graph — ontology (stage 3). SINGLE SOURCE OF TRUTH.
+# Every extraction prompt embeds this file verbatim; every edge is validated against it.
+# Rules: precise verb names for relations; merge types that are always queried together;
+# add a type or relation ONLY when a competency question (competency_questions.md) needs it.
+version: 1
+
+representation:
+  kind: property-graph-in-sqlite      # typed edges in SQLite; migrate to Kùzu/Neo4j past ~50K nodes
+  provenance: every node and edge carries source, extracted_at, confidence (high|medium|low)
+  time: valid_from / valid_to on nodes and edges; contradictions are kept, newest preferred at read time
+
+canonical_rules:
+  Peptide: "Published code form, uppercase, hyphenated (BPC-157, TB-500, CJC-1295, GHK-Cu); INN names capitalised (Semaglutide)."
+  Compound: "Common chemical name as sold (NAD+, Bacteriostatic water); capitalised first word."
+  Product: "'<Peptide, compound or blend name> <size><unit>' e.g. 'BPC-157 10mg', 'BPC-157 / TB-500 20mg', 'Bacteriostatic water 10ml'."
+  Batch: "The lot number printed on the vial/COA, e.g. EP-BPC157-5-L2409."
+  Supplier: "Legal/trading name as on the invoice."
+  ResearchArea: "Short noun phrase, sentence case: 'Tissue repair and recovery'."
+  Study: "'<First author> <year> <short title>' e.g. 'Chang 2011 BPC 157 tendon healing'."
+  Claim: "Stable id CL-<n>; the statement text lives in attrs.text."
+  ComplianceRule: "Stable id CR-<CODE>."
+  BrandRule: "Stable id BR-<CODE>."
+  Page: "Site path, lowercase, e.g. /products/bpc-157-5mg."
+  FAQItem: "Stable id FAQ-<n>; the question lives in attrs.question."
+  Keyword: "Lowercase search phrase exactly as searched: 'bpc-157 peptide'."
+  Asset: "Repo-relative path or URL of the file."
+  InventoryEvent: "Stable id IE-<n>."
+
+entities:
+  Peptide:
+    desc: A research compound sold by the company (single sequence, not a SKU).
+    examples: [BPC-157, TB-500, GHK-Cu]
+    attrs:
+      sequence: {type: string, note: 'one-letter amino-acid sequence where known'}
+      molecular_formula: {type: string}
+      molecular_weight: {type: number, note: 'g/mol'}
+      cas_number: {type: string}
+      class: {type: string, note: 'e.g. gastric pentadecapeptide, GHRH analog, GLP-1 agonist'}
+      summary: {type: string, note: 'one factual, non-medical sentence'}
+  Compound:
+    desc: A non-peptide research compound or laboratory consumable the company sells (NAD+, bacteriostatic water).
+    examples: [NAD+, Bacteriostatic water]
+    attrs:
+      kind: {type: string, enum: [small molecule, solvent, other]}
+      molecular_formula: {type: string}
+      molecular_weight: {type: number, note: g/mol}
+      cas_number: {type: string}
+      summary: {type: string, note: one factual, non-medical sentence}
+  Product:
+    desc: A sellable SKU. Blends contain several peptides (one CONTAINS edge each).
+    examples: [BPC-157 5mg, CJC-1295 / Ipamorelin 10mg]
+    attrs:
+      sku: {type: string}
+      display_name: {type: string, note: 'name printed on the vial label when it differs from the canonical name (e.g. KLOW); always shown with components and amounts'}
+      category: {type: string, enum: [peptide, compound, accessory]}
+      form: {type: string, enum: [lyophilized powder, solution, capsule, nasal spray]}
+      size_mg: {type: number}
+      size_ml: {type: number, note: for liquids such as bacteriostatic water}
+      vial_ml: {type: number, note: 'vial capacity printed on the label (3 mL)'}
+      vials_per_unit: {type: number, note: 'kits: number of vials sold as one unit (price is per unit)'}
+      pack: {type: string, note: 'human-readable pack, e.g. 2 × 10 mg vials'}
+      price_usd: {type: number}
+      cost_usd: {type: number, internal: true, note: 'unit cost; internal attrs never enter copy-writing contexts (only recipes with include_internal)'}
+      purity_spec: {type: string, note: 'e.g. ">=99% (HPLC)"'}
+      status: {type: string, enum: [active, draft, discontinued, coming_soon]}
+      slug: {type: string}
+      external_id: {type: string, note: 'id of this SKU in the commerce/payment platform (written by kg sync)'}
+      platform: {type: string, note: 'which platform external_id belongs to'}
+  Supplier:
+    desc: Organisation that manufactures or supplies raw peptide.
+    examples: [Supplier A Labs]
+    attrs: {country: {type: string}, contact: {type: string}, notes: {type: string}}
+  Batch:
+    desc: A manufacturing lot of one product, with its own COA, purity and expiry.
+    examples: [EP-BPC157-5-L2409]
+    attrs:
+      manufactured_on: {type: date}
+      expires_on: {type: date}
+      purity_measured: {type: number, note: 'percent from COA'}
+      coa_status: {type: string, enum: [pending, received, published]}
+      unit: {type: string, enum: [vial, kit, bottle]}
+      coa_lab: {type: string, note: 'testing laboratory (Janoshik, Freedom Diagnostics, Testides)'}
+      coa_reference: {type: string, note: 'lab task / accession / report number'}
+      coa_verify_key: {type: string, note: 'public verification key printed on the certificate'}
+      coa_date: {type: date, note: analysis or report date}
+      coa_client: {type: string, note: 'who commissioned the test as printed on the certificate'}
+      identity_method: {type: string, note: 'LC-MS, HPLC-UV, etc.'}
+      content_measured_mg: {type: number, note: net content found by the lab}
+      endotoxin: {type: string}
+      lot_marker: {type: string, note: 'cap colour or other physical marker when no lot number was assigned'}
+      notes: {type: string}
+  ResearchArea:
+    desc: A research theme used for site categories, SEO clusters and product grouping.
+    examples: [Tissue repair and recovery, Growth hormone axis, Metabolic research]
+    attrs: {summary: {type: string}, slug: {type: string}}
+  Study:
+    desc: A published paper or preprint that investigates a peptide. Only verified studies may be cited.
+    examples: [Chang 2011 BPC 157 tendon healing]
+    attrs:
+      pmid: {type: string}
+      doi: {type: string}
+      year: {type: number}
+      journal: {type: string}
+      model: {type: string, enum: [in vitro, rodent, other animal, human, review]}
+      finding: {type: string, note: 'one neutral sentence in the study''s own terms'}
+      verified: {type: boolean, note: 'a human confirmed the citation resolves and the finding is accurate'}
+  Claim:
+    desc: A specific statement the company may (approved) or may not (prohibited) make in copy.
+    examples: [CL-1]
+    attrs:
+      text: {type: string}
+      status: {type: string, enum: [approved, prohibited, pending]}
+      rationale: {type: string}
+      scope: {type: list, note: 'channels where it applies: product_page, faq, blog, email, social, ads'}
+  ComplianceRule:
+    desc: A policy constraint on what the company may publish or sell. Not legal advice; reviewed with counsel.
+    examples: [CR-RUO]
+    attrs:
+      text: {type: string}
+      severity: {type: string, enum: [blocker, major, minor]}
+      scope: {type: list}
+      basis: {type: string}
+  BrandRule:
+    desc: A voice, vocabulary, structure or visual rule for on-brand output.
+    examples: [BR-TONE]
+    attrs:
+      category: {type: string, enum: [tone, vocabulary, structure, formatting, visual, seo]}
+      text: {type: string}
+      do: {type: list}
+      dont: {type: list}
+      scope: {type: list}
+  Page:
+    desc: A page on the website (product, category, FAQ, blog, legal).
+    examples: [/products/bpc-157-5mg]
+    attrs:
+      title: {type: string}
+      page_type: {type: string, enum: [home, product, category, faq, blog, legal, landing]}
+      status: {type: string, enum: [live, draft, planned, retired]}
+      meta_description: {type: string}
+      last_updated: {type: date}
+      file: {type: string, note: 'repo path of the page source'}
+  FAQItem:
+    desc: One question/answer pair, reusable across pages.
+    examples: [FAQ-1]
+    attrs:
+      question: {type: string}
+      answer: {type: string}
+      status: {type: string, enum: [approved, draft]}
+  Keyword:
+    desc: An SEO search phrase the site targets or should target.
+    examples: [bpc-157 peptide]
+    attrs:
+      intent: {type: string, enum: [transactional, informational, navigational]}
+      monthly_volume: {type: number}
+      priority: {type: string, enum: [high, medium, low]}
+  Asset:
+    desc: 'A file: COA PDF, product image, logo, diagram.'
+    examples: [assets/coa/EP-BPC157-5-L2409.pdf]
+    attrs:
+      asset_type: {type: string, enum: [coa, image, logo, diagram, document]}
+      alt_text: {type: string}
+      url: {type: string}
+
+events:
+  InventoryEvent:
+    desc: A stock movement on one batch. First-class node; the arguments are attrs + an AFFECTS edge.
+    trigger: received | sold | reserved | released | adjusted | damaged | expired
+    attrs:
+      kind: {type: string, enum: [received, sold, reserved, released, adjusted, damaged, expired]}
+      quantity: {type: number, note: 'units of the batch; sign is derived from kind except ''adjusted'' which is signed'}
+      occurred_on: {type: date}
+      reference: {type: string, note: 'order id, PO number, or reason'}
+
+relations:
+  CONTAINS:        {domain: [Product], range: [Peptide, Compound], attrs: [amount_mg], note: 'one edge per peptide in a blend'}
+  RESEARCHED_FOR:  {domain: [Peptide, Compound], range: [ResearchArea]}
+  OF_PRODUCT:      {domain: [Batch], range: [Product]}
+  SUPPLIED_BY:     {domain: [Batch], range: [Supplier]}
+  HAS_COA:         {domain: [Batch], range: [Asset]}
+  AFFECTS:         {domain: [InventoryEvent], range: [Batch]}
+  INVESTIGATES:    {domain: [Study], range: [Peptide, Compound]}
+  ABOUT:           {domain: [Claim, FAQItem, Keyword], range: [Peptide, Compound, Product, ResearchArea]}
+  SUPPORTED_BY:    {domain: [Claim, FAQItem], range: [Study]}
+  GOVERNED_BY:     {domain: [Claim], range: [ComplianceRule], note: 'the rule that approves or prohibits the claim'}
+  FEATURES:        {domain: [Page], range: [Product]}
+  COVERS:          {domain: [Page], range: [Peptide, Compound, ResearchArea]}
+  TARGETS:         {domain: [Page], range: [Keyword]}
+  CITES:           {domain: [Page], range: [Study]}
+  USES:            {domain: [Page, Product], range: [Asset]}
+  INCLUDES_FAQ:    {domain: [Page], range: [FAQItem]}
+  BELONGS_TO:      {domain: [Product, Page], range: [ResearchArea]}
+  LINKS_TO:        {domain: [Page], range: [Page], note: 'internal links for SEO'}
+
+# Stage 9 — progressive disclosure. A recipe is the ONLY thing an agent loads for a task:
+# start from a seed entity, follow listed relations in order, add global rules by scope.
+# Nothing outside the recipe enters context. `kg context <recipe> <entity>`.
+recipes:
+  product_page:
+    desc: Everything needed to write or refresh one product page.
+    seed_types: [Product, Peptide, Compound]
+    expand:
+      - {rel: CONTAINS, dir: out, from: Product}
+      - {rel: CONTAINS, dir: in, from: [Peptide, Compound], note: 'sibling products and blends'}
+      - {rel: BELONGS_TO, dir: out, from: Product}
+      - {rel: RESEARCHED_FOR, dir: out, from: [Peptide, Compound]}
+      - {rel: ABOUT, dir: in, from: [Peptide, Compound], type: Claim}
+      - {rel: ABOUT, dir: in, from: Product, type: Claim}
+      - {rel: SUPPORTED_BY, dir: out, from: Claim}
+      - {rel: INVESTIGATES, dir: in, from: [Peptide, Compound], type: Study}
+      - {rel: ABOUT, dir: in, from: [Peptide, Compound], type: FAQItem}
+      - {rel: ABOUT, dir: in, from: Product, type: FAQItem}
+      - {rel: INCLUDES_FAQ, dir: in, from: FAQItem, type: Page}
+      - {rel: ABOUT, dir: in, from: [Peptide, Compound], type: Keyword}
+      - {rel: ABOUT, dir: in, from: Product, type: Keyword}
+      - {rel: OF_PRODUCT, dir: in, from: Product, type: Batch}
+      - {rel: HAS_COA, dir: out, from: Batch}
+      - {rel: USES, dir: out, from: Product}
+      - {rel: FEATURES, dir: in, from: Product, type: Page}
+    global:
+      - {type: ComplianceRule, scope: product_page}
+      - {type: BrandRule, scope: product_page}
+    summaries: [stock]
+  faq_seo:
+    desc: Add or refresh FAQ / SEO content for a peptide, product or research area.
+    seed_types: [Peptide, Compound, Product, ResearchArea]
+    expand:
+      - {rel: CONTAINS, dir: in, from: [Peptide, Compound], type: Product}
+      - {rel: CONTAINS, dir: out, from: Product}
+      - {rel: RESEARCHED_FOR, dir: out, from: [Peptide, Compound]}
+      - {rel: RESEARCHED_FOR, dir: in, from: ResearchArea, type: [Peptide, Compound]}
+      - {rel: ABOUT, dir: in, type: Keyword}
+      - {rel: ABOUT, dir: in, type: FAQItem}
+      - {rel: ABOUT, dir: in, type: Claim}
+      - {rel: SUPPORTED_BY, dir: out, from: Claim}
+      - {rel: INVESTIGATES, dir: in, from: [Peptide, Compound], type: Study}
+      - {rel: COVERS, dir: in, type: Page}
+      - {rel: FEATURES, dir: in, from: Product, type: Page}
+      - {rel: INCLUDES_FAQ, dir: in, from: FAQItem, type: Page}
+      - {rel: TARGETS, dir: out, from: Page}
+      - {rel: INCLUDES_FAQ, dir: out, from: Page}
+    global:
+      - {type: ComplianceRule, scope: faq}
+      - {type: BrandRule, scope: faq}
+      - {type: BrandRule, scope: seo}
+  marketing:
+    desc: On-brand, compliant copy for email / social / ads about a product or research area.
+    seed_types: [Product, Peptide, Compound, ResearchArea]
+    expand:
+      - {rel: CONTAINS, dir: out, from: Product}
+      - {rel: CONTAINS, dir: in, from: [Peptide, Compound], type: Product}
+      - {rel: BELONGS_TO, dir: out, from: Product}
+      - {rel: ABOUT, dir: in, type: Claim}
+      - {rel: SUPPORTED_BY, dir: out, from: Claim}
+      - {rel: FEATURES, dir: in, from: Product, type: Page}
+      - {rel: USES, dir: out, from: Product}
+    global:
+      - {type: ComplianceRule, scope: email}
+      - {type: ComplianceRule, scope: social}
+      - {type: ComplianceRule, scope: ads}
+      - {type: BrandRule, scope: marketing}
+    summaries: [stock]
+  inventory:
+    desc: Stock position, batches, COAs and suppliers for a product.
+    seed_types: [Product, Batch, Supplier]
+    expand:
+      - {rel: OF_PRODUCT, dir: in, from: Product, type: Batch}
+      - {rel: OF_PRODUCT, dir: out, from: Batch}
+      - {rel: SUPPLIED_BY, dir: out, from: Batch}
+      - {rel: SUPPLIED_BY, dir: in, from: Supplier, type: Batch}
+      - {rel: HAS_COA, dir: out, from: Batch}
+      - {rel: AFFECTS, dir: in, from: Batch, type: InventoryEvent}
+    global: []
+    summaries: [stock]
+    include_internal: true   # cost_usd is visible here, and only here

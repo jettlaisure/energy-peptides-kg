@@ -1,0 +1,16 @@
+type: Keyword
+source: seeds/11_keywords.yaml
+confidence: medium
+items:
+  - {name: bpc-157 peptide, attrs: {intent: transactional, priority: high}, edges: [{rel: ABOUT, to: "Peptide:BPC-157"}]}
+  - {name: buy bpc-157, attrs: {intent: transactional, priority: high}, edges: [{rel: ABOUT, to: "Product:BPC-157 5mg"}]}
+  - {name: what is bpc-157, attrs: {intent: informational, priority: medium}, edges: [{rel: ABOUT, to: "Peptide:BPC-157"}]}
+  - {name: tb-500 peptide, attrs: {intent: transactional, priority: high}, edges: [{rel: ABOUT, to: "Peptide:TB-500"}]}
+  - {name: bpc-157 tb-500 blend, attrs: {intent: transactional, priority: high}, edges: [{rel: ABOUT, to: "Product:BPC-157 / TB-500 10mg"}]}
+  - {name: cjc-1295 ipamorelin blend, attrs: {intent: transactional, priority: high}, edges: [{rel: ABOUT, to: "Product:CJC-1295 / Ipamorelin 10mg"}]}
+  - {name: ghk-cu peptide, attrs: {intent: transactional, priority: medium}, edges: [{rel: ABOUT, to: "Peptide:GHK-Cu"}]}
+  - {name: semaglutide research peptide, attrs: {intent: transactional, priority: high}, edges: [{rel: ABOUT, to: "Peptide:Semaglutide"}]}
+  - {name: tirzepatide research peptide, attrs: {intent: transactional, priority: medium}, edges: [{rel: ABOUT, to: "Peptide:Tirzepatide"}]}
+  - {name: epithalon peptide, attrs: {intent: transactional, priority: low}, edges: [{rel: ABOUT, to: "Peptide:Epithalon"}]}
+  - {name: how to store lyophilized peptides, attrs: {intent: informational, priority: medium}, edges: [{rel: ABOUT, to: "ResearchArea:Tissue repair and recovery"}]}
+  - {name: peptide certificate of analysis, attrs: {intent: informational, priority: low}}

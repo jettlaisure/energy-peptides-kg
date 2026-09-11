@@ -1,0 +1,94 @@
+# The claim library. Copy may only use status=approved claims. Prohibited claims are kept so verifiers can
+# match near-paraphrases. Add new claims as 'pending' and approve them by editing status.
+type: Claim
+source: seeds/10_claims.yaml
+confidence: high
+items:
+  - name: CL-1
+    attrs: {status: approved, scope: [product_page, faq, blog], rationale: "Chemical description; no effect claimed.",
+            text: "BPC-157 is a synthetic pentadecapeptide (15 amino acids) whose sequence is derived from a protein found in human gastric juice."}
+    edges: [{rel: ABOUT, to: "Peptide:BPC-157"}, {rel: GOVERNED_BY, to: "ComplianceRule:CR-NO-MEDICAL-CLAIMS"}]
+  - name: CL-2
+    attrs: {status: approved, scope: [product_page, blog, faq], rationale: "Names the model exactly as in Chang 2011 (in vitro, rat tendon fibroblasts); no outcome claimed.",
+            text: "BPC-157 has been examined in preclinical laboratory studies, including studies of cultured rat tendon fibroblasts."}
+    edges: [{rel: ABOUT, to: "Peptide:BPC-157"}, {rel: SUPPORTED_BY, to: "Study:Chang 2011 BPC 157 tendon healing"}, {rel: GOVERNED_BY, to: "ComplianceRule:CR-PRECLINICAL-FRAMING"}]
+  - name: CL-3
+    attrs: {status: prohibited, scope: [all], rationale: "Treatment claim; extrapolates animal data to humans.",
+            text: "BPC-157 heals tendon injuries and speeds up recovery."}
+    edges: [{rel: ABOUT, to: "Peptide:BPC-157"}, {rel: GOVERNED_BY, to: "ComplianceRule:CR-NO-MEDICAL-CLAIMS"}]
+  - name: CL-4
+    attrs: {status: approved, scope: [product_page, faq, blog], rationale: "Chemical description.",
+            text: "TB-500 is a synthetic peptide corresponding to the sequence of thymosin beta-4, a naturally occurring actin-binding protein."}
+    edges: [{rel: ABOUT, to: "Peptide:TB-500"}, {rel: GOVERNED_BY, to: "ComplianceRule:CR-NO-MEDICAL-CLAIMS"}]
+  - name: CL-5
+    attrs: {status: prohibited, scope: [all], rationale: "Testimonial + cosmetic effect claim.",
+            text: "Researchers report improved skin elasticity after using GHK-Cu."}
+    edges: [{rel: ABOUT, to: "Peptide:GHK-Cu"}, {rel: GOVERNED_BY, to: "ComplianceRule:CR-NO-TESTIMONIALS"}, {rel: GOVERNED_BY, to: "ComplianceRule:CR-NO-MEDICAL-CLAIMS"}]
+  - name: CL-6
+    attrs: {status: approved, scope: [product_page, faq, blog], rationale: "Chemical description.",
+            text: "GHK-Cu is a naturally occurring copper-binding tripeptide (glycyl-L-histidyl-L-lysine) found in human plasma."}
+    edges: [{rel: ABOUT, to: "Peptide:GHK-Cu"}, {rel: SUPPORTED_BY, to: "Study:Pickart 2018 GHK-Cu gene data review"}, {rel: GOVERNED_BY, to: "ComplianceRule:CR-NO-MEDICAL-CLAIMS"}]
+  - name: CL-7
+    attrs: {status: approved, scope: [product_page, faq], rationale: "Describes receptor pharmacology and that human trials exist, without outcomes; restates RUO.",
+            text: "Retatrutide is a synthetic peptide that acts at the GIP, GLP-1 and glucagon receptors and has been studied in human clinical trials. Energy Peptides supplies it for laboratory research only."}
+    edges: [{rel: ABOUT, to: "Peptide:Retatrutide"}, {rel: SUPPORTED_BY, to: "Study:Jastreboff 2023 retatrutide phase 2"}, {rel: GOVERNED_BY, to: "ComplianceRule:CR-PRECLINICAL-FRAMING"}]
+  - name: CL-8
+    attrs: {status: prohibited, scope: [all], rationale: "Effect claim, superlative, brand comparison.",
+            text: "Retatrutide is the strongest weight-loss peptide available, stronger than Mounjaro."}
+    edges: [{rel: ABOUT, to: "Peptide:Retatrutide"}, {rel: GOVERNED_BY, to: "ComplianceRule:CR-NO-BRAND-COMPARISON"}, {rel: GOVERNED_BY, to: "ComplianceRule:CR-NO-MEDICAL-CLAIMS"}]
+  - name: CL-9
+    attrs: {status: approved, scope: [product_page, faq, blog], rationale: "Chemical description.",
+            text: "NAD+ (nicotinamide adenine dinucleotide) is a coenzyme present in all living cells."}
+    edges: [{rel: ABOUT, to: "Compound:NAD+"}, {rel: SUPPORTED_BY, to: "Study:Covarrubias 2021 NAD+ metabolism review"}, {rel: GOVERNED_BY, to: "ComplianceRule:CR-NO-MEDICAL-CLAIMS"}]
+  - name: CL-10
+    attrs: {status: prohibited, scope: [all], rationale: "Human health and anti-aging effect claims.",
+            text: "NAD+ boosts your energy levels and slows down aging."}
+    edges: [{rel: ABOUT, to: "Compound:NAD+"}, {rel: GOVERNED_BY, to: "ComplianceRule:CR-NO-MEDICAL-CLAIMS"}]
+  - name: CL-11
+    attrs: {status: approved, scope: [product_page, faq], rationale: "Laboratory-handling description, not human administration.",
+            text: "Bacteriostatic water is sterile water containing 0.9% benzyl alcohol, used in the laboratory to reconstitute lyophilized compounds."}
+    edges: [{rel: ABOUT, to: "Compound:Bacteriostatic water"}, {rel: GOVERNED_BY, to: "ComplianceRule:CR-NO-HUMAN-DOSING"}]
+  - name: CL-12
+    attrs: {status: approved, scope: [product_page, faq, marketing], rationale: "Composition statement from the owner; confirm against the COA.",
+            text: "The BPC-157 / TB-500 blend supplies 10 mg BPC-157 and 10 mg TB-500 together in one 20 mg lyophilized vial."}
+    edges: [{rel: ABOUT, to: "Product:BPC-157 / TB-500 20mg"}, {rel: GOVERNED_BY, to: "ComplianceRule:CR-NO-MEDICAL-CLAIMS"}]
+  - name: CL-13
+    attrs: {status: approved, scope: [product_page, faq], rationale: "Receptor pharmacology and that human trials exist, without outcomes.",
+            text: "Tirzepatide is a synthetic peptide that acts at the GIP and GLP-1 receptors and has been studied in human clinical trials. Energy Peptides supplies it for laboratory research only."}
+    edges: [{rel: ABOUT, to: "Peptide:Tirzepatide"}, {rel: SUPPORTED_BY, to: "Study:Jastreboff 2022 SURMOUNT-1 tirzepatide"}, {rel: GOVERNED_BY, to: "ComplianceRule:CR-PRECLINICAL-FRAMING"}]
+  - name: CL-14
+    attrs: {status: approved, scope: [product_page, faq, blog], rationale: "Chemical description.",
+            text: "KPV is a tripeptide (lysine-proline-valine) corresponding to the C-terminal fragment of α-melanocyte-stimulating hormone."}
+    edges: [{rel: ABOUT, to: "Peptide:KPV"}, {rel: GOVERNED_BY, to: "ComplianceRule:CR-NO-MEDICAL-CLAIMS"}]
+  - name: CL-15
+    attrs: {status: approved, scope: [product_page, faq, blog], rationale: "Literature characterisation; model named in the study node.",
+            text: "Ipamorelin is a synthetic pentapeptide characterised in the literature as a selective growth hormone secretagogue."}
+    edges: [{rel: ABOUT, to: "Peptide:Ipamorelin"}, {rel: SUPPORTED_BY, to: "Study:Raun 1998 ipamorelin secretagogue"}, {rel: GOVERNED_BY, to: "ComplianceRule:CR-PRECLINICAL-FRAMING"}]
+  - name: CL-16
+    attrs: {status: approved, scope: [product_page, faq, blog], rationale: "Chemical description.",
+            text: "Tesamorelin is a synthetic analogue of growth hormone-releasing hormone (GHRH 1-44)."}
+    edges: [{rel: ABOUT, to: "Peptide:Tesamorelin"}, {rel: GOVERNED_BY, to: "ComplianceRule:CR-NO-MEDICAL-CLAIMS"}]
+  - name: CL-17
+    attrs: {status: approved, scope: [product_page, faq, blog], rationale: "Chemical description with model named.",
+            text: "MOTS-c is a 16-amino-acid peptide encoded within the mitochondrial 12S rRNA gene; it has been studied in mouse metabolic models."}
+    edges: [{rel: ABOUT, to: "Peptide:MOTS-c"}, {rel: SUPPORTED_BY, to: "Study:Lee 2015 MOTS-c metabolic homeostasis"}, {rel: GOVERNED_BY, to: "ComplianceRule:CR-PRECLINICAL-FRAMING"}]
+  - name: CL-18
+    attrs: {status: approved, scope: [product_page, faq, blog], rationale: "Chemical description.",
+            text: "SS-31 (elamipretide) is a synthetic aromatic-cationic tetrapeptide that localises to the inner mitochondrial membrane."}
+    edges: [{rel: ABOUT, to: "Peptide:SS-31"}, {rel: SUPPORTED_BY, to: "Study:Szeto 2014 SS-31 cardiolipin review"}, {rel: GOVERNED_BY, to: "ComplianceRule:CR-NO-MEDICAL-CLAIMS"}]
+  - name: CL-19
+    attrs: {status: approved, scope: [product_page, faq, blog], rationale: "Chemical description; no effect named.",
+            text: "Melanotan II is a synthetic cyclic heptapeptide analogue of α-melanocyte-stimulating hormone (α-MSH)."}
+    edges: [{rel: ABOUT, to: "Peptide:Melanotan II"}, {rel: GOVERNED_BY, to: "ComplianceRule:CR-NO-MEDICAL-CLAIMS"}]
+  - name: CL-20
+    attrs: {status: prohibited, scope: [all], rationale: "Names a human cosmetic effect.",
+            text: "Melanotan II gives you a tan without the sun."}
+    edges: [{rel: ABOUT, to: "Peptide:Melanotan II"}, {rel: GOVERNED_BY, to: "ComplianceRule:CR-NO-MEDICAL-CLAIMS"}]
+  - name: CL-21
+    attrs: {status: approved, scope: [product_page, faq, blog], rationale: "Chemical description; no effect named.",
+            text: "Melanotan I (afamelanotide) is a synthetic linear 13-amino-acid analogue of α-melanocyte-stimulating hormone (α-MSH)."}
+    edges: [{rel: ABOUT, to: "Peptide:Melanotan I"}, {rel: GOVERNED_BY, to: "ComplianceRule:CR-NO-MEDICAL-CLAIMS"}]
+  - name: CL-22
+    attrs: {status: approved, scope: [product_page, faq], rationale: "Composition statement from the owner; confirm against the COA.",
+            text: "KLOW is a four-peptide blend supplying 50 mg GHK-Cu, 10 mg BPC-157, 10 mg TB-500 and 10 mg KPV together in one 80 mg lyophilized vial."}
+    edges: [{rel: ABOUT, to: "Product:BPC-157 / TB-500 / KPV / GHK-Cu 80mg"}, {rel: GOVERNED_BY, to: "ComplianceRule:CR-NO-MEDICAL-CLAIMS"}]

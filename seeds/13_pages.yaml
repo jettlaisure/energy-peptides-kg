@@ -1,0 +1,362 @@
+# Planned sitemap for the custom site. Product pages render from the graph; a Page node adds title/meta overrides and FAQ links.
+type: Page
+source: seeds/13_pages.yaml
+confidence: high
+items:
+- name: /
+  attrs:
+    title: Energy Peptides — research peptides with published COAs
+    page_type: home
+    status: planned
+  edges:
+  - rel: USES
+    to: Asset:assets/logo/energy-peptides-logo.svg
+  - rel: LINKS_TO
+    to: Page:/faq
+- name: /products/retatrutide-20mg
+  attrs:
+    title: Retatrutide 20mg | Energy Peptides
+    page_type: product
+    status: planned
+  edges:
+  - rel: FEATURES
+    to: Product:Retatrutide 20mg
+  - rel: COVERS
+    to: Peptide:Retatrutide
+  - rel: BELONGS_TO
+    to: ResearchArea:Metabolic research
+  - rel: TARGETS
+    to: Keyword:retatrutide research peptide
+  - rel: TARGETS
+    to: Keyword:buy retatrutide 20mg
+  - rel: INCLUDES_FAQ
+    to: FAQItem:FAQ-9
+- name: /products/bpc-157-10mg
+  attrs:
+    title: BPC-157 10mg | Energy Peptides
+    page_type: product
+    status: planned
+  edges:
+  - rel: FEATURES
+    to: Product:BPC-157 10mg
+  - rel: COVERS
+    to: Peptide:BPC-157
+  - rel: BELONGS_TO
+    to: ResearchArea:Tissue repair and recovery
+  - rel: TARGETS
+    to: Keyword:bpc-157 peptide
+  - rel: TARGETS
+    to: Keyword:bpc-157 10mg
+  - rel: INCLUDES_FAQ
+    to: FAQItem:FAQ-1
+  - rel: INCLUDES_FAQ
+    to: FAQItem:FAQ-4
+  - rel: LINKS_TO
+    to: Page:/products/bpc-157-tb-500-20mg
+- name: /products/bpc-157-tb-500-20mg
+  attrs:
+    title: BPC-157 / TB-500 20mg blend | Energy Peptides
+    page_type: product
+    status: planned
+    meta_description: BPC-157 / TB-500 20 mg lyophilized blend, 10 mg of each peptide per vial, with a per-lot certificate of analysis. For Research Use Only — Not
+      for Human Consumption.
+  edges:
+  - rel: FEATURES
+    to: Product:BPC-157 / TB-500 20mg
+  - rel: COVERS
+    to: Peptide:BPC-157
+  - rel: COVERS
+    to: Peptide:TB-500
+  - rel: BELONGS_TO
+    to: ResearchArea:Tissue repair and recovery
+  - rel: TARGETS
+    to: Keyword:wolverine peptide blend
+  - rel: TARGETS
+    to: Keyword:bpc-157 tb-500 blend
+  - rel: INCLUDES_FAQ
+    to: FAQItem:FAQ-7
+  - rel: INCLUDES_FAQ
+    to: FAQItem:FAQ-5
+  - rel: LINKS_TO
+    to: Page:/products/bpc-157-10mg
+- name: /products/ghk-cu-50mg
+  attrs:
+    title: GHK-Cu 50mg | Energy Peptides
+    page_type: product
+    status: planned
+  edges:
+  - rel: FEATURES
+    to: Product:GHK-Cu 50mg
+  - rel: COVERS
+    to: Peptide:GHK-Cu
+  - rel: BELONGS_TO
+    to: ResearchArea:Skin and cosmetic research
+  - rel: TARGETS
+    to: Keyword:ghk-cu peptide
+  - rel: LINKS_TO
+    to: Page:/products/ghk-cu-100mg
+- name: /products/ghk-cu-100mg
+  attrs:
+    title: GHK-Cu 100mg | Energy Peptides
+    page_type: product
+    status: planned
+  edges:
+  - rel: FEATURES
+    to: Product:GHK-Cu 100mg
+  - rel: COVERS
+    to: Peptide:GHK-Cu
+  - rel: BELONGS_TO
+    to: ResearchArea:Skin and cosmetic research
+  - rel: TARGETS
+    to: Keyword:ghk-cu 100mg
+  - rel: LINKS_TO
+    to: Page:/products/ghk-cu-50mg
+- name: /products/nad-plus-500mg
+  attrs:
+    title: NAD+ 500mg | Energy Peptides
+    page_type: product
+    status: planned
+  edges:
+  - rel: FEATURES
+    to: Product:NAD+ 500mg
+  - rel: COVERS
+    to: Compound:NAD+
+  - rel: BELONGS_TO
+    to: ResearchArea:Longevity and aging research
+- name: /products/bacteriostatic-water-10ml
+  attrs:
+    title: Bacteriostatic water 10ml | Energy Peptides
+    page_type: product
+    status: planned
+  edges:
+  - rel: FEATURES
+    to: Product:Bacteriostatic water 10ml
+  - rel: COVERS
+    to: Compound:Bacteriostatic water
+  - rel: TARGETS
+    to: Keyword:bacteriostatic water 10ml
+  - rel: INCLUDES_FAQ
+    to: FAQItem:FAQ-8
+- name: /faq
+  attrs:
+    title: FAQ | Energy Peptides
+    page_type: faq
+    status: planned
+  edges:
+  - rel: INCLUDES_FAQ
+    to: FAQItem:FAQ-1
+  - rel: INCLUDES_FAQ
+    to: FAQItem:FAQ-2
+  - rel: INCLUDES_FAQ
+    to: FAQItem:FAQ-3
+  - rel: INCLUDES_FAQ
+    to: FAQItem:FAQ-4
+  - rel: INCLUDES_FAQ
+    to: FAQItem:FAQ-5
+  - rel: INCLUDES_FAQ
+    to: FAQItem:FAQ-6
+  - rel: INCLUDES_FAQ
+    to: FAQItem:FAQ-7
+  - rel: INCLUDES_FAQ
+    to: FAQItem:FAQ-8
+  - rel: TARGETS
+    to: Keyword:how to store lyophilized peptides
+  - rel: TARGETS
+    to: Keyword:peptide certificate of analysis
+- name: /legal/research-use-only
+  attrs:
+    title: Research use only policy | Energy Peptides
+    page_type: legal
+    status: planned
+- name: /products/retatrutide-10mg
+  attrs:
+    title: Retatrutide 10mg | Energy Peptides
+    page_type: product
+    status: planned
+  edges:
+  - rel: FEATURES
+    to: Product:Retatrutide 10mg
+  - rel: COVERS
+    to: Peptide:Retatrutide
+  - rel: BELONGS_TO
+    to: ResearchArea:Metabolic research
+- name: /products/retatrutide-30mg
+  attrs:
+    title: Retatrutide 30mg | Energy Peptides
+    page_type: product
+    status: planned
+  edges:
+  - rel: FEATURES
+    to: Product:Retatrutide 30mg
+  - rel: COVERS
+    to: Peptide:Retatrutide
+  - rel: BELONGS_TO
+    to: ResearchArea:Metabolic research
+- name: /products/tirzepatide-10mg
+  attrs:
+    title: Tirzepatide 10mg | Energy Peptides
+    page_type: product
+    status: planned
+  edges:
+  - rel: FEATURES
+    to: Product:Tirzepatide 10mg
+  - rel: COVERS
+    to: Peptide:Tirzepatide
+  - rel: BELONGS_TO
+    to: ResearchArea:Metabolic research
+- name: /products/tirzepatide-15mg
+  attrs:
+    title: Tirzepatide 15mg | Energy Peptides
+    page_type: product
+    status: planned
+  edges:
+  - rel: FEATURES
+    to: Product:Tirzepatide 15mg
+  - rel: COVERS
+    to: Peptide:Tirzepatide
+  - rel: BELONGS_TO
+    to: ResearchArea:Metabolic research
+- name: /products/tirzepatide-20mg
+  attrs:
+    title: Tirzepatide 20mg | Energy Peptides
+    page_type: product
+    status: planned
+  edges:
+  - rel: FEATURES
+    to: Product:Tirzepatide 20mg
+  - rel: COVERS
+    to: Peptide:Tirzepatide
+  - rel: BELONGS_TO
+    to: ResearchArea:Metabolic research
+- name: /products/tirzepatide-30mg
+  attrs:
+    title: Tirzepatide 30mg | Energy Peptides
+    page_type: product
+    status: planned
+  edges:
+  - rel: FEATURES
+    to: Product:Tirzepatide 30mg
+  - rel: COVERS
+    to: Peptide:Tirzepatide
+  - rel: BELONGS_TO
+    to: ResearchArea:Metabolic research
+- name: /products/bpc-157-tb-500-20mg
+  attrs:
+    title: BPC-157 / TB-500 20mg | Energy Peptides
+    page_type: product
+    status: planned
+  edges:
+  - rel: FEATURES
+    to: Product:BPC-157 / TB-500 20mg
+  - rel: COVERS
+    to: Peptide:BPC-157
+  - rel: COVERS
+    to: Peptide:TB-500
+  - rel: BELONGS_TO
+    to: ResearchArea:Tissue repair and recovery
+- name: /products/klow-80mg
+  attrs:
+    title: KLOW 80mg — BPC-157 / TB-500 / KPV / GHK-Cu | Energy Peptides
+    page_type: product
+    status: planned
+    meta_description: 'KLOW 80 mg lyophilized blend: GHK-Cu 50 mg, BPC-157 10 mg, TB-500 10 mg, KPV 10 mg per vial. Tested to a ≥99% purity specification. For Research
+      Use Only.'
+  edges:
+  - rel: FEATURES
+    to: Product:BPC-157 / TB-500 / KPV / GHK-Cu 80mg
+  - rel: COVERS
+    to: Peptide:BPC-157
+  - rel: COVERS
+    to: Peptide:TB-500
+  - rel: COVERS
+    to: Peptide:KPV
+  - rel: COVERS
+    to: Peptide:GHK-Cu
+  - rel: BELONGS_TO
+    to: ResearchArea:Tissue repair and recovery
+  - rel: TARGETS
+    to: Keyword:klow peptide blend
+- name: /products/kpv-10mg
+  attrs:
+    title: KPV 10mg | Energy Peptides
+    page_type: product
+    status: planned
+  edges:
+  - rel: FEATURES
+    to: Product:KPV 10mg
+  - rel: COVERS
+    to: Peptide:KPV
+  - rel: BELONGS_TO
+    to: ResearchArea:Inflammation research
+- name: /products/ipamorelin-10mg
+  attrs:
+    title: Ipamorelin 10mg | Energy Peptides
+    page_type: product
+    status: planned
+  edges:
+  - rel: FEATURES
+    to: Product:Ipamorelin 10mg
+  - rel: COVERS
+    to: Peptide:Ipamorelin
+  - rel: BELONGS_TO
+    to: ResearchArea:Growth hormone axis
+- name: /products/tesamorelin-20mg
+  attrs:
+    title: Tesamorelin 20mg | Energy Peptides
+    page_type: product
+    status: planned
+  edges:
+  - rel: FEATURES
+    to: Product:Tesamorelin 20mg
+  - rel: COVERS
+    to: Peptide:Tesamorelin
+  - rel: BELONGS_TO
+    to: ResearchArea:Growth hormone axis
+- name: /products/mots-c-10mg
+  attrs:
+    title: MOTS-c 10mg | Energy Peptides
+    page_type: product
+    status: planned
+  edges:
+  - rel: FEATURES
+    to: Product:MOTS-c 10mg
+  - rel: COVERS
+    to: Peptide:MOTS-c
+  - rel: BELONGS_TO
+    to: ResearchArea:Mitochondrial research
+- name: /products/ss-31-30mg
+  attrs:
+    title: SS-31 30mg | Energy Peptides
+    page_type: product
+    status: planned
+  edges:
+  - rel: FEATURES
+    to: Product:SS-31 30mg
+  - rel: COVERS
+    to: Peptide:SS-31
+  - rel: BELONGS_TO
+    to: ResearchArea:Mitochondrial research
+- name: /products/melanotan-ii-10mg
+  attrs:
+    title: Melanotan II 10mg | Energy Peptides
+    page_type: product
+    status: planned
+  edges:
+  - rel: FEATURES
+    to: Product:Melanotan II 10mg
+  - rel: COVERS
+    to: Peptide:Melanotan II
+  - rel: BELONGS_TO
+    to: ResearchArea:Melanocortin research
+- name: /products/melanotan-i-10mg
+  attrs:
+    title: Melanotan I 10mg | Energy Peptides
+    page_type: product
+    status: planned
+  edges:
+  - rel: FEATURES
+    to: Product:Melanotan I 10mg
+  - rel: COVERS
+    to: Peptide:Melanotan I
+  - rel: BELONGS_TO
+    to: ResearchArea:Melanocortin research
