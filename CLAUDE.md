@@ -29,6 +29,13 @@ This repo is the company's memory and its playbook. Read this file, then use the
 ## Skills (each executes a task graph in `taskgraphs/`)
 `/new-product-page`, `/faq-seo-addition`, `/marketing-copy`, `/inventory`, `/kg-query`.
 
+## Version control
+- Private repo: https://github.com/jettlaisure/energy-peptides-kg (branch `main`). This laptop is not the only copy anymore.
+- After any change that passes `kg ingest` + `kg validate` (and tests, for code), commit with a plain-English message
+  saying what changed and why (e.g. "Price: BPC-157 10mg 59 → 61, per Jett") and push. One logical change per commit.
+- Never commit `web/.dev.vars`, `.env` files or any key/secret; `git diff --cached` before committing if unsure.
+- The repo is private and holds costs, confidential price lists and third-party COAs: never make it public.
+
 ## Non-negotiables
 - Schema is `ontology.yaml`. Add types/relations only when `competency_questions.md` needs them.
 - Knowledge changes go through `seeds/*.yaml` → `kg ingest` → `kg validate`. Never write the DB by hand.
