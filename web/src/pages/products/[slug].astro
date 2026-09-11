@@ -32,6 +32,9 @@ for (const c of p.components) {
 }
 if (p.size_ml) specRows.push(['Volume', `${p.size_ml} ml`, true]);
 specRows.push(['Form', p.form ?? '', false]);
+const look = [...new Set(p.components.map((c) => c.appearance).filter(Boolean))];
+if (look.length) specRows.push(['Appearance', look.join('; '), false]);
+if (p.vial_ml) specRows.push(['Vial', `${p.vial_ml} mL ${p.vial_glass === 'amber' ? 'amber' : 'clear'} glass`, false]);
 if (p.purity_spec) specRows.push(['Purity specification', p.purity_spec.replace('>=', '≥'), true]);
 specRows.push(['SKU', p.sku, false]);
 const unverified = p.components.some((c) => c.confidence !== 'high');

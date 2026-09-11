@@ -8,6 +8,17 @@ from playwright.sync_api import sync_playwright
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 FORMATS = {"square": (1600, 1600), "portrait": (1600, 2000)}
 
+GHK_BLUE = (0x3F, 0x6F, 0xC4)    # copper-peptide blue of GHK-Cu lyophilized powder
+WHITE = (0xFB, 0xFB, 0xF9)
+
+def cake_colour(comps):
+    """Blend the cake colour by each component's share of the fill; blue compounds tint strongly."""
+    total = sum(m or 0 for _, m in comps) or 1
+    blue = sum((m or 0) for a, m in comps if "blue" in (a.get("appearance") or "")) / total
+    if not comps or blue == 0: return "FBFBF9"
+    k = min(1.0, blue ** 0.5)       # copper colour dominates even as a partial share
+    return "".join(f"{round(w + (b - w) * k):02X}" for w, b in zip(WHITE, GHK_BLUE))
+
 def products():
     db = sqlite3.connect(ROOT / "data" / "graph.db"); db.row_factory = sqlite3.Row
     out = []
@@ -16,7 +27,10 @@ def products():
         for e in db.execute("SELECT dst FROM edges WHERE src=? AND rel='USES'", (p["id"],)):
             asset = db.execute("SELECT name FROM nodes WHERE id=?", (e["dst"],)).fetchone()["name"]
             if asset.startswith("inbox/labels/"):
-                out.append({"slug": a["slug"], "label": asset, "vial": a.get("vial_ml", 3), "status": a.get("status")})
+                comps = [(json.loads(db.execute("SELECT attrs FROM nodes WHERE id=?", (c["dst"],)).fetchone()["attrs"]), json.loads(c["attrs"]).get("amount_mg"))
+                         for c in db.execute("SELECT dst, attrs FROM edges WHERE src=? AND rel='CONTAINS'", (p["id"],))]
+                out.append({"slug": a["slug"], "label": asset, "vial": a.get("vial_ml", 3), "status": a.get("status"),
+                            "glass": a.get("vial_glass", "clear"), "cake": cake_colour(comps)})
     return sorted(out, key=lambda x: x["slug"])
 
 def main():
@@ -38,7 +52,7 @@ def main():
             for fmt, (w, h) in FORMATS.items():
                 W, H = int(w * a.scale), int(h * a.scale)
                 page.set_viewport_size({"width": W, "height": H})
-                page.goto(f"https://render.local/render/scene.html?label=/{p['label']}&vial={p['vial']}&w={W}&h={H}&bg={a.bg}")
+                page.goto(f"https://render.local/render/scene.html?label=/{p['label']}&vial={p['vial']}&w={W}&h={H}&bg={a.bg}&glass={p['glass']}&cake={p['cake']}")
                 page.wait_for_function("window.__done === true", timeout=120000)
                 data = page.evaluate("window.__png").split(",", 1)[1]
                 (outdir / f"{p['slug']}-{fmt}.png").write_bytes(base64.b64decode(data))

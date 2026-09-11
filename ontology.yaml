@@ -37,6 +37,7 @@ entities:
       cas_number: {type: string}
       class: {type: string, note: 'e.g. gastric pentadecapeptide, GHRH analog, GLP-1 agonist'}
       summary: {type: string, note: 'one factual, non-medical sentence'}
+      appearance: {type: string, note: 'as supplied, e.g. white lyophilized powder (COA) or blue lyophilized powder'}
   Compound:
     desc: A non-peptide research compound or laboratory consumable the company sells (NAD+, bacteriostatic water).
     examples: [NAD+, Bacteriostatic water]
@@ -46,6 +47,7 @@ entities:
       molecular_weight: {type: number, note: g/mol}
       cas_number: {type: string}
       summary: {type: string, note: one factual, non-medical sentence}
+      appearance: {type: string, note: 'as supplied'}
   Product:
     desc: A sellable SKU. Blends contain several peptides (one CONTAINS edge each).
     examples: [BPC-157 5mg, CJC-1295 / Ipamorelin 10mg]
@@ -57,6 +59,7 @@ entities:
       size_mg: {type: number}
       size_ml: {type: number, note: for liquids such as bacteriostatic water}
       vial_ml: {type: number, note: 'vial capacity printed on the label (3 mL)'}
+      vial_glass: {type: string, enum: [clear, amber], note: 'glass of the vial; renders and spec table read it'}
       vials_per_unit: {type: number, note: 'kits: number of vials sold as one unit (price is per unit)'}
       pack: {type: string, note: 'human-readable pack, e.g. 2 × 10 mg vials'}
       price_usd: {type: number}

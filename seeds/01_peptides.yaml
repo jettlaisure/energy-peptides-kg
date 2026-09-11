@@ -1,5 +1,6 @@
 # Chemistry checked 2026-09-10 against PubChem, the FDA substance registry and certificate mass-spectrometry peaks;
 # approved by Jett the same day. New peptides enter at confidence medium until checked and approved the same way.
+# appearance: GHK-Cu blue per Jett (2026-09-11); white per the COAs (Retatrutide, Tirzepatide, KPV, BPC-157/TB-500).
 type: Peptide
 source: PubChem / FDA GSRS / certificate MS check 2026-09-10, approved by Jett
 confidence: high
@@ -17,6 +18,7 @@ items:
     cas_number: 137525-51-0
     class: gastric pentadecapeptide
     summary: Synthetic 15-amino-acid peptide whose sequence is derived from a protein found in human gastric juice.
+    appearance: white lyophilized powder
   edges:
   - rel: RESEARCHED_FOR
     to: ResearchArea:Tissue repair and recovery
@@ -34,6 +36,7 @@ items:
     class: thymosin beta-4 analogue
     summary: Synthetic peptide corresponding to the full 43-amino-acid sequence of thymosin beta-4, a naturally occurring actin-binding protein.
     molecular_formula: C212H350N56O78S
+    appearance: white lyophilized powder
   edges:
   - rel: RESEARCHED_FOR
     to: ResearchArea:Tissue repair and recovery
@@ -51,6 +54,7 @@ items:
     class: copper-binding tripeptide
     summary: Naturally occurring copper-binding tripeptide (glycyl-L-histidyl-L-lysine) found in human plasma.
     molecular_formula: C14H23CuN6O4
+    appearance: blue lyophilized powder
   edges:
   - rel: RESEARCHED_FOR
     to: ResearchArea:Skin and cosmetic research
@@ -65,6 +69,7 @@ items:
     cas_number: 2381089-83-2
     class: GIP / GLP-1 / glucagon triple receptor agonist
     summary: Synthetic peptide that acts as an agonist at the GIP, GLP-1 and glucagon receptors, studied in metabolic research.
+    appearance: white lyophilized powder
   edges:
   - rel: RESEARCHED_FOR
     to: ResearchArea:Metabolic research
@@ -78,6 +83,7 @@ items:
     class: GIP / GLP-1 dual receptor agonist
     summary: Synthetic peptide that acts as an agonist at the GIP and GLP-1 receptors, studied in metabolic research.
     molecular_formula: C225H348N48O68
+    appearance: white lyophilized powder
   edges:
   - rel: RESEARCHED_FOR
     to: ResearchArea:Metabolic research
@@ -94,6 +100,7 @@ items:
       models.
     cas_number: 67727-97-3
     molecular_formula: C16H30N4O4
+    appearance: white lyophilized powder
   edges:
   - rel: RESEARCHED_FOR
     to: ResearchArea:Inflammation research

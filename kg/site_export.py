@@ -39,7 +39,7 @@ def build(store: Store) -> dict:
             c = store.get(e["dst"])
             comps.append({"name": c["name"], "type": c["type"], "aliases": c["aliases"], "confidence": c["confidence"],
                           "amount_mg": e["attrs"].get("amount_mg"),
-                          **_node_public(c, ("summary", "class", "kind", "sequence", "molecular_formula", "molecular_weight", "cas_number"))})
+                          **_node_public(c, ("summary", "class", "kind", "sequence", "molecular_formula", "molecular_weight", "cas_number", "appearance"))})
         comps.sort(key=lambda c: (p["name"].find(c["name"]) if c["name"] in p["name"] else 10**6))
         comp_ids = {store.get(e["dst"])["id"] for e in store.edges(p["id"], "CONTAINS", "out")}
         claims, studies, faq_ids = [], [], set()
@@ -89,7 +89,7 @@ def build(store: Store) -> dict:
             "composition_class": comp_class, "composition_slug": comp_slug,
             "sku": a["sku"], "name": p["name"], "display_name": a.get("display_name"), "slug": a.get("slug"), "aliases": [x for x in p["aliases"] if len(x) > 4],
             "category": a.get("category"), "form": a.get("form"), "size_mg": a.get("size_mg"), "size_ml": a.get("size_ml"),
-            "price_usd": a.get("price_usd"), "purity_spec": a.get("purity_spec"), "status": a.get("status"), "vial_ml": a.get("vial_ml"),
+            "price_usd": a.get("price_usd"), "purity_spec": a.get("purity_spec"), "status": a.get("status"), "vial_ml": a.get("vial_ml"), "vial_glass": a.get("vial_glass"),
             "in_stock": on_hand > 0 and a.get("status") == "active", "on_hand": on_hand,
             "components": comps, "research_area": {"name": area["name"], "slug": area["slug"]} if area else None,
             "claims": claims, "studies": studies, "faqs": [faq_all[i] for i in sorted(faq_ids)],

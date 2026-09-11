@@ -9,6 +9,7 @@
 # cost_usd is internal: never enters copy contexts or the site.
 # purity_spec is the specification (Jett, 2026-09-10); the site shows only the per-lot COA figure.
 # Labels v2 (Jett, 2026-09-11): layout change on all 22; NAD+ label reads 'NAD+ (BUFFERED)' on a 5 mL vial.
+# vial_glass: NAD+ 500mg ships in amber glass (Jett, 2026-09-11); all other vials clear.
 type: Product
 source: inbox/product-list-full.pdf (2026-09-10) + inbox/Energy-inventory-2026-09-09.numbers
 confidence: high
@@ -26,6 +27,7 @@ items:
     slug: retatrutide-10mg
     purity_spec: '>=99% (HPLC)'
     vial_ml: 3
+    vial_glass: clear
   edges:
   - rel: CONTAINS
     to: Peptide:Retatrutide
@@ -49,6 +51,7 @@ items:
     slug: retatrutide-20mg
     purity_spec: '>=99% (HPLC)'
     vial_ml: 3
+    vial_glass: clear
   edges:
   - rel: CONTAINS
     to: Peptide:Retatrutide
@@ -74,6 +77,7 @@ items:
     slug: retatrutide-30mg
     purity_spec: '>=99% (HPLC)'
     vial_ml: 3
+    vial_glass: clear
   edges:
   - rel: CONTAINS
     to: Peptide:Retatrutide
@@ -97,6 +101,7 @@ items:
     slug: tirzepatide-10mg
     purity_spec: '>=99% (HPLC)'
     vial_ml: 3
+    vial_glass: clear
   edges:
   - rel: CONTAINS
     to: Peptide:Tirzepatide
@@ -120,6 +125,7 @@ items:
     slug: tirzepatide-15mg
     purity_spec: '>=99% (HPLC)'
     vial_ml: 3
+    vial_glass: clear
   edges:
   - rel: CONTAINS
     to: Peptide:Tirzepatide
@@ -143,6 +149,7 @@ items:
     slug: tirzepatide-20mg
     purity_spec: '>=99% (HPLC)'
     vial_ml: 3
+    vial_glass: clear
   edges:
   - rel: CONTAINS
     to: Peptide:Tirzepatide
@@ -166,6 +173,7 @@ items:
     slug: tirzepatide-30mg
     purity_spec: '>=99% (HPLC)'
     vial_ml: 3
+    vial_glass: clear
   edges:
   - rel: CONTAINS
     to: Peptide:Tirzepatide
@@ -189,6 +197,7 @@ items:
     slug: bpc-157-10mg
     purity_spec: '>=99% (HPLC)'
     vial_ml: 3
+    vial_glass: clear
   edges:
   - rel: CONTAINS
     to: Peptide:BPC-157
@@ -214,6 +223,7 @@ items:
     slug: bpc-157-tb-500-20mg
     purity_spec: '>=99% (HPLC)'
     vial_ml: 3
+    vial_glass: clear
   edges:
   - rel: CONTAINS
     to: Peptide:BPC-157
@@ -248,6 +258,7 @@ items:
     purity_spec: '>=99% (HPLC)'
     vial_ml: 3
     display_name: KLOW
+    vial_glass: clear
   edges:
   - rel: CONTAINS
     to: Peptide:BPC-157
@@ -294,6 +305,7 @@ items:
     slug: kpv-10mg
     purity_spec: '>=99% (HPLC)'
     vial_ml: 3
+    vial_glass: clear
   edges:
   - rel: CONTAINS
     to: Peptide:KPV
@@ -317,6 +329,7 @@ items:
     slug: ghk-cu-50mg
     purity_spec: '>=99% (HPLC)'
     vial_ml: 3
+    vial_glass: clear
   edges:
   - rel: CONTAINS
     to: Peptide:GHK-Cu
@@ -342,6 +355,7 @@ items:
     slug: ghk-cu-100mg
     purity_spec: '>=99% (HPLC)'
     vial_ml: 3
+    vial_glass: clear
   edges:
   - rel: CONTAINS
     to: Peptide:GHK-Cu
@@ -367,6 +381,7 @@ items:
     slug: ipamorelin-10mg
     purity_spec: '>=99% (HPLC)'
     vial_ml: 3
+    vial_glass: clear
   edges:
   - rel: CONTAINS
     to: Peptide:Ipamorelin
@@ -390,6 +405,7 @@ items:
     slug: tesamorelin-20mg
     purity_spec: '>=99% (HPLC)'
     vial_ml: 3
+    vial_glass: clear
   edges:
   - rel: CONTAINS
     to: Peptide:Tesamorelin
@@ -415,6 +431,7 @@ items:
     slug: mots-c-10mg
     purity_spec: '>=99% (HPLC)'
     vial_ml: 3
+    vial_glass: clear
   edges:
   - rel: CONTAINS
     to: Peptide:MOTS-c
@@ -438,6 +455,7 @@ items:
     slug: ss-31-30mg
     purity_spec: '>=99% (HPLC)'
     vial_ml: 3
+    vial_glass: clear
   edges:
   - rel: CONTAINS
     to: Peptide:SS-31
@@ -464,6 +482,7 @@ items:
     slug: melanotan-ii-10mg
     purity_spec: '>=99% (HPLC)'
     vial_ml: 3
+    vial_glass: clear
   edges:
   - rel: CONTAINS
     to: Peptide:Melanotan II
@@ -489,6 +508,7 @@ items:
     slug: melanotan-i-10mg
     purity_spec: '>=99% (HPLC)'
     vial_ml: 3
+    vial_glass: clear
   edges:
   - rel: CONTAINS
     to: Peptide:Melanotan I
@@ -515,6 +535,7 @@ items:
     purity_spec: '>=99% (HPLC)'
     vial_ml: 5
     display_name: NAD+ (buffered)
+    vial_glass: amber
   edges:
   - rel: CONTAINS
     to: Compound:NAD+
@@ -558,6 +579,7 @@ items:
     slug: retatrutide-15mg
     purity_spec: '>=99% (HPLC)'
     vial_ml: 3
+    vial_glass: clear
   edges:
   - rel: CONTAINS
     to: Peptide:Retatrutide
@@ -583,6 +605,7 @@ items:
     slug: glow-70mg
     purity_spec: '>=99% (HPLC)'
     vial_ml: 3
+    vial_glass: clear
   edges:
   - rel: USES
     to: Asset:inbox/labels/GLOW-70mg_label.png
