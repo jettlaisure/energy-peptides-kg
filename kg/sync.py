@@ -192,7 +192,9 @@ class KashuAdapter:
     @staticmethod
     def title(it: CatalogItem) -> str:
         disp = it.extra.get("display_name")
-        return f"{disp} {it.variant} ({it.family})" if disp else it.name   # e.g. "KLOW 80mg (BPC-157 / GHK-Cu / KPV / TB-500)"
+        if not disp:
+            return it.name
+        return f"{disp} {it.variant} ({it.family})" if " / " in it.family else f"{disp} {it.variant}"   # "KLOW 80mg (BPC-157 / …)", "NAD+ (buffered) 500mg"
 
     def project(self, it: CatalogItem) -> CatalogItem:
         """Local item as Kashu would hold it."""

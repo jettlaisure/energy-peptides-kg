@@ -51,7 +51,7 @@ entities:
     examples: [BPC-157 5mg, CJC-1295 / Ipamorelin 10mg]
     attrs:
       sku: {type: string}
-      display_name: {type: string, note: 'name printed on the vial label when it differs from the canonical name (e.g. KLOW); always shown with components and amounts'}
+      display_name: {type: string, note: 'name as printed on the vial label when it differs from the canonical name (KLOW, NAD+ (buffered)); blends always show components and amounts'}
       category: {type: string, enum: [peptide, compound, accessory]}
       form: {type: string, enum: [lyophilized powder, solution, capsule, nasal spray]}
       size_mg: {type: number}

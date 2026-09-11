@@ -8,6 +8,7 @@
 # 80 mg blend split per Jett (2026-09-10): GHK-Cu 50 mg, BPC-157 10 mg, TB-500 10 mg, KPV 10 mg.
 # cost_usd is internal: never enters copy contexts or the site.
 # purity_spec is the specification (Jett, 2026-09-10); the site shows only the per-lot COA figure.
+# Labels v2 (Jett, 2026-09-11): layout change on all 22; NAD+ label reads 'NAD+ (BUFFERED)' on a 5 mL vial.
 type: Product
 source: inbox/product-list-full.pdf (2026-09-10) + inbox/Energy-inventory-2026-09-09.numbers
 confidence: high
@@ -512,7 +513,8 @@ items:
     status: active
     slug: nad-plus-500mg
     purity_spec: '>=99% (HPLC)'
-    vial_ml: 3
+    vial_ml: 5
+    display_name: NAD+ (buffered)
   edges:
   - rel: CONTAINS
     to: Compound:NAD+
@@ -524,6 +526,7 @@ items:
     to: Asset:inbox/labels/NAD-plus-500mg_label.png
     source: inbox/labels (2026-09-10)
   aliases:
+  - NAD+ (buffered) 500mg
   - Nad500
   - nad500
 - name: Bacteriostatic water 10ml

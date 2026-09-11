@@ -16,7 +16,7 @@ items:
             dont: ["supplement", "dose / dosage / protocol / cycle", "patients", "users", "benefits", "results", "goal", "Healing & Recovery", "Weight Management", "Growth & Performance", "stack", "Wolverine (third-party trademark)", "Shop by goal"]}
   - name: BR-CATEGORIES
     attrs: {category: structure, scope: [product_page, seo, marketing],
-            text: "Browse by composition class, never by goal or intended use. Blends are named by their components (BPC-157 / TB-500). Amended 2026-09-10 (Jett): a nickname printed on the vial label (KLOW) may be used as the product's display name, but only with every component and its amount shown alongside it, and never with copy that explains or implies what the name means. Nicknames not on a label, and third-party trademarks (Wolverine), stay off the site. Research-area names from the graph are internal only.",
+            text: "Browse by composition class, never by goal or intended use. Blends are named by their components (BPC-157 / TB-500). Amended 2026-09-10 (Jett): a name printed on the vial label (the nickname KLOW, or a qualifier such as NAD+ (buffered)) may be used as the product's display name, but only with every component and its amount shown alongside it, and never with copy that explains or implies what the name means. Nicknames not on a label, and third-party trademarks (Wolverine), stay off the site. Research-area names from the graph are internal only.",
             dont: ["Benefits tab", "Shop by goal filter", "testimonial block"]}
   - name: BR-COMPLIANCE-LINE
     attrs: {category: structure, scope: [product_page, checkout, marketing],

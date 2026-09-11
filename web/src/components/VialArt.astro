@@ -10,7 +10,7 @@ const liquid = product.category === 'accessory';
 const label = labelName(product).toUpperCase();
 const amt = labelAmount(product);
 const uid = product.sku.replace(/[^a-z0-9]/gi, '');
-const nameSize = label.length > 22 ? 5.2 : label.length > 14 ? 7 : 10.5;
+const nameSize = label.length > 10 ? 6.2 : label.length > 6 ? 8 : 10.5;
 const markInner = flat.replace(/^<svg[^>]*>|<\/svg>$/g, '');
 ---
 <div class:list={['vial', size]} aria-hidden="true">
@@ -32,16 +32,15 @@ const markInner = flat.replace(/^<svg[^>]*>|<\/svg>$/g, '');
     {liquid
       ? <rect x="64" y="140" width="72" height="86" rx="10" fill="#1B2C55"/>
       : <rect x="64" y="196" width="72" height="30" rx="9" fill="#A8B4DC" opacity=".9"/>}
-    {/* label: 1400×780 print file scaled to 76×42, laid out like the real one */}
+    {/* label v2 (2026-09-11): 1400×780 print file scaled to 76×42 — text left, mark right, no divider */}
     <g transform="translate(62 108)">
       <rect width="76" height="42" rx="1.5" fill={`url(#lab-${uid})`} stroke="#D4AF5F" stroke-width=".6"/>
-      <svg x="3" y="8" width="24" height="26" viewBox="9 14 344 182" set:html={markInner} />
-      <line x1="30" y1="5" x2="30" y2="37" stroke="#D4AF5F" stroke-width=".4"/>
-      <text x="33" y="8.5" font-family="Satoshi, Helvetica, Arial, sans-serif" font-weight="500" font-size="3.6" letter-spacing=".9" fill="#D4AF5F">ENERGY PEPTIDES</text>
-      <text x="33" y={label.length > 14 ? 19 : 21} font-family="Satoshi, Helvetica, Arial, sans-serif" font-weight="700" font-size={nameSize} fill="#EEF2F9" textLength={label.length > 14 ? 40 : undefined} lengthAdjust="spacingAndGlyphs">{label}</text>
-      <text x="33" y="29" font-family="Satoshi, Helvetica, Arial, sans-serif" font-weight="500" font-size="7" fill="#D4AF5F">{amt}</text>
-      <text x="33" y="35.5" font-family="Satoshi, Helvetica, Arial, sans-serif" font-weight="500" font-size="2.3" letter-spacing=".15" fill="#D4AF5F">FOR RESEARCH USE ONLY - NOT FOR HUMAN USE</text>
-      <text x="33" y="39" font-family="Satoshi, Helvetica, Arial, sans-serif" font-weight="400" font-size="2.3" fill="#6E8CB8">{liquid ? '10 mL BOTTLE' : '3 mL VIAL SIZE'}</text>
+      <svg x="44" y="10" width="30" height="16" viewBox="9 14 344 182" set:html={markInner} />
+      <text x="4" y="8.5" font-family="Satoshi, Helvetica, Arial, sans-serif" font-weight="500" font-size="3.4" letter-spacing=".9" fill="#D4AF5F">ENERGY PEPTIDES</text>
+      <text x="4" y={label.length > 10 ? 19 : 21} font-family="Satoshi, Helvetica, Arial, sans-serif" font-weight="700" font-size={nameSize} fill="#EEF2F9" textLength={label.length > 10 ? 40 : undefined} lengthAdjust="spacingAndGlyphs">{label}</text>
+      <text x="4" y="29" font-family="Satoshi, Helvetica, Arial, sans-serif" font-weight="500" font-size="6.5" fill="#E3C27A">{amt}</text>
+      <text x="4" y="35.5" font-family="Satoshi, Helvetica, Arial, sans-serif" font-weight="500" font-size="2.3" letter-spacing=".15" fill="#D4AF5F">FOR RESEARCH USE ONLY - NOT FOR HUMAN USE</text>
+      <text x="4" y="39" font-family="Satoshi, Helvetica, Arial, sans-serif" font-weight="400" font-size="2.3" fill="#9FB2CE">{liquid ? '10 mL BOTTLE' : `${product.vial_ml ?? 3} mL VIAL SIZE`}</text>
     </g>
   </svg>
 </div>
