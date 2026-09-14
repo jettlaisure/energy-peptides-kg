@@ -14,7 +14,6 @@ ROOT = pathlib.Path(__file__).resolve().parent.parent
 PHOTOS = ROOT / "inbox" / "photos"
 OUT_WEB = ROOT / "web" / "public" / "img" / "products"
 OUT_RAW = ROOT / "render" / "out" / "photo"
-LABEL_ASPECT = 1400 / 780            # label artwork width / height (wrap length / label height)
 OUT_PX_PER_MM = 24.0                 # one scale for every product, so a 5 mL vial reads larger
 FLOOR = 0.88                         # vial base sits at this fraction of the frame height
 BG_TARGET = np.array([0xF1, 0xF0, 0xEC], np.float32)
@@ -60,8 +59,8 @@ def bilinear(img, xs, ys):
     if img.ndim == 3: fx = fx[..., None]; fy = fy[..., None]
     return (img[y0, x0] * (1 - fx) * (1 - fy) + img[y0, x0 + 1] * fx * (1 - fy) + img[y0 + 1, x0] * (1 - fx) * fy + img[y0 + 1, x0 + 1] * fx * fy)
 
-BORDER_U = 0.021                     # label v2: gold side border sits 2.1 % in from each end
-def hidden_front(arc, border_u=BORDER_U):
+BORDER_PX = 34                       # label print files: the gold side border ends 34 px in from each end
+def hidden_front(arc, border_u):
     """Label x (0..1) facing the camera such that the left end and its side border are 89 degrees round the vial,
     just behind the silhouette; the right end is then further round still (labels wrap more than 180 degrees)."""
     u0 = border_u + math.radians(89) / arc
@@ -69,11 +68,12 @@ def hidden_front(arc, border_u=BORDER_U):
     return u0
 
 def extend_left(lab, frac):
-    """Preview only: lengthen the label with plain navy (and the frame lines) before the text, by frac of its width."""
+    """Preview only: lengthen the label with plain navy (and the frame lines) before the text, by frac of its width.
+    (The print files were lengthened this way by 12 % on 2026-09-13, so the text sits further from the left end.)"""
     n = int(round(frac * lab.shape[1])); fill = np.repeat(lab[:, 40:41], n, axis=1)
-    return np.concatenate([lab[:, :33], fill, lab[:, 33:]], axis=1)
+    return np.concatenate([lab[:, :BORDER_PX], fill, lab[:, BORDER_PX:]], axis=1)
 
-def geometry(base, img_h, aspect=LABEL_ASPECT, border_u=BORDER_U):
+def geometry(base, img_h, aspect, border_u):
     """Label placement in photo pixels. A horizontal circle on the vial at image row y projects to an ellipse whose
     front point sits b(y) = R (y - yc) / f below its side points (camera level, optical centre mid-frame)."""
     g = BASES[base]; l, r = g["body"]; k = (r - l) / g["body_mm"]
@@ -90,7 +90,7 @@ def composite(base, label_png, shade, lead_in=0.0):
     lab = np.asarray(Image.open(label_png).convert("RGB")).astype(np.float32)
     if lead_in: lab = extend_left(lab, lead_in)
     aspect = lab.shape[1] / lab.shape[0]
-    G = geometry(base, img.shape[0], aspect, BORDER_U * LABEL_ASPECT / aspect); cx, R, arc, u0 = G["cx"], G["R"], G["arc"], G["u0"]
+    G = geometry(base, img.shape[0], aspect, BORDER_PX / lab.shape[1]); cx, R, arc, u0 = G["cx"], G["R"], G["arc"], G["u0"]
     X0, X1 = int(cx - R - 4), int(cx + R + 5); Y0 = int(G["top"] + min(G["bt"], 0) - 4); Y1 = int(G["bot"] + max(G["bb"], 0) + 5)
     # pre-filter the artwork to ~2 artwork px per photo px at the front of the vial
     lw = int(max(64, min(lab.shape[1], 2 * arc * R))); lab_img = Image.fromarray(lab.astype(np.uint8)).resize((lw, int(lw / aspect)), Image.LANCZOS)

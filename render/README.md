@@ -11,7 +11,8 @@ uvx --with pillow --with numpy python render/composite.py --only ghk-cu-50mg --d
 Bare base photo by vial type: 3 mL white powder (IMG_2444), 3 mL GHK-Cu blue powder (IMG_2439, also blends containing
 GHK-Cu), 5 mL amber NAD+ (IMG_2435), bacteriostatic water (IMG_2448, no label file yet). Per base in `BASES`: glass
 edges, base line, body diameter, label height (`label_mm`), label centre height (`mid_mm`) Labels are turned so both ends sit behind the
-glass edge (`hidden_front`). Change those to resize or rotate labels; re-run after any label change. The labelled and
+glass edge (`hidden_front`). The print files carry 12% extra navy before the text (1568×780, since 2026-09-13) so the
+text reads cleanly at that angle; `--lead-in F --debug DIR` previews further lengthening without touching the site. Change those to resize or rotate labels; re-run after any label change. The labelled and
 seam photos are reference only.
 
 ## Fallback: 3D renders

@@ -19,6 +19,8 @@ items:
   - {name: inbox/coa/TRIZ 60MG JANOSHIK.jpg, attrs: {asset_type: coa, alt_text: "Janoshik test report, Tirzepatide ~60 mg samples, batch FSD0619 gold cap (no matching SKU)"}}
   - {name: inbox/coa/WOLVERINE 20MG FREEDOM.jpg, attrs: {asset_type: coa, alt_text: "Freedom Diagnostics certificate, BPC-157 10 mg / TB-500 10 mg, red cap"}}
   # Label print files received 2026-09-10 (inbox/labels). 1400×780 px, navy field, gold border, amino-chain mark, 3 mL vial.
+  # 2026-09-13 (Jett): all 22 lengthened to 1568×780 px, 12% more plain navy between the left border and the text, so the
+  # text reads cleanly when the vial is turned with both label ends out of sight. Print at 2.01:1 (e.g. 33 × 16.5 mm on 3 mL).
   - {name: inbox/labels/NAD-plus-500mg_label.png, attrs: {asset_type: image, alt_text: "Vial label, NAD plus 500mg"}}
   - {name: inbox/labels/Ipamorelin-10mg_label.png, attrs: {asset_type: image, alt_text: "Vial label, Ipamorelin 10mg"}}
   - {name: inbox/labels/GHK-Cu-100mg_label.png, attrs: {asset_type: image, alt_text: "Vial label, GHK Cu 100mg"}}
