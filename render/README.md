@@ -1,4 +1,17 @@
-# Product renders
+# Product images
+
+## Primary: photo composites (since 2026-09-13)
+Real photos of FSD's vials (`inbox/photos/`, one lightbox, blank label facing the camera) with each label file wrapped onto the
+blank label using the vial's curvature and the lightbox's lighting measured from a white paper label.
+```bash
+uvx --with pillow --with numpy python render/composite.py            # all labelled SKUs -> web/public/img/products/*.webp
+uvx --with pillow --with numpy python render/composite.py --only ghk-cu-50mg
+```
+Base photos by vial type (measured label box, body edges, cap size in `BASES`): 3 mL white powder (IMG_2446), 3 mL GHK-Cu blue
+powder (IMG_2440, also used for blends containing GHK-Cu), 5 mL amber NAD+ (IMG_2437), bacteriostatic water (IMG_2449, no label
+file yet). New vial type = new base photo set + one `BASES` entry. Re-run after any label change.
+
+## Fallback: 3D renders
 
 Consistent studio shots of every labelled SKU, generated from the real label files (`inbox/labels/`).
 Same vial model, lens, rotation and lighting for every product; only the label and vial size (from the graph) change.
