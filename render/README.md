@@ -1,15 +1,18 @@
 # Product images
 
 ## Primary: photo composites (since 2026-09-13)
-Real photos of FSD's vials (`inbox/photos/`, one lightbox, blank label facing the camera) with each label file wrapped onto the
-blank label using the vial's curvature and the lightbox's lighting measured from a white paper label.
+Real photos of FSD's bare vials (`inbox/photos/`, one lightbox) with each label file wrapped around the cylinder at
+its printed size. The label's top and bottom edges curve with the camera's real perspective (EXIF focal length), one
+end of the label stays visible where it wraps, and the lighting is measured from a white paper label in the same box.
 ```bash
 uvx --with pillow --with numpy python render/composite.py            # all labelled SKUs -> web/public/img/products/*.webp
-uvx --with pillow --with numpy python render/composite.py --only ghk-cu-50mg
+uvx --with pillow --with numpy python render/composite.py --only ghk-cu-50mg --debug /tmp   # plus a 1:1 label close-up
 ```
-Base photos by vial type (measured label box, body edges, cap size in `BASES`): 3 mL white powder (IMG_2446), 3 mL GHK-Cu blue
-powder (IMG_2440, also used for blends containing GHK-Cu), 5 mL amber NAD+ (IMG_2437), bacteriostatic water (IMG_2449, no label
-file yet). New vial type = new base photo set + one `BASES` entry. Re-run after any label change.
+Bare base photo by vial type: 3 mL white powder (IMG_2444), 3 mL GHK-Cu blue powder (IMG_2439, also blends containing
+GHK-Cu), 5 mL amber NAD+ (IMG_2435), bacteriostatic water (IMG_2448, no label file yet). Per base in `BASES`: glass
+edges, base line, body diameter, label height (`label_mm`), label centre height (`mid_mm`) and how far a label may turn
+(`u_max`); each label turns automatically to centre its text block. Change those to resize or rotate labels; re-run after any label change. The labelled and
+seam photos are reference only.
 
 ## Fallback: 3D renders
 
