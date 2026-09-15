@@ -15,6 +15,11 @@ glass edge (`hidden_front`). The print files carry 12% extra navy before the tex
 text reads cleanly at that angle; `--lead-in F --debug DIR` previews further lengthening without touching the site. Change those to resize or rotate labels; re-run after any label change. The labelled and
 seam photos are reference only.
 
+## Download bundle
+`uv run python render/pack_photos.py` zips the site's WebP photos (square 1600², portrait 1600×2000) with a manifest of
+SKU, status and alt text to `render/out/energy-peptides-product-photos.zip`, plus a copy in ~/Downloads. Re-run after
+any re-render.
+
 ## Fallback: 3D renders
 
 Consistent studio shots of every labelled SKU, generated from the real label files (`inbox/labels/`).
