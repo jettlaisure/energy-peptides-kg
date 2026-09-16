@@ -60,6 +60,7 @@ export async function mountVial(host) {
     canvas.tabIndex = -1;
     canvas.setAttribute('aria-hidden', 'true');
     poster?.removeAttribute('aria-hidden');
+    if (poster) poster.hidden = false;
   }
 
   try {

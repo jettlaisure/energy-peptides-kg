@@ -5,7 +5,8 @@ const { poster, name } = Astro.props;
 ---
 <hero-vial data-label={labelUrl}>
   <div class="vial-stage">
-    {poster && <img class="vial-poster" src={poster} alt={`${name} research vial`} width="1600" height="1600" fetchpriority="high" />}
+    {poster && <img class="vial-poster" src={poster} alt={`${name} research vial`} width="1600" height="1600" hidden />}
+    {poster && <noscript><img class="vial-poster" src={poster} alt={`${name} research vial`} width="1600" height="1600" /></noscript>}
     <canvas aria-hidden="true" aria-label={`Interactive 3D ${name} vial`} aria-describedby="vial-instructions" tabindex="-1" role="img"></canvas>
   </div>
   <div class="vial-controls" hidden>
@@ -24,6 +25,8 @@ const { poster, name } = Astro.props;
           const { mountVial } = await import('../scripts/hero-vial.js');
           if (this.isConnected) this.cleanup = await mountVial(this);
         } catch (error) {
+          const poster = this.querySelector<HTMLImageElement>('.vial-poster');
+          if (poster) poster.hidden = false;
           console.warn('3D vial unavailable; retaining product photograph.', error);
         }
       }, { rootMargin: '100px' });
