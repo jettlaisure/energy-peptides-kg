@@ -60,7 +60,7 @@ const unverified = p.components.some((c) => c.confidence !== 'high');
         <div class="price-row">
           <span class="value price">{money(cents(p.price_usd))}</span>
           <span class="dim t-small">{unitLabel(p)}</span>
-          <span class:list={['chip', stock.cls]}>{stock.text}</span>
+          <span class:list={['chip', 'stock-status', stock.cls]}>{stock.text}</span>
         </div>
         <form class="add" data-add-to-cart data-sku={p.sku}>
           <label class="qty"><span class="sr-only">Quantity</span><input type="number" name="qty" min="1" max="20" value="1" inputmode="numeric" /></label>
@@ -157,6 +157,7 @@ const unverified = p.components.some((c) => c.confidence !== 'high');
   });
 </script>
 <style>
+  .stock-status { border: 0; border-radius: 0; padding-inline: 0; }
   .crumbs { display: flex; gap: var(--s2); padding-block: var(--s5); }
   .crumbs a { color: var(--text-dim); }
   .shot { width: 100%; height: auto; aspect-ratio: 4 / 5; object-fit: cover; display: block; border: var(--hairline); border-radius: var(--radius); background: #EFEEEA; }
