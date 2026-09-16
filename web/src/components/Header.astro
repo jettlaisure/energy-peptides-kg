@@ -17,7 +17,7 @@ const nav = [
       {nav.map((n) => <a href={n.href} aria-current={path.startsWith(n.href) ? 'page' : undefined}>{n.label}</a>)}
     </nav>
     <a class="cart-link" href="/cart/" aria-label="Cart">
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M5 7h14l1 14H4L5 7Z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg>
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M5 7h14l1 14H4L5 7Z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg>
       <span class="count num" data-cart-count hidden>0</span>
     </a>
     <details class="mobile-menu">
@@ -55,7 +55,7 @@ const nav = [
   nav a { color: var(--text-dim); font-size: 14px; font-weight: 500; padding: 12px 0; border-bottom: 1px solid transparent; text-decoration: none; }
   nav a:hover, nav a[aria-current="page"] { color: var(--text); border-bottom-color: var(--gold); }
   .cart-link { position: relative; display: inline-flex; align-items: center; justify-content: center; justify-self: end; width: 44px; height: 44px; flex-shrink: 0; color: var(--text); text-decoration: none; }
-  .count { position: absolute; top: 0; right: 0; display: inline-grid; place-items: center; min-width: 20px; aspect-ratio: 1; padding: 2px; font-size: 10px; line-height: 1; background: var(--void); color: var(--gold); border: 1px solid var(--gold); border-radius: 50%; box-shadow: 0 0 0 2px var(--void); font-weight: 700; }
+  .count { position: absolute; top: 0; right: 0; display: inline-grid; place-items: center; min-width: 18px; aspect-ratio: 1; padding: 2px; font-size: 9px; line-height: 1; background: var(--void); color: var(--gold); border: 1px solid var(--gold); border-radius: 50%; box-shadow: 0 0 0 2px var(--void); font-weight: 700; }
   .mobile-menu { display: none; }
   @media (max-width: 960px) {
     .bar { display: flex; height: 76px; gap: 20px; }
