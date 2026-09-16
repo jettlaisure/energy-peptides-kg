@@ -14,7 +14,7 @@ The BPC-157 hero uses a real, parametric 3D model with the original full label w
 
 ## Behavior and performance
 
-Drag horizontally to rotate through the full label; mouse dragging also tilts the vial. Vertical touch scrolling remains available. Keyboard arrows rotate and tilt; Home and Reset view return to the initial pose. Reduced-motion preference disables interpolation and fades. No automatic spinning is used.
+Drag horizontally to rotate through the full label; mouse dragging also tilts the vial. Vertical touch scrolling remains available. Keyboard arrows rotate and tilt; Home and Reset view return to the initial pose at the current scroll position. As the hero passes through the viewport, scrolling adds up to 37 degrees of rotation to the user's chosen orientation and reverses when scrolling back. This offset pauses during dragging. Reduced-motion preference disables the scroll turn, interpolation, and fades. No continuous automatic spinning is used.
 
 The renderer loads dynamically near the viewport. Pixel ratio is capped at 1.75, the studio environment is baked once, and rendering stops when the scene settles, leaves the viewport, or the page is hidden. Observers, listeners, geometries, textures, materials, and renderer resources are released during cleanup. A missing texture, renderer initialization failure, or lost graphics context leaves the product photo visible and hides unavailable controls.
 

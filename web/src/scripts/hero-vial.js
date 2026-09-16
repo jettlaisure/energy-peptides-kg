@@ -11,6 +11,7 @@ export async function mountVial(host) {
   const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
   let renderer, environment, vial, resize, visibility;
   let frame = 0, visible = true, disposed = false, pointer = null;
+  let scrollTurn = 0, scrollDirty = true;
   const scene = new THREE.Scene();
   // An opaque studio backdrop is also the refraction source for the clear glass.
   const backdrop = document.createElement('canvas');
@@ -108,10 +109,21 @@ export async function mountVial(host) {
     function render() {
       frame = 0;
       if (!visible || document.hidden || disposed) return;
+      if (scrollDirty && !pointer) {
+        const bounds = stage.getBoundingClientRect();
+        const top = bounds.top + window.scrollY;
+        const start = Math.max(0, top - window.innerHeight * 0.65);
+        const progress = THREE.MathUtils.clamp((window.scrollY - start) / Math.max(1, top + bounds.height - start), 0, 1);
+        // Add a restrained 37-degree turn to the user's chosen orientation.
+        // Scroll never overwrites drag/keyboard state, and reverses naturally.
+        scrollTurn = reducedMotion.matches ? 0 : progress * 0.65;
+        scrollDirty = false;
+      }
+      const pose = { ...target, y: target.y + scrollTurn };
       const factor = reducedMotion.matches ? 1 : 0.16;
-      for (const axis of ['x', 'y', 'z']) vial.rotation[axis] += (target[axis] - vial.rotation[axis]) * factor;
+      for (const axis of ['x', 'y', 'z']) vial.rotation[axis] += (pose[axis] - vial.rotation[axis]) * factor;
       renderer.render(scene, camera);
-      if (['x', 'y', 'z'].some(axis => Math.abs(target[axis] - vial.rotation[axis]) > 0.0001)) requestRender();
+      if (['x', 'y', 'z'].some(axis => Math.abs(pose[axis] - vial.rotation[axis]) > 0.0001)) requestRender();
     }
     function requestRender() {
       if (!frame && visible && !document.hidden && !disposed) frame = requestAnimationFrame(render);
@@ -122,6 +134,7 @@ export async function mountVial(host) {
       renderer.setSize(width, height, false);
       camera.aspect = width / height;
       camera.updateProjectionMatrix();
+      scrollDirty = true;
       requestRender();
     }
     resize = new ResizeObserver(size);
@@ -136,6 +149,7 @@ export async function mountVial(host) {
 
     visibility = new IntersectionObserver(([entry]) => {
       visible = entry.isIntersecting;
+      scrollDirty = true;
       if (visible) requestRender();
       else { cancelAnimationFrame(frame); frame = 0; }
     });
@@ -145,7 +159,10 @@ export async function mountVial(host) {
       if (document.hidden) { cancelAnimationFrame(frame); frame = 0; }
       else requestRender();
     });
-    listen(reducedMotion, 'change', requestRender);
+    const updateScroll = () => { scrollDirty = true; requestRender(); };
+    document.addEventListener('scroll', updateScroll, { passive: true, signal: events.signal });
+    listen(window, 'resize', updateScroll);
+    listen(reducedMotion, 'change', updateScroll);
     listen(canvas, 'pointerdown', event => {
       if (event.button !== 0 || pointer) return;
       pointer = { id: event.pointerId, x: event.clientX, y: event.clientY, rotation: target.y, tilt: target.x };
@@ -157,7 +174,7 @@ export async function mountVial(host) {
       target.x = THREE.MathUtils.clamp(pointer.tilt + (event.clientY - pointer.y) * 0.004, -0.35, 0.35);
       requestRender();
     });
-    const release = () => { pointer = null; };
+    const release = () => { pointer = null; updateScroll(); };
     listen(canvas, 'pointerup', release);
     listen(canvas, 'pointercancel', release);
     listen(canvas, 'lostpointercapture', release);
@@ -165,6 +182,7 @@ export async function mountVial(host) {
       // Take the shortest path back after any number of complete rotations.
       vial.rotation.y = THREE.MathUtils.euclideanModulo(vial.rotation.y + Math.PI, Math.PI * 2) - Math.PI;
       Object.assign(target, home);
+      target.y -= scrollTurn;
       requestRender();
     }
     listen(controls.querySelector('button'), 'click', reset);
