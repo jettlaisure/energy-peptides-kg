@@ -2,7 +2,7 @@
 import Base from '../layouts/Base.astro';
 import ProductGrid from '../components/ProductGrid.astro';
 import FaqList from '../components/FaqList.astro';
-import VialArt from '../components/VialArt.astro';
+import HeroVial from '../components/HeroVial.astro';
 import { products, catalog, site, compositionClasses, familyName, sizeLabel, money, cents } from '../lib/catalog';
 // Show available compounds first without changing the graph's stock or catalog data.
 const compounds = products.filter((p) => p.category !== 'accessory')
@@ -24,11 +24,9 @@ const faqPreview = catalog.faq.filter((f) => ['FAQ-3', 'FAQ-2', 'FAQ-6'].include
           </div>
         </div>
         {featured && <figure class="hero-product">
-          <a class="hero-image" href={`/products/${featured.slug}/`} aria-label={`View ${familyName(featured)} ${sizeLabel(featured)}`}>
-            {featured.images?.square
-              ? <img src={featured.images.square} alt={featured.images_alt?.square ?? `${familyName(featured)} ${sizeLabel(featured)} research vial`} width="1600" height="1600" fetchpriority="high" />
-              : <VialArt product={featured} />}
-          </a>
+          {featured.slug === 'bpc-157-10mg'
+            ? <HeroVial poster={featured.images?.square} name={`${familyName(featured)} ${sizeLabel(featured)}`} />
+            : <img src={featured.images?.square} alt={`${familyName(featured)} ${sizeLabel(featured)} research vial`} width="1600" height="1600" fetchpriority="high" />}
           <figcaption><a href={`/products/${featured.slug}/`}><span>{familyName(featured)} <span class="dim">/ {sizeLabel(featured)}</span></span><span>{money(cents(featured.price_usd))} <span aria-hidden="true">↗</span></span></a></figcaption>
         </figure>}
       </div>
@@ -112,9 +110,6 @@ const faqPreview = catalog.faq.filter((f) => ['FAQ-3', 'FAQ-2', 'FAQ-6'].include
   .text-link > span { color: var(--gold); font-size: 18px; transition: transform .2s; }
   .text-link:hover > span { transform: translate(2px, -2px); }
   .hero-product { margin: 0; min-width: 0; }
-  .hero-image { display: block; overflow: hidden; border-radius: 2px; background: var(--paper); }
-  .hero-image img { width: 100%; height: auto; aspect-ratio: 1.03; object-fit: cover; object-position: center 62%; transition: transform .5s; }
-  .hero-image:hover img { transform: scale(1.025); }
   figcaption a { display: flex; align-items: center; justify-content: space-between; padding-block: 18px 0; color: var(--text); font-size: 13px; }
   figcaption a > span:last-child { color: var(--gold-hi); }
   figcaption a > span:last-child span { margin-left: 18px; }
@@ -172,7 +167,6 @@ const faqPreview = catalog.faq.filter((f) => ['FAQ-3', 'FAQ-2', 'FAQ-6'].include
     .hero-actions { flex-direction: row; align-items: center; flex-wrap: wrap; gap: 12px 24px; }
     .hero-actions .btn { min-height: 54px; }
     .hero-product { width: 100%; }
-    .hero-image img { aspect-ratio: 1.15; }
     .trust-strip { grid-template-columns: 1fr; gap: 22px; padding-block: 28px; }
     .trust-strip > div + div { border: 0; padding: 0; }
     .trust-strip strong { width: 115px; flex-shrink: 0; }
