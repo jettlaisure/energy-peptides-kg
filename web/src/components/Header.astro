@@ -18,7 +18,7 @@ const nav = [
     </nav>
     <a class="cart-link" href="/cart/" aria-label="Cart">
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M5 7h14l1 14H4L5 7Z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg>
-      <span class="cart-label">Cart</span><span class="count num" data-cart-count hidden>0</span>
+      <span class="count num" data-cart-count hidden>0</span>
     </a>
     <details class="mobile-menu">
       <summary aria-label="Toggle navigation"><span>Menu</span><svg width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" aria-hidden="true"><path d="M2 6h16M2 14h16"/></svg></summary>
@@ -54,14 +54,14 @@ const nav = [
   .desktop-nav { display: flex; justify-content: center; gap: var(--s6); white-space: nowrap; }
   nav a { color: var(--text-dim); font-size: 14px; font-weight: 500; padding: 12px 0; border-bottom: 1px solid transparent; text-decoration: none; }
   nav a:hover, nav a[aria-current="page"] { color: var(--text); border-bottom-color: var(--gold); }
-  .cart-link { display: inline-flex; align-items: center; justify-self: end; gap: 8px; min-height: 44px; color: var(--text); font-size: 14px; text-decoration: none; }
-  .count { display: inline-grid; place-items: center; flex-shrink: 0; min-width: 24px; aspect-ratio: 1; padding: 3px; font-size: 11px; line-height: 1; background: transparent; color: var(--gold); border: 1px solid var(--gold); border-radius: 50%; font-weight: 700; }
+  .cart-link { position: relative; display: inline-flex; align-items: center; justify-content: center; justify-self: end; width: 44px; height: 44px; flex-shrink: 0; color: var(--text); text-decoration: none; }
+  .count { position: absolute; top: 0; right: 0; display: inline-grid; place-items: center; min-width: 20px; aspect-ratio: 1; padding: 2px; font-size: 10px; line-height: 1; background: var(--void); color: var(--gold); border: 1px solid var(--gold); border-radius: 50%; box-shadow: 0 0 0 2px var(--void); font-weight: 700; }
   .mobile-menu { display: none; }
   @media (max-width: 960px) {
     .bar { display: flex; height: 76px; gap: 20px; }
     .desktop-nav { display: none; }
     .cart-link { margin-left: auto; min-width: 44px; justify-content: center; }
-    .cart-label, summary > span { display: none; }
+    summary > span { display: none; }
     .mobile-menu { display: block; }
     summary { display: flex; align-items: center; justify-content: center; gap: 8px; min-width: 44px; min-height: 44px; cursor: pointer; list-style: none; font-size: 14px; }
     summary::-webkit-details-marker { display: none; }
