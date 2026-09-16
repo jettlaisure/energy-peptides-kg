@@ -67,6 +67,7 @@ const lite = products.map((p) => ({ sku: p.sku, name: p.name, slug: p.slug, pric
 </script>
 <style>
   .narrow { max-width: 52rem; display: grid; gap: var(--s5); }
+  .narrow > *, .totals > * { min-width: 0; }
   h1 { font-size: clamp(40px, 5vw, 60px); font-weight: 500; letter-spacing: -.04em; }
   .empty-cart { display: grid; justify-items: start; gap: 20px; padding: clamp(32px, 6vw, 64px) 0; border-block: var(--hairline); margin-top: 16px; }
   .empty-cart svg { color: var(--steel); margin-bottom: 8px; }
@@ -88,4 +89,20 @@ const lite = products.map((p) => ({ sku: p.sku, name: p.name, slug: p.slug, pric
   .totals .compliance { text-align: right; max-width: 36rem; }
   .totals > div { display: flex; justify-content: space-between; gap: var(--s7); width: min(100%, 22rem); }
   .grand { font-weight: 700; font-size: 19px; border-top: var(--hairline); padding-top: var(--s2); }
+  @media (max-width: 640px) {
+    .lines, .lines :global(tbody) { display: block; }
+    .lines thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+    .lines :global(tbody tr) { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px 24px; padding-block: 24px; border-bottom: var(--hairline); }
+    .lines :global(td) { padding: 0; border: 0; min-width: 0; text-align: left; }
+    .lines :global(td:first-child) { grid-column: 1 / -1; }
+    .lines :global(a.name) { white-space: normal; overflow-wrap: anywhere; }
+    .lines :global(td:nth-child(2)) { grid-row: span 2; }
+    .lines :global(td:nth-child(2))::before { content: 'Quantity'; }
+    .lines :global(td:nth-child(3))::before { content: 'Each'; }
+    .lines :global(td:nth-child(4))::before { content: 'Total'; }
+    .lines :global(td:nth-child(2))::before, .lines :global(td:nth-child(3))::before, .lines :global(td:nth-child(4))::before { display: block; color: var(--text-dim); font-size: 12px; margin-bottom: 8px; }
+    .lines :global(td:last-child) { grid-column: 1 / -1; }
+    .totals > div { gap: 20px; }
+    .totals .compliance { text-align: left; }
+  }
 </style>
