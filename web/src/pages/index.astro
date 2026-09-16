@@ -11,6 +11,7 @@ const featured = compounds.find((p) => p.slug === 'bpc-157-10mg') ?? compounds[0
 const faqPreview = catalog.faq.filter((f) => ['FAQ-3', 'FAQ-2', 'FAQ-6'].includes(f.id));
 ---
 <Base title={`${site.brand} — research peptides, tested to a ≥99% purity specification`}>
+  <link slot="head" rel="preload" href="/fonts/playfair-display-900.ttf" as="font" type="font/ttf" crossorigin />
   <div class="landing">
     <section class="hero-wrap">
       <div class="hero container">
@@ -84,6 +85,7 @@ const faqPreview = catalog.faq.filter((f) => ['FAQ-3', 'FAQ-2', 'FAQ-6'].include
   }
 </script>
 <style>
+  @font-face { font-family: 'Playfair Display'; font-style: normal; font-weight: 900; font-display: swap; src: url('/fonts/playfair-display-900.ttf') format('truetype'); }
   /* Brand-led redesign: variance 6 / motion 3 / density 3.
      Preserve the mandated dark-ground identity; native Astro + CSS, no runtime UI library. */
   .landing { background: var(--void); }
@@ -92,7 +94,7 @@ const faqPreview = catalog.faq.filter((f) => ['FAQ-3', 'FAQ-2', 'FAQ-6'].include
   .hero { display: grid; grid-template-columns: 1.12fr 1fr; align-items: center; gap: 68px; padding-block: 44px 52px; }
   .hero-copy { display: grid; gap: 30px; }
   .hero-copy .eyebrow { color: var(--gold); }
-  .hero h1 { font-size: clamp(44px, 5.8vw, 80px); font-weight: 500; line-height: 1.04; letter-spacing: -.055em; text-wrap: initial; }
+  .hero h1 { font-family: 'Playfair Display', Georgia, serif; font-size: clamp(44px, 5.8vw, 80px); font-weight: 900; line-height: 1.08; letter-spacing: -.035em; text-wrap: initial; }
   .hero h1 > span { color: var(--gold); }
   .hero .t-lede { font-size: 17px; font-weight: 400; line-height: 1.8; max-width: 44ch; }
   .hero-actions { display: flex; flex-direction: column; align-items: start; gap: 20px; }
