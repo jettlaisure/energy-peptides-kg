@@ -98,8 +98,8 @@ const faqPreview = catalog.faq.filter((f) => ['FAQ-3', 'FAQ-2', 'FAQ-6'].include
   .hero h1 > span { color: var(--gold); }
   .hero .t-lede { font-size: 17px; font-weight: 400; line-height: 1.8; max-width: 44ch; }
   .hero-actions { display: flex; flex-direction: column; align-items: start; gap: 20px; }
-  .hero-actions .btn { padding: 20px 25px; min-height: 58px; gap: 42px; background: var(--gold); border-radius: 2px; white-space: nowrap; transition: background .2s, transform .2s; }
-  .hero-actions .btn:hover { background: var(--gold-hi); transform: translateY(-2px); box-shadow: none; }
+  .hero-actions .btn { padding: 20px 25px; min-height: 58px; gap: 42px; background: transparent; border-color: var(--gold); color: var(--gold); border-radius: 2px; white-space: nowrap; transition: border-color .2s, color .2s, transform .2s; }
+  .hero-actions .btn:hover { background: transparent; border-color: var(--gold-hi); color: var(--gold-hi); transform: translateY(-2px); box-shadow: none; }
   .hero-actions .btn:active { transform: translateY(0); }
   .text-link { display: inline-flex; align-items: center; gap: 20px; color: var(--text); font-size: 13px; font-weight: 500; min-height: 44px; text-underline-offset: 6px; }
   .text-link > span { color: var(--gold); font-size: 18px; transition: transform .2s; }
