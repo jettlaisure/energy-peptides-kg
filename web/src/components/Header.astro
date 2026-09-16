@@ -58,7 +58,7 @@ const nav = [
   nav a { color: var(--text-dim); font-size: 14px; font-weight: 500; padding: 12px 0; border-bottom: 1px solid transparent; text-decoration: none; }
   nav a:hover, nav a[aria-current="page"] { color: var(--text); border-bottom-color: var(--gold); }
   .cart-link { display: inline-flex; align-items: center; gap: 6px; justify-self: end; height: 44px; flex-shrink: 0; color: var(--text); font-size: 14px; text-decoration: none; }
-  .cart-icon { position: relative; display: grid; place-items: center; width: 44px; height: 44px; flex-shrink: 0; }
+  .cart-icon { position: relative; display: grid; place-items: center; width: 44px; height: 44px; flex-shrink: 0; transform: scale(calc(20 / 28)); }
   .count { position: absolute; top: 0; right: 0; display: inline-grid; place-items: center; min-width: 18px; aspect-ratio: 1; padding: 2px; font-size: 9px; line-height: 1; background: var(--void); color: var(--gold); border: 1px solid var(--gold); border-radius: 50%; box-shadow: 0 0 0 2px var(--void); font-weight: 700; }
   .mobile-menu { display: none; }
   @media (max-width: 960px) {
