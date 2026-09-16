@@ -40,3 +40,5 @@ These are visual estimates from the photos, not measured packaging dimensions. P
 Jett confirmed on 2026-09-16 that the actual cap is white; its grey appearance in the photos comes from shadow. The hero material uses white with the existing matte finish and lighting.
 
 Jett also confirmed that the entire seal should read as the same metal. The seal uses one uniform satin aluminium material, with narrower edge turns and broader reflections to remove the appearance of separate polished bands.
+
+The first uniform-seal pass looked too flat. The final refinement restores small rounded edge transitions, more defined studio reflections, and subtle manufacturing grain while retaining a single consistent metal finish and the white cap.
