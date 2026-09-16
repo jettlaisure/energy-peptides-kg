@@ -185,7 +185,6 @@ export async function mountVial(host) {
       target.y -= scrollTurn;
       requestRender();
     }
-    listen(controls.querySelector('button'), 'click', reset);
     listen(canvas, 'keydown', event => {
       if (!['ArrowLeft', 'ArrowRight', 'ArrowUp', 'ArrowDown', 'Home'].includes(event.key)) return;
       event.preventDefault();
