@@ -3,7 +3,7 @@ import Base from '../layouts/Base.astro';
 import ProductGrid from '../components/ProductGrid.astro';
 import FaqList from '../components/FaqList.astro';
 import HeroVial from '../components/HeroVial.astro';
-import { products, catalog, site, compositionClasses, familyName, sizeLabel, money, cents } from '../lib/catalog';
+import { products, catalog, site, familyName, sizeLabel, money, cents } from '../lib/catalog';
 // Show available compounds first without changing the graph's stock or catalog data.
 const compounds = products.filter((p) => p.category !== 'accessory')
   .sort((a, b) => Number(b.in_stock && b.status === 'active') - Number(a.in_stock && a.status === 'active'));
@@ -37,22 +37,15 @@ const faqPreview = catalog.faq.filter((f) => ['FAQ-3', 'FAQ-2', 'FAQ-6'].include
       </div>
     </section>
 
-    <section class="section container composition">
-      <header class="composition-intro"><h2 class="t-section">Know your compound.<br /><span class="dim">Find your starting point.</span></h2><p class="dim">Browse by composition, with amounts and specifications on every product.</p><a class="text-link" href="/products/">View the full catalog <span aria-hidden="true">↗</span></a></header>
-      <div class="classes" aria-label="Browse by composition">
-        {compositionClasses.map((c) => (
-          <a class="cls" href={`/products/#${c.products.every((p) => p.category === 'accessory') ? 'supplies' : c.slug}`}>
-            <span class="class-copy"><span class="class-name">{c.name}</span><span class="class-families">{c.products.map((p) => p.family).filter((v, i, a) => a.indexOf(v) === i).join(', ')}</span></span>
-            <span class="class-count">{c.products.length}<span class="sr-only"> {c.products.length === 1 ? 'product' : 'products'}</span></span><span class="class-arrow" aria-hidden="true">↗</span>
-          </a>
-        ))}
-      </div>
-    </section>
-
     <section class="section container collection" id="catalog">
       <div class="section-head"><div class="stack"><p class="eyebrow">The collection</p><h2 class="t-section">The research catalog</h2><p>Prices per vial. Every compound, clearly specified.</p></div><a class="text-link" href="/products/">Browse all {products.length} products <span aria-hidden="true">↗</span></a></div>
       <div class="catalog-rail" tabindex="0" role="region" aria-label="Research products, scroll horizontally to browse"><ProductGrid products={compounds} /></div>
       <div class="rail-footer"><p>Explore the collection by composition and amount.</p><div class="rail-controls" hidden><button type="button" data-rail-prev aria-label="Previous products" aria-controls="catalog">←</button><button type="button" data-rail-next aria-label="Next products" aria-controls="catalog">→</button></div></div>
+    </section>
+
+    <section class="section container composition">
+      <h2 class="t-section">Know your compound.</h2>
+      <div class="composition-intro"><p class="dim">Browse by composition, with amounts and specifications on every product.</p><a class="text-link" href="/products/">Browse by composition <span aria-hidden="true">↗</span></a></div>
     </section>
 
     <section class="quality-wrap" id="quality">
@@ -119,19 +112,10 @@ const faqPreview = catalog.faq.filter((f) => ['FAQ-3', 'FAQ-2', 'FAQ-6'].include
   .trust-strip strong { font-size: 25px; font-weight: 500; letter-spacing: -.04em; white-space: nowrap; }
   .trust-strip p { font-size: 12px; }
   .trust-strip p span { display: block; color: var(--text-dim); font-size: 11px; margin-top: 4px; }
-  .composition { display: grid; grid-template-columns: .8fr 1.3fr; gap: 100px; align-items: start; }
-  .composition-intro { position: sticky; top: 120px; display: grid; gap: 24px; }
-  .composition-intro p { max-width: 32ch; font-size: 15px; }
-  .classes { display: grid; grid-template-columns: 1fr 1fr; column-gap: 30px; }
-  .cls { display: flex; align-items: center; gap: 12px; min-width: 0; padding: 20px 0; border-bottom: var(--hairline); color: var(--text); }
-  .cls:hover { text-decoration: none; }
-  .class-copy { flex: 1; min-width: 0; }
-  .class-name { display: block; font-size: 14px; line-height: 1.5; font-weight: 500; transition: color .2s; }
-  .class-families { display: block; font-size: 11px; color: var(--text-dim); margin-top: 6px; line-height: 1.6; }
-  .class-count { font-size: 11px; color: var(--text-dim); }
-  .class-arrow { color: var(--gold); transition: transform .2s; }
-  .cls:hover .class-name { color: var(--gold-hi); }
-  .cls:hover .class-arrow { transform: translate(2px, -2px); }
+  .composition { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start; }
+  .landing .composition { padding-block: 48px 64px; }
+  .composition-intro { display: grid; gap: 16px; justify-items: start; }
+  .composition-intro p { max-width: 42ch; font-size: 15px; }
   .collection .section-head { margin-bottom: 40px; }
   .collection .eyebrow, .quality .eyebrow { color: var(--gold); }
   .catalog-rail { overflow-x: auto; scroll-snap-type: x mandatory; scroll-padding-inline: 1px; scrollbar-color: var(--rule) var(--void); scrollbar-width: thin; padding: 2px 2px 24px; }
@@ -157,7 +141,7 @@ const faqPreview = catalog.faq.filter((f) => ['FAQ-3', 'FAQ-2', 'FAQ-6'].include
   .questions { display: grid; grid-template-columns: .8fr 1.3fr; gap: 100px; }
   .questions-intro { display: grid; gap: 24px; align-content: start; }
   .questions-intro p { font-size: 14px; max-width: 30ch; }
-  @media (max-width: 1100px) { .hero { gap: 36px; } .trust-strip { gap: 20px; } .trust-strip > div { gap: 14px; } .trust-strip > div + div { padding-left: 20px; } .trust-strip strong { font-size: 22px; } .composition, .quality, .questions { gap: 48px; } .classes { column-gap: 20px; } }
+  @media (max-width: 1100px) { .hero { gap: 36px; } .trust-strip { gap: 20px; } .trust-strip > div { gap: 14px; } .trust-strip > div + div { padding-left: 20px; } .trust-strip strong { font-size: 22px; } .composition, .quality, .questions { gap: 48px; } }
   @media (max-width: 767px) {
     .landing .section { padding-block: 64px; }
     .hero { grid-template-columns: 1fr; padding-block: 48px 32px; gap: 40px; }
@@ -172,13 +156,10 @@ const faqPreview = catalog.faq.filter((f) => ['FAQ-3', 'FAQ-2', 'FAQ-6'].include
     .trust-strip strong { width: 115px; flex-shrink: 0; }
     .trust-strip p span { margin-top: 2px; }
     .composition, .quality, .questions { grid-template-columns: 1fr; gap: 36px; }
-    .composition-intro { position: static; }
-    .classes { gap: 0 24px; }
-    .class-name { font-size: 13px; }
-    .class-count { display: none; }
+    .landing .composition { padding-block: 36px 48px; gap: 20px; }
     .catalog-rail :global(.grid) { grid-auto-columns: 78%; gap: 16px; }
     .quality-notes { gap: 24px; }
     .rail-footer p { max-width: 23ch; }
   }
-  @media (max-width: 380px) { .classes, .quality-notes { grid-template-columns: 1fr; } .desktop-break { display: none; } .catalog-rail :global(.grid) { grid-auto-columns: 94%; } }
+  @media (max-width: 380px) { .quality-notes { grid-template-columns: 1fr; } .desktop-break { display: none; } .catalog-rail :global(.grid) { grid-auto-columns: 94%; } }
 </style>
