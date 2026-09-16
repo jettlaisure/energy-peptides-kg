@@ -55,7 +55,7 @@ const nav = [
   nav a { color: var(--text-dim); font-size: 14px; font-weight: 500; padding: 12px 0; border-bottom: 1px solid transparent; text-decoration: none; }
   nav a:hover, nav a[aria-current="page"] { color: var(--text); border-bottom-color: var(--gold); }
   .cart-link { display: inline-flex; align-items: center; justify-self: end; gap: 8px; min-height: 44px; color: var(--text); font-size: 14px; text-decoration: none; }
-  .count { font-size: 11px; background: var(--gold-grad); color: var(--navy); border-radius: 999px; padding: 2px 7px; font-weight: 700; }
+  .count { display: inline-grid; place-items: center; flex-shrink: 0; min-width: 24px; aspect-ratio: 1; padding: 3px; font-size: 11px; line-height: 1; background: transparent; color: var(--gold); border: 1px solid var(--gold); border-radius: 50%; font-weight: 700; }
   .mobile-menu { display: none; }
   @media (max-width: 960px) {
     .bar { display: flex; height: 76px; gap: 20px; }
