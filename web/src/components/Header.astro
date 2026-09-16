@@ -49,16 +49,16 @@ const nav = [
   .announcement a { color: var(--text-dim); }
   .announcement a span { margin-left: 8px; color: var(--gold-hi); }
   .site-header { position: sticky; top: 0; z-index: 20; background: var(--void); border-bottom: var(--hairline); }
-  .bar { display: flex; align-items: center; gap: var(--s7); height: 78px; }
-  .brand { text-decoration: none; display: inline-flex; flex-shrink: 0; }
-  .desktop-nav { display: flex; gap: var(--s6); margin-left: auto; }
+  .bar { display: grid; grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr); align-items: center; gap: 24px; height: 78px; }
+  .brand { text-decoration: none; display: inline-flex; flex-shrink: 0; justify-self: start; }
+  .desktop-nav { display: flex; justify-content: center; gap: var(--s6); white-space: nowrap; }
   nav a { color: var(--text-dim); font-size: 14px; font-weight: 500; padding: 12px 0; border-bottom: 1px solid transparent; text-decoration: none; }
   nav a:hover, nav a[aria-current="page"] { color: var(--text); border-bottom-color: var(--gold); }
-  .cart-link { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; color: var(--text); font-size: 14px; text-decoration: none; }
+  .cart-link { display: inline-flex; align-items: center; justify-self: end; gap: 8px; min-height: 44px; color: var(--text); font-size: 14px; text-decoration: none; }
   .count { font-size: 11px; background: var(--gold-grad); color: var(--navy); border-radius: 999px; padding: 2px 7px; font-weight: 700; }
   .mobile-menu { display: none; }
-  @media (max-width: 820px) {
-    .bar { height: 76px; gap: 20px; }
+  @media (max-width: 960px) {
+    .bar { display: flex; height: 76px; gap: 20px; }
     .desktop-nav { display: none; }
     .cart-link { margin-left: auto; }
     .mobile-menu { display: block; }
