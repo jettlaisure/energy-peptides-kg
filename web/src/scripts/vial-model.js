@@ -3,7 +3,7 @@
 export function createVial(THREE, labelTex) {
 const vial = new THREE.Group();
 const VIAL_ML = 3, AMBER = false, CAKE = '#FBFBF9', U_CENTER = 0.44;
-const SEAL = { color: '#C9CDD2', rough: 0.5 };
+const SEAL = { color: '#C9CDD2', rough: 0.64 };
 const ISO = VIAL_ML >= 5
   ? { d1: 22, d2: 20, d3: 16.5, d4: 12.6, h1: 40, yShoulder: 29.2, shR: 2.4, yNeck: 32.4, flangeH: 3.4, r1: 3.5, stopperH: 1.8, btnH: 3.2, cakeH: 12, labelH: 19 }
   : { d1: 16, d2: 13, d3: 10.5, d4: 7.0, h1: 35, yShoulder: 25.0, shR: 1.8, yNeck: 27.6, flangeH: 3.0, r1: 2.5, stopperH: 1.4, btnH: 2.8, cakeH: 10, labelH: 17 };
@@ -62,17 +62,17 @@ const sealTop = ISO.h1 + ISO.stopperH + 0.2;
 const sealR = Rf + 0.24;
 const sp = [
   [Rn + 0.15, yFlange - 0.06], [Rn + 0.55, yFlange - 0.04],
-  [Rf - 0.3, yFlange + 0.02], [sealR - 0.22, yFlange + 0.14],
-  [sealR - 0.07, yFlange + 0.32], [sealR, yFlange + 0.55],
-  [sealR, yFlange + 0.8], [sealR, yFlange + 1.15],
-  [sealR, sealTop - 0.55], [sealR - 0.02, sealTop - 0.26],
-  [sealR - 0.12, sealTop - 0.1], [sealR - 0.3, sealTop],
+  [Rf - 0.3, yFlange + 0.02], [sealR - 0.12, yFlange + 0.05],
+  [sealR - 0.035, yFlange + 0.12], [sealR, yFlange + 0.22],
+  [sealR, yFlange + 0.4], [sealR, yFlange + 0.8],
+  [sealR, sealTop - 0.22], [sealR, sealTop - 0.1],
+  [sealR - 0.025, sealTop - 0.03], [sealR - 0.1, sealTop],
   [Rf - 1.4, sealTop], [Rf - 1.4, sealTop - 0.18],
 ].map(([radius, height]) => new THREE.Vector2(radius, height));
 const sealGeo = new THREE.LatheGeometry(sp, 192);
 const spos = sealGeo.attributes.position;
 for (let i = 0; i < spos.count; i++) {
-  const y = spos.getY(i), weight = Math.max(0, 1 - (y - yFlange) / 0.65);
+  const y = spos.getY(i), weight = Math.max(0, 1 - (y - yFlange) / 0.22);
   if (!weight) continue;
   const x = spos.getX(i), z = spos.getZ(i), angle = Math.atan2(z, x);
   const k = 1 + 0.003 * weight * Math.cos(angle * 32);
@@ -93,9 +93,11 @@ grain.wrapS = grain.wrapT = THREE.RepeatWrapping;
 grain.repeat.set(8, 2);
 grain.magFilter = grain.minFilter = THREE.LinearFilter;
 grain.needsUpdate = true;
-const seal = new THREE.Mesh(sealGeo, new THREE.MeshPhysicalMaterial({
+// One satin-metal material over the entire closure. Narrow edge turns avoid
+// broad polished-looking rings that could read as separate metal bands.
+const seal = new THREE.Mesh(sealGeo, new THREE.MeshStandardMaterial({
   color: SEAL.color, metalness: 1, roughness: SEAL.rough,
-  anisotropy: 0.12, envMapIntensity: 0.85, side: THREE.DoubleSide,
+  envMapIntensity: 0.65, side: THREE.DoubleSide,
   bumpMap: grain, bumpScale: 0.008,
 }));
 seal.castShadow = true; vial.add(seal);

@@ -38,3 +38,5 @@ The cap and seal were visually matched to `inbox/photos/IMG_2444.jpeg` and `IMG_
 These are visual estimates from the photos, not measured packaging dimensions. Production build, graph validation, and 21 tests passed after refinement; browser inspection covered the resting pose and rotated closure with no console errors.
 
 Jett confirmed on 2026-09-16 that the actual cap is white; its grey appearance in the photos comes from shadow. The hero material uses white with the existing matte finish and lighting.
+
+Jett also confirmed that the entire seal should read as the same metal. The seal uses one uniform satin aluminium material, with narrower edge turns and broader reflections to remove the appearance of separate polished bands.
