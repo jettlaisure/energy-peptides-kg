@@ -30,3 +30,9 @@ The separate renderer bundle exceeds Vite's 500 kB warning threshold before tran
 - Browser console showed no errors during normal rendering. The missing-label fixture produced the expected fallback warning.
 
 This change is a branch preview; it has not been deployed.
+
+## Closure refinement against actual product photos
+
+The cap and seal were visually matched to `inbox/photos/IMG_2444.jpeg` and `IMG_2439.jpeg`. The plastic cap now has a flatter top, smaller edge radii, a subtle underside seam, and a more pronounced overhang. Its matte material has no clear coat. The aluminium skirt is smooth satin, with shallow crimp detail restricted to the rolled lower edge. Additional profile rows prevent the crimp normals from creating false ribs up the entire skirt. A shared procedural micrograin bump texture adds subtle surface relief and is disposed with the model. The stopper uses darker, rougher rubber.
+
+These are visual estimates from the photos, not measured packaging dimensions. Production build, graph validation, and 21 tests passed after refinement; browser inspection covered the resting pose and rotated closure with no console errors.

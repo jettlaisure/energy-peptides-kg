@@ -29,12 +29,15 @@ export async function mountVial(host) {
   const target = { ...home };
 
   function disposeObject(object) {
+    const textures = new Set();
     object.traverse(child => {
       child.geometry?.dispose();
       if (child.material) {
         const materials = Array.isArray(child.material) ? child.material : [child.material];
         materials.forEach(material => {
-          material.map?.dispose();
+          for (const texture of [material.map, material.bumpMap]) {
+            if (texture && !textures.has(texture)) { texture.dispose(); textures.add(texture); }
+          }
           material.dispose();
         });
       }
