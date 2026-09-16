@@ -50,6 +50,7 @@ const groups = compositionClasses.filter((c) => c.products.some((p) => p.categor
   .composition-directory { border-top: var(--hairline); }
   .composition-directory summary { display: flex; align-items: center; gap: 24px; min-height: 64px; padding-block: 16px; cursor: pointer; list-style: none; font-size: 14px; font-weight: 500; }
   .composition-directory summary::-webkit-details-marker { display: none; }
+  .composition-directory summary:hover > span:first-child { text-decoration: underline; text-underline-offset: 4px; text-decoration-thickness: 1px; }
   .directory-hint { font-size: 12px; font-weight: 400; color: var(--text-dim); margin-left: auto; }
   .directory-toggle { font-size: 22px; color: var(--gold); font-weight: 400; transition: transform .2s; }
   .composition-directory[open] .directory-toggle { transform: rotate(45deg); }
