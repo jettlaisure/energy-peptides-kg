@@ -58,8 +58,7 @@ const unverified = p.components.some((c) => c.confidence !== 'high');
           ? `Supplied as a lyophilized powder, all ${p.components.length} peptides together in a single sealed 3 mL vial.`
           : p.components.map((c) => c.summary).filter(Boolean).join(' ')}</p>
         <div class="price-row">
-          <span class="value price">{money(cents(p.price_usd))}</span>
-          <span class="dim t-small">{unitLabel(p)}</span>
+          <span class="price-amount"><span class="value price">{money(cents(p.price_usd))}</span><span class="dim t-small">{unitLabel(p)}</span></span>
           <span class:list={['chip', 'stock-status', stock.cls]}>{stock.text}</span>
         </div>
         <form class="add" data-add-to-cart data-sku={p.sku}>
@@ -157,7 +156,7 @@ const unverified = p.components.some((c) => c.confidence !== 'high');
   });
 </script>
 <style>
-  .stock-status { border: 0; border-radius: 0; padding-inline: 0; }
+  .stock-status { border: 0; border-radius: 0; padding: 0; gap: 8px; white-space: nowrap; }
   .crumbs { display: flex; gap: var(--s2); padding-block: var(--s5); }
   .crumbs a { color: var(--text-dim); }
   .shot { width: 100%; height: auto; aspect-ratio: 4 / 5; object-fit: cover; display: block; border: var(--hairline); border-radius: var(--radius); background: #EFEEEA; }
@@ -177,7 +176,8 @@ const unverified = p.components.some((c) => c.confidence !== 'high');
   .added { flex-basis: 100%; padding: 12px 16px; background: var(--navy-lift); border-left: 2px solid var(--gold); }
   .amt { font-weight: 400; }
   .comp { font-size: 15px; font-weight: 500; margin-top: calc(-1 * var(--s2)); }
-  .price-row { display: flex; flex-wrap: wrap; align-items: baseline; gap: var(--s3); }
+  .price-row { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 28px; }
+  .price-amount { display: inline-flex; align-items: baseline; gap: 8px; white-space: nowrap; }
   .price { font-size: 34px; font-weight: 700; letter-spacing: -0.02em; }
   .add { display: flex; gap: var(--s3); align-items: center; flex-wrap: wrap; }
   .qty input { width: 72px; font: inherit; padding: 11px 10px; min-height: 48px; border: var(--hairline); border-radius: var(--radius-sm); background: var(--navy); color: var(--text); text-align: center; }
