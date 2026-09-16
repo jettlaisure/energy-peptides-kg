@@ -13,6 +13,25 @@ npm run preview                          # builds (regenerates the catalog) and 
 ```
 Test mode approves every order without a card. `/api/health` reports mode, catalog age and DB state.
 
+## Storefront UI checks
+
+```bash
+npm ci
+npx playwright install --with-deps chromium   # first run only
+npm run build
+npm run test:ui
+```
+
+The Playwright suite serves `dist/client/` using Python on localhost:4322. It checks responsive layouts,
+mobile navigation (including without JavaScript), catalog search/stock filters, and browser-side cart
+behavior. It does **not** call payment APIs or create orders. The knowledge graph must be rebuilt first
+on a fresh checkout (`cd .. && uv run kg rebuild`).
+
+For local review screenshots, serve `dist/client/` on localhost:4322, then run
+`node tests/preview.mjs`. Images are saved to the gitignored `test-results/previews/` directory.
+
+See `../docs/storefront-refresh.md` for the design scope and items requiring owner review before launch.
+
 ## Deploy (first time)
 ```bash
 npx wrangler login                                   # your Cloudflare account, in a browser

@@ -1,0 +1,64 @@
+<div class="catalog-tools" data-catalog-tools hidden>
+  <div class="search-field">
+    <label for="catalog-search">Find a compound</label>
+    <div class="search-input"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/></svg><input id="catalog-search" type="search" placeholder="Search name, composition, or SKU…" autocomplete="off" /></div>
+  </div>
+  <label class="available"><input type="checkbox" id="catalog-available" /> In stock only</label>
+  <p class="result-count" role="status" aria-live="polite" aria-atomic="true" data-result-count></p>
+  <button class="btn btn-quiet" type="button" data-reset-filters>Clear filters</button>
+</div>
+<div class="empty-results container panel stack" data-no-results hidden>
+  <h2 class="t-sub">No matching products</h2>
+  <p class="dim">Try a compound name, a different spelling, or clear your filters to see the full catalog.</p>
+  <button type="button" class="btn btn-secondary" data-reset-filters>Show all products</button>
+</div>
+<script>
+  const tools = document.querySelector<HTMLElement>('[data-catalog-tools]');
+  const search = document.querySelector<HTMLInputElement>('#catalog-search');
+  const available = document.querySelector<HTMLInputElement>('#catalog-available');
+  const count = document.querySelector<HTMLElement>('[data-result-count]');
+  const empty = document.querySelector<HTMLElement>('[data-no-results]');
+  const cards = [...document.querySelectorAll<HTMLElement>('[data-product-card]')];
+  const groups = [...document.querySelectorAll<HTMLElement>('[data-catalog-group]')];
+  const normalize = (value: string) => value.normalize('NFKD').toLowerCase().replace(/[\u0300-\u036f]/g, '').replace(/[^a-z0-9]/g, '');
+  function filter() {
+    const query = normalize(search?.value ?? '');
+    let visible = 0;
+    cards.forEach((card) => {
+      const match = normalize(card.dataset.search ?? '').includes(query) && (!available?.checked || card.dataset.available === 'true');
+      card.hidden = !match;
+      if (match) visible++;
+    });
+    groups.forEach((group) => { group.hidden = !group.querySelector('[data-product-card]:not([hidden])'); });
+    if (count) count.textContent = `${visible} of ${cards.length} products`;
+    if (empty) empty.hidden = visible !== 0;
+  }
+  if (tools && search && available) {
+    tools.hidden = false;
+    search.addEventListener('input', filter);
+    available.addEventListener('change', filter);
+    document.querySelectorAll<HTMLButtonElement>('[data-reset-filters]').forEach((button) => {
+      button.addEventListener('click', () => { search.value = ''; available.checked = false; filter(); search.focus(); });
+    });
+    // Composition links should never land on a section hidden by an earlier search.
+    document.querySelectorAll<HTMLAnchorElement>('.jump a').forEach((link) => {
+      link.addEventListener('click', () => { search.value = ''; available.checked = false; filter(); });
+    });
+    filter();
+  }
+</script>
+<style>
+  .catalog-tools { display: flex; align-items: end; flex-wrap: wrap; gap: 24px; padding: 24px; margin-top: 32px; border: var(--hairline); background: var(--void); border-radius: var(--radius); }
+  .catalog-tools[hidden], .empty-results[hidden] { display: none; }
+  .search-field { flex: 1; min-width: min(100%, 240px); }
+  .search-field > label { display: block; color: var(--text-dim); font-size: 12px; margin-bottom: 8px; }
+  .search-input { display: flex; align-items: center; border: var(--hairline); background: var(--navy); padding-left: 14px; color: var(--steel); }
+  input[type="search"] { width: 100%; min-width: 0; min-height: 48px; padding: 12px; font: 14px var(--sans); border: 0; background: transparent; color: var(--text); }
+  input::placeholder { color: var(--text-dim); }
+  .available { display: flex; align-items: center; gap: 10px; min-height: 48px; font-size: 13px; cursor: pointer; }
+  input[type="checkbox"] { width: 18px; height: 18px; accent-color: var(--gold); }
+  .result-count { font-size: 12px; color: var(--text-dim); min-height: 48px; display: flex; align-items: center; }
+  .catalog-tools > .btn { min-height: 48px; font-size: 12px; }
+  .empty-results { width: 100%; padding: 32px; margin-top: 32px; align-items: start; }
+  @media (max-width: 640px) { .catalog-tools { padding: 16px; gap: 12px 20px; } .search-field { flex-basis: 100%; } .result-count { margin-left: auto; } }
+</style>

@@ -5,7 +5,7 @@ interface Props { product: Product }
 const { product: p } = Astro.props;
 const stock = p.status === 'coming_soon' ? { cls: 'chip-off', text: 'Coming soon' } : p.in_stock ? { cls: 'chip-on', text: 'In stock' } : { cls: 'chip-off', text: 'Out of stock' };
 ---
-<article class="pc">
+<article class="pc" data-product-card data-search={`${p.name} ${familyName(p)} ${sizeLabel(p)} ${p.sku} ${p.composition_class} ${compositionLine(p)}`} data-available={String(p.in_stock && p.status === 'active')}>
   <a class="media" href={`/products/${p.slug}/`} tabindex="-1" aria-hidden="true">
     {p.images?.square
       ? <img src={p.images.square} alt="" width="1600" height="1600" loading="lazy" decoding="async" />   <!-- decorative: the card's own text names the product -->
@@ -16,22 +16,32 @@ const stock = p.status === 'coming_soon' ? { cls: 'chip-off', text: 'Coming soon
     <h3 class="t-card"><a href={`/products/${p.slug}/`}><span class="name">{familyName(p)}</span> <span class="dim amt">{sizeLabel(p)}</span></a></h3>
     {compositionLine(p) && <p class="comp t-small value">{compositionLine(p)}</p>}
     <div class="row">
-      <span class="value price">{money(cents(p.price_usd))}</span>
+      <span class="value price">{money(cents(p.price_usd))}<span class="price-unit"> / vial</span></span>
       <span class:list={['chip', stock.cls]}>{stock.text}</span>
     </div>
+    <a class="product-cta" href={`/products/${p.slug}/`} aria-label={`View ${familyName(p)} ${sizeLabel(p)} specifications`}>View product <span aria-hidden="true">↗</span></a>
   </div>
 </article>
 <style>
-  .pc { display: flex; flex-direction: column; background: var(--navy); border: var(--hairline); border-radius: var(--radius); overflow: hidden; transition: background-color .15s, border-color .15s; }
+  .pc { display: flex; flex-direction: column; min-width: 0; background: var(--void); border: var(--hairline); border-radius: var(--radius); overflow: hidden; transition: background-color .2s, border-color .2s; }
+  .pc[hidden] { display: none; }
   .pc:hover { background: var(--navy-lift); border-color: var(--steel); }
-  .media { display: block; background: #EFEEEA; }
+  .media { display: block; background: #EFEEEA; overflow: hidden; }
+  .media img { transition: transform .35s; }
+  .pc:hover .media img { transform: scale(1.035); }
   .media img { width: 100%; height: auto; aspect-ratio: 1; object-fit: cover; display: block; border-bottom: var(--hairline); }
   .media :global(.vial) { border: 0; border-radius: 0; border-bottom: var(--hairline); }
-  .body { padding: var(--s4); display: flex; flex-direction: column; gap: var(--s2); }
+  .body { padding: 20px; display: flex; flex: 1; flex-direction: column; gap: 12px; }
+  .body > .eyebrow { font-size: 10px; letter-spacing: .12em; }
+  .product-cta { display: flex; justify-content: space-between; align-items: center; min-height: 44px; border-top: var(--hairline); padding-top: 12px; color: var(--text-dim); font-size: 13px; }
+  .product-cta:hover { color: var(--gold-hi); text-decoration: none; }
+  .product-cta span { color: var(--gold-hi); font-size: 20px; }
+  .price-unit { font-size: 11px; color: var(--text-dim); font-weight: 400; }
+  .chip { font-size: 10px; padding: 4px 7px; letter-spacing: .06em; }
   h3 a { color: var(--text); }
   h3 a:hover { text-decoration: none; color: var(--gold-hi); }
   .amt { font-weight: 400; }
   .comp { font-size: 12px; line-height: 1.4; }
-  .row { display: flex; align-items: center; justify-content: space-between; padding-top: var(--s1); }
+  .row { display: flex; align-items: center; justify-content: space-between; gap: 8px; flex-wrap: wrap; padding-top: 8px; margin-top: auto; }
   .price { font-size: 17px; font-weight: 700; }
 </style>

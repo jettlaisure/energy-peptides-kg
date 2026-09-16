@@ -2,75 +2,144 @@
 import Base from '../layouts/Base.astro';
 import ProductGrid from '../components/ProductGrid.astro';
 import FaqList from '../components/FaqList.astro';
-import { products, catalog, site, compositionClasses } from '../lib/catalog';
+import VialArt from '../components/VialArt.astro';
+import { products, catalog, site, compositionClasses, familyName, sizeLabel } from '../lib/catalog';
 const compounds = products.filter((p) => p.category !== 'accessory');
+const featured = compounds.find((p) => p.slug === 'bpc-157-10mg') ?? compounds[0];
 const faqPreview = catalog.faq.filter((f) => ['FAQ-3', 'FAQ-2', 'FAQ-6'].includes(f.id));
 ---
 <Base title={`${site.brand} — research peptides, tested to a ≥99% purity specification`}>
-  <section class="hero container">
-    <p class="eyebrow">Research peptides · Tested to a ≥99% purity specification</p>
-    <h1 class="t-display">Research-grade peptides, tested batch by batch.</h1>
-    <p class="t-lede measure">Lyophilized peptides and laboratory compounds supplied to research settings. {site.testing_line}</p>
-    <div class="cluster">
-      <a class="btn btn-primary" href="/products/">Browse the catalog</a>
-      <a class="btn btn-quiet" href="/faq/#FAQ-3">How products are tested</a>
+  <section class="hero-wrap">
+    <div class="hero container">
+      <div class="hero-copy">
+        <p class="eyebrow"><span class="line" aria-hidden="true"></span>Precision starts here</p>
+        <h1 class="t-display">Research-grade peptides.<br /><span>Batch by batch.</span></h1>
+        <p class="t-lede">Lyophilized peptides and laboratory compounds supplied to research settings. Tested for identity and purity, with certificates available on request.</p>
+        <div class="cluster hero-actions">
+          <a class="btn btn-primary" href="/products/">Explore the catalog <span aria-hidden="true">↗</span></a>
+          <a class="btn btn-quiet" href="#quality">Our testing standards <span aria-hidden="true">↓</span></a>
+        </div>
+        <p class="compliance">{site.compliance_line}</p>
+      </div>
+      {featured && <div class="hero-product">
+        <div class="product-caption"><span class="eyebrow">The research collection</span><span class="eyebrow">01 / EP</span></div>
+        <a class="hero-image" href={`/products/${featured.slug}/`} aria-label={`View ${familyName(featured)} ${sizeLabel(featured)}`}>
+          {featured.images?.square
+            ? <img src={featured.images.square} alt={featured.images_alt?.square ?? `${familyName(featured)} ${sizeLabel(featured)} research vial`} width="1600" height="1600" fetchpriority="high" />
+            : <VialArt product={featured} />}
+        </a>
+        <a class="product-label" href={`/products/${featured.slug}/`}><div><span class="eyebrow">{featured.composition_class}</span><p>{familyName(featured)} <span class="dim">/ {sizeLabel(featured)}</span></p></div><span class="product-arrow" aria-hidden="true">↗</span></a>
+      </div>}
+    </div>
+    <div class="trust-strip container">
+      <div><span class="trust-symbol" aria-hidden="true">≥99%</span><p>Purity specification<span>Tested batch by batch</span></p></div>
+      <div><svg class="trust-icon" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true"><path d="M11 3h10M13 3v10L5 26a2 2 0 0 0 2 3h18a2 2 0 0 0 2-3l-8-13V3M10 20h12"/></svg><p>HPLC + mass spectrometry<span>Purity and identity testing</span></p></div>
+      <div><svg class="trust-icon" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true"><path d="M8 3h12l5 5v21H8V3ZM19 3v7h6M12 15h9M12 20h9M12 25h5"/></svg><p>Certificates on request<span>Batch documentation on file</span></p></div>
     </div>
   </section>
 
-  <section class="section container">
+  <section class="section container composition">
     <div class="section-head">
-      <h2 class="t-section">Browse by composition</h2>
-      <p>Grouped by what each compound is, never by an intended use.</p>
+      <div class="stack"><p class="eyebrow">01 / Find your compound</p><h2 class="t-section">Browse by composition</h2></div>
+      <p>Organized by what each compound is.<br />A direct route to the specifications you need.</p>
     </div>
     <div class="classes">
-      {compositionClasses.map((c) => (
-        <a class="cls" href={`/products/#${c.slug}`}>
+      {compositionClasses.map((c, i) => (
+        <a class="cls" href={`/products/#${c.products.every((p) => p.category === 'accessory') ? 'supplies' : c.slug}`}>
+          <div class="class-top"><span class="eyebrow">{String(i + 1).padStart(2, '0')}</span><span class="class-count">{c.products.length} {c.products.length === 1 ? 'product' : 'products'}</span></div>
           <span class="t-card">{c.name}</span>
-          <span class="dim t-small">{c.products.map((p) => p.family).filter((v, i, a) => a.indexOf(v) === i).join(' · ')}</span>
+          <span class="dim t-small class-families">{c.products.map((p) => p.family).filter((v, i, a) => a.indexOf(v) === i).join(' · ')}</span>
+          <span class="class-link">Explore <span aria-hidden="true">↗</span></span>
         </a>
       ))}
     </div>
   </section>
 
-  <section class="section container">
+  <section class="section container" id="catalog">
     <div class="section-head">
-      <h2 class="t-section">Catalog</h2>
-      <p>Prices per vial. Amount per vial and the purity specification are stated on each product.</p>
+      <div class="stack"><p class="eyebrow">02 / The collection</p><h2 class="t-section">The research catalog</h2><p>Prices per vial. Composition, amount, and specifications on every product.</p></div>
+      <a class="btn btn-quiet" href="/products/">Browse all {products.length} products <span aria-hidden="true">↗</span></a>
     </div>
     <ProductGrid products={compounds} />
   </section>
 
-  <section class="section container quality">
-    <div class="q">
-      <p class="eyebrow">Identity and purity</p>
-      <h3 class="t-sub">Tested batch by batch</h3>
-      <p class="dim">Every batch is analysed by HPLC and mass spectrometry for identity and purity against a ≥99% specification before it is offered. Certificates of analysis are held on file and available on request.</p>
-    </div>
-    <div class="q">
-      <p class="eyebrow">Handling</p>
-      <h3 class="t-sub">Lyophilized, sealed, cold-shipped</h3>
-      <p class="dim">Peptides are supplied as lyophilized powder in sealed vials, stored at −20 °C before dispatch. Handling and storage guidance is in the FAQ.</p>
-    </div>
-    <div class="q">
-      <p class="eyebrow">Policy</p>
-      <h3 class="t-sub">Research use only</h3>
-      <p class="dim">Every product is sold for laboratory research. Purchasers attest to this at checkout. <a href="/legal/research-use-only/">Read the policy</a>.</p>
+  <section class="quality-wrap" id="quality">
+    <div class="section container quality">
+      <div class="quality-intro"><p class="eyebrow">03 / Our standards</p><h2 class="t-section">The details matter.<br />Every single batch.</h2><p class="dim">{site.testing_line}</p><a class="btn btn-quiet" href="/faq/#FAQ-3">Understand our testing <span aria-hidden="true">↗</span></a></div>
+      <div class="quality-list">
+        <div class="q"><span class="eyebrow">01</span><div><h3 class="t-sub">Identity & purity</h3><p class="dim">Every batch is analysed by HPLC and mass spectrometry against a ≥99% purity specification. Certificates of analysis are held on file and available on request.</p></div></div>
+        <div class="q"><span class="eyebrow">02</span><div><h3 class="t-sub">Sealed & carefully stored</h3><p class="dim">Peptides are supplied as lyophilized powder in sealed vials, stored at −20 °C before dispatch. <a href="/faq/">Handling and storage guidance</a>.</p></div></div>
+        <div class="q"><span class="eyebrow">03</span><div><h3 class="t-sub">Exclusively for research</h3><p class="dim">Every product is sold for laboratory research. Purchasers attest to this at checkout. <a href="/legal/research-use-only/">Read the policy</a>.</p></div></div>
+      </div>
     </div>
   </section>
 
-  <section class="section container">
-    <div class="section-head"><h2 class="t-section">Common questions</h2><a class="btn btn-quiet" href="/faq/">All questions</a></div>
+  <section class="section container questions">
+    <div class="questions-intro stack"><p class="eyebrow">04 / Before you order</p><h2 class="t-section">Good questions.<br />Clear answers.</h2><p class="dim">Testing, handling, and research-use requirements, in one place.</p><a class="btn btn-quiet" href="/faq/">Visit the FAQ <span aria-hidden="true">↗</span></a></div>
     <FaqList items={faqPreview} />
   </section>
 </Base>
 <style>
-  .hero { padding-block: var(--section) var(--s8); display: grid; gap: var(--s5); max-width: 60rem; }
-  .hero h1 { max-width: 15ch; }
-  .classes { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: var(--s4); }
-  .cls { display: grid; gap: var(--s2); padding: var(--s5); border: var(--hairline); border-radius: var(--radius); color: var(--text); background: var(--navy); }
+  .hero-wrap { background: var(--void); border-bottom: var(--hairline); }
+  .hero { display: grid; grid-template-columns: 1.15fr 1fr; gap: 80px; align-items: center; padding-block: 64px; }
+  .hero-copy { display: grid; gap: 28px; }
+  .hero-copy > .eyebrow { display: flex; align-items: center; gap: 12px; }
+  .line { width: 32px; height: 1px; background: var(--gold); }
+  .hero h1 { font-size: clamp(38px, 4.5vw, 60px); max-width: 15ch; }
+  .hero h1 span { color: var(--text-dim); }
+  .hero .t-lede { max-width: 43ch; font-size: 19px; font-weight: 400; }
+  .hero-actions { gap: 24px; margin-block: 4px 8px; }
+  .hero-actions .btn-primary { gap: 30px; }
+  .hero-product { border: var(--hairline); background: var(--navy); min-width: 0; }
+  .product-caption { display: flex; justify-content: space-between; padding: 16px 20px; }
+  .hero-image { display: block; overflow: hidden; }
+  .hero-image img { width: 100%; height: auto; aspect-ratio: 1.15; object-fit: cover; object-position: center 60%; transition: transform .4s; }
+  .hero-image:hover img { transform: scale(1.035); }
+  .product-label { display: flex; justify-content: space-between; align-items: center; gap: 20px; padding: 20px 24px; color: var(--text); }
+  .product-label:hover { text-decoration: none; }
+  .product-label p { margin-top: 5px; font-size: 18px; font-weight: 700; }
+  .product-arrow { color: var(--gold-hi); font-size: 24px; }
+  .trust-strip { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border-top: var(--hairline); padding-block: 28px; gap: 32px; }
+  .trust-strip > div { display: flex; align-items: center; gap: 18px; }
+  .trust-strip > div + div { border-left: var(--hairline); padding-left: 32px; }
+  .trust-strip p { font-size: 13px; font-weight: 500; }
+  .trust-strip p span { display: block; font-size: 12px; font-weight: 400; color: var(--text-dim); margin-top: 2px; }
+  .trust-symbol { color: var(--powder); font-size: 26px; font-weight: 700; letter-spacing: -.04em; }
+  .trust-icon { color: var(--steel); width: 32px; height: 32px; flex-shrink: 0; }
+  .classes { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+  .cls { display: flex; flex-direction: column; gap: 12px; padding: 24px; border: var(--hairline); border-radius: var(--radius); color: var(--text); transition: background .2s, border-color .2s; }
   .cls:hover { background: var(--navy-lift); border-color: var(--steel); text-decoration: none; }
-  .quality { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--s7); }
-  .q { display: grid; gap: var(--s3); align-content: start; }
-  .q p.dim { font-size: 15px; }
-  @media (max-width: 760px) { .quality { grid-template-columns: 1fr; } }
+  .class-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; }
+  .class-count { color: var(--text-dim); font-size: 11px; }
+  .class-families { font-size: 13px; }
+  .class-link { display: flex; justify-content: space-between; align-items: center; border-top: var(--hairline); padding-top: 16px; margin-top: auto; font-size: 12px; color: var(--text-dim); }
+  .class-link span { color: var(--gold-hi); font-size: 18px; }
+  .quality-wrap { background: var(--void); border-block: var(--hairline); margin-block: 32px; }
+  .quality { display: grid; grid-template-columns: 1fr 1.15fr; gap: 100px; }
+  .quality-intro { display: flex; flex-direction: column; gap: 24px; align-items: start; }
+  .quality-intro > p.dim { font-size: 15px; }
+  .quality-list { display: grid; gap: 28px; }
+  .q { display: grid; grid-template-columns: 24px 1fr; gap: 20px; }
+  .q + .q { border-top: var(--hairline); padding-top: 28px; }
+  .q > .eyebrow { padding-top: 7px; }
+  .q p.dim { font-size: 14px; margin-top: 12px; }
+  .questions { display: grid; grid-template-columns: 1fr 1.5fr; gap: 80px; }
+  .questions-intro { align-items: start; }
+  .questions-intro > p.dim { font-size: 14px; max-width: 32ch; }
+  @media (max-width: 1000px) { .hero { gap: 40px; } .quality { gap: 48px; } .trust-strip { gap: 20px; } .trust-strip > div + div { padding-left: 20px; } }
+  @media (max-width: 760px) {
+    .hero { grid-template-columns: 1fr; padding-block: 48px 32px; gap: 36px; }
+    .hero h1 { max-width: 18ch; }
+    .hero-copy { gap: 24px; }
+    .hero-product { max-width: 480px; width: 100%; }
+    .hero-image img { aspect-ratio: 1.35; }
+    .trust-strip { grid-template-columns: 1fr; gap: 20px; }
+    .trust-strip > div + div { border-left: 0; padding-left: 0; }
+    .trust-strip > div { gap: 20px; }
+    .trust-symbol { font-size: 22px; min-width: 56px; }
+    .trust-icon { width: 32px; margin-inline: 12px; }
+    .classes { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .quality, .questions { grid-template-columns: 1fr; gap: 36px; }
+  }
+  @media (max-width: 480px) { .classes { grid-template-columns: 1fr; } .hero-actions { gap: 20px; } }
 </style>

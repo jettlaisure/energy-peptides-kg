@@ -52,6 +52,7 @@ const unverified = p.components.some((c) => c.confidence !== 'high');
         <p class="eyebrow">{p.composition_class}</p>
         <h1 class="t-section"><span class="name">{familyName(p)}</span> <span class="dim amt">{sizeLabel(p)}</span></h1>
         {compositionLine(p) && <p class="comp value">{p.display_name && <span class="dim">{p.components.length}-peptide blend · </span>}{compositionLine(p)} <span class="dim">per vial</span></p>}
+        <p class="compliance">{site.compliance_line}</p>
         <p class="t-lede">{p.components.length > 1
           ? `Supplied as a lyophilized powder, all ${p.components.length} peptides together in a single sealed 3 mL vial.`
           : p.components.map((c) => c.summary).filter(Boolean).join(' ')}</p>
@@ -63,9 +64,12 @@ const unverified = p.components.some((c) => c.confidence !== 'high');
         <form class="add" data-add-to-cart data-sku={p.sku}>
           <label class="qty"><span class="sr-only">Quantity</span><input type="number" name="qty" min="1" max="20" value="1" inputmode="numeric" /></label>
           <button class="btn btn-primary" type="submit" disabled={!canBuy}>{canBuy ? 'Add to cart' : stock.text}</button>
-          <span class="added t-small" data-added hidden>Added. <a href="/cart/">View cart</a></span>
+          <span class="added t-small" data-added role="status" aria-live="polite" hidden>Added to your cart. <a href="/cart/">View cart →</a></span>
         </form>
-        <p class="compliance">{site.compliance_line}</p>
+        <div class="purchase-details">
+          <p><span aria-hidden="true">↗</span><span>{money(cents(site.shipping_usd))} US shipping · Free on orders {money(cents(site.free_shipping_over_usd))}+<br /><a href="/legal/shipping-returns/">Shipping & returns</a></span></p>
+          <p><span aria-hidden="true">≡</span><span>Review the details before you order.<br /><a href="#specifications">Specifications</a><span class="detail-divider">/</span><a href="#quality">Testing & certificates</a></span></p>
+        </div>
       </div>
     </section>
 
@@ -152,13 +156,20 @@ const unverified = p.components.some((c) => c.confidence !== 'high');
   .crumbs a { color: var(--text-dim); }
   .shot { width: 100%; height: auto; aspect-ratio: 4 / 5; object-fit: cover; display: block; border: var(--hairline); border-radius: var(--radius); background: #EFEEEA; }
   .top { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); gap: var(--s6); align-items: start; }
-  .buy { padding: var(--s6); gap: var(--s4); }
+  .buy { padding: var(--s6); gap: var(--s4); background: var(--void); }
+  .purchase-details { display: grid; gap: 16px; border-top: var(--hairline); padding-top: 24px; font-size: 13px; color: var(--text-dim); }
+  .purchase-details p { display: flex; gap: 14px; }
+  .purchase-details p > span:first-child { color: var(--steel); font-size: 20px; line-height: 1.3; }
+  .purchase-details a { font-size: 12px; }
+  .detail-divider { margin-inline: 10px; color: var(--steel); }
+  .add .btn { flex: 1; min-width: 160px; }
+  .added { flex-basis: 100%; padding: 12px 16px; background: var(--navy-lift); border-left: 2px solid var(--gold); }
   .amt { font-weight: 400; }
   .comp { font-size: 15px; font-weight: 500; margin-top: calc(-1 * var(--s2)); }
-  .price-row { display: flex; align-items: baseline; gap: var(--s3); }
+  .price-row { display: flex; flex-wrap: wrap; align-items: baseline; gap: var(--s3); }
   .price { font-size: 34px; font-weight: 700; letter-spacing: -0.02em; }
   .add { display: flex; gap: var(--s3); align-items: center; flex-wrap: wrap; }
-  .qty input { width: 72px; font: inherit; padding: 11px 10px; border: var(--hairline); border-radius: var(--radius-sm); background: var(--navy); color: var(--text); text-align: center; }
+  .qty input { width: 72px; font: inherit; padding: 11px 10px; min-height: 48px; border: var(--hairline); border-radius: var(--radius-sm); background: var(--navy); color: var(--text); text-align: center; }
   .added { color: var(--text-dim); }
   .body { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 4fr); gap: var(--s7); margin-top: var(--s8); }
   .main { gap: var(--s6); }

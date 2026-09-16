@@ -1,12 +1,12 @@
 ---
-import Mark from './Mark.astro';
+import Lockup from './Lockup.astro';
 import { site } from '../lib/catalog';
 const year = new Date().getFullYear();
 ---
 <footer class="site-footer">
   <div class="container grid">
     <div class="stack">
-      <Mark glow={false} height={30} />
+      <a class="footer-brand" href="/" aria-label="Energy Peptides home"><Lockup height={38} /></a>
       <p class="dim t-small">Research peptides and laboratory compounds, tested batch by batch to a ≥99% purity specification. Ships within the {site.ships_to.replace(' only', '')}.</p>
     </div>
     <div>
@@ -24,6 +24,7 @@ const year = new Date().getFullYear();
         <li><a href="/legal/shipping-returns/">Shipping and returns</a></li>
         <li><a href="/legal/terms/">Terms of sale</a></li>
         <li><a href="/legal/privacy/">Privacy</a></li>
+        <li><a href="/faq/#FAQ-3">Testing & certificates</a></li>
       </ul>
     </div>
   </div>
@@ -34,10 +35,13 @@ const year = new Date().getFullYear();
 </footer>
 <style>
   .site-footer { margin-top: var(--section); background: var(--void); border-top: var(--hairline); padding-block: var(--s8) var(--s6); }
-  .grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: var(--s7); }
+  .grid { display: grid; grid-template-columns: 1.6fr 1fr 1fr; gap: var(--s8); }
+  .footer-brand { display: inline-flex; width: fit-content; margin-bottom: 8px; }
+  .stack > p { max-width: 38ch; }
+  ul a { display: inline-block; padding-block: 4px; }
   ul { list-style: none; margin: var(--s3) 0 0; padding: 0; display: grid; gap: var(--s2); }
   ul a { color: var(--text-dim); font-size: 14px; }
   ul a:hover { color: var(--text); }
   .legal { border-top: var(--hairline); margin-top: var(--s7); padding-top: var(--s5); display: grid; gap: var(--s3); }
-  @media (max-width: 720px) { .grid { grid-template-columns: 1fr; } }
+  @media (max-width: 720px) { .grid { grid-template-columns: 1fr 1fr; gap: 32px 24px; } .grid > .stack { grid-column: 1 / -1; } }
 </style>

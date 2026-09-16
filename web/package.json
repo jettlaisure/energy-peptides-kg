@@ -15,7 +15,8 @@
     "deploy": "npm run build && wrangler deploy",
     "db:migrate:local": "wrangler d1 execute energy-peptides-orders --local --file=./schema.sql",
     "db:migrate": "wrangler d1 execute energy-peptides-orders --remote --file=./schema.sql",
-    "serve": "wrangler dev --port 8788"
+    "serve": "wrangler dev --port 8788",
+    "test:ui": "playwright test"
   },
   "dependencies": {
     "@astrojs/cloudflare": "^14.3.1",
@@ -25,5 +26,8 @@
   },
   "allowScripts": {
     "esbuild": true
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.63.0"
   }
 }

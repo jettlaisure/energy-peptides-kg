@@ -7,6 +7,7 @@ const lite = products.map((p) => ({ sku: p.sku, name: p.name, slug: p.slug, pric
   <section class="section container narrow">
     <p class="eyebrow">Cart</p>
     <h1 class="t-section">Your cart</h1>
+    <a class="continue-link t-small" href="/products/">← Continue browsing</a>
     <div data-cart-root data-shipping={Math.round(site.shipping_usd * 100)} data-free={Math.round(site.free_shipping_over_usd * 100)}>
       <p class="dim" data-empty>Your cart is empty. <a href="/products/">Browse the catalog</a>.</p>
       <div class="table-wrap" data-table hidden>
@@ -17,7 +18,8 @@ const lite = products.map((p) => ({ sku: p.sku, name: p.name, slug: p.slug, pric
         <div><span class="dim">Shipping <span class="faint">({site.ships_to})</span></span><span class="value" data-ship></span></div>
         <div class="grand"><span>Total</span><span class="value" data-total></span></div>
         <p class="faint t-small">Sales tax, where applicable, is calculated on the invoice.</p>
-        <a class="btn btn-primary" href="/checkout/">Continue to checkout</a>
+        <a class="btn btn-primary" href="/checkout/">Continue to checkout <span aria-hidden="true">→</span></a>
+        <p class="compliance">{site.compliance_line}</p>
       </div>
     </div>
   </section>
@@ -61,12 +63,15 @@ const lite = products.map((p) => ({ sku: p.sku, name: p.name, slug: p.slug, pric
 <style>
   .narrow { max-width: 52rem; display: grid; gap: var(--s5); }
   .lines { width: 100%; border-collapse: collapse; }
-  .lines th, .lines td { text-align: left; padding: var(--s3) var(--s2); border-bottom: var(--hairline); vertical-align: middle; }
+  .lines th, .lines :global(td) { text-align: left; padding: var(--s3) var(--s2); border-bottom: var(--hairline); vertical-align: middle; }
   .lines th { font-size: 11px; color: var(--steel); font-weight: 500; text-transform: uppercase; letter-spacing: .18em; }
-  .lines .r { text-align: right; }
-  .lines a.name { color: var(--text); }
-  .lines input { width: 72px; font: inherit; padding: 8px; border: var(--hairline); border-radius: var(--radius-sm); background: var(--navy); color: var(--text); text-align: center; }
-  .totals { display: grid; gap: var(--s2); justify-items: end; margin-top: var(--s5); }
+  .lines :global(.r) { text-align: right; }
+  .lines :global(a.name) { color: var(--text); }
+  .lines :global(input) { width: 72px; font: inherit; padding: 8px; border: var(--hairline); border-radius: var(--radius-sm); background: var(--navy); color: var(--text); text-align: center; }
+  .continue-link { color: var(--text-dim); }
+  .totals { display: grid; gap: var(--s3); justify-items: end; margin-top: var(--s6); padding: 24px; background: var(--void); border: var(--hairline); }
+  .totals .btn-primary { width: min(100%, 22rem); justify-content: space-between; margin-top: 12px; }
+  .totals .compliance { text-align: right; max-width: 36rem; }
   .totals > div { display: flex; justify-content: space-between; gap: var(--s7); width: min(100%, 22rem); }
   .grand { font-weight: 700; font-size: 19px; border-top: var(--hairline); padding-top: var(--s2); }
 </style>

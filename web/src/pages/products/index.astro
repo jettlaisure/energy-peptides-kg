@@ -1,6 +1,7 @@
 ---
 import Base from '../../layouts/Base.astro';
 import ProductGrid from '../../components/ProductGrid.astro';
+import CatalogFilters from '../../components/CatalogFilters.astro';
 import { products, site, compositionClasses } from '../../lib/catalog';
 const supplies = products.filter((p) => p.category === 'accessory');
 const groups = compositionClasses.filter((c) => c.products.some((p) => p.category !== 'accessory'));
@@ -15,22 +16,25 @@ const groups = compositionClasses.filter((c) => c.products.some((p) => p.categor
       {groups.map((c) => <a class="chip" href={`#${c.slug}`}>{c.name}</a>)}
       {supplies.length > 0 && <a class="chip" href="#supplies">Laboratory supplies</a>}
     </nav>
+    <CatalogFilters />
   </section>
   {groups.map((c) => (
-    <section class="section container" id={c.slug}>
+    <section class="section container" id={c.slug} data-catalog-group>
       <div class="section-head"><h2 class="t-sub">{c.name}</h2></div>
       <ProductGrid products={c.products.filter((p) => p.category !== 'accessory')} />
     </section>
   ))}
   {supplies.length > 0 && (
-    <section class="section container" id="supplies">
+    <section class="section container" id="supplies" data-catalog-group>
       <div class="section-head"><h2 class="t-sub">Laboratory supplies</h2><p>Solvents and consumables for handling and storage in the laboratory.</p></div>
       <ProductGrid products={supplies} />
     </section>
   )}
 </Base>
 <style>
-  .jump { margin-top: var(--s2); }
+  .section-head h1 { margin-top: 16px; }
+  .jump { margin-top: var(--s2); gap: 10px; }
+  .jump .chip { min-height: 44px; padding: 10px 16px; border-radius: var(--radius); }
   .jump .chip { text-decoration: none; }
   .jump .chip::before { display: none; }
   .jump .chip:hover { color: var(--text); border-color: var(--steel); }
