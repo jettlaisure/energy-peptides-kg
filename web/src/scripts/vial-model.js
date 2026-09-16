@@ -112,7 +112,7 @@ const bp = [
   [Rbtn - 0.32, bt], [Rbtn - 0.65, bt], [0.001, bt - 0.025],
 ].map(([radius, height]) => new THREE.Vector2(radius, height));
 const button = new THREE.Mesh(new THREE.LatheGeometry(bp, 160), new THREE.MeshStandardMaterial({
-  color: '#AFB0AE', roughness: 0.72, metalness: 0, envMapIntensity: 0.45,
+  color: '#FFFFFF', roughness: 0.72, metalness: 0, envMapIntensity: 0.45,
   bumpMap: grain, bumpScale: 0.012,
 }));
 button.castShadow = true; vial.add(button);

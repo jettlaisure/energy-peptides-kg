@@ -1,6 +1,6 @@
 # Interactive hero vial
 
-The BPC-157 hero uses a real, parametric 3D model with the original full label wrapped onto its cylindrical body. The model is adapted from `render/scene.html`; it has a rounded glass heel and shoulder, a rubber stopper, crimped silver seal, grey flip-off cap, and white lyophilized contents. The original product photograph remains the loading and failure fallback.
+The BPC-157 hero uses a real, parametric 3D model with the original full label wrapped onto its cylindrical body. The model is adapted from `render/scene.html`; it has a rounded glass heel and shoulder, a rubber stopper, crimped silver seal, white flip-off cap, and white lyophilized contents. The original product photograph remains the loading and failure fallback.
 
 ## Sources and maintenance
 
@@ -36,3 +36,5 @@ This change is a branch preview; it has not been deployed.
 The cap and seal were visually matched to `inbox/photos/IMG_2444.jpeg` and `IMG_2439.jpeg`. The plastic cap now has a flatter top, smaller edge radii, a subtle underside seam, and a more pronounced overhang. Its matte material has no clear coat. The aluminium skirt is smooth satin, with shallow crimp detail restricted to the rolled lower edge. Additional profile rows prevent the crimp normals from creating false ribs up the entire skirt. A shared procedural micrograin bump texture adds subtle surface relief and is disposed with the model. The stopper uses darker, rougher rubber.
 
 These are visual estimates from the photos, not measured packaging dimensions. Production build, graph validation, and 21 tests passed after refinement; browser inspection covered the resting pose and rotated closure with no console errors.
+
+Jett confirmed on 2026-09-16 that the actual cap is white; its grey appearance in the photos comes from shadow. The hero material uses white with the existing matte finish and lighting.
