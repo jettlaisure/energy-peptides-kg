@@ -3,7 +3,7 @@
 export function createVial(THREE, labelTex) {
 const vial = new THREE.Group();
 const VIAL_ML = 3, AMBER = false, CAKE = '#FBFBF9', U_CENTER = 0.44;
-const SEAL = { color: '#BEC1C5', rough: 0.43 };
+const SEAL = { color: '#BEC1C5', rough: 0.49 };
 const ISO = VIAL_ML >= 5
   ? { d1: 22, d2: 20, d3: 16.5, d4: 12.6, h1: 40, yShoulder: 29.2, shR: 2.4, yNeck: 32.4, flangeH: 3.4, r1: 3.5, stopperH: 1.8, btnH: 3.2, cakeH: 12, labelH: 19 }
   : { d1: 16, d2: 13, d3: 10.5, d4: 7.0, h1: 35, yShoulder: 25.0, shR: 1.8, yNeck: 27.6, flangeH: 3.0, r1: 2.5, stopperH: 1.4, btnH: 2.8, cakeH: 10, labelH: 17 };
@@ -97,7 +97,7 @@ grain.needsUpdate = true;
 // catch natural highlights without creating broad, separate polished bands.
 const seal = new THREE.Mesh(sealGeo, new THREE.MeshStandardMaterial({
   color: SEAL.color, metalness: 1, roughness: SEAL.rough,
-  envMapIntensity: 0.85, side: THREE.DoubleSide,
+  envMapIntensity: 0.8, side: THREE.DoubleSide,
   bumpMap: grain, bumpScale: 0.016,
 }));
 seal.castShadow = true; vial.add(seal);
