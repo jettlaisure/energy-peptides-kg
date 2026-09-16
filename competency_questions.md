@@ -26,3 +26,5 @@ relationships (which claim is backed by which study under which rule) ARE the da
 | 14 | What is the complete, minimal context needed to write a product page for X? | recipe `product_page` | `kg context product_page X` |
 | 15 | Which products share a peptide (blends), for cross-linking? | Product –CONTAINS→ Peptide ←CONTAINS– Product | `kg card Peptide:X` |
 | 16 | Is claim text T allowed, and under which rule? | Claim –GOVERNED_BY→ ComplianceRule | `kg query Claim --status prohibited` |
+| 17 | Which photos show product X, and what were they made from? | Asset –DEPICTS→ Product | `kg card "Product:BPC-157 10mg"` / `kg context product_page "Product:BPC-157 10mg"` |
+| 18 | Which sellable products have no product photo? | Product ←DEPICTS– Asset (absent) | `kg gaps` |

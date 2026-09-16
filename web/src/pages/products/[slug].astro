@@ -45,7 +45,7 @@ const unverified = p.components.some((c) => c.confidence !== 'high');
     <section class="top">
       <div class="art">
         {p.images?.portrait
-          ? <img class="shot" src={p.images.portrait} alt={`${familyName(p)} ${sizeLabel(p)} vial with the Energy Peptides label. For research use only.`} width="1600" height="2000" fetchpriority="high" />
+          ? <img class="shot" src={p.images.portrait} alt={p.images_alt?.portrait ?? ''} width="1600" height="2000" fetchpriority="high" />
           : <VialArt product={p} size="hero" />}
       </div>
       <div class="panel buy stack">

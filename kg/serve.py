@@ -245,6 +245,10 @@ def gaps(store: Store, expiry_days: int = 90, low_stock: int = 3) -> str:
     # 11: low stock
     low = [f"- {r['product']}: {r['on_hand']:g}" for r in stock(store) if r["status"] == "active" and r["on_hand"] <= low_stock]
     lines += [f"## Active products at or below {low_stock} units ({len(low)})", *low]
+    # sellable products with no product photo
+    nophoto = [p["name"] for p in store.nodes("Product")
+               if p["attrs"].get("status") in ("active", "coming_soon") and not store.edges(p["id"], "DEPICTS", "in")]
+    lines += [f"## Sellable products with no product photo ({len(nophoto)})", *[f"- {n}" for n in sorted(nophoto)]]
     # products without a live page
     nop = []
     for p in store.nodes("Product"):

@@ -150,3 +150,21 @@ def test_catalog_has_21_skus_with_one_pattern(graph):
     assert sum(p["attrs"]["status"] == "active" for p in prods) == 7
     assert not any(p["attrs"].get("vials_per_unit") for p in prods)          # sold by the vial, no kits
     assert st.resolve("Product", "KLOW")["attrs"]["display_name"] == "KLOW"
+
+
+def test_every_photo_is_in_the_graph_with_its_provenance(graph):
+    """Q17/Q18: the graph, not the filesystem, says which photo shows which product and what it came from."""
+    st, _ = graph
+    root = pathlib.Path(__file__).resolve().parent.parent
+    for p in st.nodes("Product"):
+        photos = {st.get(e["src"])["attrs"]["format"]: st.get(e["src"]) for e in st.edges(p["id"], "DEPICTS", "in")}
+        if p["name"] == "Bacteriostatic water 10ml":
+            assert not photos                                               # no label file yet; the site draws a vial
+            continue
+        assert set(photos) == {"square", "portrait"}, p["name"]
+        for fmt, ph in photos.items():
+            a = ph["attrs"]
+            assert (root / ph["name"]).exists() and a["url"].startswith("/img/products/")
+            assert a["alt_text"].endswith("For research use only.") and p["name"].split()[0][:6].lower() in a["alt_text"].lower()
+            assert len(a["derived_from"]) == 2 and all((root / f).exists() for f in a["derived_from"])
+            assert (a["width_px"], a["height_px"]) == ((1600, 1600) if fmt == "square" else (1600, 2000))

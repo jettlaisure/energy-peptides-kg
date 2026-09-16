@@ -1,6 +1,6 @@
 """Bundle the site's product photos for download: WebP at the exact files the site serves, plus a manifest.
   uv run python render/pack_photos.py      -> render/out/energy-peptides-product-photos.zip (and a copy in ~/Downloads)"""
-import csv, io, json, pathlib, re, shutil, sqlite3, zipfile
+import csv, io, json, pathlib, shutil, sqlite3, zipfile
 from datetime import date
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
@@ -18,15 +18,11 @@ portrait/  1600 x 2000 (4:5)  product page hero image
 
 1600 px wide keeps them sharp on high-density (Retina) screens up to 800 px wide on the page.
 Every vial is shot at the same millimetre scale on the same floor line, so a 5 mL vial reads larger than a 3 mL one.
-manifest.csv gives each photo's SKU, product, status and alt text (use it as the image's alt attribute).
+manifest.csv gives each photo's SKU, product, status and alt text (use it as the image's alt attribute); it comes
+straight from the knowledge graph, which is where the website reads it too.
 Bacteriostatic water has no photo yet (no label file). GLOW and Retatrutide 15 mg are drafts, not yet on the site.
 If a platform refuses WebP, ask Claude for JPEG copies.
 """
-
-def family(name, display):
-    base = re.sub(r"\s+\d+(\.\d+)?\s*(mg|ml)$", "", name, flags=re.I)
-    if display and "/" in base: return f"{display} ({base})"      # nicknames always travel with their components
-    return display or base
 
 def main():
     db = sqlite3.connect(ROOT / "data" / "graph.db")
@@ -35,8 +31,9 @@ def main():
         a = json.loads(attrs); slug = a.get("slug")
         sq, pt = IMG / f"{slug}-square.webp", IMG / f"{slug}-portrait.webp"
         if not (sq.exists() and pt.exists()): continue
-        size = f"{a['size_mg']} mg" if a.get("size_mg") else (f"{a['size_ml']} ml" if a.get("size_ml") else "")
-        alt = f"{family(name, a.get('display_name'))} {size} vial with the Energy Peptides label. For research use only.".replace("  ", " ")
+        alt = next((json.loads(r[0]).get("alt_text", "") for r in db.execute(
+            "SELECT n.attrs FROM nodes n JOIN edges e ON e.src=n.id JOIN nodes t ON t.id=e.dst "
+            "WHERE e.rel='DEPICTS' AND t.name=? AND json_extract(n.attrs,'$.format')='portrait'", (name,))), "")
         rows.append({"sku": a.get("sku"), "product": name, "status": a.get("status"), "square": f"square/{sq.name}",
                      "portrait": f"portrait/{pt.name}", "alt_text": alt, "_files": (sq, pt)})
     order = {"active": 0, "coming_soon": 1, "draft": 2}

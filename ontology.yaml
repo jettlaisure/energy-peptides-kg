@@ -163,6 +163,10 @@ entities:
       asset_type: {type: string, enum: [coa, image, logo, diagram, document]}
       alt_text: {type: string}
       url: {type: string}
+      format: {type: string, enum: [square, portrait], note: 'product photography: 1:1 for grids, 4:5 for the product page'}
+      width_px: {type: number}
+      height_px: {type: number}
+      derived_from: {type: list, note: 'source files this image was made from (vial photo, label print file)'}
 
 events:
   InventoryEvent:
@@ -190,6 +194,7 @@ relations:
   TARGETS:         {domain: [Page], range: [Keyword]}
   CITES:           {domain: [Page], range: [Study]}
   USES:            {domain: [Page, Product], range: [Asset]}
+  DEPICTS:         {domain: [Asset], range: [Product], note: 'product photography; one asset per product and format'}
   INCLUDES_FAQ:    {domain: [Page], range: [FAQItem]}
   BELONGS_TO:      {domain: [Product, Page], range: [ResearchArea]}
   LINKS_TO:        {domain: [Page], range: [Page], note: 'internal links for SEO'}
@@ -203,6 +208,7 @@ recipes:
     seed_types: [Product, Peptide, Compound]
     expand:
       - {rel: CONTAINS, dir: out, from: Product}
+      - {rel: DEPICTS, dir: in, from: Product, type: Asset}
       - {rel: CONTAINS, dir: in, from: [Peptide, Compound], note: 'sibling products and blends'}
       - {rel: BELONGS_TO, dir: out, from: Product}
       - {rel: RESEARCHED_FOR, dir: out, from: [Peptide, Compound]}

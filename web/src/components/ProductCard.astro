@@ -8,7 +8,7 @@ const stock = p.status === 'coming_soon' ? { cls: 'chip-off', text: 'Coming soon
 <article class="pc">
   <a class="media" href={`/products/${p.slug}/`} tabindex="-1" aria-hidden="true">
     {p.images?.square
-      ? <img src={p.images.square} alt="" width="1600" height="1600" loading="lazy" decoding="async" />
+      ? <img src={p.images.square} alt="" width="1600" height="1600" loading="lazy" decoding="async" />   <!-- decorative: the card's own text names the product -->
       : <VialArt product={p} />}
   </a>
   <div class="body">
