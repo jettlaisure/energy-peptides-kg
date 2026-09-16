@@ -7,6 +7,7 @@ const supplies = products.filter((p) => p.category === 'accessory');
 const groups = compositionClasses.filter((c) => c.products.some((p) => p.category !== 'accessory'));
 ---
 <Base title="Catalog" description={`All ${site.brand} research peptides and laboratory supplies, grouped by composition, tested to a ≥99% purity specification. ${site.compliance_line}.`}>
+  <div class="catalog-shell">
   <section class="section container">
     <div class="section-head">
       <div><p class="eyebrow">Catalog</p><h1 class="t-section">Browse by composition</h1></div>
@@ -30,6 +31,7 @@ const groups = compositionClasses.filter((c) => c.products.some((p) => p.categor
       <ProductGrid products={supplies} />
     </section>
   )}
+  </div>
 </Base>
 <style>
   .section-head h1 { margin-top: 16px; }
@@ -38,4 +40,13 @@ const groups = compositionClasses.filter((c) => c.products.some((p) => p.categor
   .jump .chip { text-decoration: none; }
   .jump .chip::before { display: none; }
   .jump .chip:hover { color: var(--text); border-color: var(--steel); }
+  .catalog-shell { background: var(--navy); --navy-lift: var(--navy); --powder: var(--text); }
+  .section-head h1 { font-size: clamp(36px, 4.6vw, 60px); font-weight: 500; letter-spacing: -.04em; }
+  .section-head h2 { font-weight: 500; }
+  .jump .chip { text-transform: none; letter-spacing: 0; font-size: 12px; border-color: transparent; border-bottom-color: var(--rule); border-radius: 0; padding: 10px 0; margin-right: 18px; }
+  .catalog-shell :global(.product-cta span) { color: var(--text-dim); }
+  .catalog-shell :global(.pc:hover .product-cta span) { color: var(--gold-hi); }
+  .catalog-shell :global(.catalog-tools) { background: transparent; border-inline: 0; border-radius: 0; padding-inline: 0; }
+  .catalog-shell :global(.search-input) { background: var(--navy); }
+  .catalog-shell :global(.btn-quiet) { color: var(--text-dim); }
 </style>
