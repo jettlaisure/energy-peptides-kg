@@ -3,143 +3,188 @@ import Base from '../layouts/Base.astro';
 import ProductGrid from '../components/ProductGrid.astro';
 import FaqList from '../components/FaqList.astro';
 import VialArt from '../components/VialArt.astro';
-import { products, catalog, site, compositionClasses, familyName, sizeLabel } from '../lib/catalog';
-const compounds = products.filter((p) => p.category !== 'accessory');
+import { products, catalog, site, compositionClasses, familyName, sizeLabel, money, cents } from '../lib/catalog';
+// Show available compounds first without changing the graph's stock or catalog data.
+const compounds = products.filter((p) => p.category !== 'accessory')
+  .sort((a, b) => Number(b.in_stock && b.status === 'active') - Number(a.in_stock && a.status === 'active'));
 const featured = compounds.find((p) => p.slug === 'bpc-157-10mg') ?? compounds[0];
 const faqPreview = catalog.faq.filter((f) => ['FAQ-3', 'FAQ-2', 'FAQ-6'].includes(f.id));
 ---
 <Base title={`${site.brand} — research peptides, tested to a ≥99% purity specification`}>
-  <section class="hero-wrap">
-    <div class="hero container">
-      <div class="hero-copy">
-        <p class="eyebrow"><span class="line" aria-hidden="true"></span>Precision starts here</p>
-        <h1 class="t-display">Research-grade peptides.<br /><span>Batch by batch.</span></h1>
-        <p class="t-lede">Lyophilized peptides and laboratory compounds supplied to research settings. Tested for identity and purity, with certificates available on request.</p>
-        <div class="cluster hero-actions">
-          <a class="btn btn-primary" href="/products/">Explore the catalog <span aria-hidden="true">↗</span></a>
-          <a class="btn btn-quiet" href="#quality">Our testing standards <span aria-hidden="true">↓</span></a>
+  <div class="landing">
+    <section class="hero-wrap">
+      <div class="hero container">
+        <div class="hero-copy">
+          <p class="eyebrow">Precision starts here</p>
+          <h1>Research-grade <br />peptides<span>.</span></h1>
+          <p class="t-lede">Tested batch by batch. Defined by composition.<br class="desktop-break" /> Supplied exclusively for laboratory research.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="/products/">Explore the catalog <span aria-hidden="true">↗</span></a>
+            <a class="text-link" href="#quality">Our testing standards <span aria-hidden="true">↘</span></a>
+          </div>
         </div>
-        <p class="compliance">{site.compliance_line}</p>
+        {featured && <figure class="hero-product">
+          <a class="hero-image" href={`/products/${featured.slug}/`} aria-label={`View ${familyName(featured)} ${sizeLabel(featured)}`}>
+            {featured.images?.square
+              ? <img src={featured.images.square} alt={featured.images_alt?.square ?? `${familyName(featured)} ${sizeLabel(featured)} research vial`} width="1600" height="1600" fetchpriority="high" />
+              : <VialArt product={featured} />}
+          </a>
+          <figcaption><a href={`/products/${featured.slug}/`}><span>{familyName(featured)} <span class="dim">/ {sizeLabel(featured)}</span></span><span>{money(cents(featured.price_usd))} <span aria-hidden="true">↗</span></span></a></figcaption>
+        </figure>}
       </div>
-      {featured && <div class="hero-product">
-        <div class="product-caption"><span class="eyebrow">The research collection</span><span class="eyebrow">01 / EP</span></div>
-        <a class="hero-image" href={`/products/${featured.slug}/`} aria-label={`View ${familyName(featured)} ${sizeLabel(featured)}`}>
-          {featured.images?.square
-            ? <img src={featured.images.square} alt={featured.images_alt?.square ?? `${familyName(featured)} ${sizeLabel(featured)} research vial`} width="1600" height="1600" fetchpriority="high" />
-            : <VialArt product={featured} />}
-        </a>
-        <a class="product-label" href={`/products/${featured.slug}/`}><div><span class="eyebrow">{featured.composition_class}</span><p>{familyName(featured)} <span class="dim">/ {sizeLabel(featured)}</span></p></div><span class="product-arrow" aria-hidden="true">↗</span></a>
-      </div>}
-    </div>
-    <div class="trust-strip container">
-      <div><span class="trust-symbol" aria-hidden="true">≥99%</span><p>Purity specification<span>Tested batch by batch</span></p></div>
-      <div><svg class="trust-icon" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true"><path d="M11 3h10M13 3v10L5 26a2 2 0 0 0 2 3h18a2 2 0 0 0 2-3l-8-13V3M10 20h12"/></svg><p>HPLC + mass spectrometry<span>Purity and identity testing</span></p></div>
-      <div><svg class="trust-icon" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true"><path d="M8 3h12l5 5v21H8V3ZM19 3v7h6M12 15h9M12 20h9M12 25h5"/></svg><p>Certificates on request<span>Batch documentation on file</span></p></div>
-    </div>
-  </section>
-
-  <section class="section container composition">
-    <div class="section-head">
-      <div class="stack"><p class="eyebrow">01 / Find your compound</p><h2 class="t-section">Browse by composition</h2></div>
-      <p>Organized by what each compound is.<br />A direct route to the specifications you need.</p>
-    </div>
-    <div class="classes">
-      {compositionClasses.map((c, i) => (
-        <a class="cls" href={`/products/#${c.products.every((p) => p.category === 'accessory') ? 'supplies' : c.slug}`}>
-          <div class="class-top"><span class="eyebrow">{String(i + 1).padStart(2, '0')}</span><span class="class-count">{c.products.length} {c.products.length === 1 ? 'product' : 'products'}</span></div>
-          <span class="t-card">{c.name}</span>
-          <span class="dim t-small class-families">{c.products.map((p) => p.family).filter((v, i, a) => a.indexOf(v) === i).join(' · ')}</span>
-          <span class="class-link">Explore <span aria-hidden="true">↗</span></span>
-        </a>
-      ))}
-    </div>
-  </section>
-
-  <section class="section container" id="catalog">
-    <div class="section-head">
-      <div class="stack"><p class="eyebrow">02 / The collection</p><h2 class="t-section">The research catalog</h2><p>Prices per vial. Composition, amount, and specifications on every product.</p></div>
-      <a class="btn btn-quiet" href="/products/">Browse all {products.length} products <span aria-hidden="true">↗</span></a>
-    </div>
-    <ProductGrid products={compounds} />
-  </section>
-
-  <section class="quality-wrap" id="quality">
-    <div class="section container quality">
-      <div class="quality-intro"><p class="eyebrow">03 / Our standards</p><h2 class="t-section">The details matter.<br />Every single batch.</h2><p class="dim">{site.testing_line}</p><a class="btn btn-quiet" href="/faq/#FAQ-3">Understand our testing <span aria-hidden="true">↗</span></a></div>
-      <div class="quality-list">
-        <div class="q"><span class="eyebrow">01</span><div><h3 class="t-sub">Identity & purity</h3><p class="dim">Every batch is analysed by HPLC and mass spectrometry against a ≥99% purity specification. Certificates of analysis are held on file and available on request.</p></div></div>
-        <div class="q"><span class="eyebrow">02</span><div><h3 class="t-sub">Sealed & carefully stored</h3><p class="dim">Peptides are supplied as lyophilized powder in sealed vials, stored at −20 °C before dispatch. <a href="/faq/">Handling and storage guidance</a>.</p></div></div>
-        <div class="q"><span class="eyebrow">03</span><div><h3 class="t-sub">Exclusively for research</h3><p class="dim">Every product is sold for laboratory research. Purchasers attest to this at checkout. <a href="/legal/research-use-only/">Read the policy</a>.</p></div></div>
+      <div class="trust-strip container" aria-label="Testing and documentation">
+        <div><strong>≥99%</strong><p>Purity specification<span>Tested batch by batch</span></p></div>
+        <div><strong>HPLC + MS</strong><p>Purity & identity<span>Two analytical methods</span></p></div>
+        <div><strong>COA</strong><p>Certificates on request<span>Batch documentation on file</span></p></div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section class="section container questions">
-    <div class="questions-intro stack"><p class="eyebrow">04 / Before you order</p><h2 class="t-section">Good questions.<br />Clear answers.</h2><p class="dim">Testing, handling, and research-use requirements, in one place.</p><a class="btn btn-quiet" href="/faq/">Visit the FAQ <span aria-hidden="true">↗</span></a></div>
-    <FaqList items={faqPreview} />
-  </section>
+    <section class="section container composition">
+      <header class="composition-intro"><h2 class="t-section">Know your compound.<br /><span class="dim">Find your starting point.</span></h2><p class="dim">Browse by composition, with amounts and specifications on every product.</p><a class="text-link" href="/products/">View the full catalog <span aria-hidden="true">↗</span></a></header>
+      <div class="classes" aria-label="Browse by composition">
+        {compositionClasses.map((c) => (
+          <a class="cls" href={`/products/#${c.products.every((p) => p.category === 'accessory') ? 'supplies' : c.slug}`}>
+            <span class="class-copy"><span class="class-name">{c.name}</span><span class="class-families">{c.products.map((p) => p.family).filter((v, i, a) => a.indexOf(v) === i).join(', ')}</span></span>
+            <span class="class-count">{c.products.length}<span class="sr-only"> {c.products.length === 1 ? 'product' : 'products'}</span></span><span class="class-arrow" aria-hidden="true">↗</span>
+          </a>
+        ))}
+      </div>
+    </section>
+
+    <section class="section container collection" id="catalog">
+      <div class="section-head"><div class="stack"><p class="eyebrow">The collection</p><h2 class="t-section">The research catalog</h2><p>Prices per vial. Every compound, clearly specified.</p></div><a class="text-link" href="/products/">Browse all {products.length} products <span aria-hidden="true">↗</span></a></div>
+      <div class="catalog-rail" tabindex="0" role="region" aria-label="Research products, scroll horizontally to browse"><ProductGrid products={compounds} /></div>
+      <div class="rail-footer"><p>Explore the collection by composition and amount.</p><div class="rail-controls" hidden><button type="button" data-rail-prev aria-label="Previous products" aria-controls="catalog">←</button><button type="button" data-rail-next aria-label="Next products" aria-controls="catalog">→</button></div></div>
+    </section>
+
+    <section class="quality-wrap" id="quality">
+      <div class="section container quality">
+        <header class="quality-intro"><p class="eyebrow">Our standards</p><h2 class="t-section">The details matter.<br /><span class="dim">Every single batch.</span></h2><p class="dim">{site.testing_line}</p><a class="text-link" href="/faq/#FAQ-3">Understand our testing <span aria-hidden="true">↗</span></a></header>
+        <div class="quality-content">
+          <div class="purity"><span class="purity-number">≥99<span>%</span></span><div><h3>Purity specification</h3><p>Analysed by HPLC and mass spectrometry. Certificates of analysis available on request.</p></div></div>
+          <div class="quality-notes"><div><h3>Sealed & carefully stored</h3><p>Lyophilized powder in sealed vials, stored at −20 °C before dispatch.</p><a href="/faq/">Handling and storage guidance ↗</a></div><div><h3>Exclusively for research</h3><p>Every product is sold for laboratory research. Purchasers attest to this at checkout.</p><a href="/legal/research-use-only/">Read the policy ↗</a></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section container questions">
+      <header class="questions-intro"><h2 class="t-section">Good questions.<br /><span class="dim">Clear answers.</span></h2><p class="dim">Testing, handling, and research-use requirements, in one place.</p><a class="text-link" href="/faq/">Visit the FAQ <span aria-hidden="true">↗</span></a></header>
+      <FaqList items={faqPreview} />
+    </section>
+  </div>
 </Base>
-<style>
-  .hero-wrap { background: var(--void); border-bottom: var(--hairline); }
-  .hero { display: grid; grid-template-columns: 1.15fr 1fr; gap: 80px; align-items: center; padding-block: 64px; }
-  .hero-copy { display: grid; gap: 28px; }
-  .hero-copy > .eyebrow { display: flex; align-items: center; gap: 12px; }
-  .line { width: 32px; height: 1px; background: var(--gold); }
-  .hero h1 { font-size: clamp(38px, 4.5vw, 60px); max-width: 15ch; }
-  .hero h1 span { color: var(--text-dim); }
-  .hero .t-lede { max-width: 43ch; font-size: 19px; font-weight: 400; }
-  .hero-actions { gap: 24px; margin-block: 4px 8px; }
-  .hero-actions .btn-primary { gap: 30px; }
-  .hero-product { border: var(--hairline); background: var(--navy); min-width: 0; }
-  .product-caption { display: flex; justify-content: space-between; padding: 16px 20px; }
-  .hero-image { display: block; overflow: hidden; }
-  .hero-image img { width: 100%; height: auto; aspect-ratio: 1.15; object-fit: cover; object-position: center 60%; transition: transform .4s; }
-  .hero-image:hover img { transform: scale(1.035); }
-  .product-label { display: flex; justify-content: space-between; align-items: center; gap: 20px; padding: 20px 24px; color: var(--text); }
-  .product-label:hover { text-decoration: none; }
-  .product-label p { margin-top: 5px; font-size: 18px; font-weight: 700; }
-  .product-arrow { color: var(--gold-hi); font-size: 24px; }
-  .trust-strip { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border-top: var(--hairline); padding-block: 28px; gap: 32px; }
-  .trust-strip > div { display: flex; align-items: center; gap: 18px; }
-  .trust-strip > div + div { border-left: var(--hairline); padding-left: 32px; }
-  .trust-strip p { font-size: 13px; font-weight: 500; }
-  .trust-strip p span { display: block; font-size: 12px; font-weight: 400; color: var(--text-dim); margin-top: 2px; }
-  .trust-symbol { color: var(--powder); font-size: 26px; font-weight: 700; letter-spacing: -.04em; }
-  .trust-icon { color: var(--steel); width: 32px; height: 32px; flex-shrink: 0; }
-  .classes { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
-  .cls { display: flex; flex-direction: column; gap: 12px; padding: 24px; border: var(--hairline); border-radius: var(--radius); color: var(--text); transition: background .2s, border-color .2s; }
-  .cls:hover { background: var(--navy-lift); border-color: var(--steel); text-decoration: none; }
-  .class-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; }
-  .class-count { color: var(--text-dim); font-size: 11px; }
-  .class-families { font-size: 13px; }
-  .class-link { display: flex; justify-content: space-between; align-items: center; border-top: var(--hairline); padding-top: 16px; margin-top: auto; font-size: 12px; color: var(--text-dim); }
-  .class-link span { color: var(--gold-hi); font-size: 18px; }
-  .quality-wrap { background: var(--void); border-block: var(--hairline); margin-block: 32px; }
-  .quality { display: grid; grid-template-columns: 1fr 1.15fr; gap: 100px; }
-  .quality-intro { display: flex; flex-direction: column; gap: 24px; align-items: start; }
-  .quality-intro > p.dim { font-size: 15px; }
-  .quality-list { display: grid; gap: 28px; }
-  .q { display: grid; grid-template-columns: 24px 1fr; gap: 20px; }
-  .q + .q { border-top: var(--hairline); padding-top: 28px; }
-  .q > .eyebrow { padding-top: 7px; }
-  .q p.dim { font-size: 14px; margin-top: 12px; }
-  .questions { display: grid; grid-template-columns: 1fr 1.5fr; gap: 80px; }
-  .questions-intro { align-items: start; }
-  .questions-intro > p.dim { font-size: 14px; max-width: 32ch; }
-  @media (max-width: 1000px) { .hero { gap: 40px; } .quality { gap: 48px; } .trust-strip { gap: 20px; } .trust-strip > div + div { padding-left: 20px; } }
-  @media (max-width: 760px) {
-    .hero { grid-template-columns: 1fr; padding-block: 48px 32px; gap: 36px; }
-    .hero h1 { max-width: 18ch; }
-    .hero-copy { gap: 24px; }
-    .hero-product { max-width: 480px; width: 100%; }
-    .hero-image img { aspect-ratio: 1.35; }
-    .trust-strip { grid-template-columns: 1fr; gap: 20px; }
-    .trust-strip > div + div { border-left: 0; padding-left: 0; }
-    .trust-strip > div { gap: 20px; }
-    .trust-symbol { font-size: 22px; min-width: 56px; }
-    .trust-icon { width: 32px; margin-inline: 12px; }
-    .classes { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-    .quality, .questions { grid-template-columns: 1fr; gap: 36px; }
+<script>
+  const rail = document.querySelector<HTMLElement>('.catalog-rail');
+  const controls = document.querySelector<HTMLElement>('.rail-controls');
+  const previous = document.querySelector<HTMLButtonElement>('[data-rail-prev]');
+  const next = document.querySelector<HTMLButtonElement>('[data-rail-next]');
+  if (rail && controls && previous && next) {
+    controls.hidden = false;
+    const update = () => {
+      previous.disabled = rail.scrollLeft <= 2;
+      next.disabled = rail.scrollLeft + rail.clientWidth >= rail.scrollWidth - 2;
+    };
+    const move = (direction: number) => rail.scrollBy({ left: direction * rail.clientWidth * .85, behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth' });
+    previous.addEventListener('click', () => move(-1));
+    next.addEventListener('click', () => move(1));
+    rail.addEventListener('scroll', update, { passive: true });
+    new ResizeObserver(update).observe(rail);
+    update();
   }
-  @media (max-width: 480px) { .classes { grid-template-columns: 1fr; } .hero-actions { gap: 20px; } }
+</script>
+<style>
+  /* Brand-led redesign: variance 6 / motion 3 / density 3.
+     Preserve the mandated dark-ground identity; native Astro + CSS, no runtime UI library. */
+  .landing { background: var(--void); }
+  .landing .section { padding-block: 100px; }
+  .landing .t-section { font-size: clamp(32px, 3.2vw, 46px); font-weight: 500; line-height: 1.14; letter-spacing: -.045em; }
+  .hero { display: grid; grid-template-columns: 1.12fr 1fr; align-items: center; gap: 68px; padding-block: 44px 52px; }
+  .hero-copy { display: grid; gap: 30px; }
+  .hero-copy .eyebrow { color: var(--gold); }
+  .hero h1 { font-size: clamp(44px, 5.8vw, 80px); font-weight: 500; line-height: 1.04; letter-spacing: -.055em; text-wrap: initial; }
+  .hero h1 > span { color: var(--gold); }
+  .hero .t-lede { font-size: 17px; font-weight: 400; line-height: 1.8; max-width: 44ch; }
+  .hero-actions { display: flex; flex-direction: column; align-items: start; gap: 20px; }
+  .hero-actions .btn { padding: 20px 25px; min-height: 58px; gap: 42px; background: var(--gold); border-radius: 2px; white-space: nowrap; transition: background .2s, transform .2s; }
+  .hero-actions .btn:hover { background: var(--gold-hi); transform: translateY(-2px); box-shadow: none; }
+  .hero-actions .btn:active { transform: translateY(0); }
+  .text-link { display: inline-flex; align-items: center; gap: 20px; color: var(--text); font-size: 13px; font-weight: 500; min-height: 44px; text-underline-offset: 6px; }
+  .text-link > span { color: var(--gold); font-size: 18px; transition: transform .2s; }
+  .text-link:hover > span { transform: translate(2px, -2px); }
+  .hero-product { margin: 0; min-width: 0; }
+  .hero-image { display: block; overflow: hidden; border-radius: 2px; background: var(--paper); }
+  .hero-image img { width: 100%; height: auto; aspect-ratio: 1.03; object-fit: cover; object-position: center 62%; transition: transform .5s; }
+  .hero-image:hover img { transform: scale(1.025); }
+  figcaption a { display: flex; align-items: center; justify-content: space-between; padding-block: 18px 0; color: var(--text); font-size: 13px; }
+  figcaption a > span:last-child { color: var(--gold-hi); }
+  figcaption a > span:last-child span { margin-left: 18px; }
+  .trust-strip { display: grid; grid-template-columns: 1fr 1.15fr 1fr; border-top: var(--hairline); border-bottom: var(--hairline); padding-block: 30px; gap: 32px; }
+  .trust-strip > div { display: flex; gap: 22px; align-items: center; }
+  .trust-strip > div + div { border-left: var(--hairline); padding-left: 32px; }
+  .trust-strip strong { font-size: 25px; font-weight: 500; letter-spacing: -.04em; white-space: nowrap; }
+  .trust-strip p { font-size: 12px; }
+  .trust-strip p span { display: block; color: var(--text-dim); font-size: 11px; margin-top: 4px; }
+  .composition { display: grid; grid-template-columns: .8fr 1.3fr; gap: 100px; align-items: start; }
+  .composition-intro { position: sticky; top: 120px; display: grid; gap: 24px; }
+  .composition-intro p { max-width: 32ch; font-size: 15px; }
+  .classes { display: grid; grid-template-columns: 1fr 1fr; column-gap: 30px; }
+  .cls { display: flex; align-items: center; gap: 12px; min-width: 0; padding: 20px 0; border-bottom: var(--hairline); color: var(--text); }
+  .cls:hover { text-decoration: none; }
+  .class-copy { flex: 1; min-width: 0; }
+  .class-name { display: block; font-size: 14px; line-height: 1.5; font-weight: 500; transition: color .2s; }
+  .class-families { display: block; font-size: 11px; color: var(--text-dim); margin-top: 6px; line-height: 1.6; }
+  .class-count { font-size: 11px; color: var(--text-dim); }
+  .class-arrow { color: var(--gold); transition: transform .2s; }
+  .cls:hover .class-name { color: var(--gold-hi); }
+  .cls:hover .class-arrow { transform: translate(2px, -2px); }
+  .collection .section-head { margin-bottom: 40px; }
+  .collection .eyebrow, .quality .eyebrow { color: var(--gold); }
+  .catalog-rail { overflow-x: auto; scroll-snap-type: x mandatory; scroll-padding-inline: 1px; scrollbar-color: var(--rule) var(--void); scrollbar-width: thin; padding: 2px 2px 24px; }
+  .catalog-rail :global(.grid) { grid-template-columns: none; grid-auto-flow: column; grid-auto-columns: calc((100% - 48px) / 3.4); gap: 24px; }
+  .catalog-rail :global(.pc) { scroll-snap-align: start; }
+  .rail-footer { display: flex; align-items: center; justify-content: space-between; gap: 20px; margin-top: 20px; }
+  .rail-footer p { color: var(--text-dim); font-size: 12px; }
+  .rail-controls { display: flex; gap: 10px; }
+  .rail-controls button { width: 48px; height: 48px; border: var(--hairline); border-radius: 2px; background: transparent; color: var(--gold-hi); font-size: 20px; cursor: pointer; }
+  .rail-controls button:hover { background: var(--navy); }
+  .rail-controls button:disabled { opacity: .35; cursor: default; }
+  .quality-wrap { background: var(--navy); border-block: var(--hairline); }
+  .quality { display: grid; grid-template-columns: .8fr 1.3fr; gap: 100px; align-items: start; }
+  .quality-intro { display: grid; gap: 24px; }
+  .quality-intro > p.dim { font-size: 14px; max-width: 36ch; }
+  .purity { padding-bottom: 42px; border-bottom: var(--hairline); }
+  .purity-number { display: block; font-size: clamp(76px, 8vw, 116px); line-height: 1; letter-spacing: -.07em; color: var(--gold-hi); font-weight: 300; margin-bottom: 25px; }
+  .purity-number > span { font-size: .6em; }
+  .quality h3 { font-size: 16px; font-weight: 500; margin-bottom: 10px; }
+  .quality-content p { color: var(--text-dim); font-size: 13px; max-width: 48ch; }
+  .quality-notes { display: grid; grid-template-columns: 1fr 1fr; gap: 36px; margin-top: 32px; }
+  .quality-notes a { display: inline-block; padding-top: 18px; font-size: 12px; color: var(--text); }
+  .questions { display: grid; grid-template-columns: .8fr 1.3fr; gap: 100px; }
+  .questions-intro { display: grid; gap: 24px; align-content: start; }
+  .questions-intro p { font-size: 14px; max-width: 30ch; }
+  @media (max-width: 1100px) { .hero { gap: 36px; } .trust-strip { gap: 20px; } .trust-strip > div { gap: 14px; } .trust-strip > div + div { padding-left: 20px; } .trust-strip strong { font-size: 22px; } .composition, .quality, .questions { gap: 48px; } .classes { column-gap: 20px; } }
+  @media (max-width: 767px) {
+    .landing .section { padding-block: 64px; }
+    .hero { grid-template-columns: 1fr; padding-block: 48px 32px; gap: 40px; }
+    .hero-copy { gap: 24px; }
+    .hero h1 { font-size: clamp(42px, 9.8vw, 70px); }
+    .hero .t-lede { font-size: 15px; }
+    .hero-actions { flex-direction: row; align-items: center; flex-wrap: wrap; gap: 12px 24px; }
+    .hero-actions .btn { min-height: 54px; }
+    .hero-product { width: 100%; }
+    .hero-image img { aspect-ratio: 1.15; }
+    .trust-strip { grid-template-columns: 1fr; gap: 22px; padding-block: 28px; }
+    .trust-strip > div + div { border: 0; padding: 0; }
+    .trust-strip strong { width: 115px; flex-shrink: 0; }
+    .trust-strip p span { margin-top: 2px; }
+    .composition, .quality, .questions { grid-template-columns: 1fr; gap: 36px; }
+    .composition-intro { position: static; }
+    .classes { gap: 0 24px; }
+    .class-name { font-size: 13px; }
+    .class-count { display: none; }
+    .catalog-rail :global(.grid) { grid-auto-columns: 78%; gap: 16px; }
+    .quality-notes { gap: 24px; }
+    .rail-footer p { max-width: 23ch; }
+  }
+  @media (max-width: 380px) { .classes, .quality-notes { grid-template-columns: 1fr; } .desktop-break { display: none; } .catalog-rail :global(.grid) { grid-auto-columns: 94%; } }
 </style>
