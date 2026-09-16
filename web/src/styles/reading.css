@@ -25,3 +25,7 @@
 .reading-surface table.spec td.em { color: var(--text); font-weight: 500; }
 .reading-surface table.spec th, .reading-surface table.spec td { padding-block: 16px; }
 .reading-surface .eyebrow { color: var(--text-faint); }
+.reading-surface p { text-wrap: pretty; }
+.reading-surface details.faq summary { transition: color .2s; }
+.reading-surface details.faq summary:hover { color: var(--gold-ink); }
+.reading-surface details.faq .answer { line-height: 1.8; max-width: 65ch; }

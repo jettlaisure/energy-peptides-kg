@@ -21,7 +21,7 @@ const groups = compositionClasses.filter((c) => c.products.some((p) => p.categor
   </section>
   {groups.map((c) => (
     <section class="section container" id={c.slug} data-catalog-group>
-      <div class="section-head"><h2 class="t-sub">{c.name}</h2></div>
+      <div class="section-head group-heading"><h2 class="t-sub">{c.name}</h2><p class="group-count">{c.products.filter((p) => p.category !== 'accessory').length} {c.products.filter((p) => p.category !== 'accessory').length === 1 ? 'product' : 'products'}</p></div>
       <ProductGrid products={c.products.filter((p) => p.category !== 'accessory')} />
     </section>
   ))}
@@ -49,4 +49,17 @@ const groups = compositionClasses.filter((c) => c.products.some((p) => p.categor
   .catalog-shell :global(.catalog-tools) { background: transparent; border-inline: 0; border-radius: 0; padding-inline: 0; }
   .catalog-shell :global(.search-input) { background: var(--navy); }
   .catalog-shell :global(.btn-quiet) { color: var(--text-dim); }
+  .group-heading { align-items: baseline; gap: 24px; }
+  .group-heading h2 { max-width: 32ch; font-size: clamp(22px, 2.6vw, 30px); letter-spacing: -.025em; }
+  .group-count { flex-shrink: 0; font-variant-numeric: tabular-nums; }
+  .jump .chip { transition: color .2s, border-color .2s; }
+  .catalog-shell :global(.search-input:focus-within) { border-color: var(--gold); }
+  .catalog-shell :global(.btn:active) { transform: translateY(1px); }
+  @media (min-width: 768px) {
+    [data-catalog-group] { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 3fr); gap: clamp(32px, 4vw, 64px); align-items: start; }
+    [data-catalog-group] > .section-head { display: grid; gap: 16px; margin: 0; }
+    [data-catalog-group] h2 { font-size: clamp(20px, 2vw, 26px); text-wrap: pretty; }
+    [data-catalog-group] :global(.grid) { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  }
+  @media (min-width: 1200px) { [data-catalog-group] :global(.grid) { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
 </style>

@@ -25,23 +25,25 @@ const stock = p.status === 'coming_soon' ? { cls: 'chip-off', text: 'Coming soon
 <style>
   .pc { display: flex; flex-direction: column; min-width: 0; background: transparent; border: 1px solid transparent; border-radius: 2px; overflow: hidden; transition: background-color .2s, border-color .2s; }
   .pc[hidden] { display: none; }
-  .pc:hover { background: transparent; border-color: var(--rule); }
+  .pc:hover, .pc:focus-within { background: transparent; border-color: var(--rule); }
   .media { display: block; background: #EFEEEA; overflow: hidden; }
   .media img { transition: transform .35s; }
   .pc:hover .media img { transform: scale(1.035); }
   .media img { width: 100%; height: auto; aspect-ratio: 1; object-fit: cover; display: block; border-bottom: var(--hairline); }
   .media :global(.vial) { border: 0; border-radius: 0; border-bottom: var(--hairline); }
   .body { padding: 20px 12px 12px; display: flex; flex: 1; flex-direction: column; gap: 12px; }
-  .body > .eyebrow { font-size: 10px; letter-spacing: .12em; }
+  .body > .eyebrow { font-size: 12px; letter-spacing: 0; text-transform: none; line-height: 1.5; min-height: 3em; }
   .product-cta { display: flex; justify-content: space-between; align-items: center; min-height: 44px; border-top: var(--hairline); padding-top: 12px; color: var(--text-dim); font-size: 13px; }
   .product-cta:hover { color: var(--gold-hi); text-decoration: none; }
-  .product-cta span { color: var(--gold-hi); font-size: 20px; }
+  .product-cta span { color: var(--text-dim); font-size: 20px; transition: transform .2s, color .2s; }
+  .product-cta:hover span { transform: translate(2px, -2px); color: var(--gold-hi); }
   .price-unit { font-size: 11px; color: var(--text-dim); font-weight: 400; }
-  .chip { font-size: 10px; padding: 4px 7px; letter-spacing: .06em; }
+  .chip { font-size: 11px; padding: 4px 0; letter-spacing: 0; border: 0; border-radius: 0; text-transform: none; }
+  .name { white-space: normal; }
   h3 a { color: var(--text); }
   h3 a:hover { text-decoration: none; color: var(--gold-hi); }
   .amt { font-weight: 400; }
   .comp { font-size: 12px; line-height: 1.4; }
   .row { display: flex; align-items: center; justify-content: space-between; gap: 8px; flex-wrap: wrap; padding-top: 8px; margin-top: auto; }
-  .price { font-size: 17px; font-weight: 700; }
+  .price { font-size: 18px; font-weight: 500; color: var(--text); }
 </style>

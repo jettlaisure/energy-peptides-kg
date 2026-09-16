@@ -9,7 +9,12 @@ const lite = products.map((p) => ({ sku: p.sku, name: p.name, slug: p.slug, pric
     <h1 class="t-section">Your cart</h1>
     <a class="continue-link t-small" href="/products/">← Continue browsing</a>
     <div data-cart-root data-shipping={Math.round(site.shipping_usd * 100)} data-free={Math.round(site.free_shipping_over_usd * 100)}>
-      <p class="dim" data-empty>Your cart is empty. <a href="/products/">Browse the catalog</a>.</p>
+      <div class="empty-cart" data-empty>
+        <svg width="36" height="40" viewBox="0 0 24 26" fill="none" stroke="currentColor" stroke-width="1" aria-hidden="true"><path d="M5 8h14l1 15H4L5 8Z"/><path d="M9 9V6a3 3 0 0 1 6 0v3"/></svg>
+        <h2>Your cart is empty</h2>
+        <p class="dim">Explore compounds by composition, amount, and availability.</p>
+        <a class="btn btn-primary" href="/products/">Explore the catalog <span aria-hidden="true">→</span></a>
+      </div>
       <div class="table-wrap" data-table hidden>
         <table class="lines"><thead><tr><th>Item</th><th>Qty</th><th class="r">Each</th><th class="r">Total</th><th></th></tr></thead><tbody data-lines></tbody></table>
       </div>
@@ -62,6 +67,15 @@ const lite = products.map((p) => ({ sku: p.sku, name: p.name, slug: p.slug, pric
 </script>
 <style>
   .narrow { max-width: 52rem; display: grid; gap: var(--s5); }
+  h1 { font-size: clamp(40px, 5vw, 60px); font-weight: 500; letter-spacing: -.04em; }
+  .empty-cart { display: grid; justify-items: start; gap: 20px; padding: clamp(32px, 6vw, 64px) 0; border-block: var(--hairline); margin-top: 16px; }
+  .empty-cart svg { color: var(--steel); margin-bottom: 8px; }
+  .empty-cart h2 { font-size: 28px; font-weight: 500; letter-spacing: -.025em; }
+  .empty-cart p { max-width: 42ch; }
+  .empty-cart .btn { margin-top: 8px; }
+  .btn-primary { background: var(--gold); box-shadow: none; }
+  .btn-primary:hover { background: var(--gold-hi); }
+  .btn:active { transform: translateY(1px); }
   .lines { width: 100%; border-collapse: collapse; }
   .lines th, .lines :global(td) { text-align: left; padding: var(--s3) var(--s2); border-bottom: var(--hairline); vertical-align: middle; }
   .lines th { font-size: 11px; color: var(--steel); font-weight: 500; text-transform: uppercase; letter-spacing: .18em; }
@@ -69,7 +83,7 @@ const lite = products.map((p) => ({ sku: p.sku, name: p.name, slug: p.slug, pric
   .lines :global(a.name) { color: var(--text); }
   .lines :global(input) { width: 72px; font: inherit; padding: 8px; border: var(--hairline); border-radius: var(--radius-sm); background: var(--navy); color: var(--text); text-align: center; }
   .continue-link { color: var(--text-dim); }
-  .totals { display: grid; gap: var(--s3); justify-items: end; margin-top: var(--s6); padding: 24px; background: var(--void); border: var(--hairline); }
+  .totals { display: grid; gap: var(--s3); justify-items: end; margin-top: var(--s6); padding-block: 32px; background: transparent; border-top: var(--hairline); }
   .totals .btn-primary { width: min(100%, 22rem); justify-content: space-between; margin-top: 12px; }
   .totals .compliance { text-align: right; max-width: 36rem; }
   .totals > div { display: flex; justify-content: space-between; gap: var(--s7); width: min(100%, 22rem); }
