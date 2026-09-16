@@ -29,7 +29,7 @@ The separate renderer bundle exceeds Vite's 500 kB warning threshold before tran
 - Temporary local fixtures verified no-JavaScript, missing-label, and lost-WebGL-context fallbacks. Each retained the photograph and hid the controls; the canvas was excluded from accessibility when unavailable. Fixtures are not part of source or deployment output.
 - Browser console showed no errors during normal rendering. The missing-label fixture produced the expected fallback warning.
 
-This change is a branch preview; it has not been deployed.
+Deployed to https://preview.energypeptides.us on 2026-09-16 with Jett's approval. Deployed application commit: `360aff4` on `design/taste-landing`. Cloudflare Worker version: `967cb260-18c0-47af-a991-039e5c8a4e23`. Verified the published page renders the interactive vial with no browser console errors. Payment configuration remains `TAGADA_ENV=test`.
 
 ## Closure refinement against actual product photos
 

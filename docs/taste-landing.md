@@ -28,4 +28,4 @@ The taste skill's generic light/dark requirement is overridden by the establishe
 
 Build with `npm run build` in `web`, then serve `web/dist/client` for static UI inspection. The static preview does not run checkout APIs.
 
-No deployment or live payment was performed.
+Initially verified locally. The landing redesign and refined interactive hero vial were subsequently deployed with Jett's approval to https://preview.energypeptides.us on 2026-09-16 (application commit `360aff4`). See `docs/hero-vial.md` for the deployment version and verification. No live payment was performed.
