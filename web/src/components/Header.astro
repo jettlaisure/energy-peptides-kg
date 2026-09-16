@@ -16,9 +16,9 @@ const nav = [
     <nav class="desktop-nav" aria-label="Primary">
       {nav.map((n) => <a href={n.href} aria-current={path.startsWith(n.href) ? 'page' : undefined}>{n.label}</a>)}
     </nav>
-    <a class="cart-link" href="/cart/">
+    <a class="cart-link" href="/cart/" aria-label="Cart">
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M5 7h14l1 14H4L5 7Z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg>
-      <span>Cart</span><span class="count num" data-cart-count hidden>0</span>
+      <span class="cart-label">Cart</span><span class="count num" data-cart-count hidden>0</span>
     </a>
     <details class="mobile-menu">
       <summary aria-label="Toggle navigation"><span>Menu</span><svg width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" aria-hidden="true"><path d="M2 6h16M2 14h16"/></svg></summary>
@@ -60,9 +60,10 @@ const nav = [
   @media (max-width: 960px) {
     .bar { display: flex; height: 76px; gap: 20px; }
     .desktop-nav { display: none; }
-    .cart-link { margin-left: auto; }
+    .cart-link { margin-left: auto; min-width: 44px; justify-content: center; }
+    .cart-label, summary > span { display: none; }
     .mobile-menu { display: block; }
-    summary { display: flex; align-items: center; gap: 8px; min-height: 44px; cursor: pointer; list-style: none; font-size: 14px; }
+    summary { display: flex; align-items: center; justify-content: center; gap: 8px; min-width: 44px; min-height: 44px; cursor: pointer; list-style: none; font-size: 14px; }
     summary::-webkit-details-marker { display: none; }
     .mobile-menu nav { position: absolute; top: 100%; left: 0; right: 0; background: var(--void); border-bottom: var(--hairline); padding: 16px var(--gutter) 24px; display: grid; }
     .mobile-menu nav a { display: flex; justify-content: space-between; padding: 16px 0; }
