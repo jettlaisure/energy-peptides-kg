@@ -40,12 +40,27 @@ const groups = compositionClasses.filter((c) => c.products.some((p) => p.categor
 </Base>
 <style>
   .section-head h1 { margin-top: 16px; }
-  .catalog-shell { background: var(--navy); --navy-lift: var(--navy); --powder: var(--text); }
+  .catalog-shell {
+    color-scheme: light;
+    --text: #14213a;
+    --text-dim: #4d5869;
+    --text-faint: #5d6776;
+    --steel: #5d6776;
+    --powder: #14213a;
+    --gold: #8a6410;
+    --gold-hi: #8a6410;
+    --rule: #d8d8d2;
+    --hairline: 1px solid var(--rule);
+    --navy-lift: #eeede6;
+    background: #f5f4ef;
+    color: var(--text);
+  }
+  .catalog-shell :global(:focus-visible) { outline-color: var(--gold-ink); }
   .section-head h1 { font-size: clamp(36px, 4.6vw, 60px); font-weight: 500; letter-spacing: -.04em; }
   .section-head h2 { font-weight: 500; }
   .catalog-shell :global(.product-cta span) { color: var(--text-dim); }
   .catalog-shell :global(.pc:hover .product-cta span) { color: var(--gold-hi); }
-  .catalog-discovery { background: var(--void); border: var(--hairline); padding-inline: clamp(20px, 3vw, 32px); }
+  .catalog-discovery { background: #eeede6; border: var(--hairline); padding-inline: clamp(20px, 3vw, 32px); }
   .catalog-shell :global(.catalog-tools) { background: transparent; border: 0; border-radius: 0; padding: 24px 0; margin-top: 0; }
   .composition-directory { border-top: var(--hairline); }
   .composition-directory summary { display: flex; align-items: center; gap: 24px; min-height: 64px; padding-block: 16px; cursor: pointer; list-style: none; font-size: 14px; font-weight: 500; }
@@ -59,7 +74,7 @@ const groups = compositionClasses.filter((c) => c.products.some((p) => p.categor
   .jump a > span:last-child { color: var(--gold); }
   .jump a:hover { color: var(--text); text-decoration: none; }
   @media (max-width: 640px) { .jump { grid-template-columns: 1fr; } .directory-hint { display: none; } .directory-toggle { margin-left: auto; } }
-  .catalog-shell :global(.search-input) { background: var(--navy); }
+  .catalog-shell :global(.search-input) { background: #fff; }
   .catalog-shell :global(.btn-quiet) { color: var(--text-dim); }
   .group-heading { align-items: baseline; gap: 24px; }
   .group-heading h2 { max-width: 32ch; font-size: clamp(22px, 2.6vw, 30px); letter-spacing: -.025em; }
