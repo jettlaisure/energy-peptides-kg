@@ -38,6 +38,7 @@ const faqPreview = catalog.faq.filter((f) => ['FAQ-3', 'FAQ-2', 'FAQ-6'].include
       </div>
     </section>
 
+    <div class="light-surface">
     <section class="section container collection" id="catalog">
       <div class="section-head"><div class="stack"><p class="eyebrow">The collection</p><h2 class="t-section">The research catalog</h2><p>Prices per vial. Every compound, clearly specified.</p></div><a class="text-link" href="/products/">Browse all {products.length} products <span aria-hidden="true">↗</span></a></div>
       <div class="catalog-rail" tabindex="0" role="region" aria-label="Research products, scroll horizontally to browse"><ProductGrid products={compounds} /></div>
@@ -49,6 +50,8 @@ const faqPreview = catalog.faq.filter((f) => ['FAQ-3', 'FAQ-2', 'FAQ-6'].include
       <div class="composition-intro"><p class="dim">Browse by composition, with amounts and specifications on every product.</p><a class="text-link" href="/products/">Browse by composition <span aria-hidden="true">↗</span></a></div>
     </section>
 
+    </div>
+
     <section class="quality-wrap" id="quality">
       <div class="section container quality">
         <header class="quality-intro"><p class="eyebrow">Our standards</p><h2 class="t-section">The details matter.<br /><span class="dim">Every single batch.</span></h2><p class="dim">{site.testing_line}</p><a class="text-link" href="/faq/#FAQ-3">Understand our testing <span aria-hidden="true">↗</span></a></header>
@@ -59,10 +62,12 @@ const faqPreview = catalog.faq.filter((f) => ['FAQ-3', 'FAQ-2', 'FAQ-6'].include
       </div>
     </section>
 
+    <div class="light-surface">
     <section class="section container questions">
       <header class="questions-intro"><h2 class="t-section">Good questions.<br /><span class="dim">Clear answers.</span></h2><p class="dim">Testing, handling, and research-use requirements, in one place.</p><a class="text-link" href="/faq/">Visit the FAQ <span aria-hidden="true">↗</span></a></header>
       <FaqList items={faqPreview} />
     </section>
+    </div>
   </div>
 </Base>
 <script>
@@ -89,6 +94,23 @@ const faqPreview = catalog.faq.filter((f) => ['FAQ-3', 'FAQ-2', 'FAQ-6'].include
   /* Brand-led redesign: variance 6 / motion 3 / density 3.
      Preserve the mandated dark-ground identity; native Astro + CSS, no runtime UI library. */
   .landing { background: var(--void); }
+  .light-surface {
+    color-scheme: light;
+    --text: #14213a;
+    --text-dim: #4d5869;
+    --text-faint: #5d6776;
+    --steel: #5d6776;
+    --powder: #14213a;
+    --gold: #8a6410;
+    --gold-hi: #8a6410;
+    --rule: #d8d8d2;
+    --hairline: 1px solid var(--rule);
+    background: #f5f4ef;
+    color: var(--text);
+  }
+  .light-surface :global(:focus-visible) { outline-color: var(--gold-ink); }
+  .light-surface .catalog-rail { scrollbar-color: var(--rule) #f5f4ef; }
+  .light-surface .rail-controls button:hover { background: #e9e7de; }
   .landing .section { padding-block: 100px; }
   .landing .t-section { font-size: clamp(32px, 3.2vw, 46px); font-weight: 500; line-height: 1.14; letter-spacing: -.045em; }
   .hero { display: grid; grid-template-columns: 1.12fr 1fr; align-items: center; gap: 68px; padding-block: 44px 52px; }
