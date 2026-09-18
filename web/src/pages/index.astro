@@ -11,7 +11,7 @@ const featured = compounds.find((p) => p.slug === 'bpc-157-10mg') ?? compounds[0
 const faqPreview = catalog.faq.filter((f) => ['FAQ-3', 'FAQ-2', 'FAQ-6'].includes(f.id));
 ---
 <Base title={`${site.brand} — research peptides, tested to a ≥99% purity specification`}>
-  <link slot="head" rel="preload" href="/fonts/playfair-display-900.ttf" as="font" type="font/ttf" crossorigin />
+  <link slot="head" rel="preload" href="/fonts/playfair-display-900.woff2" as="font" type="font/woff2" crossorigin />
   <div class="landing">
     <section class="hero-wrap">
       <div class="hero container">
@@ -90,7 +90,7 @@ const faqPreview = catalog.faq.filter((f) => ['FAQ-3', 'FAQ-2', 'FAQ-6'].include
   }
 </script>
 <style>
-  @font-face { font-family: 'Playfair Display'; font-style: normal; font-weight: 900; font-display: swap; src: url('/fonts/playfair-display-900.ttf') format('truetype'); }
+  @font-face { font-family: 'Playfair Display'; font-style: normal; font-weight: 900; font-display: swap; src: url('/fonts/playfair-display-900.woff2') format('woff2'); }
   /* Brand-led redesign: variance 6 / motion 3 / density 3.
      Preserve the mandated dark-ground identity; native Astro + CSS, no runtime UI library. */
   .landing { background: var(--void); }

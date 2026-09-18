@@ -1,0 +1,11 @@
+# Energy Peptides — energypeptides.us
+# The catalog, research and policy pages are all meant to be crawled. Only the
+# transactional and server routes are held back.
+
+User-agent: *
+Allow: /
+Disallow: /cart
+Disallow: /checkout
+Disallow: /api/
+
+Sitemap: https://energypeptides.us/sitemap-index.xml

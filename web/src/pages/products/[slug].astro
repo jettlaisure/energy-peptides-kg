@@ -41,8 +41,44 @@ if (p.vial_ml) specRows.push(['Vial', `${p.vial_ml} mL ${p.vial_glass === 'amber
 if (p.purity_spec) specRows.push(['Purity specification', p.purity_spec.replace('>=', '≥'), true]);
 specRows.push(['SKU', p.sku, false]);
 const unverified = p.components.some((c) => c.confidence !== 'high');
+
+const abs = (path: string) => new URL(path, Astro.site).toString();
+/* Availability has to match what a visitor can actually do, or the markup is a liability rather
+   than an asset: while ordering is closed nothing here can be bought, whatever the ledger says. */
+const availability = orderingOpen && inStock ? 'https://schema.org/InStock' : 'https://schema.org/OutOfStock';
+const ld = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Product',
+    name: p.name,
+    sku: p.sku,
+    description,
+    category: p.composition_class,
+    image: [p.images?.square, p.images?.portrait].filter(Boolean).map((s) => abs(s as string)),
+    brand: { '@type': 'Brand', name: site.brand },
+    ...(p.purity_spec ? { additionalProperty: [{ '@type': 'PropertyValue', name: 'Purity specification', value: p.purity_spec.replace('>=', '≥') }] } : {}),
+    offers: {
+      '@type': 'Offer',
+      url: abs(`/products/${p.slug}/`),
+      priceCurrency: site.currency,
+      price: Number(p.price_usd).toFixed(2),
+      availability,
+      seller: { '@id': abs('/#organization') },
+    },
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Catalog', item: abs('/products/') },
+      { '@type': 'ListItem', position: 2, name: p.composition_class, item: abs(`/products/#${p.composition_slug}`) },
+      { '@type': 'ListItem', position: 3, name: p.name },
+    ],
+  },
+];
 ---
-<Base title={title} description={description}>
+<Base title={title} description={description} ogImage={`/og/${p.slug}.jpg`}>
+  <script slot="head" type="application/ld+json" set:html={JSON.stringify(ld)} />
   <div class="product-surface">
   <div class="container">
     <nav class="crumbs t-small" aria-label="Breadcrumb"><a href="/products/">Catalog</a><span class="faint">/</span><a href={`/products/#${p.composition_slug}`}>{p.composition_class}</a></nav>

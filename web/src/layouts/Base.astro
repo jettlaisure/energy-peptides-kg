@@ -3,10 +3,29 @@ import '../styles/global.css';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import { site } from '../lib/catalog';
-interface Props { title: string; description?: string; canonical?: string }
-const { title, description = `${site.brand}: research peptides tested to a ≥99% purity specification. ${site.compliance_line}.`, canonical } = Astro.props;
+interface Props { title: string; description?: string; canonical?: string; ogImage?: string }
+const { title, description = `${site.brand}: research peptides tested to a ≥99% purity specification. ${site.compliance_line}.`, canonical, ogImage } = Astro.props;
 const fullTitle = title.includes(site.brand) ? title : `${title} | ${site.brand}`;
 const url = canonical ?? new URL(Astro.url.pathname, Astro.site).toString();
+// Share cards are 1200x630 JPEGs built by render/og_cards.py — the product WebPs are the wrong
+// shape for a card and scrapers handle WebP unevenly. Absolute URLs: relative ones are ignored.
+const ogUrl = new URL(ogImage ?? '/og/default.jpg', Astro.site).toString();
+
+/* Sitewide publisher identity. `address` is deliberately absent until there is a real business
+   address to state — a fabricated or partial PostalAddress is worse than none. Add it here and on
+   /contact/ together. */
+const org = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  '@id': new URL('/#organization', Astro.site).toString(),
+  name: site.brand,
+  legalName: site.seller,
+  url: new URL('/', Astro.site).toString(),
+  logo: new URL('/favicon.svg', Astro.site).toString(),
+  image: new URL('/og/default.jpg', Astro.site).toString(),
+  email: site.contact_email,
+  areaServed: 'US',
+};
 ---
 <!doctype html>
 <html lang="en">
@@ -21,10 +40,20 @@ const url = canonical ?? new URL(Astro.url.pathname, Astro.site).toString();
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
     <meta property="og:url" content={url} />
+    <meta property="og:site_name" content={site.brand} />
+    <meta property="og:image" content={ogUrl} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content={fullTitle} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={fullTitle} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogUrl} />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link rel="preload" href="/fonts/satoshi-400.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="preload" href="/fonts/satoshi-700.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="preload" href="/fonts/satoshi-900.woff2" as="font" type="font/woff2" crossorigin />
+    <script type="application/ld+json" set:html={JSON.stringify(org)} />
     <slot name="head" />
   </head>
   <body>
