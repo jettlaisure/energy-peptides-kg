@@ -48,8 +48,10 @@ p { margin: 0; }
 /* controls — brand reference §04 */
 .btn { display: inline-flex; align-items: center; justify-content: center; gap: var(--s2); min-height: 48px; padding: 14px 22px; border-radius: var(--radius-sm); border: 1px solid transparent; font: 500 15px/1 var(--sans); cursor: pointer; text-decoration: none; transition: box-shadow .15s, background-color .15s, color .15s; }
 .btn:hover { text-decoration: none; }
-.btn-primary { background: var(--gold-grad); color: var(--navy); font-weight: 700; }
-.btn-primary:hover { box-shadow: var(--glow-gold); }
+.btn-primary { background: transparent; border-color: var(--gold); color: var(--gold); font-weight: 700; }
+.btn-primary:hover { background: transparent; border-color: var(--gold-hi); color: var(--gold-hi); box-shadow: none; }
+.paper .btn-primary { color: var(--gold-ink); border-color: var(--gold-ink); }
+.paper .btn-primary:hover { color: var(--paper-text); border-color: var(--paper-text); }
 .btn-secondary { background: transparent; border-color: var(--gold); color: var(--gold-hi); }
 .btn-secondary:hover { border-color: var(--gold-hi); }
 .btn-quiet { background: transparent; color: var(--steel); padding-inline: 0; text-decoration: underline; text-decoration-color: var(--rule); text-underline-offset: 5px; }

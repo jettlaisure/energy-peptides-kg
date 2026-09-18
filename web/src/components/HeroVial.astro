@@ -1,0 +1,52 @@
+---
+import labelUrl from '../../../inbox/labels/BPC-157-10mg_label.png?url';
+interface Props { poster?: string; name: string }
+const { poster, name } = Astro.props;
+---
+<hero-vial data-label={labelUrl}>
+  <div class="vial-stage">
+    {poster && <img class="vial-poster" src={poster} alt={`${name} research vial`} width="1600" height="1600" hidden />}
+    {poster && <noscript><img class="vial-poster" src={poster} alt={`${name} research vial`} width="1600" height="1600" /></noscript>}
+    <canvas aria-hidden="true" aria-label={`Interactive 3D ${name} vial`} aria-describedby="vial-instructions" tabindex="-1" role="img"></canvas>
+  </div>
+  <div class="vial-controls" hidden>
+    <span id="vial-instructions" class="sr-only">Drag to explore. Use left and right arrow keys to rotate, up and down to tilt, and Home to reset.</span>
+  </div>
+</hero-vial>
+<script>
+  class HeroVial extends HTMLElement {
+    cleanup?: () => void;
+    observer?: IntersectionObserver;
+    connectedCallback() {
+      this.observer = new IntersectionObserver(async ([entry]) => {
+        if (!entry.isIntersecting) return;
+        this.observer?.disconnect();
+        try {
+          const { mountVial } = await import('../scripts/hero-vial.js');
+          if (this.isConnected) this.cleanup = await mountVial(this);
+        } catch (error) {
+          const poster = this.querySelector<HTMLImageElement>('.vial-poster');
+          if (poster) poster.hidden = false;
+          console.warn('3D vial unavailable; retaining product photograph.', error);
+        }
+      }, { rootMargin: '100px' });
+      this.observer.observe(this);
+    }
+    disconnectedCallback() { this.observer?.disconnect(); this.cleanup?.(); }
+  }
+  if (!customElements.get('hero-vial')) customElements.define('hero-vial', HeroVial);
+</script>
+<style>
+  hero-vial { display: block; position: relative; isolation: isolate; }
+  .vial-stage { position: relative; aspect-ratio: 1 / 1.05; overflow: hidden; background: radial-gradient(ellipse at 50% 45%, #142440 0%, #0a142b 40%, #060c1f 72%); }
+  .vial-poster { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: opacity .35s; }
+  canvas { display: block; position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0; touch-action: pan-y; cursor: grab; transition: opacity .35s; }
+  canvas:active { cursor: grabbing; }
+  canvas:focus-visible { outline: 2px solid var(--gold-hi); outline-offset: -4px; }
+  hero-vial[data-ready] canvas { opacity: 1; }
+  hero-vial[data-ready] .vial-poster { opacity: 0; pointer-events: none; }
+  .vial-controls { position: absolute; inset: auto 0 0; display: flex; align-items: center; justify-content: center; color: var(--text-dim); font-size: 11px; }
+  .vial-controls[hidden] { display: none; }
+  @media (max-width: 767px) { .vial-stage { aspect-ratio: 1.08; } }
+  @media (prefers-reduced-motion: reduce) { canvas, .vial-poster { transition: none; } }
+</style>

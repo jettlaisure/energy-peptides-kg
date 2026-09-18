@@ -1,0 +1,31 @@
+/* Scoped editorial surface: product details and FAQ, never the home hero. */
+.reading-surface {
+  color-scheme: light;
+  --text: #14213a;
+  --text-dim: #4d5869;
+  --text-faint: #5d6776;
+  --steel: #5d6776;
+  --powder: #14213a;
+  --rule: #d8d8d2;
+  --hairline: 1px solid var(--rule);
+  --paper: #f5f4ef;
+  --paper-text: var(--text);
+  --paper-dim: var(--text-dim);
+  --paper-rule: var(--rule);
+  background: var(--paper);
+  color: var(--text);
+  padding-block: clamp(48px, 6vw, 88px);
+}
+.reading-surface a { color: var(--text); text-decoration: underline; text-underline-offset: 4px; text-decoration-color: #a3a69f; }
+.reading-surface a:hover { color: var(--gold-ink); text-decoration-color: currentColor; }
+.reading-surface :focus-visible { outline-color: var(--gold-ink); }
+.reading-surface .panel, .reading-surface .paper { background: transparent; border: 0; border-radius: 0; }
+.reading-surface .t-sub { font-weight: 500; font-size: clamp(22px, 2.3vw, 28px); letter-spacing: -.025em; }
+.reading-surface details.faq summary::after { color: var(--text-dim); }
+.reading-surface table.spec td.em { color: var(--text); font-weight: 500; }
+.reading-surface table.spec th, .reading-surface table.spec td { padding-block: 16px; }
+.reading-surface .eyebrow { color: var(--text-faint); }
+.reading-surface p { text-wrap: pretty; }
+.reading-surface details.faq summary { transition: color .2s; }
+.reading-surface details.faq summary:hover { color: var(--gold-ink); }
+.reading-surface details.faq .answer { line-height: 1.8; max-width: 65ch; }

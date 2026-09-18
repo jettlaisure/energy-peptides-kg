@@ -1,11 +1,7 @@
 ---
-import Base from '../../layouts/Base.astro';
+import Policy from '../../layouts/Policy.astro';
 ---
-<Base title="Terms of sale" description="Terms of sale for Energy Peptides.">
-  <section class="section container legal-page">
-    <p class="eyebrow">Policy</p>
-    <h1 class="t-section">Terms of sale</h1>
-    <div class="prose measure">
+<Policy title="Terms of sale" description="Terms of sale for Energy Peptides.">
 <p>These terms apply to every order placed with Energy Wellness Club LLC, trading as Energy Peptides. Placing an order means you accept them.</p>
 <h2>Products</h2>
 <p>All products are supplied for laboratory research use only, under our <a href="/legal/research-use-only/">research use policy</a>. Descriptions and specifications are provided for research purposes; certificates of analysis are available on request.</p>
@@ -17,13 +13,4 @@ import Base from '../../layouts/Base.astro';
 <p>Because products are temperature-sensitive research materials, we do not accept returns of opened or shipped product. Damaged or incorrect shipments are replaced or refunded when reported within 7 days of delivery.</p>
 <h2>Limitation of liability</h2>
 <p>To the fullest extent permitted by law, Energy Wellness Club LLC is not liable for any use of the products other than laboratory research by qualified persons.</p>
-    </div>
-  </section>
-</Base>
-<style>
-  .legal-page { max-width: var(--measure); display: grid; gap: var(--s5); }
-  .prose h2 { font-size: 22px; font-weight: 700; margin-top: var(--s5); }
-  .prose p, .prose li { color: var(--text-dim); margin-top: var(--s2); }
-  .prose ul { padding-left: 1.2rem; }
-  .prose .muted { color: var(--text-faint); font-size: 14px; }
-</style>
+</Policy>

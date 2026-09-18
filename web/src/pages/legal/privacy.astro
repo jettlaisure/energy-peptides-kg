@@ -1,24 +1,11 @@
 ---
-import Base from '../../layouts/Base.astro';
+import Policy from '../../layouts/Policy.astro';
 ---
-<Base title="Privacy" description="Privacy for Energy Peptides.">
-  <section class="section container legal-page">
-    <p class="eyebrow">Policy</p>
-    <h1 class="t-section">Privacy</h1>
-    <div class="prose measure">
+<Policy title="Privacy" description="Privacy for Energy Peptides.">
 <p>Energy Wellness Club LLC, trading as Energy Peptides, collects the information needed to fulfil orders: contact details, shipping address, and order history. Card details are entered into our payment provider's secure tokenizer and never reach our servers.</p>
 <h2>What we keep</h2>
 <ul><li>Order records, including the research-use attestation and its timestamp.</li><li>Email correspondence about orders.</li></ul>
 <h2>What we do not do</h2>
 <ul><li>We do not sell or share customer data with third parties beyond the payment processor and shipping carrier.</li><li>We do not store card numbers.</li></ul>
 <p>Requests to access or delete your data can be sent to support@energypeptides.us.</p>
-    </div>
-  </section>
-</Base>
-<style>
-  .legal-page { max-width: var(--measure); display: grid; gap: var(--s5); }
-  .prose h2 { font-size: 22px; font-weight: 700; margin-top: var(--s5); }
-  .prose p, .prose li { color: var(--text-dim); margin-top: var(--s2); }
-  .prose ul { padding-left: 1.2rem; }
-  .prose .muted { color: var(--text-faint); font-size: 14px; }
-</style>
+</Policy>

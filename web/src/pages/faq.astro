@@ -2,20 +2,33 @@
 import Base from '../layouts/Base.astro';
 import FaqList from '../components/FaqList.astro';
 import { catalog } from '../lib/catalog';
+import '../styles/reading.css';
 const general = catalog.faq.filter((f) => f.about.length === 0);
 const specific = catalog.faq.filter((f) => f.about.length > 0);
 ---
 <Base title="FAQ" description="Storage, batch testing, research-use policy and product questions.">
-  <section class="section container narrow">
+  <section class="section container faq-intro">
     <p class="eyebrow">FAQ</p>
     <h1 class="t-section">Questions</h1>
-    <h2 class="t-sub sub">Ordering, quality and policy</h2>
-    <FaqList items={general} />
-    <h2 class="t-sub sub">Products</h2>
-    <FaqList items={specific} />
+    <p class="dim">Testing, ordering, and handling.<br />The details, clearly explained.</p>
+    <nav class="faq-jump" aria-label="Question categories"><a href="#ordering">Ordering, quality and policy <span aria-hidden="true">↓</span></a><a href="#product-questions">Product questions <span aria-hidden="true">↓</span></a></nav>
   </section>
+  <div class="reading-surface">
+    <div class="container faq-sections">
+      <section class="faq-group" id="ordering"><h2 class="t-sub">Ordering, quality<br />and policy</h2><FaqList items={general} /></section>
+      <section class="faq-group" id="product-questions"><h2 class="t-sub">Products</h2><FaqList items={specific} /></section>
+    </div>
+  </div>
 </Base>
 <style>
-  .narrow { max-width: var(--measure); display: grid; gap: var(--s4); }
-  .sub { margin-top: var(--s5); }
+  .faq-intro { display: grid; gap: 24px; padding-block: 72px; }
+  .faq-intro h1 { font-weight: 500; font-size: clamp(40px, 5vw, 64px); letter-spacing: -.045em; }
+  .faq-intro p { max-width: 48ch; }
+  .faq-jump { display: flex; flex-wrap: wrap; gap: 12px 32px; margin-top: 8px; }
+  .faq-jump a { display: inline-flex; align-items: center; gap: 24px; min-height: 44px; border-bottom: var(--hairline); color: var(--text-dim); font-size: 14px; transition: color .2s, border-color .2s; }
+  .faq-jump a:hover { color: var(--text); border-color: var(--gold); text-decoration: none; }
+  .faq-sections { display: grid; gap: 72px; }
+  .faq-group { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 2fr); gap: 64px; }
+  .faq-group h2 { padding-top: 24px; }
+  @media (max-width: 767px) { .faq-intro { padding-block: 48px; } .faq-group { grid-template-columns: 1fr; gap: 24px; } .faq-group h2 { padding-top: 0; } .faq-sections { gap: 48px; } }
 </style>

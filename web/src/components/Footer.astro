@@ -3,7 +3,7 @@ import Lockup from './Lockup.astro';
 import { site } from '../lib/catalog';
 const year = new Date().getFullYear();
 ---
-<footer class="site-footer">
+<footer class:list={['site-footer', { 'home-footer': Astro.url.pathname === '/' }]}>
   <div class="container grid">
     <div class="stack">
       <a class="footer-brand" href="/" aria-label="Energy Peptides home"><Lockup height={38} /></a>
@@ -35,6 +35,7 @@ const year = new Date().getFullYear();
 </footer>
 <style>
   .site-footer { margin-top: var(--section); background: var(--void); border-top: var(--hairline); padding-block: var(--s8) var(--s6); }
+  .home-footer { margin-top: 0; }
   .grid { display: grid; grid-template-columns: 1.6fr 1fr 1fr; gap: var(--s8); }
   .footer-brand { display: inline-flex; width: fit-content; margin-bottom: 8px; }
   .stack > p { max-width: 38ch; }

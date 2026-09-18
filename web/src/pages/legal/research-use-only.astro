@@ -1,11 +1,7 @@
 ---
-import Base from '../../layouts/Base.astro';
+import Policy from '../../layouts/Policy.astro';
 ---
-<Base title="Research use only policy" description="Research use only policy for Energy Peptides.">
-  <section class="section container legal-page">
-    <p class="eyebrow">Policy</p>
-    <h1 class="t-section">Research use only policy</h1>
-    <div class="prose measure">
+<Policy title="Research use only policy" description="Research use only policy for Energy Peptides.">
 <p>Every product sold by Energy Wellness Club LLC, trading as Energy Peptides, is supplied for laboratory research use only. Products are not for human or veterinary use, and are not intended to diagnose, treat, cure, mitigate or prevent any disease or condition.</p>
 <h2>What this means</h2>
 <ul>
@@ -17,13 +13,4 @@ import Base from '../../layouts/Base.astro';
 <p>By placing an order, the purchaser confirms that they are at least 21 years old, that they are purchasing solely for laboratory research, and that they understand the products are not for human or veterinary use. Orders that do not meet these conditions will be cancelled and refunded.</p>
 <h2>Regulatory status</h2>
 <p>These products have not been evaluated or approved by the U.S. Food and Drug Administration.</p>
-    </div>
-  </section>
-</Base>
-<style>
-  .legal-page { max-width: var(--measure); display: grid; gap: var(--s5); }
-  .prose h2 { font-size: 22px; font-weight: 700; margin-top: var(--s5); }
-  .prose p, .prose li { color: var(--text-dim); margin-top: var(--s2); }
-  .prose ul { padding-left: 1.2rem; }
-  .prose .muted { color: var(--text-faint); font-size: 14px; }
-</style>
+</Policy>

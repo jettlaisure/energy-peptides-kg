@@ -1,0 +1,45 @@
+---
+import Base from './Base.astro';
+import '../styles/reading.css';
+interface Props { title: string; description: string }
+const { title, description } = Astro.props;
+const links = [
+  ['/legal/research-use-only/', 'Research use'],
+  ['/legal/shipping-returns/', 'Shipping and returns'],
+  ['/legal/terms/', 'Terms of sale'],
+  ['/legal/privacy/', 'Privacy'],
+];
+---
+<Base title={title} description={description}>
+  <header class="container policy-intro">
+    <p class="eyebrow">Policies & information</p>
+    <h1>{title}</h1>
+  </header>
+  <div class="reading-surface">
+    <div class="container policy-grid">
+      <nav aria-label="Policies">
+        {links.map(([href, label]) => <a href={href} aria-current={Astro.url.pathname === href ? 'page' : undefined}>{label}<span aria-hidden="true">↗</span></a>)}
+      </nav>
+      <article class="prose"><slot /></article>
+    </div>
+  </div>
+</Base>
+<style>
+  .policy-intro { padding-block: clamp(48px, 7vw, 88px); display: grid; gap: 24px; }
+  h1 { font-size: clamp(38px, 5vw, 64px); font-weight: 500; line-height: 1.08; letter-spacing: -.045em; max-width: 18ch; }
+  .policy-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 2fr); gap: clamp(32px, 7vw, 96px); align-items: start; }
+  nav { display: grid; position: sticky; top: 110px; }
+  nav a { display: flex; justify-content: space-between; gap: 16px; padding-block: 16px; border-bottom: var(--hairline); font-size: 14px; text-decoration: none; color: var(--text-dim); transition: color .2s; }
+  nav a:first-child { border-top: var(--hairline); }
+  nav a[aria-current="page"] { color: var(--text); font-weight: 700; }
+  nav a[aria-current="page"] span { visibility: hidden; }
+  .prose { max-width: 65ch; line-height: 1.8; }
+  .prose :global(h2) { font-size: 24px; font-weight: 500; letter-spacing: -.025em; margin-block: 40px 12px; line-height: 1.25; }
+  .prose :global(h2:first-child) { margin-top: 0; }
+  .prose :global(p), .prose :global(li) { color: var(--text-dim); text-wrap: pretty; }
+  .prose :global(p + p) { margin-top: 20px; }
+  .prose :global(ul) { padding-left: 1.2rem; margin-block: 16px; }
+  .prose :global(li + li) { margin-top: 12px; }
+  .prose :global(.muted) { border-top: var(--hairline); padding-top: 24px; margin-top: 40px; font-size: 13px; }
+  @media (max-width: 767px) { .policy-grid { grid-template-columns: 1fr; } nav { position: static; grid-template-columns: 1fr 1fr; gap: 0 24px; } nav a:first-child { border-top: 0; } }
+</style>
