@@ -42,9 +42,16 @@ npx wrangler secret put TAGADA_STORE_ID
 npx wrangler secret put TAGADA_WEBHOOK_SECRET        # from creating the webhook endpoint
 npm run deploy
 ```
-Then in the Cloudflare dashboard attach `energypeptides.us` to the worker (Custom Domains). Switch `PAYMENT_MODE` in
-`wrangler.jsonc` to `tagada` and `PUBLIC_PAYMENT_MODE` in `.env` to `tagada` when going live; keep `TAGADA_ENV=test`
-until a sandbox order has round-tripped.
+Switch `PAYMENT_MODE` in `wrangler.jsonc` to `tagada` and `PUBLIC_PAYMENT_MODE` in `.env` to `tagada` when going live;
+keep `TAGADA_ENV=test` until a sandbox order has round-tripped.
+
+## Domains
+`energypeptides.us`, `www.energypeptides.us` and `preview.energypeptides.us` are attached in the Cloudflare dashboard
+under **Workers & Pages → energy-peptides → Settings → Domains & Routes**, and deliberately **not** in
+`wrangler.jsonc`. `wrangler deploy` reads a `routes` list as the complete set of triggers, so deploying a branch whose
+copy of that file predates a domain detaches it and deletes its DNS record — that is how the site went down on
+2026-09-18. With no `routes` key, wrangler leaves the triggers alone and prints the attached domains for confirmation,
+so any branch is safe to deploy. Add or remove a domain in the dashboard, never in the config.
 
 ## Every content or inventory change
 ```bash

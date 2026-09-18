@@ -6,12 +6,13 @@
   "main": "@astrojs/cloudflare/entrypoints/server",
   "assets": { "directory": "./dist", "binding": "ASSETS" },
   "observability": { "enabled": true },
-  // Live on the root domain; preview stays attached so a build can be checked before it is deployed.
-  "routes": [
-    { "pattern": "energypeptides.us", "custom_domain": true },
-    { "pattern": "www.energypeptides.us", "custom_domain": true },
-    { "pattern": "preview.energypeptides.us", "custom_domain": true }
-  ],
+  // NO "routes" HERE ON PURPOSE — do not add them back.
+  // The custom domains (energypeptides.us, www.energypeptides.us, preview.energypeptides.us) are attached in the
+  // Cloudflare dashboard: Workers & Pages -> energy-peptides -> Settings -> Domains & Routes.
+  // `wrangler deploy` treats a "routes" list as the COMPLETE set of triggers, so deploying a branch whose copy of
+  // this file was written before a domain existed silently detaches that domain and deletes its DNS record — which
+  // is how the site went down on 2026-09-18. With the key absent, wrangler leaves the triggers alone and any branch
+  // is safe to deploy.
   // Non-secret configuration. Secrets (TAGADA_API_KEY, TAGADA_STORE_ID, TAGADA_WEBHOOK_SECRET) are set with
   // `wrangler secret put <NAME>` in production and in `.dev.vars` locally — never here.
   "vars": {
