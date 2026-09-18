@@ -25,6 +25,13 @@ const org = {
   image: new URL('/og/default.jpg', Astro.site).toString(),
   email: site.contact_email,
   areaServed: 'US',
+  contactPoint: {
+    '@type': 'ContactPoint',
+    contactType: 'customer support',
+    email: site.contact_email,
+    url: new URL('/contact/', Astro.site).toString(),
+    availableLanguage: 'English',
+  },
 };
 ---
 <!doctype html>

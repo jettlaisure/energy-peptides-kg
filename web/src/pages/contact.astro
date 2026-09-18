@@ -1,0 +1,23 @@
+---
+import Policy from '../layouts/Policy.astro';
+import { site } from '../lib/catalog';
+---
+<Policy title="Contact" description={`How to reach ${site.brand} — certificates of analysis, orders, and wholesale enquiries.`}>
+<p>Email is the fastest way to reach us, and it is the only channel we monitor. Write to <a href={`mailto:${site.contact_email}`}>{site.contact_email}</a> and we will reply within one business day.</p>
+
+<h2>What we can help with</h2>
+<ul>
+<li><strong>Certificates of analysis.</strong> Tell us the product and, if you have it, the lot number from the vial label. {site.testing_line}</li>
+<li><strong>Orders.</strong> Include your order number. We ship {site.ships_to} only.</li>
+<li><strong>Specifications.</strong> Questions about purity, identity, molecular weight, storage or reconstitution volumes.</li>
+<li><strong>Wholesale and institutional purchasing.</strong> Tell us the compounds, amounts and your institution.</li>
+</ul>
+
+<h2>What we cannot help with</h2>
+<p>Every product is supplied for laboratory research use only. We do not provide, and will not answer questions about, human or veterinary administration — including dosing, protocols, reconstitution for use in a person, or expected effects. See our <a href="/legal/research-use-only/">research use policy</a>.</p>
+
+<h2>Who you are writing to</h2>
+<p>{site.brand} is a brand of {site.seller}, a Wyoming limited liability company. Correspondence, certificate requests and order enquiries all reach the same inbox above.</p>
+
+<p class="muted">{site.compliance_line}. Products have not been evaluated or approved by the FDA.</p>
+</Policy>
