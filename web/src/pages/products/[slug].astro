@@ -43,6 +43,7 @@ specRows.push(['SKU', p.sku, false]);
 const unverified = p.components.some((c) => c.confidence !== 'high');
 ---
 <Base title={title} description={description}>
+  <div class="product-surface">
   <div class="container">
     <nav class="crumbs t-small" aria-label="Breadcrumb"><a href="/products/">Catalog</a><span class="faint">/</span><a href={`/products/#${p.composition_slug}`}>{p.composition_class}</a></nav>
     <section class="top">
@@ -153,6 +154,7 @@ const unverified = p.components.some((c) => c.confidence !== 'high');
       </section>
     )}
   </div>
+  </div>
 </Base>
 <script>
   import { addToCart } from '../../lib/cart';
@@ -167,6 +169,23 @@ const unverified = p.components.some((c) => c.confidence !== 'high');
   });
 </script>
 <style>
+  .product-surface {
+    color-scheme: light;
+    --text: #14213a;
+    --text-dim: #4d5869;
+    --text-faint: #5d6776;
+    --steel: #5d6776;
+    --powder: #14213a;
+    --gold: #8a6410;
+    --gold-hi: #8a6410;
+    --rule: #d8d8d2;
+    --hairline: 1px solid var(--rule);
+    --navy-lift: #eeede6;
+    background: #f5f4ef;
+    color: var(--text);
+  }
+  .product-surface :global(:focus-visible) { outline-color: var(--gold-ink); }
+  .product-surface > .reading-surface { border-top: var(--hairline); }
   .stock-status { border: 0; border-radius: 0; padding: 0; gap: 8px; white-space: nowrap; }
   .crumbs { display: flex; flex-wrap: wrap; gap: 4px 8px; padding-block: var(--s5); font-size: 12px; line-height: 1.6; }
   .crumbs a { color: var(--text-dim); }
@@ -194,7 +213,7 @@ const unverified = p.components.some((c) => c.confidence !== 'high');
   .add { display: flex; gap: var(--s3); align-items: center; flex-wrap: wrap; }
   .add-closed { display: grid; gap: 6px; padding: 16px 18px; background: var(--navy-lift); border-left: 2px solid var(--gold); }
   .add-closed p { margin: 0; }
-  .qty input { width: 72px; font: inherit; padding: 11px 10px; min-height: 48px; border: var(--hairline); border-radius: var(--radius-sm); background: var(--navy); color: var(--text); text-align: center; }
+  .qty input { width: 72px; font: inherit; padding: 11px 10px; min-height: 48px; border: var(--hairline); border-radius: var(--radius-sm); background: #fff; color: var(--text); text-align: center; }
   .added { color: var(--text-dim); }
   .body { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 3fr); gap: 88px; }
   .main { gap: 48px; min-width: 0; }
