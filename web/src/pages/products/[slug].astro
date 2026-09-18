@@ -4,6 +4,7 @@ import VialArt from '../../components/VialArt.astro';
 import FaqList from '../../components/FaqList.astro';
 import ProductGrid from '../../components/ProductGrid.astro';
 import { products, productsBySlug, money, cents, sizeLabel, familyName, compositionLine, unitLabel, site, type Product } from '../../lib/catalog';
+import { orderingOpen, orderingClosedLine, orderingClosedNote } from '../../lib/ordering';
 import { getCollection, render } from 'astro:content';
 
 export async function getStaticPaths() {
@@ -19,7 +20,8 @@ const related = p.related_slugs.map((s) => productsBySlug.get(s)).filter((x): x 
 const title = p.page?.title ?? `${p.name} | ${site.brand}`;
 const description = p.page?.meta_description ?? `${familyName(p)} ${sizeLabel(p)} ${p.form}, tested to a ≥99% purity specification. ${site.compliance_line}.`;
 const stock = p.status === 'coming_soon' ? { cls: 'chip-off', text: 'Coming soon' } : p.in_stock ? { cls: 'chip-on', text: 'In stock' } : { cls: 'chip-off', text: 'Out of stock' };
-const canBuy = p.in_stock && p.status === 'active';
+const inStock = p.in_stock && p.status === 'active';
+const canBuy = inStock && orderingOpen;
 const specRows: [string, string, boolean][] = [];
 for (const c of p.components) {
   const pre = p.components.length > 1 ? `${c.name} · ` : '';
@@ -61,11 +63,16 @@ const unverified = p.components.some((c) => c.confidence !== 'high');
           <span class="dim t-small">{unitLabel(p)}</span>
           <span class:list={['chip', stock.cls]}>{stock.text}</span>
         </div>
-        <form class="add" data-add-to-cart data-sku={p.sku}>
-          <label class="qty"><span class="sr-only">Quantity</span><input type="number" name="qty" min="1" max="20" value="1" inputmode="numeric" /></label>
-          <button class="btn btn-primary" type="submit" disabled={!canBuy}>{canBuy ? 'Add to cart' : stock.text}</button>
-          <span class="added t-small" data-added role="status" aria-live="polite" hidden>Added to your cart. <a href="/cart/">View cart →</a></span>
-        </form>
+        {orderingOpen
+          ? <form class="add" data-add-to-cart data-sku={p.sku}>
+              <label class="qty"><span class="sr-only">Quantity</span><input type="number" name="qty" min="1" max="20" value="1" inputmode="numeric" /></label>
+              <button class="btn btn-primary" type="submit" disabled={!canBuy}>{canBuy ? 'Add to cart' : stock.text}</button>
+              <span class="added t-small" data-added role="status" aria-live="polite" hidden>Added to your cart. <a href="/cart/">View cart →</a></span>
+            </form>
+          : <div class="add-closed">
+              <p class="t-sub">{orderingClosedLine}</p>
+              <p class="dim t-small">{orderingClosedNote}</p>
+            </div>}
         <div class="purchase-details">
           <p><span aria-hidden="true">↗</span><span>{money(cents(site.shipping_usd))} US shipping · Free on orders {money(cents(site.free_shipping_over_usd))}+<br /><a href="/legal/shipping-returns/">Shipping & returns</a></span></p>
           <p><span aria-hidden="true">≡</span><span>Review the details before you order.<br /><a href="#specifications">Specifications</a><span class="detail-divider">/</span><a href="#quality">Testing & certificates</a></span></p>
@@ -169,6 +176,8 @@ const unverified = p.components.some((c) => c.confidence !== 'high');
   .price-row { display: flex; flex-wrap: wrap; align-items: baseline; gap: var(--s3); }
   .price { font-size: 34px; font-weight: 700; letter-spacing: -0.02em; }
   .add { display: flex; gap: var(--s3); align-items: center; flex-wrap: wrap; }
+  .add-closed { display: grid; gap: 6px; padding: 16px 18px; background: var(--navy-lift); border-left: 2px solid var(--gold); }
+  .add-closed p { margin: 0; }
   .qty input { width: 72px; font: inherit; padding: 11px 10px; min-height: 48px; border: var(--hairline); border-radius: var(--radius-sm); background: var(--navy); color: var(--text); text-align: center; }
   .added { color: var(--text-dim); }
   .body { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 4fr); gap: var(--s7); margin-top: var(--s8); }

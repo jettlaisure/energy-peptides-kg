@@ -6,3 +6,7 @@ TAGADA_WEBHOOK_SECRET=
 TAGADA_BASE_URL=https://api.tagada.io
 TAGADA_ENV=test
 TAGADA_PAYMENT_FLOW_ID=
+# Ordering is closed while the processor is in test mode (src/lib/ordering.ts).
+# Set both to walk the full cart -> checkout flow locally or on preview.
+ORDERING=open
+PUBLIC_ORDERING=open

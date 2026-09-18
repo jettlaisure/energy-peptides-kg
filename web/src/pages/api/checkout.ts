@@ -4,14 +4,19 @@ import { productsBySku, cents, shippingCents, catalog } from '../../lib/catalog'
 import { getEnv } from '../../server/env';
 import { paymentAdapter } from '../../server/payments';
 import { createOrder, newOrderId, setOrderPayment, soldSince } from '../../server/orders';
+import { orderingOpen } from '../../server/ordering';
 
 const json = (data: unknown, status = 200) => new Response(JSON.stringify(data), { status, headers: { 'content-type': 'application/json' } });
 const email = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 export const POST: APIRoute = async ({ request, url }) => {
+  const env = getEnv();
+  // Checked before anything else: a sandbox processor approves every card and charges nothing, so
+  // until the live store is attached no order may be recorded, whatever a stale page posts here.
+  if (!orderingOpen(env)) return json({ error: 'Ordering is not open yet.' }, 503);
+
   let body: any;
   try { body = await request.json(); } catch { return json({ error: 'Invalid request.' }, 400); }
-  const env = getEnv();
 
   // ---- validate (never trust client prices) ----
   const items: { sku: string; qty: number }[] = Array.isArray(body?.items) ? body.items : [];

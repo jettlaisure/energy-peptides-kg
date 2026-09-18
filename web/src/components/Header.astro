@@ -1,6 +1,7 @@
 ---
 import Lockup from './Lockup.astro';
 import { site, money, cents } from '../lib/catalog';
+import { orderingOpen } from '../lib/ordering';
 const path = Astro.url.pathname;
 const nav = [
   { href: '/products/', label: 'Catalog' },
@@ -16,10 +17,12 @@ const nav = [
     <nav class="desktop-nav" aria-label="Primary">
       {nav.map((n) => <a href={n.href} aria-current={path.startsWith(n.href) ? 'page' : undefined}>{n.label}</a>)}
     </nav>
-    <a class="cart-link" href="/cart/">
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M5 7h14l1 14H4L5 7Z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg>
-      <span>Cart</span><span class="count num" data-cart-count hidden>0</span>
-    </a>
+    {orderingOpen && (
+      <a class="cart-link" href="/cart/">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M5 7h14l1 14H4L5 7Z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg>
+        <span>Cart</span><span class="count num" data-cart-count hidden>0</span>
+      </a>
+    )}
     <details class="mobile-menu">
       <summary aria-label="Toggle navigation"><span>Menu</span><svg width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" aria-hidden="true"><path d="M2 6h16M2 14h16"/></svg></summary>
       <nav aria-label="Mobile navigation">

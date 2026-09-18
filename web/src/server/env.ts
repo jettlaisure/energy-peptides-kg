@@ -10,5 +10,6 @@ export interface Env {
   TAGADA_BASE_URL?: string;
   TAGADA_ENV?: string;            // test | live
   TAGADA_PAYMENT_FLOW_ID?: string; // optional explicit flow (needed if the store has none attached)
+  ORDERING?: string;              // 'open' forces ordering on while the processor is still in test mode
 }
 export function getEnv(): Env { return cfEnv as unknown as Env; }

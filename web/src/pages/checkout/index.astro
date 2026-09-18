@@ -1,6 +1,10 @@
 ---
 import Base from '../../layouts/Base.astro';
 import { products, site } from '../../lib/catalog';
+import { orderingOpen } from '../../lib/ordering';
+/* No checkout at all while the processor is in test mode — see src/lib/ordering.ts. The catalog stays
+   public, so anyone landing here from a bookmark goes back to it rather than to a form that cannot charge. */
+if (!orderingOpen) return Astro.redirect('/products/', 307);
 const lite = products.map((p) => ({ sku: p.sku, name: p.name, price: Math.round(Number(p.price_usd) * 100), in_stock: p.in_stock && p.status === 'active' }));
 const paymentMode = import.meta.env.PUBLIC_PAYMENT_MODE ?? 'stub';
 const tokenizerEnv = import.meta.env.PUBLIC_TOKENIZER_ENV === 'sandbox' ? 'sandbox' : 'production';

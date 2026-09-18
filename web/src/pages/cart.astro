@@ -1,14 +1,16 @@
 ---
 import Base from '../layouts/Base.astro';
 import { products, site } from '../lib/catalog';
+import { orderingOpen, orderingClosedLine, orderingClosedNote } from '../lib/ordering';
 const lite = products.map((p) => ({ sku: p.sku, name: p.name, slug: p.slug, price: Math.round(Number(p.price_usd) * 100), in_stock: p.in_stock && p.status === 'active' }));
 ---
 <Base title="Cart" description="Your cart.">
   <section class="section container narrow">
     <p class="eyebrow">Cart</p>
-    <h1 class="t-section">Your cart</h1>
+    <h1 class="t-section">{orderingOpen ? 'Your cart' : orderingClosedLine}</h1>
     <a class="continue-link t-small" href="/products/">← Continue browsing</a>
-    <div data-cart-root data-shipping={Math.round(site.shipping_usd * 100)} data-free={Math.round(site.free_shipping_over_usd * 100)}>
+    {!orderingOpen && <p class="dim">{orderingClosedNote}</p>}
+    <div data-cart-root data-shipping={Math.round(site.shipping_usd * 100)} data-free={Math.round(site.free_shipping_over_usd * 100)} hidden={!orderingOpen}>
       <p class="dim" data-empty>Your cart is empty. <a href="/products/">Browse the catalog</a>.</p>
       <div class="table-wrap" data-table hidden>
         <table class="lines"><thead><tr><th>Item</th><th>Qty</th><th class="r">Each</th><th class="r">Total</th><th></th></tr></thead><tbody data-lines></tbody></table>
