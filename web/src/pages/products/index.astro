@@ -6,12 +6,12 @@ import { products, site, compositionClasses } from '../../lib/catalog';
 const supplies = products.filter((p) => p.category === 'accessory');
 const groups = compositionClasses.filter((c) => c.products.some((p) => p.category !== 'accessory'));
 ---
-<Base title="Catalog" description={`All ${site.brand} research peptides and laboratory supplies, grouped by composition, tested to a ≥99% purity specification. ${site.compliance_line}.`}>
+<Base title="Catalog" description={`All ${site.brand} research peptides and laboratory supplies, grouped by composition, with independently tested lots. ${site.compliance_line}.`}>
   <div class="catalog-shell">
   <section class="section container">
     <div class="section-head">
       <div><p class="eyebrow">Catalog</p><h1 class="t-section">Browse by composition</h1></div>
-      <p>{products.length} products. Prices per vial; every batch tested to a ≥99% purity specification.</p>
+      <p>{products.length} products. Prices per vial. 'Lot tested' marks products with a certificate on file for the lot on sale.</p>
     </div>
     <div class="catalog-discovery">
       <CatalogFilters />

@@ -27,7 +27,7 @@ This repo is the company's memory and its playbook. Read this file, then use the
   `seeds/09_brand.yaml`. Dark-ground navy + gold, Satoshi only, browse by composition class, never by use or goal.
   Compliance line verbatim, either of two approved lines: 'For Research Use Only — Not for Human Consumption' (site)
   or 'For Research Use Only - Not for Human Use' (labels). Label nicknames (KLOW) only with components + amounts.
-  Certificates are not published: 'tested to ≥99%, certificates on request'. Copy comes from Claims/FAQs.
+  Certificates are not published. Testing is claimed per product, only for a lot with a certificate on file (CR-COA-LINK); never 'every batch'. Copy comes from Claims/FAQs.
 
 ## Skills (each executes a task graph in `taskgraphs/`)
 `/new-product-page`, `/faq-seo-addition`, `/marketing-copy`, `/inventory`, `/kg-query`.

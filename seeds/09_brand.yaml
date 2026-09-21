@@ -7,7 +7,7 @@ items:
   - name: BR-TONE
     attrs: {category: tone, scope: [all],
             text: "Precise, calm, documentary. We sound like a careful laboratory supplier: short declarative sentences, the model and the citation named, limits stated plainly.",
-            do: ["state what a compound is and what a study examined", "state the purity specification and that certificates are available on request"],
+            do: ["state what a compound is and what a study examined", "for a lot with a certificate on file, state the purity specification and that the certificate is available on request; for any other lot, say plainly that a certificate is not yet available"],
             dont: ["hype words: miracle, breakthrough, game-changer, powerful, proven", "exclamation marks", "urgency tricks"]}
   - name: BR-VOCAB
     attrs: {category: vocabulary, scope: [all],
@@ -23,11 +23,11 @@ items:
             text: "Required on every product view: one of the two approved, interchangeable lines (Jett, 2026-09-10) — 'For Research Use Only — Not for Human Consumption' (site default) or 'For Research Use Only - Not for Human Use' (as printed on the vial labels). 10 px / +0.16em, Gold Highlight on navy or Brand Navy on paper, inside the product panel above the fold. No other variants or shortenings."}
   - name: BR-PRODUCT-PAGE-STRUCTURE
     attrs: {category: structure, scope: [product_page],
-            text: "Section order: product panel (composition class eyebrow, name, lede, price, stock chip, add to cart, compliance line), Overview, Specification (paper, includes the purity specification), Quality and testing (paper: the standard testing sentence, certificates on request), Research background (verified citations only), Questions.",
+            text: "Section order: product panel (composition class eyebrow, name, lede, price, stock chip, add to cart, compliance line), Overview, Specification (paper; includes the purity specification only when the lot on sale has a purity-tested certificate on file), Testing & certificates (paper: BR-COA-STATEMENT wording for the lot on sale), Research background (verified citations only), Questions.",
             do: ["one H1: the product name"], dont: ["Benefits section", "more than 600 words", "lot-specific purity figures or certificate links (certificates are internal, available on request)"]}
   - name: BR-COA-STATEMENT
     attrs: {category: structure, scope: [product_page, faq],
-            text: "Standard sentence (decision 2026-09-10, certificates not published): 'Every batch is tested by HPLC and mass spectrometry against a purity specification of ≥99%. Certificates of analysis are available on request.' Never state a lot-specific purity figure on the site; never claim a certificate ships with the product."}
+            text: "Standard sentences chosen by the lot on sale (decision 2026-09-21, Jett; certificates still not published). Lot with a purity-and-identity certificate on file: 'This lot has been tested for purity and identity by an independent laboratory against a purity specification of ≥99%. The certificate of analysis is available on request.' Certificate with identity and content but no purity figure: 'This lot's identity and content have been tested by an independent laboratory. The certificate of analysis is available on request.' (no purity specification shown). Lot without a certificate: 'A certificate of analysis is not yet available for the current lot.' Never state a lot-specific purity figure on the site; never claim a certificate ships with the product; never use 'every batch' or 'all products' with a testing claim."}
   - name: BR-FORMATTING
     attrs: {category: formatting, scope: [all],
             text: "Sentence-case headings. Metric units. Peptide names in Bold 700 with the hyphen unbroken (BPC-157, GHK-Cu) — never let a name wrap. Numbers always carry units. Measure 65–70 characters."}

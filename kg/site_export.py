@@ -20,6 +20,8 @@ def _node_public(n: dict, keys: tuple[str, ...]) -> dict:
 def build(store: Store) -> dict:
     cfg = yaml.safe_load(SITE_CFG.read_text())
     stock = {r["product"]: r for r in serve.stock(store)}
+    lot_stock = {b["batch"]: b["on_hand"] for r in stock.values() for b in r["batches"]}
+    us_labs = set(cfg.get("us_labs") or [])
     areas = {a["id"]: {"name": a["name"], "slug": a["attrs"].get("slug"), "summary": a["attrs"].get("summary"), "product_slugs": []}
              for a in store.nodes("ResearchArea")}
     faq_all = {f["id"]: {"id": f["name"], "question": f["attrs"]["question"], "answer": f["attrs"]["answer"],
@@ -76,6 +78,14 @@ def build(store: Store) -> dict:
             if b["attrs"].get("coa_status") == "published":
                 for ce in store.edges(b["id"], "HAS_COA", "out"):
                     coa = {"lot": b["name"], "path": store.get(ce["dst"])["name"], "purity": b["attrs"].get("purity_measured")}
+        # Testing is claimed per product (CR-COA-LINK): only when every lot on hand has a certificate on file.
+        # No lot on hand (coming soon / sold out) means no lot on sale, so nothing is claimed.
+        on_hand_lots = [store.get(e["src"]) for e in store.edges(p["id"], "OF_PRODUCT", "in")
+                        if lot_stock.get(store.get(e["src"])["name"], 0) > 0]
+        certified = bool(on_hand_lots) and all(b["attrs"].get("coa_status") in ("received", "published") for b in on_hand_lots)
+        lot_tested = certified and a.get("category") != "accessory"
+        lot_purity_tested = lot_tested and all(b["attrs"].get("purity_measured") is not None for b in on_hand_lots)
+        lot_tested_us = lot_tested and all(b["attrs"].get("coa_lab") in us_labs for b in on_hand_lots)
         related = sorted({store.get(e["src"])["attrs"].get("slug") for cid in comp_ids for e in store.edges(cid, "CONTAINS", "in")
                           if e["src"] != p["id"] and store.get(e["src"])["attrs"].get("status") == "active"} - {None})
         on_hand = stock.get(p["name"], {}).get("on_hand", 0)
@@ -93,6 +103,7 @@ def build(store: Store) -> dict:
             "in_stock": on_hand > 0 and a.get("status") == "active", "on_hand": on_hand,
             "components": comps, "research_area": {"name": area["name"], "slug": area["slug"]} if area else None,
             "claims": claims, "studies": studies, "faqs": [faq_all[i] for i in sorted(faq_ids)],
+            "lot_tested": lot_tested, "lot_purity_tested": lot_purity_tested, "lot_tested_us": lot_tested_us,
             "assets": assets, "coa": coa, "batches": batches, "related_slugs": related, "images": images, "images_alt": images_alt,
             "page": {"title": page["attrs"].get("title"), "meta_description": page["attrs"].get("meta_description")} if page else None,
         })

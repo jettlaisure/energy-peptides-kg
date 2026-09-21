@@ -4,7 +4,7 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import { site } from '../lib/catalog';
 interface Props { title: string; description?: string; canonical?: string; ogImage?: string }
-const { title, description = `${site.brand}: research peptides tested to a ≥99% purity specification. ${site.compliance_line}.`, canonical, ogImage } = Astro.props;
+const { title, description = `${site.brand}: research peptides, independently tested lots, certificates on request. ${site.compliance_line}.`, canonical, ogImage } = Astro.props;
 const fullTitle = title.includes(site.brand) ? title : `${title} | ${site.brand}`;
 const url = canonical ?? new URL(Astro.url.pathname, Astro.site).toString();
 // Share cards are 1200x630 JPEGs built by render/og_cards.py — the product WebPs are the wrong

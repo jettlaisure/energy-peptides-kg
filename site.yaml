@@ -11,4 +11,5 @@ attestation: "I confirm I am 21 or older and am purchasing these products solely
 shipping_usd: 9.95
 free_shipping_over_usd: 150
 ships_to: US only
-testing_line: "Every batch is tested by HPLC and mass spectrometry against a purity specification of ≥99%. Certificates of analysis are available on request."
+testing_line: "Products marked 'Lot tested' have a certificate of analysis from an independent laboratory on file for the lot on sale. Certificates are available on request."
+us_labs: [Freedom Diagnostics]   # certificate labs that support CL-25 ('Tested by an independent US laboratory')

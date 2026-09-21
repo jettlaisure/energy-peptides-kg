@@ -97,7 +97,7 @@ def test_q15_blends_via_card(graph):
 
 def test_q16_prohibited_claims(graph):
     st, _ = graph
-    assert {n["name"] for n in serve.query(st, "Claim", {"status": "prohibited"})} == {"CL-3", "CL-5", "CL-8", "CL-10", "CL-20"}
+    assert {n["name"] for n in serve.query(st, "Claim", {"status": "prohibited"})} == {"CL-3", "CL-5", "CL-8", "CL-10", "CL-20", "CL-27", "CL-28"}
 
 
 def test_alias_resolution_dictionary_first(graph):

@@ -58,7 +58,7 @@ items:
     title: BPC-157 / TB-500 20mg blend | Energy Peptides
     page_type: product
     status: planned
-    meta_description: BPC-157 / TB-500 20 mg lyophilized blend, 10 mg of each peptide per vial, with a per-lot certificate of analysis. For Research Use Only — Not
+    meta_description: BPC-157 / TB-500 20 mg lyophilized blend, 10 mg of each peptide per vial. For Research Use Only — Not
       for Human Consumption.
   edges:
   - rel: FEATURES
@@ -259,7 +259,7 @@ items:
     title: KLOW 80mg — BPC-157 / TB-500 / KPV / GHK-Cu | Energy Peptides
     page_type: product
     status: planned
-    meta_description: 'KLOW 80 mg lyophilized blend: GHK-Cu 50 mg, BPC-157 10 mg, TB-500 10 mg, KPV 10 mg per vial. Tested to a ≥99% purity specification. For Research
+    meta_description: 'KLOW 80 mg lyophilized blend: GHK-Cu 50 mg, BPC-157 10 mg, TB-500 10 mg, KPV 10 mg per vial. For Research
       Use Only.'
   edges:
   - rel: FEATURES

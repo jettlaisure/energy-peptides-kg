@@ -15,6 +15,7 @@ const stock = p.status === 'coming_soon' ? { cls: 'chip-off', text: 'Coming soon
     <p class="eyebrow">{p.composition_class}</p>
     <h3 class="t-card"><a href={`/products/${p.slug}/`}><span class="name">{familyName(p)}</span> <span class="dim amt">{sizeLabel(p)}</span></a></h3>
     {compositionLine(p) && <p class="comp t-small value">{compositionLine(p)}</p>}
+    {p.lot_tested && <p class="tested">Lot tested</p>}
     <div class="row">
       <span class="value price">{money(cents(p.price_usd))}<span class="price-unit"> / vial</span></span>
       <span class:list={['chip', stock.cls]}>{stock.text}</span>
@@ -43,6 +44,7 @@ const stock = p.status === 'coming_soon' ? { cls: 'chip-off', text: 'Coming soon
   h3 a { color: var(--text); }
   h3 a:hover { text-decoration: none; color: var(--gold-hi); }
   .amt { font-weight: 400; }
+  .tested { font-size: 11px; color: var(--steel); letter-spacing: .02em; }
   .comp { font-size: 12px; line-height: 1.4; }
   .row { display: flex; align-items: center; justify-content: space-between; gap: 8px; flex-wrap: wrap; padding-top: 8px; margin-top: auto; }
   .price { font-size: 18px; font-weight: 500; color: var(--text); }

@@ -11,21 +11,21 @@ items:
             answer: "Unopened lyophilized vials are stored at -20 °C, protected from light. Keep vials sealed until use in the laboratory."}
   - name: FAQ-3
     attrs: {status: approved, question: "Are the products tested?",
-            answer: "Yes. Every batch is tested by HPLC and mass spectrometry against a purity specification of 99% or higher before it is offered. Certificates of analysis are held on file for each batch and are available on request."}
+            answer: "Products marked 'Lot tested' have a certificate of analysis on file for the lot on sale, from an independent laboratory, covering purity by HPLC and identity. Certificates are available on request: tell us the product and the lot number from the vial label. Where a product page says a certificate is not yet available, that lot has not been independently tested, and we make no purity claim for it."}
   - name: FAQ-4
     attrs: {status: approved, question: "Is BPC-157 approved by the FDA?",
             answer: "No. BPC-157 has not been evaluated or approved by the FDA for any use. Energy Peptides sells it for laboratory research only, not for human or veterinary use."}
     edges: [{rel: ABOUT, to: "Peptide:BPC-157"}]
   - name: FAQ-5
     attrs: {status: approved, question: "What is the difference between TB-500 and thymosin beta-4?",
-            answer: "Thymosin beta-4 is a naturally occurring 43-amino-acid actin-binding protein. TB-500 is the name used for the synthetic peptide supplied for research. Its identity is confirmed by mass spectrometry in batch testing."}
+            answer: "Thymosin beta-4 is a naturally occurring 43-amino-acid actin-binding protein. TB-500 is the name used for the synthetic peptide supplied for research. Where the lot on sale has a certificate on file, the testing laboratory confirms its identity."}
     edges: [{rel: ABOUT, to: "Peptide:TB-500"}]
   - name: FAQ-6
     attrs: {status: approved, question: "Are Energy Peptides products for human use?",
             answer: "No. Every product is for laboratory research use only and is not for human or veterinary use. Purchasers attest at checkout that they are 21 or older and buying for research."}
   - name: FAQ-7
     attrs: {status: approved, question: "What is in the BPC-157 / TB-500 blend?",
-            answer: "Each vial contains 10 mg BPC-157 and 10 mg TB-500 as a 20 mg lyophilized blend. Both peptides are identity-confirmed by mass spectrometry in batch testing."}
+            answer: "Each vial contains 10 mg BPC-157 and 10 mg TB-500 as a 20 mg lyophilized blend. When the lot on sale has a certificate on file, both peptides are identity-confirmed in it, and the certificate is available on request."}
     edges: [{rel: ABOUT, to: "Product:BPC-157 / TB-500 20mg"}]
   - name: FAQ-8
     attrs: {status: approved, question: "What is bacteriostatic water used for?",

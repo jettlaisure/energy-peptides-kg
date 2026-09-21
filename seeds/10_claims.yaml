@@ -92,3 +92,28 @@ items:
     attrs: {status: approved, scope: [product_page, faq], rationale: "Composition statement from the owner; confirm against the COA.",
             text: "KLOW is a four-peptide blend supplying 50 mg GHK-Cu, 10 mg BPC-157, 10 mg TB-500 and 10 mg KPV together in one 80 mg lyophilized vial."}
     edges: [{rel: ABOUT, to: "Product:BPC-157 / TB-500 / KPV / GHK-Cu 80mg"}, {rel: GOVERNED_BY, to: "ComplianceRule:CR-NO-MEDICAL-CLAIMS"}]
+  # ---- Testing claims (2026-09-21, Jett): testing is claimed per product, only where the lot on sale has a certificate (CR-COA-LINK).
+  - name: CL-23
+    attrs: {status: approved, scope: [product_page, email, social, ads], rationale: "Only where the lot on sale has a purity-and-identity certificate on file (coa_status received/published).",
+            text: "This lot has been tested for purity and identity by an independent laboratory. Certificate of analysis available on request."}
+    edges: [{rel: GOVERNED_BY, to: "ComplianceRule:CR-COA-LINK"}]
+  - name: CL-24
+    attrs: {status: approved, scope: [product_page, faq, email, social, ads], rationale: "Site-wide line; true while at least one product on sale has a tested lot. Never 'every batch'.",
+            text: "Independently tested lots, with certificates of analysis on request."}
+    edges: [{rel: GOVERNED_BY, to: "ComplianceRule:CR-COA-LINK"}]
+  - name: CL-25
+    attrs: {status: approved, scope: [product_page, email, social, ads], rationale: "Only where the lot's certificate is from a US laboratory (Freedom Diagnostics). Describes where testing happened, not where the peptide was made.",
+            text: "Tested by an independent US laboratory."}
+    edges: [{rel: GOVERNED_BY, to: "ComplianceRule:CR-COA-LINK"}]
+  - name: CL-26
+    attrs: {status: approved, scope: [product_page], rationale: "Plain statement for a lot without a certificate (BR-TONE: limits stated plainly).",
+            text: "A certificate of analysis is not yet available for the current lot."}
+    edges: [{rel: GOVERNED_BY, to: "ComplianceRule:CR-COA-LINK"}]
+  - name: CL-27
+    attrs: {status: prohibited, scope: [all], rationale: "Untrue once any product on sale is untested; unsubstantiated store-wide testing claim.",
+            text: "Every batch is tested to ≥99% purity. All our products are lab-tested."}
+    edges: [{rel: GOVERNED_BY, to: "ComplianceRule:CR-COA-LINK"}]
+  - name: CL-28
+    attrs: {status: prohibited, scope: [all], rationale: "Origin claim: FSD manufactures in China. US testing is not US origin (FTC Made in USA rule).",
+            text: "Made in the USA. US-made, US-sourced peptides."}
+    edges: [{rel: GOVERNED_BY, to: "ComplianceRule:CR-COA-LINK"}]

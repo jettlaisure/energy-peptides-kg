@@ -19,7 +19,14 @@ const cited = p.claims.filter((c) => c.citations.length > 0);
 const plain = p.claims.filter((c) => c.citations.length === 0);
 const related = p.related_slugs.map((s) => productsBySlug.get(s)).filter((x): x is Product => Boolean(x));
 const title = p.page?.title ?? `${p.name} | ${site.brand}`;
-const description = p.page?.meta_description ?? `${familyName(p)} ${sizeLabel(p)} ${p.form}, tested to a ≥99% purity specification. ${site.compliance_line}.`;
+// Testing is claimed per product, only for a lot on sale with a certificate on file (CR-COA-LINK, BR-COA-STATEMENT).
+const puritySpec = p.lot_purity_tested && p.purity_spec ? p.purity_spec.replace('>=', '≥') : null;
+const testingSentence = p.lot_purity_tested
+  ? 'This lot has been tested for purity and identity by an independent laboratory against a purity specification of ≥99%. The certificate of analysis is available on request.'
+  : p.lot_tested
+    ? "This lot's identity and content have been tested by an independent laboratory. The certificate of analysis is available on request."
+    : 'A certificate of analysis is not yet available for the current lot.';
+const description = p.page?.meta_description ?? `${familyName(p)} ${sizeLabel(p)} ${p.form}${puritySpec ? ', lot tested to a ≥99% purity specification' : ''}. ${site.compliance_line}.`;
 const stock = p.status === 'coming_soon' ? { cls: 'chip-off', text: 'Coming soon' } : p.in_stock ? { cls: 'chip-on', text: 'In stock' } : { cls: 'chip-off', text: 'Out of stock' };
 const inStock = p.in_stock && p.status === 'active';
 const canBuy = inStock && orderingOpen;
@@ -38,7 +45,7 @@ specRows.push(['Form', p.form ?? '', false]);
 const look = [...new Set(p.components.map((c) => c.appearance).filter(Boolean))];
 if (look.length) specRows.push(['Appearance', look.join('; '), false]);
 if (p.vial_ml) specRows.push(['Vial', `${p.vial_ml} mL ${p.vial_glass === 'amber' ? 'amber' : 'clear'} glass`, false]);
-if (p.purity_spec) specRows.push(['Purity specification', p.purity_spec.replace('>=', '≥'), true]);
+if (puritySpec) specRows.push(['Purity specification', puritySpec, true]);
 specRows.push(['SKU', p.sku, false]);
 const unverified = p.components.some((c) => c.confidence !== 'high');
 
@@ -56,7 +63,7 @@ const ld = [
     category: p.composition_class,
     image: [p.images?.square, p.images?.portrait].filter(Boolean).map((s) => abs(s as string)),
     brand: { '@type': 'Brand', name: site.brand },
-    ...(p.purity_spec ? { additionalProperty: [{ '@type': 'PropertyValue', name: 'Purity specification', value: p.purity_spec.replace('>=', '≥') }] } : {}),
+    ...(puritySpec ? { additionalProperty: [{ '@type': 'PropertyValue', name: 'Purity specification', value: puritySpec }] } : {}),
     offers: {
       '@type': 'Offer',
       url: abs(`/products/${p.slug}/`),
@@ -99,6 +106,7 @@ const ld = [
           <span class="price-amount"><span class="value price">{money(cents(p.price_usd))}</span><span class="dim t-small">{unitLabel(p)}</span></span>
           <span class:list={['chip', 'stock-status', stock.cls]}>{stock.text}</span>
         </div>
+        {p.lot_tested && <p class="lot-tested t-small"><a href="#quality">Lot tested{p.lot_tested_us ? ' · independent US laboratory' : ' · independent laboratory'}</a></p>}
         {orderingOpen
           ? <form class="add" data-add-to-cart data-sku={p.sku}>
               <label class="qty"><span class="sr-only">Quantity</span><input type="number" name="qty" min="1" max="20" value="1" inputmode="numeric" /></label>
@@ -137,16 +145,22 @@ const ld = [
           <div class="table-wrap"><table class="spec">
             <tbody>{specRows.map(([k, v, em]) => <tr><th scope="row">{k}</th><td class:list={{ em }}>{v}</td></tr>)}</tbody>
           </table></div>
-          {unverified && <p class="dim t-small">Reference chemistry values are awaiting final verification. The identity of every batch is confirmed by mass spectrometry.</p>}
+          {unverified && <p class="dim t-small">Reference chemistry values are awaiting final verification.{p.lot_tested && ' The identity of the lot on sale is confirmed by the testing laboratory.'}</p>}
         </section>
         <section class="block paper doc" id="quality">
           <div class="doc-head"><h2 class="t-sub">Testing & certificates</h2></div>
-          <table class="spec"><tbody>
-            <tr><th scope="row">Purity specification</th><td class="em">{p.purity_spec ? p.purity_spec.replace('>=', '≥') : '—'}</td></tr>
-            <tr><th scope="row">Methods</th><td>HPLC purity, mass-spectrometry identity</td></tr>
-            <tr><th scope="row">Certificate of analysis</th><td>Available on request · <a href={`mailto:${site.contact_email}?subject=${encodeURIComponent('COA request: ' + p.name)}`}>request</a></td></tr>
-          </tbody></table>
-          <p class="dim t-small">{site.testing_line}</p>
+          {p.lot_tested ? (
+            <table class="spec"><tbody>
+              {puritySpec && <tr><th scope="row">Purity specification</th><td class="em">{puritySpec}</td></tr>}
+              <tr><th scope="row">Testing</th><td>{p.lot_purity_tested ? 'Purity (HPLC) and identity' : 'Identity and content'}, independent laboratory{p.lot_tested_us ? ' in the US' : ''}</td></tr>
+              <tr><th scope="row">Certificate of analysis</th><td>Available on request · <a href={`mailto:${site.contact_email}?subject=${encodeURIComponent('COA request: ' + p.name)}`}>request</a></td></tr>
+            </tbody></table>
+          ) : (
+            <table class="spec"><tbody>
+              <tr><th scope="row">Certificate of analysis</th><td>Not yet available for the current lot</td></tr>
+            </tbody></table>
+          )}
+          <p class="dim t-small">{testingSentence}</p>
         </section>
         {cited.length > 0 && (
           <section class="block" id="research">
@@ -222,6 +236,8 @@ const ld = [
   }
   .product-surface :global(:focus-visible) { outline-color: var(--gold-ink); }
   .product-surface > .reading-surface { border-top: var(--hairline); }
+  .lot-tested { margin: 0; }
+  .lot-tested a { color: var(--steel); }
   .stock-status { border: 0; border-radius: 0; padding: 0; gap: 8px; white-space: nowrap; }
   .crumbs { display: flex; flex-wrap: wrap; gap: 4px 8px; padding-block: var(--s5); font-size: 12px; line-height: 1.6; }
   .crumbs a { color: var(--text-dim); }

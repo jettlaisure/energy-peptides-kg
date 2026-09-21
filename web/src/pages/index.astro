@@ -10,7 +10,7 @@ const compounds = products.filter((p) => p.category !== 'accessory')
 const featured = compounds.find((p) => p.slug === 'bpc-157-10mg') ?? compounds[0];
 const faqPreview = catalog.faq.filter((f) => ['FAQ-3', 'FAQ-2', 'FAQ-6'].includes(f.id));
 ---
-<Base title={`${site.brand} — research peptides, tested to a ≥99% purity specification`}>
+<Base title={`${site.brand} — research peptides, independently tested lots`}>
   <link slot="head" rel="preload" href="/fonts/playfair-display-900.woff2" as="font" type="font/woff2" crossorigin />
   <div class="landing">
     <section class="hero-wrap">
@@ -18,7 +18,7 @@ const faqPreview = catalog.faq.filter((f) => ['FAQ-3', 'FAQ-2', 'FAQ-6'].include
         <div class="hero-copy">
           <p class="eyebrow">Precision starts here</p>
           <h1>Research-grade <br />peptides<span>.</span></h1>
-          <p class="t-lede">Tested batch by batch. Defined by composition.<br class="desktop-break" /> Supplied exclusively for laboratory research.</p>
+          <p class="t-lede">Defined by composition.<br class="desktop-break" /> Supplied exclusively for laboratory research.</p>
           <div class="hero-actions">
             <a class="btn btn-primary" href="/products/">Explore the catalog <span aria-hidden="true">↗</span></a>
             <a class="text-link" href="#quality">Our testing standards</a>
@@ -32,9 +32,9 @@ const faqPreview = catalog.faq.filter((f) => ['FAQ-3', 'FAQ-2', 'FAQ-6'].include
         </figure>}
       </div>
       <div class="trust-strip container" aria-label="Testing and documentation">
-        <div><strong>≥99%</strong><p>Purity specification<span>Tested batch by batch</span></p></div>
-        <div><strong>HPLC + MS</strong><p>Purity & identity<span>Two analytical methods</span></p></div>
-        <div><strong>COA</strong><p>Certificates on request<span>Batch documentation on file</span></p></div>
+        <div><strong>≥99%</strong><p>Purity specification<span>On independently tested lots</span></p></div>
+        <div><strong>HPLC + MS</strong><p>Purity & identity<span>Independent laboratory</span></p></div>
+        <div><strong>COA</strong><p>Certificates on request<span>For every tested lot</span></p></div>
       </div>
     </section>
 
@@ -54,9 +54,9 @@ const faqPreview = catalog.faq.filter((f) => ['FAQ-3', 'FAQ-2', 'FAQ-6'].include
 
     <section class="quality-wrap" id="quality">
       <div class="section container quality">
-        <header class="quality-intro"><p class="eyebrow">Our standards</p><h2 class="t-section">The details matter.<br /><span class="dim">Every single batch.</span></h2><p class="dim">{site.testing_line}</p><a class="text-link" href="/faq/#FAQ-3">Understand our testing <span aria-hidden="true">↗</span></a></header>
+        <header class="quality-intro"><p class="eyebrow">Our standards</p><h2 class="t-section">The details matter.<br /><span class="dim">Down to the lot.</span></h2><p class="dim">{site.testing_line}</p><a class="text-link" href="/faq/#FAQ-3">Understand our testing <span aria-hidden="true">↗</span></a></header>
         <div class="quality-content">
-          <div class="purity"><span class="purity-number">≥99<span>%</span></span><div><h3>Purity specification</h3><p>Analysed by HPLC and mass spectrometry. Certificates of analysis available on request.</p></div></div>
+          <div class="purity"><span class="purity-number">≥99<span>%</span></span><div><h3>Purity specification</h3><p>Tested lots are analysed by an independent laboratory. Certificates of analysis available on request.</p></div></div>
           <div class="quality-notes"><div><h3>Sealed & carefully stored</h3><p>Lyophilized powder in sealed vials, stored at −20 °C before dispatch.</p><a href="/faq/">Handling and storage guidance ↗</a></div><div><h3>Exclusively for research</h3><p>Every product is sold for laboratory research. Purchasers attest to this at checkout.</p><a href="/legal/research-use-only/">Read the policy ↗</a></div></div>
         </div>
       </div>
