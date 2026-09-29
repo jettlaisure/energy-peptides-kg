@@ -41,8 +41,12 @@
       button.addEventListener('click', () => { search.value = ''; available.checked = false; filter(); search.focus(); });
     });
     // Composition links should never land on a section hidden by an earlier search.
-    document.querySelectorAll<HTMLAnchorElement>('.jump a').forEach((link) => {
-      link.addEventListener('click', () => { search.value = ''; available.checked = false; filter(); });
+    // That includes the footer's /products/#supplies, not just the shortcuts on this page.
+    document.addEventListener('click', (event) => {
+      const link = (event.target as Element | null)?.closest<HTMLAnchorElement>('a[href*="#"]');
+      if (!link || link.pathname !== location.pathname) return;
+      const target = document.getElementById(decodeURIComponent(link.hash.slice(1)));
+      if (target?.matches('[data-catalog-group]')) { search.value = ''; available.checked = false; filter(); }
     });
     filter();
   }
