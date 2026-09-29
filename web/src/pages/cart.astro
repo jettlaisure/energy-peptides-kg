@@ -22,7 +22,7 @@ const lite = products.map((p) => ({ sku: p.sku, name: p.name, slug: p.slug, pric
       </div>
       <div class="totals" data-totals hidden>
         <div><span class="dim">Subtotal</span><span class="value" data-subtotal></span></div>
-        <div><span class="dim">Shipping <span class="faint">({site.ships_to})</span></span><span class="value" data-ship></span></div>
+        <div><span class="dim">Shipping <span class="faint">({site.shipping_method}, {site.ships_to})</span></span><span class="value" data-ship></span></div>
         <div class="grand"><span>Total</span><span class="value" data-total></span></div>
         <p class="faint t-small">Sales tax, where applicable, is calculated on the invoice.</p>
         <a class="btn btn-primary" href="/checkout/">Continue to checkout <span aria-hidden="true">→</span></a>

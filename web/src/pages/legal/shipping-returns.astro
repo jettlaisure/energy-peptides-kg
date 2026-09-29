@@ -1,9 +1,10 @@
 ---
 import Policy from '../../layouts/Policy.astro';
+import { site, money, cents } from '../../lib/catalog';
 ---
 <Policy title="Shipping and returns" description="Shipping and returns for Energy Peptides.">
 <h2>Shipping</h2>
-<p>Orders ship within the United States only. Flat-rate shipping is $9.95; orders over $150 ship free. Lyophilized peptides are shipped sealed with cold packs where appropriate. Orders placed before 2 pm ET on a business day usually ship the same day.</p>
+<p>Orders ship within the United States only, by {site.shipping_method}. Shipping is {money(cents(site.shipping_usd))}; orders over {money(cents(site.free_shipping_over_usd))} ship free. Lyophilized peptides are shipped sealed with cold packs where appropriate. Orders placed before 2 pm ET on a business day usually ship the same day.</p>
 <h2>Returns</h2>
 <p>Research materials cannot be returned once shipped. If a shipment arrives damaged or incorrect, contact support@energypeptides.us within 7 days of delivery with your order number and a photo, and we will replace or refund it.</p>
 </Policy>

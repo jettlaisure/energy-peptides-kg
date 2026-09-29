@@ -118,7 +118,7 @@ const ld = [
               <p class="dim t-small">{orderingClosedNote}</p>
             </div>}
         <div class="purchase-details">
-          <p>{money(cents(site.shipping_usd))} US shipping · Free on orders {money(cents(site.free_shipping_over_usd))}+</p>
+          <p>{site.shipping_method} · {money(cents(site.shipping_usd))} US shipping · Free on orders {money(cents(site.free_shipping_over_usd))}+</p>
           <a href="/legal/shipping-returns/">Shipping & returns</a>
         </div>
       </div>
