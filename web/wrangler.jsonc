@@ -16,9 +16,10 @@
   // Non-secret configuration. Secrets (TAGADA_API_KEY, TAGADA_STORE_ID, TAGADA_WEBHOOK_SECRET) are set with
   // `wrangler secret put <NAME>` in production and in `.dev.vars` locally — never here.
   "vars": {
-    "PAYMENT_MODE": "tagada",                     // sandbox store until Kashu attaches the live processor
+    "PAYMENT_MODE": "tagada",                     
     "TAGADA_BASE_URL": "https://api.tagada.io",
-    "TAGADA_ENV": "test"
+    "TAGADA_ENV": "live",
+    "TAGADA_PAYMENT_FLOW_ID": "flow_27628b232fd4"
   },
   "d1_databases": [
     { "binding": "DB", "database_name": "energy-peptides-orders", "database_id": "65d0803d-9ddc-46ff-b137-f7bc3363f4e6" }
