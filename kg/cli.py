@@ -49,8 +49,9 @@ def main(argv=None):
     p.add_argument("--adapter", default="file"); p.add_argument("--store", help="kashu: target store id (default TAGADA_CATALOG_STORE_ID)"); p.add_argument("--yes", action="store_true", help="skip the confirmation prompt")
     p.add_argument("--out", help="export: write CSV here instead of stdout")
     p = sub.add_parser("orders", help="pull paid site orders (Cloudflare D1) into the inventory ledger")
-    p.add_argument("action", choices=["pull"]); p.add_argument("--remote", action="store_true", help="production D1 instead of local")
+    p.add_argument("action", choices=["pull", "mark"]); p.add_argument("--remote", action="store_true", help="production D1 instead of local")
     p.add_argument("--apply", action="store_true", help="write events to seeds and mark orders synced (default: preview)")
+    p.add_argument("--no-mark", action="store_true", help="with --apply: write seeds only; run `kg orders mark` after the commit is pushed")
     p = sub.add_parser("add-edge", help="manual edge: kg add-edge 'Page:/faq' INCLUDES_FAQ 'FAQItem:FAQ-1'")
     p.add_argument("src"); p.add_argument("rel"); p.add_argument("dst"); p.add_argument("--source", default="manual"); p.add_argument("--confidence", default="high")
 
@@ -173,8 +174,10 @@ def main(argv=None):
         print(f"applied; {len(ids)} platform ids recorded in seeds/14_platform_ids.yaml ({n} total); re-ingest errors={len(r['errors'])}")
         return 0 if not r["errors"] else 1
     elif a.cmd == "orders":
-        from .orders import pull
-        r = pull(st, remote=a.remote, apply=a.apply)
+        from .orders import mark, pull
+        if a.action == "mark":
+            print(f"marked={mark(remote=a.remote)['marked']}"); return 0
+        r = pull(st, remote=a.remote, apply=a.apply, mark=not a.no_mark)
         for line in r["preview"]:
             print(line)
         for sk in r["skipped"]:

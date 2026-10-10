@@ -58,7 +58,12 @@ so any branch is safe to deploy. Add or remove a domain in the dashboard, never 
 cd .. && uv run kg ingest && uv run kg validate     # graph
 cd web && npm run deploy                             # regenerates catalog.json and redeploys
 ```
-Paid orders flow back into the graph's ledger with `uv run kg orders pull --remote --apply && uv run kg ingest`.
+Paid orders flow back into the graph's ledger automatically: `.github/workflows/ledger.yml` runs every 2 hours, writes
+`sold` events, commits them, marks the orders synced only after the push lands (`kg orders mark`), and redeploys.
+Run it now from GitHub (Actions → Ledger pull → Run workflow) or by hand:
+`uv run kg orders pull --remote --apply && uv run kg rebuild && uv run kg validate`, then deploy.
+It needs repo secrets `CLOUDFLARE_API_TOKEN` (Workers Scripts: Edit, D1: Edit, Account Settings: Read) and
+`CLOUDFLARE_ACCOUNT_ID`, and sets the site's three `PUBLIC_*` build flags itself; change them there if `web/.env` changes.
 Product copy approved through `/new-product-page` lands in `../site/pages/products/<slug>.md` and is rendered in the
 product's Overview automatically.
 

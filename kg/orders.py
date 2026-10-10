@@ -82,7 +82,7 @@ def plan_events(rows: list[dict], lots: dict[str, list[list]], seen: set, start:
     return events, recorded, skipped, refunded_only - recorded - blocked
 
 
-def pull(store: Store, remote: bool = False, apply: bool = False) -> dict:
+def pull(store: Store, remote: bool = False, apply: bool = False, mark: bool = True) -> dict:
     rows = _d1("SELECT o.id, o.created_at, o.status, oi.sku, oi.quantity FROM orders o JOIN order_items oi ON oi.order_id=o.id "
                "WHERE o.status IN ('paid','refunded') AND o.ledger_synced_at IS NULL ORDER BY o.created_at", remote)
     doc = yaml.safe_load(EVENTS_SEED.read_text())
@@ -93,9 +93,40 @@ def pull(store: Store, remote: bool = False, apply: bool = False) -> dict:
         if events:
             doc["items"].extend(events)
             EVENTS_SEED.write_text(yaml.safe_dump(doc, sort_keys=False, allow_unicode=True, width=200))
-        if synced:
+        if synced and mark:
             ids = ",".join(f"'{i}'" for i in sorted(synced))
             _d1(f"UPDATE orders SET ledger_synced_at='{dt.datetime.now(dt.timezone.utc).isoformat(timespec='seconds')}' WHERE id IN ({ids})", remote)
     return {"orders": len(recorded), "events": len(events), "refunded_unpulled": len(refunded), "skipped": skipped,
             "applied": apply and bool(events or synced),
             "preview": [f"{i['name']} {i['attrs']['kind']} {i['attrs']['quantity']} × {i['attrs']['reference']} -> {i['edges'][0]['to']}" for i in events]}
+
+
+def to_mark(rows: list[dict], seen: set) -> set:
+    """Orders safe to mark synced: every line of a paid order already has its sale in the ledger seed, or the order
+    was refunded before any of its lines reached the ledger. Derived from the committed ledger alone, so it is safe
+    to run after a push and harmless to repeat."""
+    lines: dict[str, list[dict]] = {}
+    for r in rows:
+        lines.setdefault(r["id"], []).append(r)
+    def recorded(r):
+        ref = f"order {r['id']} {r['sku']}"
+        return any(s == ref or s.startswith(ref + " ") for s in seen if s)
+    out = set()
+    for oid, ls in lines.items():
+        if all(r["status"] == "paid" for r in ls) and all(recorded(r) for r in ls):
+            out.add(oid)
+        elif all(r["status"] == "refunded" for r in ls) and not any(recorded(r) for r in ls):
+            out.add(oid)
+    return out
+
+
+def mark(remote: bool = False) -> dict:
+    """Mark orders synced in D1 once their sales are in the committed ledger (run after `git push`)."""
+    rows = _d1("SELECT o.id, o.status, oi.sku FROM orders o JOIN order_items oi ON oi.order_id=o.id "
+               "WHERE o.status IN ('paid','refunded') AND o.ledger_synced_at IS NULL", remote)
+    seen = {it["attrs"].get("reference") for it in yaml.safe_load(EVENTS_SEED.read_text())["items"]}
+    ids = to_mark(rows, seen)
+    if ids:
+        _d1(f"UPDATE orders SET ledger_synced_at='{dt.datetime.now(dt.timezone.utc).isoformat(timespec='seconds')}' "
+            f"WHERE id IN ({','.join(repr(i) for i in sorted(ids))})", remote)
+    return {"marked": len(ids)}

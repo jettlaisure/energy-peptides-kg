@@ -66,3 +66,11 @@ def test_order_with_one_blocked_line_is_not_marked_synced():
     ev2, recorded2, _, _ = orders.plan_events([row("G", "X", 1), row("G", "Y", 1)], {"X": [["L1", 4]], "Y": [["L9", 10]]},
                                               {"order G X"}, 2)
     assert recorded2 == {"G"} and [e["attrs"]["reference"] for e in ev2] == ["order G Y"]
+
+
+def test_mark_only_orders_whose_sales_are_in_the_ledger():
+    rows = [{"id": "P", "sku": "X", "status": "paid"}, {"id": "P", "sku": "Y", "status": "paid"},
+            {"id": "Q", "sku": "X", "status": "paid"}, {"id": "R", "sku": "X", "status": "refunded"}]
+    seen = {"order P X", "order P Y lot L2"}                  # P fully recorded (Y split across lots); Q not yet
+    assert orders.to_mark(rows, seen) == {"P", "R"}           # R refunded before any sale was written
+    assert orders.to_mark(rows, set()) == {"R"}               # nothing pushed: nothing paid is marked

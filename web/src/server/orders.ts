@@ -30,10 +30,12 @@ export async function setStatusByPayment(db: D1Database, paymentId: string, stat
 export async function getOrder(db: D1Database, id: string) {
   return db.prepare(`SELECT id, status, payment_id, total_cents FROM orders WHERE id = ?`).bind(id).first<{ id: string; status: string; payment_id: string | null; total_cents: number }>();
 }
-/* Units sold since the catalog was generated, per SKU — guards against overselling between site builds. */
+/* Units the catalog's on-hand does not yet reflect, per SKU: orders placed since the build, plus paid orders not yet
+   pulled into the ledger (e.g. a just-in-time order waiting for its lot) — guards against overselling between builds. */
 export async function soldSince(db: D1Database, sku: string, sinceIso: string): Promise<number> {
   const r = await db.prepare(`SELECT COALESCE(SUM(oi.quantity), 0) AS n FROM order_items oi JOIN orders o ON o.id = oi.order_id
-                              WHERE oi.sku = ? AND o.created_at >= ? AND o.status IN ('pending', 'requires_action', 'paid')`).bind(sku, sinceIso).first<{ n: number }>();
+                              WHERE oi.sku = ? AND o.status IN ('pending', 'requires_action', 'paid')
+                                AND (o.created_at >= ? OR (o.status = 'paid' AND o.ledger_synced_at IS NULL))`).bind(sku, sinceIso).first<{ n: number }>();
   return Number(r?.n ?? 0);
 }
 export async function recordWebhookEvent(db: D1Database, id: string, type: string, payload: string): Promise<boolean> {

@@ -1,0 +1,73 @@
+# Ledger pull: every 2 hours, paid site orders (Cloudflare D1) become `sold` events in the graph's ledger,
+# the ledger is committed to main, orders are marked synced, and the site is redeployed so stock counts follow.
+#
+# Order matters: orders are marked synced in D1 only AFTER the ledger commit is pushed (`kg orders mark` reads the
+# committed ledger), so a failed push loses nothing and the next run retries. A just-in-time order whose kit is not
+# yet recorded is skipped and retried each run until its lot exists (record it with /inventory).
+#
+# Repo secrets: CLOUDFLARE_API_TOKEN (Workers Scripts: Edit, D1: Edit, Account Settings: Read), CLOUDFLARE_ACCOUNT_ID.
+# The PUBLIC_* values are the site's build-time flags (web/.env locally, gitignored); keep them in step with it.
+name: Ledger pull
+on:
+  schedule:
+    - cron: '7 */2 * * *'
+  workflow_dispatch:
+permissions: { contents: write }
+concurrency: { group: ledger, cancel-in-progress: false }
+env:
+  CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+  CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+jobs:
+  pull:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22, cache: npm, cache-dependency-path: web/package-lock.json }
+      - name: Anything to pull?
+        id: check
+        working-directory: web
+        run: |
+          npm ci --no-audit --no-fund
+          n=$(npx wrangler d1 execute energy-peptides-orders --remote --json --command \
+            "SELECT COUNT(*) AS n FROM orders WHERE status IN ('paid','refunded') AND ledger_synced_at IS NULL" \
+            | node -e 'let s="";process.stdin.on("data",d=>s+=d).on("end",()=>{const j=JSON.parse(s.slice(s.indexOf("[")));console.log(j[0].results[0].n)})')
+          echo "unsynced orders: $n"
+          echo "n=$n" >> "$GITHUB_OUTPUT"
+      - uses: astral-sh/setup-uv@v5
+        if: steps.check.outputs.n != '0'
+      - name: Write sold events (no D1 marking yet)
+        if: steps.check.outputs.n != '0'
+        run: |
+          uv sync --frozen
+          uv run kg rebuild
+          uv run kg orders pull --remote --apply --no-mark
+          uv run kg rebuild
+          uv run kg validate
+          uv run pytest -q
+      - name: Commit and push the ledger
+        id: push
+        if: steps.check.outputs.n != '0'
+        run: |
+          if git diff --quiet -- seeds/06_inventory_events.yaml; then
+            echo "no events written (orders waiting for a lot, or refunds only)"; echo "pushed=false" >> "$GITHUB_OUTPUT"
+          else
+            git config user.name "energy-peptides-ledger"
+            git config user.email "ledger@energypeptides.us"
+            git commit -m "Ledger: sold events from paid site orders (automated)" -- seeds/06_inventory_events.yaml
+            for i in 1 2 3; do git pull --rebase origin main && git push origin HEAD:main && break; sleep 5; done
+            git fetch origin main && git merge-base --is-ancestor HEAD origin/main   # fails the job if the push never landed
+            echo "pushed=true" >> "$GITHUB_OUTPUT"
+          fi
+      - name: Mark orders synced (reads the pushed ledger)
+        if: steps.check.outputs.n != '0'
+        run: uv run kg orders mark --remote
+      - name: Redeploy the site
+        if: steps.push.outputs.pushed == 'true'
+        working-directory: web
+        env:
+          PUBLIC_PAYMENT_MODE: tagada
+          PUBLIC_TOKENIZER_ENV: production
+          PUBLIC_TAGADA_ENV: live
+        run: npm run deploy
