@@ -179,7 +179,8 @@ def main(argv=None):
             print(line)
         for sk in r["skipped"]:
             print("skipped:", sk)
-        print(f"orders={r['orders']} events={r['events']} applied={r['applied']}" + ("" if a.apply else "  (preview; add --apply, then `kg ingest`)"))
+        print(f"orders={r['orders']} events={r['events']} refunded_unpulled={r['refunded_unpulled']} applied={r['applied']}"
+              + ("" if a.apply else "  (preview; add --apply, then `kg ingest`)"))
     elif a.cmd == "add-edge":
         s, d = st.resolve_any(a.src), st.resolve_any(a.dst)
         if not s or not d:
