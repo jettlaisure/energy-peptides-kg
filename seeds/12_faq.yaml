@@ -32,6 +32,15 @@ items:
             answer: "Bacteriostatic water is sterile water with 0.9% benzyl alcohol as a preservative. In the laboratory it is used to reconstitute lyophilized compounds. Each 10 ml bottle is for research use only."}
     edges: [{rel: ABOUT, to: "Compound:Bacteriostatic water"}]
   - name: FAQ-9
-    attrs: {status: draft, question: "What is retatrutide?",
-            answer: "DRAFT — write from CL-7 once the Jastreboff 2023 citation is verified."}
+    attrs: {status: approved, question: "What is retatrutide?",
+            answer: "Retatrutide is a synthetic peptide that acts at the GIP, GLP-1 and glucagon receptors and has been studied in human clinical trials. Energy Peptides supplies it for laboratory research only."}
     edges: [{rel: ABOUT, to: "Peptide:Retatrutide"}, {rel: SUPPORTED_BY, to: "Study:Jastreboff 2023 retatrutide phase 2"}]
+  # FAQ-10, FAQ-11: /new-product-page run 2026-10-10 (compliance, brand and fact verifiers PASS); approved by Jett 2026-10-10.
+  - name: FAQ-10
+    attrs: {status: approved, question: "How is BPC-157 10 mg supplied?",
+            answer: "As a white lyophilized powder, 10 mg per 3 mL clear glass vial. Energy Peptides sells it for laboratory research only, not for human or veterinary use."}
+    edges: [{rel: ABOUT, to: "Product:BPC-157 10mg"}]
+  - name: FAQ-11
+    attrs: {status: approved, question: "What is tirzepatide?",
+            answer: "Tirzepatide is a synthetic peptide that acts at the GIP and GLP-1 receptors and has been studied in human clinical trials. Energy Peptides supplies it for laboratory research only."}
+    edges: [{rel: ABOUT, to: "Peptide:Tirzepatide"}, {rel: SUPPORTED_BY, to: "Study:Jastreboff 2022 SURMOUNT-1 tirzepatide"}]

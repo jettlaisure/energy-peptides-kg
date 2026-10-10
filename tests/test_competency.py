@@ -85,7 +85,7 @@ def test_q6_q8_q11_gaps(graph):
     g = serve.gaps(st)
     assert "- nad+ research" in g                                # keyword nobody targets
     assert "## Studies NOT yet verified (cannot be cited) (0)" in g and "Chang 2011" in g
-    assert "## Active products with no live product page (12)" in g   # coming_soon SKUs are not counted; 5 JIT SKUs went active 2026-10-09
+    assert "## Active products with no live product page (10)" in g   # coming_soon not counted; 5 JIT active 2026-10-09; 2 pages live 2026-10-10
     assert "## Live pages possibly stale (0)" in g
 
 

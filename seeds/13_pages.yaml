@@ -17,7 +17,10 @@ items:
   attrs:
     title: Retatrutide 20mg | Energy Peptides
     page_type: product
-    status: planned
+    status: live
+    last_updated: '2026-10-10'
+    file: site/pages/products/retatrutide-20mg.md
+    meta_description: "Retatrutide 20 mg lyophilized powder in a 3 mL clear glass vial, CAS 2381089-83-2. For Research Use Only — Not for Human Consumption."
   edges:
   - rel: FEATURES
     to: Product:Retatrutide 20mg
@@ -31,11 +34,18 @@ items:
     to: Keyword:buy retatrutide 20mg
   - rel: INCLUDES_FAQ
     to: FAQItem:FAQ-9
+  - rel: LINKS_TO
+    to: Page:/products/retatrutide-10mg
+  - rel: USES
+    to: Asset:web/public/img/products/retatrutide-20mg-portrait.webp
 - name: /products/bpc-157-10mg
   attrs:
     title: BPC-157 10mg | Energy Peptides
     page_type: product
-    status: planned
+    status: live
+    last_updated: '2026-10-10'
+    file: site/pages/products/bpc-157-10mg.md
+    meta_description: "BPC-157 10 mg lyophilized powder in a 3 mL clear glass vial. Sequence GEPPPGKPADDAGLV, CAS 137525-51-0. For Research Use Only — Not for Human Consumption."
   edges:
   - rel: FEATURES
     to: Product:BPC-157 10mg
@@ -53,6 +63,12 @@ items:
     to: FAQItem:FAQ-4
   - rel: LINKS_TO
     to: Page:/products/bpc-157-tb-500-20mg
+  - rel: TARGETS
+    to: Keyword:what is bpc-157
+  - rel: INCLUDES_FAQ
+    to: FAQItem:FAQ-10
+  - rel: USES
+    to: Asset:web/public/img/products/bpc-157-10mg-portrait.webp
 - name: /products/bpc-157-tb-500-20mg
   attrs:
     title: BPC-157 / TB-500 20mg blend | Energy Peptides
@@ -172,7 +188,10 @@ items:
   attrs:
     title: Retatrutide 10mg | Energy Peptides
     page_type: product
-    status: planned
+    status: live
+    last_updated: '2026-10-10'
+    file: site/pages/products/retatrutide-10mg.md
+    meta_description: "Retatrutide 10 mg lyophilized powder in a 3 mL clear glass vial, CAS 2381089-83-2. For Research Use Only — Not for Human Consumption."
   edges:
   - rel: FEATURES
     to: Product:Retatrutide 10mg
@@ -180,6 +199,14 @@ items:
     to: Peptide:Retatrutide
   - rel: BELONGS_TO
     to: ResearchArea:Metabolic research
+  - rel: TARGETS
+    to: Keyword:retatrutide research peptide
+  - rel: INCLUDES_FAQ
+    to: FAQItem:FAQ-9
+  - rel: LINKS_TO
+    to: Page:/products/retatrutide-20mg
+  - rel: USES
+    to: Asset:web/public/img/products/retatrutide-10mg-portrait.webp
 - name: /products/retatrutide-30mg
   attrs:
     title: Retatrutide 30mg | Energy Peptides
@@ -196,7 +223,10 @@ items:
   attrs:
     title: Tirzepatide 10mg | Energy Peptides
     page_type: product
-    status: planned
+    status: live
+    last_updated: '2026-10-10'
+    file: site/pages/products/tirzepatide-10mg.md
+    meta_description: "Tirzepatide 10 mg lyophilized powder in a 3 mL clear glass vial, CAS 2023788-19-2. For Research Use Only — Not for Human Consumption."
   edges:
   - rel: FEATURES
     to: Product:Tirzepatide 10mg
@@ -204,6 +234,16 @@ items:
     to: Peptide:Tirzepatide
   - rel: BELONGS_TO
     to: ResearchArea:Metabolic research
+  - rel: TARGETS
+    to: Keyword:tirzepatide research peptide
+  - rel: INCLUDES_FAQ
+    to: FAQItem:FAQ-11
+  - rel: LINKS_TO
+    to: Page:/products/tirzepatide-20mg
+  - rel: LINKS_TO
+    to: Page:/products/tirzepatide-30mg
+  - rel: USES
+    to: Asset:web/public/img/products/tirzepatide-10mg-portrait.webp
 - name: /products/tirzepatide-15mg
   attrs:
     title: Tirzepatide 15mg | Energy Peptides
