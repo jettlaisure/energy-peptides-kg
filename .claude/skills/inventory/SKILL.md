@@ -8,6 +8,7 @@ description: Record Energy Peptides stock movements and new batches in the knowl
 2. Draft the seed entry:
    - New lot → `seeds/05_batches.yaml`: name = lot number; attrs manufactured_on, expires_on, purity_measured, coa_status, unit; edges OF_PRODUCT, SUPPLIED_BY, HAS_COA (add the COA to `seeds/04_assets.yaml` first).
    - Movement → `seeds/06_inventory_events.yaml`: next `IE-nnnn`; attrs kind, quantity (positive; `adjusted` is signed), occurred_on, reference; edge AFFECTS the batch.
+   - Just-in-time pickup (`fulfilment: just_in_time` in `seeds/03_products.yaml`): each kit collected from Monārch is a new Batch (lot from the kit label, `SUPPLIED_BY Supplier:Monārch Fill & Finishing`, `coa_status: pending`, `unit: vial`) with a `received 10` event on the pickup date; the order's `sold` event then lands against it (`kg orders pull`).
    - The ledger is append-only. Never edit or delete a past event; correct with an `adjusted` event whose reference explains why.
 3. Human gate only for write-downs (`adjusted` negative, `damaged`, `expired`): show the proposed event and the resulting on-hand, wait for approval. Receive/sell/reserve/release are reversible by a counter-event and need no gate.
 4. `uv run kg ingest && uv run kg validate && uv run kg stock "<Product name>"`.

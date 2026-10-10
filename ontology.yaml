@@ -63,16 +63,23 @@ entities:
       vials_per_unit: {type: number, note: 'kits: number of vials sold as one unit (price is per unit)'}
       pack: {type: string, note: 'human-readable pack, e.g. 2 × 10 mg vials'}
       price_usd: {type: number}
-      cost_usd: {type: number, internal: true, note: 'unit cost; internal attrs never enter copy-writing contexts (only recipes with include_internal)'}
+      cost_usd: {type: number, internal: true, note: 'per-vial cost from the primary supplier at the tier the company buys at (full tiers on SOURCED_FROM edges); internal attrs never enter copy-writing contexts (only recipes with include_internal)'}
       purity_spec: {type: string, note: 'e.g. ">=99% (HPLC)"'}
       status: {type: string, enum: [active, draft, discontinued, coming_soon]}
+      fulfilment: {type: string, enum: [stocked, just_in_time], note: 'just_in_time: listed as available at zero on hand; a kit is bought from the primary supplier when the first order lands. Policy (Jett, 2026-10-09): only where kit cost minus one retail sale is at most $120. Absent = stocked.'}
       slug: {type: string}
       external_id: {type: string, note: 'id of this SKU in the commerce/payment platform (written by kg sync)'}
       platform: {type: string, note: 'which platform external_id belongs to'}
   Supplier:
     desc: Organisation that manufactures or supplies raw peptide.
     examples: [Supplier A Labs]
-    attrs: {country: {type: string}, contact: {type: string}, notes: {type: string}}
+    attrs:
+      country: {type: string}
+      contact: {type: string}
+      role: {type: string, enum: [primary, secondary, inactive], note: 'primary = the price sheet cost_usd is worked off; one primary at a time'}
+      price_list: {type: string, note: 'repo path of the current price sheet (inbox/)'}
+      price_list_effective: {type: date}
+      notes: {type: string}
   Batch:
     desc: A manufacturing lot of one product, with its own COA, purity and expiry.
     examples: [EP-BPC157-5-L2409]
@@ -183,6 +190,8 @@ relations:
   RESEARCHED_FOR:  {domain: [Peptide, Compound], range: [ResearchArea]}
   OF_PRODUCT:      {domain: [Batch], range: [Product]}
   SUPPLIED_BY:     {domain: [Batch], range: [Supplier]}
+  SOURCED_FROM:    {domain: [Product], range: [Supplier], internal: true, attrs: [cost_vial_usd, cost_kit_usd, cost_kit_5_usd, cost_kit_10_usd, kit_vials, supplier_item],
+                    note: 'what the supplier charges for this SKU, as printed on its price sheet (one edge per supplier); cost_vial_usd is the printed per-vial figure, the minimum buy is one kit; internal: only recipes with include_internal expand it and the map drops its attrs'}
   HAS_COA:         {domain: [Batch], range: [Asset]}
   AFFECTS:         {domain: [InventoryEvent], range: [Batch]}
   INVESTIGATES:    {domain: [Study], range: [Peptide, Compound]}
@@ -276,8 +285,10 @@ recipes:
       - {rel: OF_PRODUCT, dir: out, from: Batch}
       - {rel: SUPPLIED_BY, dir: out, from: Batch}
       - {rel: SUPPLIED_BY, dir: in, from: Supplier, type: Batch}
+      - {rel: SOURCED_FROM, dir: out, from: Product}
+      - {rel: SOURCED_FROM, dir: in, from: Supplier, type: Product}
       - {rel: HAS_COA, dir: out, from: Batch}
       - {rel: AFFECTS, dir: in, from: Batch, type: InventoryEvent}
     global: []
     summaries: [stock]
-    include_internal: true   # cost_usd is visible here, and only here
+    include_internal: true   # cost_usd and SOURCED_FROM supplier pricing are visible here, and only here

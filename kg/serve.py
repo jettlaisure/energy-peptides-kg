@@ -123,7 +123,10 @@ def context(store: Store, onto: Ontology, recipe_name: str, seed_ref: str, max_l
 
     collected: dict[str, dict] = {seed["id"]: seed}
     edges: dict[tuple, dict] = {}
+    internal_rels = {r for r, s in onto.relations.items() if (s or {}).get("internal")}
     for step in recipe.get("expand", []):
+        if step["rel"] in internal_rels and not recipe.get("include_internal"):
+            continue  # e.g. SOURCED_FROM supplier pricing never reaches copy-writing contexts
         frontier = [n for n in list(collected.values()) if not step.get("from") or n["type"] in _as_list(step["from"])]
         for n in frontier:
             for e in store.edges(n["id"], step["rel"], step["dir"]):
@@ -243,7 +246,9 @@ def gaps(store: Store, expiry_days: int = 90, low_stock: int = 3) -> str:
             exp.append(f"- {b['name']} expires {e} (product: {', '.join(prod)})")
     lines += [f"## Batches expiring within {expiry_days} days ({len(exp)})", *exp]
     # 11: low stock
-    low = [f"- {r['product']}: {r['on_hand']:g}" for r in stock(store) if r["status"] == "active" and r["on_hand"] <= low_stock]
+    jit = {p["name"] for p in store.nodes("Product") if p["attrs"].get("fulfilment") == "just_in_time"}
+    low = [f"- {r['product']}: {r['on_hand']:g}" for r in stock(store)
+           if r["status"] == "active" and r["on_hand"] <= low_stock and not (r["product"] in jit and r["on_hand"] == 0)]   # JIT SKUs sit at zero by design
     lines += [f"## Active products at or below {low_stock} units ({len(low)})", *low]
     # sellable products with no product photo
     nophoto = [p["name"] for p in store.nodes("Product")

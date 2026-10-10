@@ -28,3 +28,4 @@ relationships (which claim is backed by which study under which rule) ARE the da
 | 16 | Is claim text T allowed, and under which rule? | Claim –GOVERNED_BY→ ComplianceRule | `kg query Claim --status prohibited` |
 | 17 | Which photos show product X, and what were they made from? | Asset –DEPICTS→ Product | `kg card "Product:BPC-157 10mg"` / `kg context product_page "Product:BPC-157 10mg"` |
 | 18 | Which sellable products have no product photo? | Product ←DEPICTS– Asset (absent) | `kg gaps` |
+| 19 | What does product P cost from each supplier at each order tier, and which supplier is primary? | Product –SOURCED_FROM→ Supplier (edge attrs: tiers), Supplier.role | `kg context inventory P` / `kg card` |

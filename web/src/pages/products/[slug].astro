@@ -27,7 +27,7 @@ const testingSentence = p.lot_purity_tested
     ? "This lot's identity and content have been tested by an independent laboratory. The certificate of analysis is available on request."
     : 'A certificate of analysis is not yet available for the current lot.';
 const description = p.page?.meta_description ?? `${familyName(p)} ${sizeLabel(p)} ${p.form}${puritySpec ? ', lot tested to a ≥99% purity specification' : ''}. ${site.compliance_line}.`;
-const stock = p.status === 'coming_soon' ? { cls: 'chip-off', text: 'Coming soon' } : p.in_stock ? { cls: 'chip-on', text: 'In stock' } : { cls: 'chip-off', text: 'Out of stock' };
+const stock = p.status === 'coming_soon' ? { cls: 'chip-off', text: 'Coming soon' } : p.in_stock ? { cls: 'chip-on', text: p.jit_backorder ? 'Available' : 'In stock' } : { cls: 'chip-off', text: 'Out of stock' };
 const inStock = p.in_stock && p.status === 'active';
 const canBuy = inStock && orderingOpen;
 const specRows: [string, string, boolean][] = [];
@@ -106,6 +106,7 @@ const ld = [
           <span class="price-amount"><span class="value price">{money(cents(p.price_usd))}</span><span class="dim t-small">{unitLabel(p)}</span></span>
           <span class:list={['chip', 'stock-status', stock.cls]}>{stock.text}</span>
         </div>
+        {p.jit_backorder && <p class="t-small dim">{site.jit_ships_line}</p>}
         {p.lot_tested && <p class="lot-tested t-small"><a href="#quality">Lot tested{p.lot_tested_us ? ' · independent US laboratory' : ' · independent laboratory'}</a></p>}
         {orderingOpen
           ? <form class="add" data-add-to-cart data-sku={p.sku}>

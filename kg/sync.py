@@ -37,6 +37,7 @@ class CatalogItem:
     description: str = ""
     external_id: str | None = None
     extra: dict = field(default_factory=dict)
+    fulfilment: str = "stocked"   # just_in_time items stay active at zero quantity
 
     def key(self) -> str:
         return self.sku
@@ -72,6 +73,7 @@ def snapshot(store: Store) -> list[CatalogItem]:
             sku=a["sku"], name=p["name"], family=family, variant=variant, price_usd=float(a.get("price_usd", 0)),
             status=a["status"], quantity=float(stock.get(p["name"], 0)), form=a.get("form", ""),
             size_mg=a.get("size_mg") or a.get("size_ml"), slug=a.get("slug", ""), description=desc, external_id=a.get("external_id"),
+            fulfilment=a.get("fulfilment", "stocked"),
             extra={"display_name": a.get("display_name")} if a.get("display_name") else {}))
     return sorted(items, key=lambda i: (i.family, i.size_mg or 0))
 
@@ -198,7 +200,7 @@ class KashuAdapter:
 
     def project(self, it: CatalogItem) -> CatalogItem:
         """Local item as Kashu would hold it."""
-        return dataclasses.replace(it, name=self.title(it), status="active" if (it.status == "active" and it.quantity > 0) else "inactive")
+        return dataclasses.replace(it, name=self.title(it), status="active" if (it.status == "active" and (it.quantity > 0 or it.fulfilment == "just_in_time")) else "inactive")
 
     def fetch(self) -> list[CatalogItem]:
         out, page = [], 1

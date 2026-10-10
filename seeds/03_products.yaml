@@ -7,11 +7,21 @@
 # status: active = stocked per the 2026-09-09 count; coming_soon = listed, not purchasable until a lot + count enter the ledger.
 # 80 mg blend split per Jett (2026-09-10): GHK-Cu 50 mg, BPC-157 10 mg, TB-500 10 mg, KPV 10 mg.
 # cost_usd is internal: never enters copy contexts or the site.
+# cost_usd (2026-10-09, Jett: 'work off the Monārch sheet from now on'): per-vial cost from Monārch Fill & Finishing at the 1-kit
+# (10-vial) tier = kit price / 10 (inbox/monarch-wholesale-price-sheet-2026-09.pdf). Tier assumption: stock counts are 5-10 vials
+# per SKU. All four tiers, and the old FSD cost per vial, live on SOURCED_FROM edges. SKUs Monārch does not list keep the FSD
+# cost: Retatrutide 15mg (none), Tirzepatide 15mg, GHK-Cu 50mg, MOTS-c 10mg (Monārch: 20/40mg), SS-31 30mg (Monārch: 50mg), bac water.
+# Fulfilment plan (Jett, 2026-10-09): just-in-time supply from Monārch, one kit of 10 per SKU minimum, collected in person.
+#   fulfilment: stocked      = a kit is bought and one vial sent for a certificate up front: Retatrutide 10mg, Retatrutide 20mg, Tirzepatide 10mg, BPC-157 10mg.
+#   fulfilment: just_in_time = listed as available at zero on hand; the kit is bought when the first order lands. Cap: kit cost minus
+#   one retail sale <= $120: GHK-Cu 100mg, Melanotan I, Melanotan II, KPV, Tirzepatide 20mg, Tirzepatide 30mg, NAD+ 500mg.
+#   Everything else over the cap (Retatrutide 30mg, KLOW, Tesamorelin 20mg, Ipamorelin, BPC-157 / TB-500 20mg) or not on the Monārch
+#   sheet stays coming_soon or sells its remaining FSD stock and is not reordered.
 # purity_spec is the specification (Jett, 2026-09-10); the site shows only the per-lot COA figure.
 # Labels v2 (Jett, 2026-09-11): layout change on all 22; NAD+ label reads 'NAD+ (BUFFERED)' on a 5 mL vial.
 # vial_glass: NAD+ 500mg ships in amber glass (Jett, 2026-09-11); all other vials clear.
 type: Product
-source: inbox/product-list-full.pdf (2026-09-10) + inbox/Energy-inventory-2026-09-09.numbers
+source: inbox/product-list-full.pdf (2026-09-10) + inbox/Energy-inventory-2026-09-09.numbers; costs inbox/monarch-wholesale-price-sheet-2026-09.pdf (2026-10-09)
 confidence: high
 items:
 - name: Retatrutide 10mg
@@ -22,13 +32,26 @@ items:
     form: lyophilized powder
     size_mg: 10
     price_usd: 149.0
-    cost_usd: 8.5
+    cost_usd: 29.75
     status: coming_soon
+    fulfilment: stocked
     slug: retatrutide-10mg
     purity_spec: '>=99% (HPLC)'
     vial_ml: 3
     vial_glass: clear
   edges:
+  - rel: SOURCED_FROM
+    to: "Supplier:Monārch Fill & Finishing"
+    attrs: {cost_vial_usd: 59.5, cost_kit_usd: 297.5, cost_kit_5_usd: 255, cost_kit_10_usd: 212.5, kit_vials: 10, supplier_item: "Retatrutide 10mg"}
+    source: inbox/monarch-wholesale-price-sheet-2026-09.pdf (effective September 2026, read 2026-10-09)
+    confidence: high
+    valid_from: '2026-09-01'
+  - rel: SOURCED_FROM
+    to: Supplier:FSD
+    attrs: {cost_vial_usd: 8.5}
+    source: inbox/product-list-full.pdf (FSD cost per vial, 2026-09-10)
+    confidence: high
+    valid_from: '2026-09-10'
   - rel: CONTAINS
     to: Peptide:Retatrutide
     attrs:
@@ -46,13 +69,26 @@ items:
     form: lyophilized powder
     size_mg: 20
     price_usd: 199.0
-    cost_usd: 13.5
+    cost_usd: 36.75
     status: active
+    fulfilment: stocked
     slug: retatrutide-20mg
     purity_spec: '>=99% (HPLC)'
     vial_ml: 3
     vial_glass: clear
   edges:
+  - rel: SOURCED_FROM
+    to: "Supplier:Monārch Fill & Finishing"
+    attrs: {cost_vial_usd: 73.5, cost_kit_usd: 367.5, cost_kit_5_usd: 315, cost_kit_10_usd: 262.5, kit_vials: 10, supplier_item: "Retatrutide 20mg"}
+    source: inbox/monarch-wholesale-price-sheet-2026-09.pdf (effective September 2026, read 2026-10-09)
+    confidence: high
+    valid_from: '2026-09-01'
+  - rel: SOURCED_FROM
+    to: Supplier:FSD
+    attrs: {cost_vial_usd: 13.5}
+    source: inbox/product-list-full.pdf (FSD cost per vial, 2026-09-10)
+    confidence: high
+    valid_from: '2026-09-10'
   - rel: CONTAINS
     to: Peptide:Retatrutide
     attrs:
@@ -72,13 +108,25 @@ items:
     form: lyophilized powder
     size_mg: 30
     price_usd: 249.0
-    cost_usd: 17.5
+    cost_usd: 69.3
     status: coming_soon
     slug: retatrutide-30mg
     purity_spec: '>=99% (HPLC)'
     vial_ml: 3
     vial_glass: clear
   edges:
+  - rel: SOURCED_FROM
+    to: "Supplier:Monārch Fill & Finishing"
+    attrs: {cost_vial_usd: 138.6, cost_kit_usd: 693, cost_kit_5_usd: 594, cost_kit_10_usd: 495, kit_vials: 10, supplier_item: "Retatrutide 30mg"}
+    source: inbox/monarch-wholesale-price-sheet-2026-09.pdf (effective September 2026, read 2026-10-09)
+    confidence: high
+    valid_from: '2026-09-01'
+  - rel: SOURCED_FROM
+    to: Supplier:FSD
+    attrs: {cost_vial_usd: 17.5}
+    source: inbox/product-list-full.pdf (FSD cost per vial, 2026-09-10)
+    confidence: high
+    valid_from: '2026-09-10'
   - rel: CONTAINS
     to: Peptide:Retatrutide
     attrs:
@@ -96,13 +144,26 @@ items:
     form: lyophilized powder
     size_mg: 10
     price_usd: 99.0
-    cost_usd: 4.5
+    cost_usd: 17.875
     status: coming_soon
+    fulfilment: stocked
     slug: tirzepatide-10mg
     purity_spec: '>=99% (HPLC)'
     vial_ml: 3
     vial_glass: clear
   edges:
+  - rel: SOURCED_FROM
+    to: "Supplier:Monārch Fill & Finishing"
+    attrs: {cost_vial_usd: 32.5, cost_kit_usd: 178.75, cost_kit_5_usd: 162.5, cost_kit_10_usd: 130, kit_vials: 10, supplier_item: "Tirzepatide 10mg"}
+    source: inbox/monarch-wholesale-price-sheet-2026-09.pdf (effective September 2026, read 2026-10-09)
+    confidence: high
+    valid_from: '2026-09-01'
+  - rel: SOURCED_FROM
+    to: Supplier:FSD
+    attrs: {cost_vial_usd: 4.5}
+    source: inbox/product-list-full.pdf (FSD cost per vial, 2026-09-10)
+    confidence: high
+    valid_from: '2026-09-10'
   - rel: CONTAINS
     to: Peptide:Tirzepatide
     attrs:
@@ -127,6 +188,12 @@ items:
     vial_ml: 3
     vial_glass: clear
   edges:
+  - rel: SOURCED_FROM
+    to: Supplier:FSD
+    attrs: {cost_vial_usd: 6}
+    source: inbox/product-list-full.pdf (FSD cost per vial, 2026-09-10)
+    confidence: high
+    valid_from: '2026-09-10'
   - rel: CONTAINS
     to: Peptide:Tirzepatide
     attrs:
@@ -137,20 +204,33 @@ items:
     to: Asset:inbox/labels/Tirzepatide-15mg_label.png
     source: inbox/labels (2026-09-10)
 - name: Tirzepatide 20mg
-  valid_from: '2026-09-10'
+  valid_from: '2026-10-09'
   attrs:
     sku: EP-TZ-20
     category: peptide
     form: lyophilized powder
     size_mg: 20
     price_usd: 129.0
-    cost_usd: 7.0
-    status: coming_soon
+    cost_usd: 24.75
+    status: active
+    fulfilment: just_in_time
     slug: tirzepatide-20mg
     purity_spec: '>=99% (HPLC)'
     vial_ml: 3
     vial_glass: clear
   edges:
+  - rel: SOURCED_FROM
+    to: "Supplier:Monārch Fill & Finishing"
+    attrs: {cost_vial_usd: 45, cost_kit_usd: 247.5, cost_kit_5_usd: 225, cost_kit_10_usd: 180, kit_vials: 10, supplier_item: "Tirzepatide 20mg"}
+    source: inbox/monarch-wholesale-price-sheet-2026-09.pdf (effective September 2026, read 2026-10-09)
+    confidence: high
+    valid_from: '2026-09-01'
+  - rel: SOURCED_FROM
+    to: Supplier:FSD
+    attrs: {cost_vial_usd: 7}
+    source: inbox/product-list-full.pdf (FSD cost per vial, 2026-09-10)
+    confidence: high
+    valid_from: '2026-09-10'
   - rel: CONTAINS
     to: Peptide:Tirzepatide
     attrs:
@@ -161,20 +241,33 @@ items:
     to: Asset:inbox/labels/Tirzepatide-20mg_label.png
     source: inbox/labels (2026-09-10)
 - name: Tirzepatide 30mg
-  valid_from: '2026-09-10'
+  valid_from: '2026-10-09'
   attrs:
     sku: EP-TZ-30
     category: peptide
     form: lyophilized powder
     size_mg: 30
     price_usd: 159.0
-    cost_usd: 8.5
-    status: coming_soon
+    cost_usd: 27.5
+    status: active
+    fulfilment: just_in_time
     slug: tirzepatide-30mg
     purity_spec: '>=99% (HPLC)'
     vial_ml: 3
     vial_glass: clear
   edges:
+  - rel: SOURCED_FROM
+    to: "Supplier:Monārch Fill & Finishing"
+    attrs: {cost_vial_usd: 50, cost_kit_usd: 275, cost_kit_5_usd: 250, cost_kit_10_usd: 200, kit_vials: 10, supplier_item: "Tirzepatide 30mg"}
+    source: inbox/monarch-wholesale-price-sheet-2026-09.pdf (effective September 2026, read 2026-10-09)
+    confidence: high
+    valid_from: '2026-09-01'
+  - rel: SOURCED_FROM
+    to: Supplier:FSD
+    attrs: {cost_vial_usd: 8.5}
+    source: inbox/product-list-full.pdf (FSD cost per vial, 2026-09-10)
+    confidence: high
+    valid_from: '2026-09-10'
   - rel: CONTAINS
     to: Peptide:Tirzepatide
     attrs:
@@ -192,13 +285,26 @@ items:
     form: lyophilized powder
     size_mg: 10
     price_usd: 59.0
-    cost_usd: 5.5
+    cost_usd: 12.925
     status: active
+    fulfilment: stocked
     slug: bpc-157-10mg
     purity_spec: '>=99% (HPLC)'
     vial_ml: 3
     vial_glass: clear
   edges:
+  - rel: SOURCED_FROM
+    to: "Supplier:Monārch Fill & Finishing"
+    attrs: {cost_vial_usd: 23.5, cost_kit_usd: 129.25, cost_kit_5_usd: 117.5, cost_kit_10_usd: 94, kit_vials: 10, supplier_item: "BPC-157 10mg"}
+    source: inbox/monarch-wholesale-price-sheet-2026-09.pdf (effective September 2026, read 2026-10-09)
+    confidence: high
+    valid_from: '2026-09-01'
+  - rel: SOURCED_FROM
+    to: Supplier:FSD
+    attrs: {cost_vial_usd: 5.5}
+    source: inbox/product-list-full.pdf (FSD cost per vial, 2026-09-10)
+    confidence: high
+    valid_from: '2026-09-10'
   - rel: CONTAINS
     to: Peptide:BPC-157
     attrs:
@@ -218,13 +324,25 @@ items:
     form: lyophilized powder
     size_mg: 20
     price_usd: 99.0
-    cost_usd: 18.0
+    cost_usd: 38.5
     status: active
     slug: bpc-157-tb-500-20mg
     purity_spec: '>=99% (HPLC)'
     vial_ml: 3
     vial_glass: clear
   edges:
+  - rel: SOURCED_FROM
+    to: "Supplier:Monārch Fill & Finishing"
+    attrs: {cost_vial_usd: 70, cost_kit_usd: 385, cost_kit_5_usd: 350, cost_kit_10_usd: 280, kit_vials: 10, supplier_item: "BPC 10mg / TB500 10mg"}
+    source: inbox/monarch-wholesale-price-sheet-2026-09.pdf (effective September 2026, read 2026-10-09)
+    confidence: high
+    valid_from: '2026-09-01'
+  - rel: SOURCED_FROM
+    to: Supplier:FSD
+    attrs: {cost_vial_usd: 18}
+    source: inbox/product-list-full.pdf (FSD cost per vial, 2026-09-10)
+    confidence: high
+    valid_from: '2026-09-10'
   - rel: CONTAINS
     to: Peptide:BPC-157
     attrs:
@@ -252,7 +370,7 @@ items:
     form: lyophilized powder
     size_mg: 80
     price_usd: 306.0
-    cost_usd: 17.0
+    cost_usd: 49.5
     status: coming_soon
     slug: klow-80mg
     purity_spec: '>=99% (HPLC)'
@@ -260,6 +378,18 @@ items:
     display_name: KLOW
     vial_glass: clear
   edges:
+  - rel: SOURCED_FROM
+    to: "Supplier:Monārch Fill & Finishing"
+    attrs: {cost_vial_usd: 90, cost_kit_usd: 495, cost_kit_5_usd: 450, cost_kit_10_usd: 360, kit_vials: 10, supplier_item: "KLOW (KPV 10mg / BPC-157 10mg / GHK-Cu 50mg / TB500 10mg)"}
+    source: inbox/monarch-wholesale-price-sheet-2026-09.pdf (effective September 2026, read 2026-10-09)
+    confidence: high
+    valid_from: '2026-09-01'
+  - rel: SOURCED_FROM
+    to: Supplier:FSD
+    attrs: {cost_vial_usd: 17}
+    source: inbox/product-list-full.pdf (FSD cost per vial, 2026-09-10)
+    confidence: high
+    valid_from: '2026-09-10'
   - rel: CONTAINS
     to: Peptide:BPC-157
     attrs:
@@ -293,20 +423,33 @@ items:
   - KLOW
   - Blend B-2
 - name: KPV 10mg
-  valid_from: '2026-09-10'
+  valid_from: '2026-10-09'
   attrs:
     sku: EP-KPV-10
     category: peptide
     form: lyophilized powder
     size_mg: 10
     price_usd: 90.0
-    cost_usd: 5.5
-    status: coming_soon
+    cost_usd: 15.675
+    status: active
+    fulfilment: just_in_time
     slug: kpv-10mg
     purity_spec: '>=99% (HPLC)'
     vial_ml: 3
     vial_glass: clear
   edges:
+  - rel: SOURCED_FROM
+    to: "Supplier:Monārch Fill & Finishing"
+    attrs: {cost_vial_usd: 28.5, cost_kit_usd: 156.75, cost_kit_5_usd: 142.5, cost_kit_10_usd: 114, kit_vials: 10, supplier_item: "KPV 10mg"}
+    source: inbox/monarch-wholesale-price-sheet-2026-09.pdf (effective September 2026, read 2026-10-09)
+    confidence: high
+    valid_from: '2026-09-01'
+  - rel: SOURCED_FROM
+    to: Supplier:FSD
+    attrs: {cost_vial_usd: 5.5}
+    source: inbox/product-list-full.pdf (FSD cost per vial, 2026-09-10)
+    confidence: high
+    valid_from: '2026-09-10'
   - rel: CONTAINS
     to: Peptide:KPV
     attrs:
@@ -331,6 +474,12 @@ items:
     vial_ml: 3
     vial_glass: clear
   edges:
+  - rel: SOURCED_FROM
+    to: Supplier:FSD
+    attrs: {cost_vial_usd: 3.8}
+    source: inbox/product-list-full.pdf (FSD cost per vial, 2026-09-10)
+    confidence: high
+    valid_from: '2026-09-10'
   - rel: CONTAINS
     to: Peptide:GHK-Cu
     attrs:
@@ -350,13 +499,26 @@ items:
     form: lyophilized powder
     size_mg: 100
     price_usd: 100.0
-    cost_usd: 4.0
+    cost_usd: 12.375
     status: active
+    fulfilment: just_in_time
     slug: ghk-cu-100mg
     purity_spec: '>=99% (HPLC)'
     vial_ml: 3
     vial_glass: clear
   edges:
+  - rel: SOURCED_FROM
+    to: "Supplier:Monārch Fill & Finishing"
+    attrs: {cost_vial_usd: 22.5, cost_kit_usd: 123.75, cost_kit_5_usd: 112.5, cost_kit_10_usd: 90, kit_vials: 10, supplier_item: "GHK-Cu 100"}
+    source: inbox/monarch-wholesale-price-sheet-2026-09.pdf (effective September 2026, read 2026-10-09)
+    confidence: high
+    valid_from: '2026-09-01'
+  - rel: SOURCED_FROM
+    to: Supplier:FSD
+    attrs: {cost_vial_usd: 4}
+    source: inbox/product-list-full.pdf (FSD cost per vial, 2026-09-10)
+    confidence: high
+    valid_from: '2026-09-10'
   - rel: CONTAINS
     to: Peptide:GHK-Cu
     attrs:
@@ -376,13 +538,25 @@ items:
     form: lyophilized powder
     size_mg: 10
     price_usd: 45.0
-    cost_usd: 5.5
+    cost_usd: 17.875
     status: coming_soon
     slug: ipamorelin-10mg
     purity_spec: '>=99% (HPLC)'
     vial_ml: 3
     vial_glass: clear
   edges:
+  - rel: SOURCED_FROM
+    to: "Supplier:Monārch Fill & Finishing"
+    attrs: {cost_vial_usd: 32.5, cost_kit_usd: 178.75, cost_kit_5_usd: 162.5, cost_kit_10_usd: 130, kit_vials: 10, supplier_item: "Ipamorelin 10mg"}
+    source: inbox/monarch-wholesale-price-sheet-2026-09.pdf (effective September 2026, read 2026-10-09)
+    confidence: high
+    valid_from: '2026-09-01'
+  - rel: SOURCED_FROM
+    to: Supplier:FSD
+    attrs: {cost_vial_usd: 5.5}
+    source: inbox/product-list-full.pdf (FSD cost per vial, 2026-09-10)
+    confidence: high
+    valid_from: '2026-09-10'
   - rel: CONTAINS
     to: Peptide:Ipamorelin
     attrs:
@@ -400,13 +574,25 @@ items:
     form: lyophilized powder
     size_mg: 20
     price_usd: 180.0
-    cost_usd: 29.0
+    cost_usd: 50.875
     status: coming_soon
     slug: tesamorelin-20mg
     purity_spec: '>=99% (HPLC)'
     vial_ml: 3
     vial_glass: clear
   edges:
+  - rel: SOURCED_FROM
+    to: "Supplier:Monārch Fill & Finishing"
+    attrs: {cost_vial_usd: 92.5, cost_kit_usd: 508.75, cost_kit_5_usd: 462.5, cost_kit_10_usd: 370, kit_vials: 10, supplier_item: "Tesamorelin 20mg"}
+    source: inbox/monarch-wholesale-price-sheet-2026-09.pdf (effective September 2026, read 2026-10-09)
+    confidence: high
+    valid_from: '2026-09-01'
+  - rel: SOURCED_FROM
+    to: Supplier:FSD
+    attrs: {cost_vial_usd: 29}
+    source: inbox/product-list-full.pdf (FSD cost per vial, 2026-09-10)
+    confidence: high
+    valid_from: '2026-09-10'
   - rel: CONTAINS
     to: Peptide:Tesamorelin
     attrs:
@@ -433,6 +619,12 @@ items:
     vial_ml: 3
     vial_glass: clear
   edges:
+  - rel: SOURCED_FROM
+    to: Supplier:FSD
+    attrs: {cost_vial_usd: 5.5}
+    source: inbox/product-list-full.pdf (FSD cost per vial, 2026-09-10)
+    confidence: high
+    valid_from: '2026-09-10'
   - rel: CONTAINS
     to: Peptide:MOTS-c
     attrs:
@@ -457,6 +649,12 @@ items:
     vial_ml: 3
     vial_glass: clear
   edges:
+  - rel: SOURCED_FROM
+    to: Supplier:FSD
+    attrs: {cost_vial_usd: 27}
+    source: inbox/product-list-full.pdf (FSD cost per vial, 2026-09-10)
+    confidence: high
+    valid_from: '2026-09-10'
   - rel: CONTAINS
     to: Peptide:SS-31
     attrs:
@@ -470,20 +668,33 @@ items:
   - SS-31 (3x10mg)
   - Elamipretide 30mg
 - name: Melanotan II 10mg
-  valid_from: '2026-09-10'
+  valid_from: '2026-10-09'
   attrs:
     sku: EP-MT2-10
     category: peptide
     form: lyophilized powder
     size_mg: 10
     price_usd: 45.0
-    cost_usd: 5.0
-    status: coming_soon
+    cost_usd: 11
+    status: active
+    fulfilment: just_in_time
     slug: melanotan-ii-10mg
     purity_spec: '>=99% (HPLC)'
     vial_ml: 3
     vial_glass: clear
   edges:
+  - rel: SOURCED_FROM
+    to: "Supplier:Monārch Fill & Finishing"
+    attrs: {cost_vial_usd: 20, cost_kit_usd: 110, cost_kit_5_usd: 100, cost_kit_10_usd: 80, kit_vials: 10, supplier_item: "Melanotan 2 10mg"}
+    source: inbox/monarch-wholesale-price-sheet-2026-09.pdf (effective September 2026, read 2026-10-09)
+    confidence: high
+    valid_from: '2026-09-01'
+  - rel: SOURCED_FROM
+    to: Supplier:FSD
+    attrs: {cost_vial_usd: 5}
+    source: inbox/product-list-full.pdf (FSD cost per vial, 2026-09-10)
+    confidence: high
+    valid_from: '2026-09-10'
   - rel: CONTAINS
     to: Peptide:Melanotan II
     attrs:
@@ -496,20 +707,33 @@ items:
   aliases:
   - Melanotan 2 10mg
 - name: Melanotan I 10mg
-  valid_from: '2026-09-10'
+  valid_from: '2026-10-09'
   attrs:
     sku: EP-MT1-10
     category: peptide
     form: lyophilized powder
     size_mg: 10
     price_usd: 50.0
-    cost_usd: 5.5
-    status: coming_soon
+    cost_usd: 11
+    status: active
+    fulfilment: just_in_time
     slug: melanotan-i-10mg
     purity_spec: '>=99% (HPLC)'
     vial_ml: 3
     vial_glass: clear
   edges:
+  - rel: SOURCED_FROM
+    to: "Supplier:Monārch Fill & Finishing"
+    attrs: {cost_vial_usd: 20, cost_kit_usd: 110, cost_kit_5_usd: 100, cost_kit_10_usd: 80, kit_vials: 10, supplier_item: "Melanotan 1 10mg"}
+    source: inbox/monarch-wholesale-price-sheet-2026-09.pdf (effective September 2026, read 2026-10-09)
+    confidence: high
+    valid_from: '2026-09-01'
+  - rel: SOURCED_FROM
+    to: Supplier:FSD
+    attrs: {cost_vial_usd: 5.5}
+    source: inbox/product-list-full.pdf (FSD cost per vial, 2026-09-10)
+    confidence: high
+    valid_from: '2026-09-10'
   - rel: CONTAINS
     to: Peptide:Melanotan I
     attrs:
@@ -529,14 +753,27 @@ items:
     form: lyophilized powder
     size_mg: 500
     price_usd: 70.0
-    cost_usd: 7.5
+    cost_usd: 18.7
     status: active
+    fulfilment: just_in_time
     slug: nad-plus-500mg
     purity_spec: '>=99% (HPLC)'
     vial_ml: 5
     display_name: NAD+ (buffered)
     vial_glass: amber
   edges:
+  - rel: SOURCED_FROM
+    to: "Supplier:Monārch Fill & Finishing"
+    attrs: {cost_vial_usd: 34, cost_kit_usd: 187, cost_kit_5_usd: 170, cost_kit_10_usd: 136, kit_vials: 10, supplier_item: "NAD+ 500mg"}
+    source: inbox/monarch-wholesale-price-sheet-2026-09.pdf (effective September 2026, read 2026-10-09)
+    confidence: high
+    valid_from: '2026-09-01'
+  - rel: SOURCED_FROM
+    to: Supplier:FSD
+    attrs: {cost_vial_usd: 7.5}
+    source: inbox/product-list-full.pdf (FSD cost per vial, 2026-09-10)
+    confidence: high
+    valid_from: '2026-09-10'
   - rel: CONTAINS
     to: Compound:NAD+
     attrs:
@@ -566,6 +803,12 @@ items:
     status: active
     slug: bacteriostatic-water-10ml
   edges:
+  - rel: SOURCED_FROM
+    to: Supplier:FSD
+    attrs: {cost_vial_usd: 2.5}
+    source: inbox/product-list-full.pdf (FSD cost per vial, 2026-09-10)
+    confidence: high
+    valid_from: '2026-09-10'
   - rel: CONTAINS
     to: Compound:Bacteriostatic water
 - name: Retatrutide 15mg
@@ -601,12 +844,19 @@ items:
     category: peptide
     form: lyophilized powder
     size_mg: 70
+    cost_usd: 45.375
     status: draft
     slug: glow-70mg
     purity_spec: '>=99% (HPLC)'
     vial_ml: 3
     vial_glass: clear
   edges:
+  - rel: SOURCED_FROM
+    to: "Supplier:Monārch Fill & Finishing"
+    attrs: {cost_vial_usd: 82.5, cost_kit_usd: 453.75, cost_kit_5_usd: 412.5, cost_kit_10_usd: 330, kit_vials: 10, supplier_item: "GLOW (BPC-157 10mg / GHK-Cu 50mg / TB500 10mg)"}
+    source: inbox/monarch-wholesale-price-sheet-2026-09.pdf (effective September 2026, read 2026-10-09)
+    confidence: high
+    valid_from: '2026-09-01'
   - rel: USES
     to: Asset:inbox/labels/GLOW-70mg_label.png
     source: inbox/labels (2026-09-10)

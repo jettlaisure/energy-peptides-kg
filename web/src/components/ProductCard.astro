@@ -1,9 +1,9 @@
 ---
-import { money, cents, sizeLabel, familyName, compositionLine, type Product } from '../lib/catalog';
+import { money, cents, sizeLabel, familyName, compositionLine, site, type Product } from '../lib/catalog';
 import VialArt from './VialArt.astro';
 interface Props { product: Product }
 const { product: p } = Astro.props;
-const stock = p.status === 'coming_soon' ? { cls: 'chip-off', text: 'Coming soon' } : p.in_stock ? { cls: 'chip-on', text: 'In stock' } : { cls: 'chip-off', text: 'Out of stock' };
+const stock = p.status === 'coming_soon' ? { cls: 'chip-off', text: 'Coming soon' } : p.in_stock ? { cls: 'chip-on', text: p.jit_backorder ? 'Available' : 'In stock' } : { cls: 'chip-off', text: 'Out of stock' };
 ---
 <article class="pc" data-product-card data-search={`${p.name} ${familyName(p)} ${sizeLabel(p)} ${p.sku} ${p.composition_class} ${compositionLine(p)}`} data-available={String(p.in_stock && p.status === 'active')}>
   <a class="media" href={`/products/${p.slug}/`} tabindex="-1" aria-hidden="true">

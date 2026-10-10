@@ -37,7 +37,7 @@ flowchart LR
   S9 -.write-back via seeds.-> S4
 ```
 
-## Ontology (14 types, 18 relations)
+## Ontology (14 types, 19 relations)
 ```mermaid
 graph LR
   Product -->|CONTAINS| Peptide
@@ -45,6 +45,7 @@ graph LR
   Peptide -->|RESEARCHED_FOR| ResearchArea
   Batch -->|OF_PRODUCT| Product
   Batch -->|SUPPLIED_BY| Supplier
+  Product -->|SOURCED_FROM| Supplier
   Batch -->|HAS_COA| Asset
   InventoryEvent -->|AFFECTS| Batch
   Study -->|INVESTIGATES| Peptide

@@ -74,3 +74,11 @@ def test_kashu_projection_and_resync(tmp_path):
     assert by["EP-B2-80"].name.startswith("KLOW 80mg (") and "GHK-Cu 50 mg" in by["EP-B2-80"].description
     assert "cost" not in by["EP-RT-20"].description and sync.RUO_LINE in by["EP-RT-20"].description
     assert sync.plan_for(fake, sync.snapshot(st)).empty()                                   # idempotent
+
+
+def test_jit_item_projects_active_at_zero_quantity(tmp_path):
+    st, _ = _graph(tmp_path)
+    by = {i.sku: i for i in sync.snapshot(st)}
+    assert by["EP-KPV-10"].fulfilment == "just_in_time" and by["EP-KPV-10"].quantity == 0
+    assert _FakeKashu().project(by["EP-KPV-10"]).status == "active"
+    assert _FakeKashu().project(by["EP-TESA-20"]).status == "inactive"

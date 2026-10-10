@@ -36,7 +36,8 @@ export const POST: APIRoute = async ({ request, url }) => {
     if (!p || !Number.isInteger(qty) || qty < 1 || qty > 20) return json({ error: 'A cart line is invalid.' }, 400);
     if (!(p.in_stock && p.status === 'active')) return json({ error: `${p.name} is not available.` }, 409);
     const sold = await soldSince(env.DB, p.sku, catalog.generated_at);
-    if (p.on_hand - sold < qty) return json({ error: `Only ${Math.max(0, p.on_hand - sold)} of ${p.name} remain.` }, 409);
+    const avail = p.fulfilment === 'just_in_time' ? Math.max(p.on_hand, 10) : p.on_hand;   // JIT: one kit is collected on order
+    if (avail - sold < qty) return json({ error: `Only ${Math.max(0, avail - sold)} of ${p.name} remain.` }, 409);
     const unit = cents(p.price_usd);
     lines.push({ sku: p.sku, name: p.name, quantity: qty, unitCents: unit });
     subtotal += unit * qty;

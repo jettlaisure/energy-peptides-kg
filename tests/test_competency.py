@@ -50,8 +50,20 @@ def test_q3_q14_product_page_context_is_minimal_and_complete(graph):
 
 def test_internal_attrs_only_in_inventory_recipe(graph):
     st, onto = graph
-    assert "cost_usd=5.5" in serve.context(st, onto, "inventory", "Product:BPC-157 10mg")
+    assert "cost_usd=12.925" in serve.context(st, onto, "inventory", "Product:BPC-157 10mg")   # Monārch kit price / 10
     assert "cost_usd" not in serve.context(st, onto, "marketing", "Product:BPC-157 10mg")
+
+
+def test_q19_supplier_pricing_only_in_inventory_recipe_and_never_in_map(graph):
+    st, onto = graph
+    inv = serve.context(st, onto, "inventory", "Product:BPC-157 10mg")
+    assert "SOURCED_FROM -> Supplier: Monārch Fill & Finishing" in inv and "'cost_kit_usd': 129.25" in inv
+    assert "SOURCED_FROM -> Supplier: FSD" in inv and "'cost_vial_usd': 5.5" in inv      # secondary supplier kept
+    for recipe in ("product_page", "marketing", "faq_seo"):
+        assert "SOURCED_FROM" not in serve.context(st, onto, recipe, "Product:BPC-157 10mg")
+    from kg import map as kmap
+    sourced = [e for e in kmap.build(st, onto)["edges"] if e["rel"] == "SOURCED_FROM"]
+    assert sourced and all(not e["attrs"] for e in sourced)
 
 
 def test_compound_products_flow_through_recipes(graph):
@@ -73,7 +85,7 @@ def test_q6_q8_q11_gaps(graph):
     g = serve.gaps(st)
     assert "- nad+ research" in g                                # keyword nobody targets
     assert "## Studies NOT yet verified (cannot be cited) (0)" in g and "Chang 2011" in g
-    assert "## Active products with no live product page (7)" in g   # 14 coming_soon SKUs are not counted
+    assert "## Active products with no live product page (12)" in g   # coming_soon SKUs are not counted; 5 JIT SKUs went active 2026-10-09
     assert "## Live pages possibly stale (0)" in g
 
 
@@ -147,7 +159,7 @@ def test_catalog_has_21_skus_with_one_pattern(graph):
     assert drafts == {"Retatrutide 15mg", "GLOW 70mg"}                      # labelled, not yet priced, off the site
     import re
     assert all(re.fullmatch(r"EP-[A-Z0-9]{2,4}-\d+", s) for s in skus)
-    assert sum(p["attrs"]["status"] == "active" for p in prods) == 7
+    assert sum(p["attrs"]["status"] == "active" for p in prods) == 12          # 7 stocked + 5 just-in-time (2026-10-09)
     assert not any(p["attrs"].get("vials_per_unit") for p in prods)          # sold by the vial, no kits
     assert st.resolve("Product", "KLOW")["attrs"]["display_name"] == "KLOW"
 
@@ -168,3 +180,14 @@ def test_every_photo_is_in_the_graph_with_its_provenance(graph):
             assert a["alt_text"].endswith("For research use only.") and p["name"].split()[0][:6].lower() in a["alt_text"].lower()
             assert len(a["derived_from"]) == 2 and all((root / f).exists() for f in a["derived_from"])
             assert (a["width_px"], a["height_px"]) == ((1600, 1600) if fmt == "square" else (1600, 2000))
+
+
+def test_jit_products_are_purchasable_at_zero_on_hand(graph):
+    import json
+    from kg.site_export import export as site_export
+    st, _ = graph
+    by = {p["sku"]: p for p in json.loads(site_export(st))["products"]}
+    assert by["EP-KPV-10"]["in_stock"] and by["EP-KPV-10"]["on_hand"] == 0 and by["EP-KPV-10"]["jit_backorder"]
+    assert by["EP-CU-100"]["in_stock"] and not by["EP-CU-100"]["jit_backorder"]       # JIT policy, but FSD stock still on hand
+    assert not by["EP-TESA-20"]["in_stock"] and by["EP-TESA-20"]["status"] == "coming_soon"   # over the $120 cap
+    assert not by["EP-KPV-10"]["lot_tested"]                                            # no lot on hand, no testing claim

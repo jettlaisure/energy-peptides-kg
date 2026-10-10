@@ -2,6 +2,22 @@ type: Supplier
 source: inbox/coa/* (manufacturer field on every certificate, 2026-09-10)
 confidence: high
 items:
+  - name: Monārch Fill & Finishing
+    aliases: [Monārch, Monarch, Monarch Fill & Finishing, Monārch Fill and Finishing]
+    source: inbox/monarch-wholesale-price-sheet-2026-09.pdf (wholesale price sheet effective September 2026; Jett, 2026-10-09)
+    valid_from: '2026-10-09'
+    attrs:
+      country: US
+      contact: TODO
+      role: primary
+      price_list: inbox/monarch-wholesale-price-sheet-2026-09.pdf
+      price_list_effective: '2026-09-01'
+      notes: "Irvine, California. Primary supplier and the sheet cost_usd is worked off from 2026-10-09 (Jett). Minimum purchase is one kit of 10 vials per SKU; the sheet's '1 vial' column is a reference price, not a purchasable unit (Jett, 2026-10-09). Jett collects in person from Irvine (no supplier shipping, no lead time). Sheet: 51 lines, tiers 1 vial / 1 kit / 5-9 kits / 10+ kits by total kit count per order, 'other peptides available upon request', pricing subject to change without notice. The sheet claims US fill and finish in an ISO 5 cleanroom and purity + endotoxin testing on every batch: the supplier's own claim, unverified, and never repeated in copy (CR-COA-LINK). Not yet the supplier on any batch in the ledger."
   - name: FSD
     aliases: [Supplier A Labs, "FSD wholesale"]
-    attrs: {country: CN, contact: TODO, notes: "Main supplier (China). Manufacturer of record on all 13 certificates received 2026-09-10. Jett reports every shipment tests above 99% purity."}
+    attrs:
+      country: CN
+      contact: TODO
+      role: secondary
+      price_list: inbox/product-list-full.pdf
+      notes: "Secondary supplier from 2026-10-09 (was the only one; Monārch is now primary, per Jett). Manufacturer of record on all 13 certificates received 2026-09-10. Jett reports every shipment tests above 99% purity. Cost per vial from inbox/product-list-full.pdf (2026-09-10) kept on SOURCED_FROM edges."

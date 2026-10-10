@@ -89,6 +89,7 @@ def build(store: Store) -> dict:
         related = sorted({store.get(e["src"])["attrs"].get("slug") for cid in comp_ids for e in store.edges(cid, "CONTAINS", "in")
                           if e["src"] != p["id"] and store.get(e["src"])["attrs"].get("status") == "active"} - {None})
         on_hand = stock.get(p["name"], {}).get("on_hand", 0)
+        jit = a.get("fulfilment") == "just_in_time"      # purchasable at zero on hand; the kit is collected when the order lands
         photos = [store.get(e["src"]) for e in store.edges(p["id"], "DEPICTS", "in")]       # product photography, from the graph
         images = {ph["attrs"]["format"]: ph["attrs"]["url"] for ph in photos if ph["attrs"].get("format") and ph["attrs"].get("url")}
         images_alt = {ph["attrs"]["format"]: ph["attrs"].get("alt_text", "") for ph in photos if ph["attrs"].get("format")}
@@ -100,7 +101,8 @@ def build(store: Store) -> dict:
             "sku": a["sku"], "name": p["name"], "display_name": a.get("display_name"), "slug": a.get("slug"), "aliases": [x for x in p["aliases"] if len(x) > 4],
             "category": a.get("category"), "form": a.get("form"), "size_mg": a.get("size_mg"), "size_ml": a.get("size_ml"),
             "price_usd": a.get("price_usd"), "purity_spec": a.get("purity_spec"), "status": a.get("status"), "vial_ml": a.get("vial_ml"), "vial_glass": a.get("vial_glass"),
-            "in_stock": on_hand > 0 and a.get("status") == "active", "on_hand": on_hand,
+            "in_stock": a.get("status") == "active" and (on_hand > 0 or jit), "on_hand": on_hand,
+            "fulfilment": a.get("fulfilment", "stocked"), "jit_backorder": jit and on_hand == 0,
             "components": comps, "research_area": {"name": area["name"], "slug": area["slug"]} if area else None,
             "claims": claims, "studies": studies, "faqs": [faq_all[i] for i in sorted(faq_ids)],
             "lot_tested": lot_tested, "lot_purity_tested": lot_purity_tested, "lot_tested_us": lot_tested_us,

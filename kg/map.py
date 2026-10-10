@@ -1,6 +1,7 @@
 """Visual map of the graph: one self-contained HTML file (data/graph-map.html) for humans.
 Generated from the graph, adds nothing to it, and is excluded from AI context (see .claude/settings.json).
-Internal attributes (ontology `internal: true`, e.g. cost_usd) are never written into the map."""
+Internal attributes (ontology `internal: true`, e.g. cost_usd) and the attrs of internal relations
+(SOURCED_FROM supplier pricing) are never written into the map."""
 from __future__ import annotations
 
 import json
@@ -19,7 +20,8 @@ def build(store: Store, onto: Ontology) -> dict:
               "aliases": n["aliases"], "valid_to": n["valid_to"],
               "attrs": {k: v for k, v in n["attrs"].items() if k not in internal.get(n["type"], set())}}
              for n in store.nodes()]
-    edges = [{"s": e["src"], "t": e["dst"], "rel": e["rel"], "attrs": e["attrs"], "conf": e["confidence"], "source": e["source"]}
+    internal_rels = {r for r, s in onto.relations.items() if (s or {}).get("internal")}
+    edges = [{"s": e["src"], "t": e["dst"], "rel": e["rel"], "attrs": {} if e["rel"] in internal_rels else e["attrs"], "conf": e["confidence"], "source": e["source"]}
              for e in store.all_edges()]
     return {"generated_at": now(), "nodes": nodes, "edges": edges}
 
