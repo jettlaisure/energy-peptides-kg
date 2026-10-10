@@ -62,6 +62,19 @@ Paid orders flow back into the graph's ledger with `uv run kg orders pull --remo
 Product copy approved through `/new-product-page` lands in `../site/pages/products/<slug>.md` and is rendered in the
 product's Overview automatically.
 
+## Order and pickup alerts
+Every paid order sends the owner one message (`src/server/alerts.ts`), from whichever path confirmed it; D1 table
+`order_alerts` dedupes. A line on a just-in-time SKU (`fulfilment: just_in_time` in the graph) with no stock on hand is
+flagged **PICKUP**: buy the kit at Monārch, record the lot with `/inventory`, ship. Channels are optional secrets:
+```bash
+npx wrangler secret put ALERT_SLACK_WEBHOOK_URL   # Slack: app → Incoming Webhooks → Add to a channel → copy the URL
+npx wrangler secret put ALERT_NTFY_TOPIC     # phone push: pick a long random topic, subscribe to it in the ntfy app
+npx wrangler secret put RESEND_API_KEY       # email via Resend …
+npx wrangler secret put ALERT_EMAIL_TO       # … to this address (ALERT_EMAIL_FROM optional; domain verified in Resend)
+```
+With neither set, alerts only appear in the worker log (`npx wrangler tail`). The message never carries the customer's
+name or email, only order id, lines, total and city/state/zip.
+
 ## Payment paths
 `src/server/payments/stub.ts` (test) and `src/server/payments/tagada.ts` (Kashu / TagadaPay direct S2S:
 create-from-token → optional 3DS → process). Selection is by `PAYMENT_MODE`. Webhook verification accepts both

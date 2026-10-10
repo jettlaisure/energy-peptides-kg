@@ -40,3 +40,20 @@ export async function recordWebhookEvent(db: D1Database, id: string, type: strin
   const r = await db.prepare(`INSERT OR IGNORE INTO webhook_events (id, type, received_at, payload) VALUES (?, ?, ?, ?)`).bind(id, type, new Date().toISOString(), payload).run();
   return (r.meta.changes ?? 0) > 0;   // false = duplicate delivery
 }
+export async function orderSummary(db: D1Database, id: string) {
+  return db.prepare(`SELECT id, status, created_at, total_cents, shipping_json FROM orders WHERE id = ?`).bind(id)
+    .first<{ id: string; status: string; created_at: string; total_cents: number; shipping_json: string }>();
+}
+export async function orderLines(db: D1Database, id: string): Promise<{ sku: string; name: string; quantity: number }[]> {
+  const r = await db.prepare(`SELECT sku, name, quantity FROM order_items WHERE order_id = ?`).bind(id).all<{ sku: string; name: string; quantity: number }>();
+  return r.results ?? [];
+}
+export async function orderIdByPayment(db: D1Database, paymentId: string): Promise<string | undefined> {
+  const r = await db.prepare(`SELECT id FROM orders WHERE payment_id = ?`).bind(paymentId).first<{ id: string }>();
+  return r?.id;
+}
+/* One alert per order and kind; false = already recorded (duplicate confirmation path). */
+export async function recordAlert(db: D1Database, orderId: string, kind: string): Promise<boolean> {
+  const r = await db.prepare(`INSERT OR IGNORE INTO order_alerts (order_id, kind, sent_at) VALUES (?, ?, ?)`).bind(orderId, kind, new Date().toISOString()).run();
+  return (r.meta.changes ?? 0) > 0;
+}

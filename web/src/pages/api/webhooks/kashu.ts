@@ -2,7 +2,8 @@ export const prerender = false;
 import type { APIRoute } from 'astro';
 import { getEnv } from '../../../server/env';
 import { verifySignature, normalizeEvent } from '../../../server/webhook';
-import { recordWebhookEvent, setStatusByPayment, setOrderPayment } from '../../../server/orders';
+import { recordWebhookEvent, setStatusByPayment, setOrderPayment, orderIdByPayment } from '../../../server/orders';
+import { alertOrderPaid } from '../../../server/alerts';
 
 /* Kashu / Tagada events. Verify, dedupe, ack fast. Refunds and disputes are reconciled here;
    successful payments are usually already recorded synchronously by /api/checkout. */
@@ -25,8 +26,10 @@ export const POST: APIRoute = async ({ request }) => {
   };
   const next = statusFor[ev.type];
   if (next) {
-    if (ev.orderId) await setOrderPayment(env.DB, ev.orderId, next, ev.paymentId);
-    else if (ev.paymentId) await setStatusByPayment(env.DB, ev.paymentId, next);
+    let orderId = ev.orderId;
+    if (orderId) await setOrderPayment(env.DB, orderId, next, ev.paymentId);
+    else if (ev.paymentId) { await setStatusByPayment(env.DB, ev.paymentId, next); orderId = await orderIdByPayment(env.DB, ev.paymentId); }
+    if (next === 'paid' && orderId) await alertOrderPaid(env, orderId);   // owner alert: ship, or just-in-time pickup
   }
   return new Response('ok', { status: 200 });
 };

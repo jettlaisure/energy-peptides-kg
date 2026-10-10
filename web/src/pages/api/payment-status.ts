@@ -3,6 +3,7 @@ import type { APIRoute } from 'astro';
 import { getEnv } from '../../server/env';
 import { paymentAdapter } from '../../server/payments';
 import { getOrder, setOrderPayment } from '../../server/orders';
+import { alertOrderPaid } from '../../server/alerts';
 
 export const GET: APIRoute = async ({ url }) => {
   const env = getEnv();
@@ -12,7 +13,10 @@ export const GET: APIRoute = async ({ url }) => {
   let status = order.status;
   if (status === 'requires_action' && order.payment_id) {
     const s = await paymentAdapter(env).status(order.payment_id).catch(() => 'pending' as const);
-    if (s !== 'pending') { status = s; await setOrderPayment(env.DB, id, s, order.payment_id); }
+    if (s !== 'pending') {
+      status = s; await setOrderPayment(env.DB, id, s, order.payment_id);
+      if (s === 'paid') await alertOrderPaid(env, id);
+    }
   }
   return new Response(JSON.stringify({ status: status === 'requires_action' ? 'pending' : status }), { headers: { 'content-type': 'application/json' } });
 };

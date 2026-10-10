@@ -11,5 +11,10 @@ export interface Env {
   TAGADA_ENV?: string;            // test | live
   TAGADA_PAYMENT_FLOW_ID?: string; // optional explicit flow (needed if the store has none attached)
   ORDERING?: string;              // 'open' forces ordering on while the processor is still in test mode
+  ALERT_SLACK_WEBHOOK_URL?: string; // owner alerts (src/server/alerts.ts): Slack incoming webhook
+  ALERT_NTFY_TOPIC?: string;      // … or ntfy.sh topic for phone push
+  RESEND_API_KEY?: string;        // owner alerts by email via Resend …
+  ALERT_EMAIL_TO?: string;        // … to this address (comma-separated for several)
+  ALERT_EMAIL_FROM?: string;      // optional sender, default alerts@energypeptides.us (domain must be verified in Resend)
 }
 export function getEnv(): Env { return cfEnv as unknown as Env; }

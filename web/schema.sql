@@ -34,3 +34,9 @@ CREATE TABLE IF NOT EXISTS webhook_events (
   received_at TEXT NOT NULL,
   payload TEXT NOT NULL
 );
+CREATE TABLE IF NOT EXISTS order_alerts (
+  order_id TEXT NOT NULL REFERENCES orders(id),
+  kind TEXT NOT NULL,                 -- paid (owner alert: ship / just-in-time pickup)
+  sent_at TEXT NOT NULL,
+  PRIMARY KEY (order_id, kind)
+);

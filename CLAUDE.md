@@ -23,6 +23,8 @@ This repo is the company's memory and its playbook. Read this file, then use the
 - Renders from `kg export --format site` (catalog.json). Never hand-edit product data in `web/`; change seeds.
 - `cd web && npm run preview` for a local build on :8788 (test-mode checkout). See `web/README.md` for deploy.
 - Orders live in Cloudflare D1, not the graph. `kg orders pull [--remote] --apply` writes `sold` ledger events.
+- Just-in-time SKUs (`fulfilment: just_in_time`, cap: kit cost minus one sale ≤ $120) sell at zero on hand; a paid order
+  alerts the owner (`web/src/server/alerts.ts`) to buy the kit at Monārch, record the lot with `/inventory`, then ship.
 - Brand: `inbox/brand.html` is the authoritative Brand Reference v1.0; tokens in `web/src/styles/tokens.css`, rules in
   `seeds/09_brand.yaml`. Dark-ground navy + gold, Satoshi only, browse by composition class, never by use or goal.
   Compliance line verbatim, either of two approved lines: 'For Research Use Only — Not for Human Consumption' (site)

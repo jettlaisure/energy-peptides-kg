@@ -5,6 +5,7 @@ import { getEnv } from '../../server/env';
 import { paymentAdapter } from '../../server/payments';
 import { createOrder, newOrderId, setOrderPayment, soldSince } from '../../server/orders';
 import { orderingOpen } from '../../server/ordering';
+import { alertOrderPaid } from '../../server/alerts';
 
 const json = (data: unknown, status = 200) => new Response(JSON.stringify(data), { status, headers: { 'content-type': 'application/json' } });
 const email = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -65,5 +66,6 @@ export const POST: APIRoute = async ({ request, url }) => {
     return json({ status: 'failed', orderId, error: 'The payment was not approved. No charge was made.' }, 402);
   }
   await setOrderPayment(env.DB, orderId, result.status, result.paymentId, result.customerId);
+  if (result.status === 'paid') await alertOrderPaid(env, orderId);   // owner alert: ship, or just-in-time pickup
   return json(result.status === 'paid' ? { status: 'paid', orderId } : { status: 'requires_action', orderId, redirectUrl: result.redirectUrl });
 };
