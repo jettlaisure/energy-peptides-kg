@@ -29,7 +29,9 @@ def test_q1_products_containing_peptide_and_stock(graph):
     rows = {r["product"]: r for r in serve.stock(st)}
     assert rows["BPC-157 10mg"]["on_hand"] == 10 and rows["Retatrutide 20mg"]["on_hand"] == 5
     assert rows["BPC-157 10mg"]["batches"][0]["batch"] == "LOT-TBD-EP-BPC-10"
-    assert sum(r["on_hand"] for r in rows.values()) == 58   # sheet total
+    received = sum(ev["quantity"] for r in serve.stock(st, with_events=True) for b in r["batches"] for ev in (b["events"] or [])
+                   if ev["kind"] == "received" and ev["reference"] == "opening stock count")
+    assert received == 58                                   # opening sheet total; sales move on_hand, never this
 
 
 def test_q2_expiring_batches_none_known_yet(graph):

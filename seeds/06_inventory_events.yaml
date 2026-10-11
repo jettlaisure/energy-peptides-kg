@@ -11,3 +11,6 @@ items:
   - {name: IE-0005, attrs: {kind: received, quantity: 10, occurred_on: "2026-09-09", reference: "opening stock count"}, edges: [{rel: AFFECTS, to: "Batch:LOT-TBD-EP-CU-100"}]}
   - {name: IE-0006, attrs: {kind: received, quantity: 8,  occurred_on: "2026-09-09", reference: "opening stock count"}, edges: [{rel: AFFECTS, to: "Batch:LOT-TBD-EP-NAD-500"}]}
   - {name: IE-0007, attrs: {kind: received, quantity: 9,  occurred_on: "2026-09-09", reference: "opening stock count"}, edges: [{rel: AFFECTS, to: "Batch:LOT-TBD-EP-BAC-10"}]}
+  - {name: IE-0008, attrs: {kind: sold, quantity: 1, occurred_on: "2026-10-10", reference: "offline sale, reported by Jett 2026-10-10"}, edges: [{rel: AFFECTS, to: "Batch:FREEDOM-2608031083"}]}
+  - {name: IE-0009, attrs: {kind: sold, quantity: 1, occurred_on: "2026-10-10", reference: "offline sale, reported by Jett 2026-10-10"}, edges: [{rel: AFFECTS, to: "Batch:FSD-2026.08.10"}]}
+  - {name: IE-0010, attrs: {kind: sold, quantity: 1, occurred_on: "2026-10-10", reference: "offline sale, reported by Jett 2026-10-10"}, edges: [{rel: AFFECTS, to: "Batch:LOT-TBD-EP-BAC-10"}]}
