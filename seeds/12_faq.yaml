@@ -28,8 +28,8 @@ items:
             answer: "Each vial contains 10 mg BPC-157 and 10 mg TB-500 as a 20 mg lyophilized blend. When the lot on sale has a certificate on file, both peptides are identity-confirmed in it, and the certificate is available on request."}
     edges: [{rel: ABOUT, to: "Product:BPC-157 / TB-500 20mg"}]
   - name: FAQ-8
-    attrs: {status: approved, question: "What is bacteriostatic water used for?",
-            answer: "Bacteriostatic water is sterile water with 0.9% benzyl alcohol as a preservative. In the laboratory it is used to reconstitute lyophilized compounds. Each 10 ml bottle is for research use only."}
+    attrs: {status: approved, question: "What is bacteriostatic water?",
+            answer: "Bacteriostatic water is sterile water with 0.9% benzyl alcohol as a preservative. Each 10 ml bottle is sold for laboratory research use only."}
     edges: [{rel: ABOUT, to: "Compound:Bacteriostatic water"}]
   - name: FAQ-9
     attrs: {status: approved, question: "What is retatrutide?",
