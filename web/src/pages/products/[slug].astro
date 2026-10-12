@@ -38,7 +38,8 @@ for (const c of p.components) {
   if (c.molecular_formula) specRows.push([`${pre}Molecular formula`, c.molecular_formula, false]);
   if (c.molecular_weight) specRows.push([`${pre}Molecular weight`, `${c.molecular_weight} g/mol`, false]);
   if (c.cas_number) specRows.push([`${pre}CAS number`, c.cas_number, false]);
-  if (c.class || c.kind) specRows.push([`${pre}Composition class`, (c.class ?? c.kind ?? '') as string, false]);
+  const kindShown = p.category === 'accessory' ? undefined : c.kind;   // supplies: no 'solvent' label (FAQ-8 / CL-11 change, 2026-10-11)
+  if (c.class || kindShown) specRows.push([`${pre}Composition class`, (c.class ?? kindShown ?? '') as string, false]);
 }
 if (p.size_ml) specRows.push(['Volume', `${p.size_ml} ml`, true]);
 specRows.push(['Form', p.form ?? '', false]);

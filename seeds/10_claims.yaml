@@ -45,8 +45,8 @@ items:
             text: "NAD+ boosts your energy levels and slows down aging."}
     edges: [{rel: ABOUT, to: "Compound:NAD+"}, {rel: GOVERNED_BY, to: "ComplianceRule:CR-NO-MEDICAL-CLAIMS"}]
   - name: CL-11
-    attrs: {status: approved, scope: [product_page, faq], rationale: "Laboratory-handling description, not human administration.",
-            text: "Bacteriostatic water is sterile water containing 0.9% benzyl alcohol, used in the laboratory to reconstitute lyophilized compounds."}
+    attrs: {status: approved, scope: [product_page, faq], rationale: "Composition only. Reconstitution language removed 2026-10-11 (Jett): an Aug 2026 FDA warning letter cited marketing bacteriostatic water as a solvent for reconstituting peptides.",
+            text: "Bacteriostatic water is sterile water containing 0.9% benzyl alcohol."}
     edges: [{rel: ABOUT, to: "Compound:Bacteriostatic water"}, {rel: GOVERNED_BY, to: "ComplianceRule:CR-NO-HUMAN-DOSING"}]
   - name: CL-12
     attrs: {status: approved, scope: [product_page, faq, marketing], rationale: "Composition statement from the owner; confirm against the COA.",

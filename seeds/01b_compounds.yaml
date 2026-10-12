@@ -25,4 +25,4 @@ items:
   - bacteriostatic water 0.9% benzyl alcohol
   attrs:
     kind: solvent
-    summary: Sterile water containing 0.9% benzyl alcohol as a bacteriostatic preservative, used to reconstitute lyophilized compounds in the laboratory.
+    summary: Sterile water containing 0.9% benzyl alcohol as a bacteriostatic preservative.

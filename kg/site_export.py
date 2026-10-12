@@ -94,7 +94,7 @@ def build(store: Store) -> dict:
         images = {ph["attrs"]["format"]: ph["attrs"]["url"] for ph in photos if ph["attrs"].get("format") and ph["attrs"].get("url")}
         images_alt = {ph["attrs"]["format"]: ph["attrs"].get("alt_text", "") for ph in photos if ph["attrs"].get("format")}
         classes = [(c.get("class") or c.get("kind") or "").strip() for c in comps]
-        comp_class = "Peptide blend" if len(comps) > 1 else (classes[0][:1].upper() + classes[0][1:] if classes and classes[0] else "Research compound")
+        comp_class = "Laboratory supply" if a.get("category") == "accessory" else "Peptide blend" if len(comps) > 1 else (classes[0][:1].upper() + classes[0][1:] if classes and classes[0] else "Research compound")
         comp_slug = re.sub(r"[^a-z0-9]+", "-", comp_class.lower()).strip("-")
         products.append({
             "composition_class": comp_class, "composition_slug": comp_slug,
