@@ -92,8 +92,8 @@ const ld = [
     <nav class="crumbs t-small" aria-label="Breadcrumb"><a href="/products/">Catalog</a><span class="faint">/</span><a href={`/products/#${p.composition_slug}`}>{p.composition_class}</a></nav>
     <section class="top">
       <div class="art">
-        {p.images?.portrait
-          ? <img class="shot" src={p.images.portrait} alt={p.images_alt?.portrait ?? ''} width="1600" height="2000" fetchpriority="high" />
+        {p.images?.square
+          ? <img class="shot" src={p.images.square} alt={p.images_alt?.square ?? ''} width="1254" height="1254" fetchpriority="high" />
           : <VialArt product={p} size="hero" />}
       </div>
       <div class="panel buy stack">
@@ -243,7 +243,7 @@ const ld = [
   .stock-status { border: 0; border-radius: 0; padding: 0; gap: 8px; white-space: nowrap; }
   .crumbs { display: flex; flex-wrap: wrap; gap: 4px 8px; padding-block: var(--s5); font-size: 12px; line-height: 1.6; }
   .crumbs a { color: var(--text-dim); }
-  .shot { width: 100%; height: auto; aspect-ratio: 4 / 5; object-fit: cover; display: block; border: var(--hairline); border-radius: var(--radius); background: #EFEEEA; }
+  .shot { width: 100%; height: auto; aspect-ratio: 1; object-fit: contain; display: block; border: var(--hairline); border-radius: var(--radius); background: #EFEEEA; }
   .top { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); gap: var(--s6); align-items: start; }
   .buy { padding: var(--s6); gap: 24px; background: transparent; border: 0; }
   .buy .t-section { font-weight: 500; font-size: clamp(32px, 3.4vw, 48px); letter-spacing: -.035em; }

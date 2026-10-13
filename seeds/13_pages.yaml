@@ -37,7 +37,7 @@ items:
   - rel: LINKS_TO
     to: Page:/products/retatrutide-10mg
   - rel: USES
-    to: Asset:web/public/img/products/retatrutide-20mg-portrait.webp
+    to: Asset:web/public/img/products/retatrutide-20mg-navy-v2.png
 - name: /products/bpc-157-10mg
   attrs:
     title: BPC-157 10mg | Energy Peptides
@@ -68,7 +68,7 @@ items:
   - rel: INCLUDES_FAQ
     to: FAQItem:FAQ-10
   - rel: USES
-    to: Asset:web/public/img/products/bpc-157-10mg-portrait.webp
+    to: Asset:web/public/img/products/bpc-157-10mg-navy-v2.png
 - name: /products/bpc-157-tb-500-20mg
   attrs:
     title: BPC-157 / TB-500 20mg blend | Energy Peptides
@@ -206,7 +206,7 @@ items:
   - rel: LINKS_TO
     to: Page:/products/retatrutide-20mg
   - rel: USES
-    to: Asset:web/public/img/products/retatrutide-10mg-portrait.webp
+    to: Asset:web/public/img/products/retatrutide-10mg-navy-v2.png
 - name: /products/retatrutide-30mg
   attrs:
     title: Retatrutide 30mg | Energy Peptides
@@ -243,7 +243,7 @@ items:
   - rel: LINKS_TO
     to: Page:/products/tirzepatide-30mg
   - rel: USES
-    to: Asset:web/public/img/products/tirzepatide-10mg-portrait.webp
+    to: Asset:web/public/img/products/tirzepatide-10mg-navy-v2.png
 - name: /products/tirzepatide-15mg
   attrs:
     title: Tirzepatide 15mg | Energy Peptides
