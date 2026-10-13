@@ -13,9 +13,11 @@ This repo is the company's memory and its playbook. Read this file, then use the
 - `kg sync plan|apply --adapter kashu` — mirror the catalog (21 SKUs, prices, in/out of stock) into the live Kashu store.
   Run after any price, status or stock change. One Kashu product per SKU; price changes recreate that product.
 
-- Product photos are graph assets (`Asset -DEPICTS-> Product`, with alt text, pixel size and the vial photo + label
-  they were made from). `render/composite.py` writes them and regenerates `seeds/15_product_photos.yaml`; never hand-edit
-  that seed. After re-rendering: `kg rebuild` → `kg validate` → `npm run build`. `kg gaps` lists products with no photo.
+- Product photos are graph assets (`Asset -DEPICTS-> Product`, alt text, pixel size, square format). Since Oct 2026
+  `seeds/15_product_photos.yaml` holds Jett's approved Navy shots on white and is maintained by hand; do NOT run
+  `render/composite.py` (legacy; it would overwrite that seed). DEPICTS is for photos only. `kg gaps` lists products with no photo.
+- Vial labels: print masters in `inbox/labels/current-print/` (Navy, Graphite, Black per SKU; read its README before
+  printing). Products link to their three tier PDFs with USES; the label files are listed in `seeds/16_print_labels.yaml`.
 - `kg map` — visual map for humans at `data/graph-map.html` (auto-refreshed on ingest). Never read it, `kg/vendor/`
   or `data/graph.db` into context (denied in `.claude/settings.json`); agents use index/card/context instead.
 

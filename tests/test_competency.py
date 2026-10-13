@@ -175,13 +175,17 @@ def test_every_photo_is_in_the_graph_with_its_provenance(graph):
         if p["name"] == "Bacteriostatic water 10ml":
             assert not photos                                               # no label file yet; the site draws a vial
             continue
-        assert set(photos) == {"square", "portrait"}, p["name"]
+        assert "square" in photos and set(photos) <= {"square", "portrait"}, p["name"]   # site uses square; portrait optional (Oct 2026 shots)
         for fmt, ph in photos.items():
             a = ph["attrs"]
             assert (root / ph["name"]).exists() and a["url"].startswith("/img/products/")
             assert a["alt_text"].endswith("For research use only.") and p["name"].split()[0][:6].lower() in a["alt_text"].lower()
-            assert len(a["derived_from"]) == 2 and all((root / f).exists() for f in a["derived_from"])
-            assert (a["width_px"], a["height_px"]) == ((1600, 1600) if fmt == "square" else (1600, 2000))
+            assert a["derived_from"] and all((root / f).exists() for f in a["derived_from"])   # Oct 2026 mockups cite the label only
+            if fmt == "square":
+                assert a["width_px"] == a["height_px"]
+            data = (root / ph["name"]).read_bytes()
+            if data[:8] == b"\x89PNG\r\n\x1a\n":                                   # recorded size = the real file
+                assert (a["width_px"], a["height_px"]) == (int.from_bytes(data[16:20], "big"), int.from_bytes(data[20:24], "big"))
 
 
 def test_jit_products_are_purchasable_at_zero_on_hand(graph):
