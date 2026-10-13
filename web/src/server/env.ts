@@ -16,5 +16,6 @@ export interface Env {
   RESEND_API_KEY?: string;        // owner alerts by email via Resend …
   ALERT_EMAIL_TO?: string;        // … to this address (comma-separated for several)
   ALERT_EMAIL_FROM?: string;      // optional sender, default alerts@energypeptides.us (domain must be verified in Resend)
+  MEMBER_EMAIL_FROM?: string;     // sender for membership codes, default codes@energypeptides.us (verified in Resend)
 }
 export function getEnv(): Env { return cfEnv as unknown as Env; }

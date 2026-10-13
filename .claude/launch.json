@@ -1,6 +1,34 @@
 {
   "version": "0.0.1",
   "configurations": [
-    { "name": "web", "runtimeExecutable": "npm", "runtimeArgs": ["--prefix", "web", "run", "serve"], "port": 8788 }
+    {
+      "name": "web",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": [
+        "--prefix",
+        "web",
+        "run",
+        "serve"
+      ],
+      "port": 8788
+    },
+    {
+      "name": "web-stub",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": [
+        "--prefix",
+        "web",
+        "run",
+        "serve",
+        "--",
+        "--var",
+        "PAYMENT_MODE:stub",
+        "--var",
+        "ORDERING:open",
+        "--var",
+        "TAGADA_ENV:test"
+      ],
+      "port": 8788
+    }
   ]
 }

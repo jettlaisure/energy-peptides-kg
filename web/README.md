@@ -80,6 +80,20 @@ npx wrangler secret put ALERT_EMAIL_TO       # … to this address (ALERT_EMAIL_
 With neither set, alerts only appear in the worker log (`npx wrangler tail`). The message never carries the customer's
 name or email, only order id, lines, total and city/state/zip.
 
+## Membership status (Navy, Graphite, Black)
+Levels, thresholds and discounts live in `../site.yaml` (`membership`); rules in `src/lib/membership-rules.ts`
+(tests: `node --test tests/membership.test.ts`), server side in `src/server/membership.ts`. Status is calculated from paid
+orders in D1. Member pricing applies only after the buyer confirms an emailed 6-digit code on that device (remembered 90
+days), and the checkout API re-checks it, so the browser can never set its own price. Every Slack order alert shows the
+level and label colour, and a tier-up order says to add the card. Codes need Resend:
+```bash
+npx wrangler secret put RESEND_API_KEY        # Resend account, with energypeptides.us verified as a sending domain
+npx wrangler secret put MEMBER_EMAIL_FROM     # optional; default 'Energy Peptides <codes@energypeptides.us>'
+```
+Until it is set, checkout hides the code step and everyone pays Navy prices; status and tier-up alerts still work.
+Local test mode (`web-stub` in `.claude/launch.json`, built with `PUBLIC_PAYMENT_MODE=stub`) shows the code on screen.
+Databases created before 2026-10-13 need `migrations/2026-10-13-membership.sql` once (applied to production 2026-10-13).
+
 ## Payment paths
 `src/server/payments/stub.ts` (test) and `src/server/payments/tagada.ts` (Kashu / TagadaPay direct S2S:
 create-from-token → optional 3DS → process). Selection is by `PAYMENT_MODE`. Webhook verification accepts both

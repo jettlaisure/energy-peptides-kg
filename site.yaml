@@ -14,4 +14,13 @@ free_shipping_over_usd: 150
 ships_to: US only
 jit_ships_line: "Ships within 1 business day"   # just-in-time SKUs: the kit is collected from the supplier when the order lands, per Jett 2026-10-09
 testing_line: "Products marked 'Lot tested' have a certificate of analysis from an independent laboratory on file for the lot on sale. Certificates are available on request."
+# Membership status (Jett, 2026-10-13; see the "Membership Status Program" doc). Spend = paid product total after
+# member discount over a rolling 12 months; shipping and refunded orders excluded. A level holds 12 months after it is
+# reached; at most one level is lost per year. Member pricing needs an emailed code once per device (90 days).
+membership:
+  levels:
+    - {name: Navy, min_usd: 0, discount_pct: 0, free_shipping: false}
+    - {name: Graphite, min_usd: 500, discount_pct: 10, free_shipping: true}
+    - {name: Black, min_usd: 1500, discount_pct: 15, free_shipping: true}
+  device_days: 90
 us_labs: [Freedom Diagnostics]   # certificate labs that support CL-25 ('Tested by an independent US laboratory')

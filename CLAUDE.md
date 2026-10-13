@@ -27,6 +27,8 @@ This repo is the company's memory and its playbook. Read this file, then use the
 - Orders live in Cloudflare D1, not the graph. `kg orders pull [--remote] --apply` writes `sold` ledger events;
   `.github/workflows/ledger.yml` does it every 2 hours, commits as `energy-peptides-ledger` and redeploys. `git pull` before
   editing `seeds/06_inventory_events.yaml`.
+- Membership status: Navy / Graphite ($500) / Black ($1,500) over 12 months, 10% / 15% off; config in `site.yaml`, see
+  `web/README.md`. Label and card colour mark status only; never imply better contents at a higher level.
 - Just-in-time SKUs (`fulfilment: just_in_time`, cap: kit cost minus one sale ≤ $120) sell at zero on hand; a paid order
   alerts the owner (`web/src/server/alerts.ts`) to buy the kit at Monārch, record the lot with `/inventory`, then ship.
 - Brand: `inbox/brand.html` is the authoritative Brand Reference v1.0; tokens in `web/src/styles/tokens.css`, rules in

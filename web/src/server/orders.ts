@@ -3,6 +3,7 @@ export interface NewOrder {
   id: string; email: string; firstName: string; lastName: string; shipping: Record<string, string>;
   items: { sku: string; name: string; quantity: number; unitCents: number }[];
   subtotalCents: number; shippingCents: number; totalCents: number; paymentMode: string;
+  discountCents?: number; memberLevel?: string;   // membership pricing (subtotal is before the discount)
 }
 export function newOrderId(): string {
   const t = Date.now().toString(36).toUpperCase();
@@ -12,9 +13,9 @@ export function newOrderId(): string {
 export async function createOrder(db: D1Database, o: NewOrder): Promise<void> {
   const now = new Date().toISOString();
   const stmts = [
-    db.prepare(`INSERT INTO orders (id, created_at, status, email, first_name, last_name, shipping_json, subtotal_cents, shipping_cents, total_cents, currency, attestation_at, payment_mode)
-                VALUES (?, ?, 'pending', ?, ?, ?, ?, ?, ?, ?, 'USD', ?, ?)`)
-      .bind(o.id, now, o.email, o.firstName, o.lastName, JSON.stringify(o.shipping), o.subtotalCents, o.shippingCents, o.totalCents, now, o.paymentMode),
+    db.prepare(`INSERT INTO orders (id, created_at, status, email, first_name, last_name, shipping_json, subtotal_cents, shipping_cents, total_cents, currency, attestation_at, payment_mode, discount_cents, member_level)
+                VALUES (?, ?, 'pending', ?, ?, ?, ?, ?, ?, ?, 'USD', ?, ?, ?, ?)`)
+      .bind(o.id, now, o.email, o.firstName, o.lastName, JSON.stringify(o.shipping), o.subtotalCents, o.shippingCents, o.totalCents, now, o.paymentMode, o.discountCents ?? 0, o.memberLevel ?? null),
     ...o.items.map((it) => db.prepare(`INSERT INTO order_items (order_id, sku, name, quantity, unit_cents) VALUES (?, ?, ?, ?, ?)`).bind(o.id, it.sku, it.name, it.quantity, it.unitCents)),
   ];
   await db.batch(stmts);
@@ -43,8 +44,8 @@ export async function recordWebhookEvent(db: D1Database, id: string, type: strin
   return (r.meta.changes ?? 0) > 0;   // false = duplicate delivery
 }
 export async function orderSummary(db: D1Database, id: string) {
-  return db.prepare(`SELECT id, status, created_at, total_cents, shipping_json FROM orders WHERE id = ?`).bind(id)
-    .first<{ id: string; status: string; created_at: string; total_cents: number; shipping_json: string }>();
+  return db.prepare(`SELECT id, status, created_at, total_cents, shipping_json, email, member_level FROM orders WHERE id = ?`).bind(id)
+    .first<{ id: string; status: string; created_at: string; total_cents: number; shipping_json: string; email: string; member_level: string | null }>();
 }
 export async function orderLines(db: D1Database, id: string): Promise<{ sku: string; name: string; quantity: number }[]> {
   const r = await db.prepare(`SELECT sku, name, quantity FROM order_items WHERE order_id = ?`).bind(id).all<{ sku: string; name: string; quantity: number }>();

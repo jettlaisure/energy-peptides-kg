@@ -10,6 +10,7 @@
 import type { Env } from './env';
 import { productsBySku, catalog } from '../lib/catalog';
 import { orderLines, orderSummary, recordAlert, soldSince } from './orders';
+import { statusFor } from './membership';
 
 export interface AlertLine { sku: string; name: string; quantity: number; pickup: boolean; shortfall: number }
 
@@ -40,14 +41,21 @@ export async function alertOrderPaid(env: Env, orderId: string): Promise<void> {
     const vials = lines.reduce((n, l) => n + l.quantity, 0);
     let ship: Record<string, string> = {};
     try { ship = JSON.parse(o.shipping_json); } catch { /* keep empty */ }
-    const title = pickups.length
+    // Membership: level after this order, and whether this order lifted the customer to it (card + new label colour).
+    const after = await statusFor(env.DB, o.email);
+    const before = await statusFor(env.DB, o.email, orderId, new Date(o.created_at));
+    const tierUp = after.level > before.level;
+    const label = after.name.toLowerCase();
+    const title = (tierUp ? `Tier up: ${after.name} · ` : '') + (pickups.length
       ? `Pickup needed: ${pickups.map((l) => l.name).join(', ')} · order ${orderId}`
-      : `Order ${orderId} paid · ship ${vials} vial${vials === 1 ? '' : 's'}`;
+      : `Order ${orderId} paid · ship ${vials} vial${vials === 1 ? '' : 's'}`);
     const body = [
       `Order ${orderId} · $${(o.total_cents / 100).toFixed(2)} · ${o.created_at.replace('T', ' ').slice(0, 16)} UTC`,
       ...pickups.map((l) => `PICKUP (just-in-time, ${l.shortfall} short): ${l.name} ×${l.quantity} → buy a kit at Monārch, record the lot with /inventory, then ship`),
       ...lines.filter((l) => !l.pickup).map((l) => `Ship from stock: ${l.name} ×${l.quantity}`),
       `Ship to: ${[ship.city, ship.state, ship.postalCode].filter(Boolean).join(' ')}`,
+      `Status: ${after.name}${o.member_level && o.member_level !== 'Navy' ? ` (priced at ${o.member_level})` : ''} · pack ${label} labels`
+        + (tierUp ? ` · ADD THE ${after.name.toUpperCase()} CARD` : ''),
     ].join('\n');
     const sent = await Promise.all([sendSlack(env, title, body, pickups.length > 0), sendNtfy(env, title, body, pickups.length > 0), sendEmail(env, title, body)]);
     if (!sent.some(Boolean)) console.log(`[alert] no channel configured\n${title}\n${body}`);

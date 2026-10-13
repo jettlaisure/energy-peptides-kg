@@ -54,6 +54,8 @@ p { margin: 0; }
 .paper .btn-primary:hover { color: var(--paper-text); border-color: var(--paper-text); }
 .btn-secondary { background: transparent; border-color: var(--gold); color: var(--gold-hi); }
 .btn-secondary:hover { border-color: var(--gold-hi); }
+.paper .btn-secondary { color: var(--gold-ink); border-color: var(--gold-ink); }   /* gold text on light = Gold Ink only (BR-COLOUR) */
+.paper .btn-secondary:hover { color: var(--paper-text); border-color: var(--paper-text); }
 .btn-quiet { background: transparent; color: var(--steel); padding-inline: 0; text-decoration: underline; text-decoration-color: var(--rule); text-underline-offset: 5px; }
 .btn-quiet:hover { color: var(--text); text-decoration-color: var(--steel); }
 .btn[disabled], .btn[aria-disabled="true"] { opacity: .45; cursor: not-allowed; box-shadow: none; }

@@ -1,0 +1,40 @@
+---
+import Policy from '../layouts/Policy.astro';
+import { site } from '../lib/catalog';
+const levels: { name: string; min_usd: number; discount_pct: number; free_shipping: boolean }[] = (site as any).membership.levels;
+const usd = (n: number) => `$${n.toLocaleString('en-US')}`;
+---
+<Policy title="Membership status" description={`How ${site.brand} membership status works: Navy, Graphite and Black, earned by what you order over 12 months. No sign-up and no fee.`}>
+<p>Every customer earns status from what they order over a rolling 12 months. There is no sign-up, no application and no fee: reaching the spend is the only requirement.</p>
+
+<h2>The levels</h2>
+<table>
+  <thead><tr><th scope="col">Level</th><th scope="col">Spend in 12 months</th><th scope="col">Pricing</th><th scope="col">Shipping</th></tr></thead>
+  <tbody>
+    {levels.map((l) => (
+      <tr>
+        <th scope="row">{l.name}</th>
+        <td>{l.min_usd === 0 ? 'Any order' : usd(l.min_usd)}</td>
+        <td>{l.discount_pct ? `${l.discount_pct}% off every order` : 'Standard'}</td>
+        <td>{l.free_shipping ? 'Free on every order' : `Free over ${usd(site.free_shipping_over_usd)}`}</td>
+      </tr>
+    ))}
+  </tbody>
+</table>
+<p>Black members' in-stock orders ship the same business day, and Black members hear about new products first.</p>
+
+<h2>How status is counted</h2>
+<ul>
+<li><strong>What counts.</strong> The product total of paid orders, after any member pricing. Shipping, tax and refunded orders do not count.</li>
+<li><strong>Moving up.</strong> You move up the moment your 12-month total reaches a level. The order that crosses the line counts.</li>
+<li><strong>Keeping it.</strong> A level holds for 12 months after you reach it, whatever you order in that time.</li>
+<li><strong>Afterwards.</strong> Status is recalculated when the 12 months end, and drops by at most one level a year.</li>
+<li><strong>Your email is your account.</strong> Status follows the email used at checkout. To merge two addresses, write to <a href={`mailto:${site.contact_email}`}>{site.contact_email}</a>.</li>
+</ul>
+
+<h2>Seeing your status at checkout</h2>
+<p>Enter your email at checkout and choose <em>Email me a code</em>. Once you confirm the code, checkout shows your level, your member pricing and how far you are from the next level. Your device is remembered for 90 days. The code keeps member pricing tied to the person who earned it.</p>
+
+<h2>The same products at every level</h2>
+<p>Members' orders ship with vial labels and a card in the colour of their level. The colour marks membership status only: the compound, the lot and its documentation are the same at every level. Every product is supplied for laboratory research use only.</p>
+</Policy>

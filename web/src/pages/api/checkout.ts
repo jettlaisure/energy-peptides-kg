@@ -6,11 +6,13 @@ import { paymentAdapter } from '../../server/payments';
 import { createOrder, newOrderId, setOrderPayment, soldSince } from '../../server/orders';
 import { orderingOpen } from '../../server/ordering';
 import { alertOrderPaid } from '../../server/alerts';
+import { COOKIE, LEVELS, statusFor, verifiedEmail } from '../../server/membership';
+import { price } from '../../lib/membership-rules';
 
 const json = (data: unknown, status = 200) => new Response(JSON.stringify(data), { status, headers: { 'content-type': 'application/json' } });
 const email = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-export const POST: APIRoute = async ({ request, url }) => {
+export const POST: APIRoute = async ({ request, url, cookies }) => {
   const env = getEnv();
   // Checked before anything else: a sandbox processor approves every card and charges nothing, so
   // until the live store is attached no order may be recorded, whatever a stale page posts here.
@@ -43,8 +45,11 @@ export const POST: APIRoute = async ({ request, url }) => {
     lines.push({ sku: p.sku, name: p.name, quantity: qty, unitCents: unit });
     subtotal += unit * qty;
   }
-  const ship = shippingCents(subtotal);
-  const total = subtotal + ship;
+  // Member pricing only when this device is verified for the checkout email (see server/membership.ts).
+  const buyer = c.email.trim().toLowerCase();
+  const member = (await verifiedEmail(env.DB, cookies.get(COOKIE)?.value)) === buyer ? await statusFor(env.DB, buyer) : null;
+  const level = member?.level ?? 0;
+  const { discount, shipping: ship, total } = price(LEVELS, level, subtotal, shippingCents);
 
   // ---- record, then charge ----
   const orderId = newOrderId();
@@ -53,6 +58,7 @@ export const POST: APIRoute = async ({ request, url }) => {
     id: orderId, email: c.email.trim().toLowerCase(), firstName: c.firstName.trim(), lastName: c.lastName.trim(),
     shipping: { organization: s.organization ?? '', line1: s.line1, line2: s.line2 ?? '', city: s.city, state: s.state, postalCode: s.postalCode, country: 'US', phone: c.phone ?? '' },
     items: lines, subtotalCents: subtotal, shippingCents: ship, totalCents: total, paymentMode: adapter.mode,
+    discountCents: discount, memberLevel: LEVELS[level].name,
   });
   const result = await adapter.charge({
     orderId, amountCents: total, currency: 'USD', tagadaToken: String(body.tagadaToken ?? ''), scaRequired: Boolean(body.scaRequired),

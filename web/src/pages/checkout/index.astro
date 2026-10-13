@@ -21,6 +21,18 @@ const states = ['AL','AK','AZ','AR','CA','CO','CT','DE','DC','FL','GA','HI','ID'
         <fieldset class="stack">
           <legend class="t-sub">Contact</legend>
           <div class="field"><label for="email">Email</label><input id="email" name="email" type="email" autocomplete="email" required /><span class="hint">Your order confirmation goes here.</span></div>
+          <div class="member" data-member>
+            <p class="member-line" data-member-line>Member status: Graphite at $500 and Black at $1,500 spent in 12 months. <a href="/membership/" target="_blank" rel="noopener">How status works</a></p>
+            <div class="member-verify" data-member-verify>
+              <p class="hint">Ordered before? Confirm your email to see your status and member pricing.</p>
+              <div class="member-row">
+                <button class="btn btn-secondary" type="button" data-member-send>Email me a code</button>
+                <input class="member-code" data-member-code inputmode="numeric" autocomplete="one-time-code" maxlength="6" placeholder="6-digit code" aria-label="Verification code" hidden />
+                <button class="btn btn-secondary" type="button" data-member-check hidden>Confirm</button>
+              </div>
+              <p class="hint" data-member-msg role="status" aria-live="polite"></p>
+            </div>
+          </div>
           <div class="grid-2">
             <div class="field"><label for="firstName">First name</label><input id="firstName" name="firstName" autocomplete="given-name" required /></div>
             <div class="field"><label for="lastName">Last name</label><input id="lastName" name="lastName" autocomplete="family-name" required /></div>
@@ -64,6 +76,7 @@ const states = ['AL','AK','AZ','AR','CA','CO','CT','DE','DC','FL','GA','HI','ID'
         <p class="eyebrow">Order summary</p>
         <ul data-summary-lines class="sum-lines"></ul>
         <div class="tot"><span class="dim">Subtotal</span><span class="value" data-subtotal></span></div>
+        <div class="tot" data-discount-row hidden><span class="dim" data-discount-label>Member pricing</span><span class="value" data-discount></span></div>
         <div class="tot"><span class="dim">Shipping <span class="faint">({site.shipping_method})</span></span><span class="value" data-ship></span></div>
         <div class="tot"><span class="dim">Sales tax</span><span class="faint t-small">on invoice</span></div>
         <div class="tot grand"><span>Total</span><span class="value" data-total></span></div>
@@ -84,10 +97,66 @@ const states = ['AL','AK','AZ','AR','CA','CO','CT','DE','DC','FL','GA','HI','ID'
   const ul = form.querySelector('[data-summary-lines]')!;
   let subtotal = 0;
   for (const l of lines) { const c = bySku.get(l.sku)!; subtotal += c.price * l.qty; const li = document.createElement('li'); li.innerHTML = `<span><span class="name">${c.name}</span> <span class="dim">× ${l.qty}</span></span><span class="value">${fmt(c.price * l.qty)}</span>`; ul.appendChild(li); }
-  const ship = subtotal >= Number(form.dataset.free) ? 0 : Number(form.dataset.shipping);
-  form.querySelector('[data-subtotal]')!.textContent = fmt(subtotal);
-  form.querySelector('[data-ship]')!.textContent = ship === 0 ? 'Free' : fmt(ship);
-  form.querySelector('[data-total]')!.textContent = fmt(subtotal + ship);
+  // Member pricing shown here mirrors the server, which re-checks it at /api/checkout (the server's price is charged).
+  let member: { level: string; discountPct: number; freeShipping: boolean } | null = null;
+  const render = () => {
+    const pct = member?.discountPct ?? 0;
+    const discount = Math.round((subtotal * pct) / 100), net = subtotal - discount;
+    const ship = member?.freeShipping ? 0 : net >= Number(form.dataset.free) ? 0 : Number(form.dataset.shipping);
+    form.querySelector('[data-subtotal]')!.textContent = fmt(subtotal);
+    const row = form.querySelector<HTMLElement>('[data-discount-row]')!;
+    row.hidden = discount === 0;
+    form.querySelector('[data-discount-label]')!.textContent = `${member?.level ?? 'Member'} pricing (${pct}% off)`;
+    form.querySelector('[data-discount]')!.textContent = `−${fmt(discount)}`;
+    form.querySelector('[data-ship]')!.textContent = ship === 0 ? 'Free' : fmt(ship);
+    form.querySelector('[data-total]')!.textContent = fmt(net + ship);
+  };
+  render();
+
+  // ---- membership status (see /membership/) ----
+  const emailEl = form.querySelector<HTMLInputElement>('#email')!;
+  const lineEl = form.querySelector<HTMLElement>('[data-member-line]')!;
+  const verifyEl = form.querySelector<HTMLElement>('[data-member-verify]')!;
+  const sendBtn = form.querySelector<HTMLButtonElement>('[data-member-send]')!;
+  const codeEl = form.querySelector<HTMLInputElement>('[data-member-code]')!;
+  const checkBtn = form.querySelector<HTMLButtonElement>('[data-member-check]')!;
+  const msgEl = form.querySelector<HTMLElement>('[data-member-msg]')!;
+  const genericLine = lineEl.innerHTML;
+  let canVerify = true;   // false when the server cannot send codes (no email service configured)
+  const post = (path: string, body: unknown) => fetch(path, { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify(body) }).then(async (r) => ({ ok: r.ok, data: await r.json().catch(() => ({})) }));
+  const validEmail = () => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailEl.value.trim());
+  const refreshStatus = async () => {
+    member = null;
+    if (!validEmail()) { lineEl.innerHTML = genericLine; verifyEl.hidden = !canVerify; render(); return; }
+    const { data } = await post('/api/member/status', { email: emailEl.value.trim(), cartCents: subtotal }).catch(() => ({ data: {} as any }));
+    if (data.verified) {
+      member = { level: data.level, discountPct: data.discountPct, freeShipping: data.freeShipping };
+      lineEl.textContent = data.line; verifyEl.hidden = true;
+    } else { if (data.canVerify === false) canVerify = false; lineEl.innerHTML = genericLine; verifyEl.hidden = !canVerify; }
+    render();
+  };
+  emailEl.addEventListener('change', refreshStatus);
+  if (emailEl.value) refreshStatus();
+  else post('/api/member/status', { email: '' }).then(({ data }) => { if (data.canVerify === false) { canVerify = false; verifyEl.hidden = true; } }).catch(() => {});
+  sendBtn.addEventListener('click', async () => {
+    if (!validEmail()) { msgEl.textContent = 'Enter your email above first.'; emailEl.focus(); return; }
+    sendBtn.disabled = true; msgEl.textContent = 'Sending…';
+    const { ok, data } = await post('/api/member/code', { email: emailEl.value.trim() }).catch(() => ({ ok: false, data: {} as any }));
+    sendBtn.disabled = false;
+    if (!ok) { msgEl.textContent = data.error ?? 'The code could not be sent.'; return; }
+    codeEl.hidden = false; checkBtn.hidden = false; sendBtn.textContent = 'Send again'; codeEl.focus();
+    msgEl.textContent = data.devCode ? `Test mode: your code is ${data.devCode}.` : `Code sent to ${emailEl.value.trim()}. It expires in 10 minutes.`;
+  });
+  const confirmCode = async () => {
+    checkBtn.disabled = true;
+    const { ok, data } = await post('/api/member/verify', { email: emailEl.value.trim(), code: codeEl.value.trim() }).catch(() => ({ ok: false, data: {} as any }));
+    checkBtn.disabled = false;
+    if (!ok) { msgEl.textContent = data.error ?? 'That code could not be checked.'; return; }
+    msgEl.textContent = ''; codeEl.value = '';
+    await refreshStatus();
+  };
+  checkBtn.addEventListener('click', confirmCode);
+  codeEl.addEventListener('keydown', (e) => { if (e.key === 'Enter') { e.preventDefault(); confirmCode(); } });
   const submit = form.querySelector<HTMLButtonElement>('[data-submit]')!;
   const errEl = form.querySelector<HTMLElement>('[data-error]')!;
   if (lines.length === 0) { submit.disabled = true; errEl.hidden = false; errEl.textContent = 'Your cart is empty.'; }
@@ -138,6 +207,14 @@ const states = ['AL','AK','AZ','AR','CA','CO','CT','DE','DC','FL','GA','HI','ID'
   legend { margin-bottom: 20px; padding: 0; max-width: 100%; color: var(--paper-text); font-size: 24px; font-weight: 500; letter-spacing: -.025em; line-height: 1.3; }
   legend .dim { font-size: 14px; letter-spacing: 0; }
   .hint { font-size: 12px; line-height: 1.65; color: var(--paper-dim); }
+  .member { display: grid; gap: 12px; padding: 16px; border: 1px solid var(--paper-rule); border-radius: 4px; }
+  .member-line { font-size: 14px; line-height: 1.6; color: var(--paper-text); }
+  .member-line a { color: inherit; text-decoration: underline; text-decoration-color: var(--paper-rule); text-underline-offset: 3px; white-space: nowrap; }
+  .member-line a:hover { color: var(--gold-ink); text-decoration-color: currentColor; }
+  .member-verify { display: grid; gap: 8px; }
+  .member-verify[hidden] { display: none; }
+  .member-row { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+  .member-code { width: 9em; letter-spacing: .2em; font-variant-numeric: tabular-nums; }
   .check { display: flex; gap: var(--s3); align-items: start; font-size: 14px; color: var(--paper-text); }
   .check input { margin: 3px 0 0; width: 18px; height: 18px; flex: 0 0 18px; accent-color: var(--navy); }
   .check span { min-width: 0; line-height: 1.7; }
