@@ -1,0 +1,1061 @@
+{
+  "revision": "approved-uncircled-print-v3",
+  "labels": [
+    {
+      "sku": "BPC-157-10mg",
+      "product": "BPC-157",
+      "amount": "10 mg",
+      "tier": "graphite",
+      "status": "catalog",
+      "trim_mm": [
+        40,
+        20
+      ],
+      "bleed_mm": 1,
+      "file": "graphite/BPC-157-10mg_graphite.pdf",
+      "svg": "graphite/BPC-157-10mg_graphite.svg",
+      "preview": "graphite/BPC-157-10mg_graphite.png",
+      "sha256": "27a3a8826258190fee63405ccb11d135af84c9e2f154e271eda9d80a04c81c17"
+    },
+    {
+      "sku": "BPC-157-10mg",
+      "product": "BPC-157",
+      "amount": "10 mg",
+      "tier": "black",
+      "status": "catalog",
+      "trim_mm": [
+        40,
+        20
+      ],
+      "bleed_mm": 1,
+      "file": "black/BPC-157-10mg_black.pdf",
+      "svg": "black/BPC-157-10mg_black.svg",
+      "preview": "black/BPC-157-10mg_black.png",
+      "sha256": "fd4ce400d818f7a2b7d5594771ef667a2ed9924e936d968cfd2f21b28f072ae7"
+    },
+    {
+      "sku": "BPC-157-10mg",
+      "product": "BPC-157",
+      "amount": "10 mg",
+      "tier": "navy",
+      "status": "catalog",
+      "trim_mm": [
+        40,
+        20
+      ],
+      "bleed_mm": 1,
+      "file": "navy/BPC-157-10mg_navy.pdf",
+      "svg": "navy/BPC-157-10mg_navy.svg",
+      "preview": "navy/BPC-157-10mg_navy.png",
+      "sha256": "90645312c69438cf1567bc1b01ed5f8402a655b974a5dbe708fcd6c1700d620e"
+    },
+    {
+      "sku": "BPC-157-TB-500-20mg",
+      "product": "BPC-157 + TB-500",
+      "amount": "20 mg (10+10)",
+      "tier": "graphite",
+      "status": "catalog",
+      "trim_mm": [
+        40,
+        20
+      ],
+      "bleed_mm": 1,
+      "file": "graphite/BPC-157-TB-500-20mg_graphite.pdf",
+      "svg": "graphite/BPC-157-TB-500-20mg_graphite.svg",
+      "preview": "graphite/BPC-157-TB-500-20mg_graphite.png",
+      "sha256": "c222adde9099cfbaede2cdf8807785b762fd31919f67f19c7091d23e74747102"
+    },
+    {
+      "sku": "BPC-157-TB-500-20mg",
+      "product": "BPC-157 + TB-500",
+      "amount": "20 mg (10+10)",
+      "tier": "black",
+      "status": "catalog",
+      "trim_mm": [
+        40,
+        20
+      ],
+      "bleed_mm": 1,
+      "file": "black/BPC-157-TB-500-20mg_black.pdf",
+      "svg": "black/BPC-157-TB-500-20mg_black.svg",
+      "preview": "black/BPC-157-TB-500-20mg_black.png",
+      "sha256": "fb2153d9affbc91fd457909626caee15e3e8917cfa1e718aee37aac17f7797e3"
+    },
+    {
+      "sku": "BPC-157-TB-500-20mg",
+      "product": "BPC-157 + TB-500",
+      "amount": "20 mg (10+10)",
+      "tier": "navy",
+      "status": "catalog",
+      "trim_mm": [
+        40,
+        20
+      ],
+      "bleed_mm": 1,
+      "file": "navy/BPC-157-TB-500-20mg_navy.pdf",
+      "svg": "navy/BPC-157-TB-500-20mg_navy.svg",
+      "preview": "navy/BPC-157-TB-500-20mg_navy.png",
+      "sha256": "4a72aea005d41607efe7af528f24d7aeac2b39b12034cb594b6d48248eaaf11a"
+    },
+    {
+      "sku": "GHK-Cu-50mg",
+      "product": "GHK-Cu",
+      "amount": "50 mg",
+      "tier": "graphite",
+      "status": "catalog",
+      "trim_mm": [
+        40,
+        20
+      ],
+      "bleed_mm": 1,
+      "file": "graphite/GHK-Cu-50mg_graphite.pdf",
+      "svg": "graphite/GHK-Cu-50mg_graphite.svg",
+      "preview": "graphite/GHK-Cu-50mg_graphite.png",
+      "sha256": "0852e03ef1026a4a859ff0d133efc2863e3b21950c85f92b2602f628887ee38a"
+    },
+    {
+      "sku": "GHK-Cu-50mg",
+      "product": "GHK-Cu",
+      "amount": "50 mg",
+      "tier": "black",
+      "status": "catalog",
+      "trim_mm": [
+        40,
+        20
+      ],
+      "bleed_mm": 1,
+      "file": "black/GHK-Cu-50mg_black.pdf",
+      "svg": "black/GHK-Cu-50mg_black.svg",
+      "preview": "black/GHK-Cu-50mg_black.png",
+      "sha256": "46c68d4fc851d9704c4b5b10c6d1b6d99c25676201045d53ae416a58c020cca6"
+    },
+    {
+      "sku": "GHK-Cu-50mg",
+      "product": "GHK-Cu",
+      "amount": "50 mg",
+      "tier": "navy",
+      "status": "catalog",
+      "trim_mm": [
+        40,
+        20
+      ],
+      "bleed_mm": 1,
+      "file": "navy/GHK-Cu-50mg_navy.pdf",
+      "svg": "navy/GHK-Cu-50mg_navy.svg",
+      "preview": "navy/GHK-Cu-50mg_navy.png",
+      "sha256": "a843ca104fc9beee7fb57159cc663bc4aab1f80ec79f4b11ea13897140da8e97"
+    },
+    {
+      "sku": "GHK-Cu-100mg",
+      "product": "GHK-Cu",
+      "amount": "100 mg",
+      "tier": "graphite",
+      "status": "catalog",
+      "trim_mm": [
+        40,
+        20
+      ],
+      "bleed_mm": 1,
+      "file": "graphite/GHK-Cu-100mg_graphite.pdf",
+      "svg": "graphite/GHK-Cu-100mg_graphite.svg",
+      "preview": "graphite/GHK-Cu-100mg_graphite.png",
+      "sha256": "677576e75834bc9a802bc9a68ee1a483ac36c5d20e0f0453317504268af1cc4c"
+    },
+    {
+      "sku": "GHK-Cu-100mg",
+      "product": "GHK-Cu",
+      "amount": "100 mg",
+      "tier": "black",
+      "status": "catalog",
+      "trim_mm": [
+        40,
+        20
+      ],
+      "bleed_mm": 1,
+      "file": "black/GHK-Cu-100mg_black.pdf",
+      "svg": "black/GHK-Cu-100mg_black.svg",
+      "preview": "black/GHK-Cu-100mg_black.png",
+      "sha256": "ac69e6f901076b8fe6007f75384be4cbd1c9283f322fa4d7d428067db79ba3e1"
+    },
+    {
+      "sku": "GHK-Cu-100mg",
+      "product": "GHK-Cu",
+      "amount": "100 mg",
+      "tier": "navy",
+      "status": "catalog",
+      "trim_mm": [
+        40,
+        20
+      ],
+      "bleed_mm": 1,
+      "file": "navy/GHK-Cu-100mg_navy.pdf",
+      "svg": "navy/GHK-Cu-100mg_navy.svg",
+      "preview": "navy/GHK-Cu-100mg_navy.png",
+      "sha256": "02f94b9a78d8bd8c12e73b3aeb78f9cbf460df9de095b66d48666045c02dadce"
+    },
+    {
+      "sku": "GLOW-70mg",
+      "product": "GLOW",
+      "amount": "70 mg",
+      "tier": "graphite",
+      "status": "draft",
+      "trim_mm": [
+        40,
+        20
+      ],
+      "bleed_mm": 1,
+      "file": "graphite/GLOW-70mg_graphite.pdf",
+      "svg": "graphite/GLOW-70mg_graphite.svg",
+      "preview": "graphite/GLOW-70mg_graphite.png",
+      "sha256": "52e4faf51266f085f262cd7687288a18890918969d4241ba164cfc5896b9da07"
+    },
+    {
+      "sku": "GLOW-70mg",
+      "product": "GLOW",
+      "amount": "70 mg",
+      "tier": "black",
+      "status": "draft",
+      "trim_mm": [
+        40,
+        20
+      ],
+      "bleed_mm": 1,
+      "file": "black/GLOW-70mg_black.pdf",
+      "svg": "black/GLOW-70mg_black.svg",
+      "preview": "black/GLOW-70mg_black.png",
+      "sha256": "a7a54904611c74bdc254b7b02390418e5cfd3608e7f4d8451dd0e9bd32b38821"
+    },
+    {
+      "sku": "GLOW-70mg",
+      "product": "GLOW",
+      "amount": "70 mg",
+      "tier": "navy",
+      "status": "draft",
+      "trim_mm": [
+        40,
+        20
+      ],
+      "bleed_mm": 1,
+      "file": "navy/GLOW-70mg_navy.pdf",
+      "svg": "navy/GLOW-70mg_navy.svg",
+      "preview": "navy/GLOW-70mg_navy.png",
+      "sha256": "4dad5a9e8fcd2001bba053197e75b70c4af7d693a1a41e2b63c7ce6e23f3a60f"
+    },
+    {
+      "sku": "KLOW-80mg",
+      "product": "KLOW",
+      "amount": "80 mg",
+      "tier": "graphite",
+      "status": "catalog",
+      "trim_mm": [
+        40,
+        20
+      ],
+      "bleed_mm": 1,
+      "file": "graphite/KLOW-80mg_graphite.pdf",
+      "svg": "graphite/KLOW-80mg_graphite.svg",
+      "preview": "graphite/KLOW-80mg_graphite.png",
+      "sha256": "190199c672cc9543463dd72e12587420661d5bbe9d01be7f94ebe1e360b7d21c"
+    },
+    {
+      "sku": "KLOW-80mg",
+      "product": "KLOW",
+      "amount": "80 mg",
+      "tier": "black",
+      "status": "catalog",
+      "trim_mm": [
+        40,
+        20
+      ],
+      "bleed_mm": 1,
+      "file": "black/KLOW-80mg_black.pdf",
+      "svg": "black/KLOW-80mg_black.svg",
+      "preview": "black/KLOW-80mg_black.png",
+      "sha256": "efcf7ba13da35a6247b5afafe8b3bd866459c75ca6edd66f1307cf552a4d49e8"
+    },
+    {
+      "sku": "KLOW-80mg",
+      "product": "KLOW",
+      "amount": "80 mg",
+      "tier": "navy",
+      "status": "catalog",
+      "trim_mm": [
+        40,
+        20
+      ],
+      "bleed_mm": 1,
+      "file": "navy/KLOW-80mg_navy.pdf",
+      "svg": "navy/KLOW-80mg_navy.svg",
+      "preview": "navy/KLOW-80mg_navy.png",
+      "sha256": "fbbc3c43000aee0df4c5a06d57f30764d9aa9dc3b47d6ffa27827ed8ee039272"
+    },
+    {
+      "sku": "Ipamorelin-10mg",
+      "product": "IPAMORELIN",
+      "amount": "10 mg",
+      "tier": "graphite",
+      "status": "catalog",
+      "trim_mm": [
+        40,
+        20
+      ],
+      "bleed_mm": 1,
+      "file": "graphite/Ipamorelin-10mg_graphite.pdf",
+      "svg": "graphite/Ipamorelin-10mg_graphite.svg",
+      "preview": "graphite/Ipamorelin-10mg_graphite.png",
+      "sha256": "dbaf25013c1d64f5706fdacdda241b6f33149ea5ebbb07a8d47820a796a04a8c"
+    },
+    {
+      "sku": "Ipamorelin-10mg",
+      "product": "IPAMORELIN",
+      "amount": "10 mg",
+      "tier": "black",
+      "status": "catalog",
+      "trim_mm": [
+        40,
+        20
+      ],
+      "bleed_mm": 1,
+      "file": "black/Ipamorelin-10mg_black.pdf",
+      "svg": "black/Ipamorelin-10mg_black.svg",
+      "preview": "black/Ipamorelin-10mg_black.png",
+      "sha256": "cdf1c4c331d5f2d1e53eae640258f5191e1e79bd76e1d76a4ff37053ff4e6684"
+    },
+    {
+      "sku": "Ipamorelin-10mg",
+      "product": "IPAMORELIN",
+      "amount": "10 mg",
+      "tier": "navy",
+      "status": "catalog",
+      "trim_mm": [
+        40,
+        20
+      ],
+      "bleed_mm": 1,
+      "file": "navy/Ipamorelin-10mg_navy.pdf",
+      "svg": "navy/Ipamorelin-10mg_navy.svg",
+      "preview": "navy/Ipamorelin-10mg_navy.png",
+      "sha256": "2b92697a8fcfe7aee3cc50314ca285316e00ac6e615d1d1f53534362e0a020cd"
+    },
+    {
+      "sku": "KPV-10mg",
+      "product": "KPV",
+      "amount": "10 mg",
+      "tier": "graphite",
+      "status": "catalog",
+      "trim_mm": [
+        40,
+        20
+      ],
+      "bleed_mm": 1,
+      "file": "graphite/KPV-10mg_graphite.pdf",
+      "svg": "graphite/KPV-10mg_graphite.svg",
+      "preview": "graphite/KPV-10mg_graphite.png",
+      "sha256": "bb48ec9d7baee9df72232c9cb7895db90b4576bc85cd91114052ccf23a28c043"
+    },
+    {
+      "sku": "KPV-10mg",
+      "product": "KPV",
+      "amount": "10 mg",
+      "tier": "black",
+      "status": "catalog",
+      "trim_mm": [
+        40,
+        20
+      ],
+      "bleed_mm": 1,
+      "file": "black/KPV-10mg_black.pdf",
+      "svg": "black/KPV-10mg_black.svg",
+      "preview": "black/KPV-10mg_black.png",
+      "sha256": "4bc6bd3ad62440c4887e85b5f101bd7db569366425f00dd49257e3c7ae201305"
+    },
+    {
+      "sku": "KPV-10mg",
+      "product": "KPV",
+      "amount": "10 mg",
+      "tier": "navy",
+      "status": "catalog",
+      "trim_mm": [
+        40,
+        20
+      ],
+      "bleed_mm": 1,
+      "file": "navy/KPV-10mg_navy.pdf",
+      "svg": "navy/KPV-10mg_navy.svg",
+      "preview": "navy/KPV-10mg_navy.png",
+      "sha256": "9c8eb38d7281c88b24813d7cb0f18266e78e97d9f0d0eca34f37ad16dd6f9093"
+    },
+    {
+      "sku": "MOTS-c-10mg",
+      "product": "MOTS-c",
+      "amount": "10 mg",
+      "tier": "graphite",
+      "status": "catalog",
+      "trim_mm": [
+        40,
+        20
+      ],
+      "bleed_mm": 1,
+      "file": "graphite/MOTS-c-10mg_graphite.pdf",
+      "svg": "graphite/MOTS-c-10mg_graphite.svg",
+      "preview": "graphite/MOTS-c-10mg_graphite.png",
+      "sha256": "8f867630d9c65614677928dab6c12040321c67fffee3a8618714fbcfd5479900"
+    },
+    {
+      "sku": "MOTS-c-10mg",
+      "product": "MOTS-c",
+      "amount": "10 mg",
+      "tier": "black",
+      "status": "catalog",
+      "trim_mm": [
+        40,
+        20
+      ],
+      "bleed_mm": 1,
+      "file": "black/MOTS-c-10mg_black.pdf",
+      "svg": "black/MOTS-c-10mg_black.svg",
+      "preview": "black/MOTS-c-10mg_black.png",
+      "sha256": "17d17baf7e68569c441587bda543eae8b9813d63138a464055764ee41ae2ebf2"
+    },
+    {
+      "sku": "MOTS-c-10mg",
+      "product": "MOTS-c",
+      "amount": "10 mg",
+      "tier": "navy",
+      "status": "catalog",
+      "trim_mm": [
+        40,
+        20
+      ],
+      "bleed_mm": 1,
+      "file": "navy/MOTS-c-10mg_navy.pdf",
+      "svg": "navy/MOTS-c-10mg_navy.svg",
+      "preview": "navy/MOTS-c-10mg_navy.png",
+      "sha256": "6276e1b97c604f58c9ff912abf19735ad9665591c3087f6899171959086b4d3f"
+    },
+    {
+      "sku": "Melanotan-1-10mg",
+      "product": "MELANOTAN I",
+      "amount": "10 mg",
+      "tier": "graphite",
+      "status": "catalog",
+      "trim_mm": [
+        40,
+        20
+      ],
+      "bleed_mm": 1,
+      "file": "graphite/Melanotan-1-10mg_graphite.pdf",
+      "svg": "graphite/Melanotan-1-10mg_graphite.svg",
+      "preview": "graphite/Melanotan-1-10mg_graphite.png",
+      "sha256": "8248b0c3d2de0414122db949004e025153fde414bdf64206b7a6fba185a17e76"
+    },
+    {
+      "sku": "Melanotan-1-10mg",
+      "product": "MELANOTAN I",
+      "amount": "10 mg",
+      "tier": "black",
+      "status": "catalog",
+      "trim_mm": [
+        40,
+        20
+      ],
+      "bleed_mm": 1,
+      "file": "black/Melanotan-1-10mg_black.pdf",
+      "svg": "black/Melanotan-1-10mg_black.svg",
+      "preview": "black/Melanotan-1-10mg_black.png",
+      "sha256": "3d0aa7a7f7ff196f000bb37b1e503d213b2986c46fe0120368dd5be06354992e"
+    },
+    {
+      "sku": "Melanotan-1-10mg",
+      "product": "MELANOTAN I",
+      "amount": "10 mg",
+      "tier": "navy",
+      "status": "catalog",
+      "trim_mm": [
+        40,
+        20
+      ],
+      "bleed_mm": 1,
+      "file": "navy/Melanotan-1-10mg_navy.pdf",
+      "svg": "navy/Melanotan-1-10mg_navy.svg",
+      "preview": "navy/Melanotan-1-10mg_navy.png",
+      "sha256": "e1cec0875bcbc7a6e469d329a31e283dfea93069e894ceef4068ace33298b78d"
+    },
+    {
+      "sku": "Melanotan-2-10mg",
+      "product": "MELANOTAN II",
+      "amount": "10 mg",
+      "tier": "graphite",
+      "status": "catalog",
+      "trim_mm": [
+        40,
+        20
+      ],
+      "bleed_mm": 1,
+      "file": "graphite/Melanotan-2-10mg_graphite.pdf",
+      "svg": "graphite/Melanotan-2-10mg_graphite.svg",
+      "preview": "graphite/Melanotan-2-10mg_graphite.png",
+      "sha256": "08dd7e995d4e3342ffc6e0c9d43a73ea22f563512212755d3edbfdf85ac15b7a"
+    },
+    {
+      "sku": "Melanotan-2-10mg",
+      "product": "MELANOTAN II",
+      "amount": "10 mg",
+      "tier": "black",
+      "status": "catalog",
+      "trim_mm": [
+        40,
+        20
+      ],
+      "bleed_mm": 1,
+      "file": "black/Melanotan-2-10mg_black.pdf",
+      "svg": "black/Melanotan-2-10mg_black.svg",
+      "preview": "black/Melanotan-2-10mg_black.png",
+      "sha256": "2a1f8bcd47abb1b175f8b61fbaa542042f80a532e9db5ba7859ccd612e70b4d5"
+    },
+    {
+      "sku": "Melanotan-2-10mg",
+      "product": "MELANOTAN II",
+      "amount": "10 mg",
+      "tier": "navy",
+      "status": "catalog",
+      "trim_mm": [
+        40,
+        20
+      ],
+      "bleed_mm": 1,
+      "file": "navy/Melanotan-2-10mg_navy.pdf",
+      "svg": "navy/Melanotan-2-10mg_navy.svg",
+      "preview": "navy/Melanotan-2-10mg_navy.png",
+      "sha256": "6a8794f63ae691540412988771f8f74cd76e8532a5f1b5fb9d3c916704e9659d"
+    },
+    {
+      "sku": "NAD-plus-500mg",
+      "product": "NAD+ (BUFFERED)",
+      "amount": "500 mg",
+      "tier": "graphite",
+      "status": "catalog",
+      "trim_mm": [
+        44.225641025641025,
+        22
+      ],
+      "bleed_mm": 1,
+      "file": "graphite/NAD-plus-500mg_graphite.pdf",
+      "svg": "graphite/NAD-plus-500mg_graphite.svg",
+      "preview": "graphite/NAD-plus-500mg_graphite.png",
+      "sha256": "e1478e404038aa43f4becea48dc6d219d353575f1a25549aa5aed0ea55b29238"
+    },
+    {
+      "sku": "NAD-plus-500mg",
+      "product": "NAD+ (BUFFERED)",
+      "amount": "500 mg",
+      "tier": "black",
+      "status": "catalog",
+      "trim_mm": [
+        44.225641025641025,
+        22
+      ],
+      "bleed_mm": 1,
+      "file": "black/NAD-plus-500mg_black.pdf",
+      "svg": "black/NAD-plus-500mg_black.svg",
+      "preview": "black/NAD-plus-500mg_black.png",
+      "sha256": "03bed11f12fe91ef8c7631a0477d7be3b4f9af8558012f4cf01d6fd304a04add"
+    },
+    {
+      "sku": "NAD-plus-500mg",
+      "product": "NAD+ (BUFFERED)",
+      "amount": "500 mg",
+      "tier": "navy",
+      "status": "catalog",
+      "trim_mm": [
+        44.225641025641025,
+        22
+      ],
+      "bleed_mm": 1,
+      "file": "navy/NAD-plus-500mg_navy.pdf",
+      "svg": "navy/NAD-plus-500mg_navy.svg",
+      "preview": "navy/NAD-plus-500mg_navy.png",
+      "sha256": "97cbd9653684ebdd6f82663daface04c960c5a24b48b0ff2a88ee2e4fe98956c"
+    },
+    {
+      "sku": "Retatrutide-10mg",
+      "product": "RETATRUTIDE",
+      "amount": "10 mg",
+      "tier": "graphite",
+      "status": "catalog",
+      "trim_mm": [
+        40,
+        20
+      ],
+      "bleed_mm": 1,
+      "file": "graphite/Retatrutide-10mg_graphite.pdf",
+      "svg": "graphite/Retatrutide-10mg_graphite.svg",
+      "preview": "graphite/Retatrutide-10mg_graphite.png",
+      "sha256": "beb4b4582011ebf75f77ab145e86b7b7478b14eb95d0802d7bbc1dac9f9e08ca"
+    },
+    {
+      "sku": "Retatrutide-10mg",
+      "product": "RETATRUTIDE",
+      "amount": "10 mg",
+      "tier": "black",
+      "status": "catalog",
+      "trim_mm": [
+        40,
+        20
+      ],
+      "bleed_mm": 1,
+      "file": "black/Retatrutide-10mg_black.pdf",
+      "svg": "black/Retatrutide-10mg_black.svg",
+      "preview": "black/Retatrutide-10mg_black.png",
+      "sha256": "30ad16aebe75ed50c5964e9549c48c6ec94790666480f72581f67f0942198f32"
+    },
+    {
+      "sku": "Retatrutide-10mg",
+      "product": "RETATRUTIDE",
+      "amount": "10 mg",
+      "tier": "navy",
+      "status": "catalog",
+      "trim_mm": [
+        40,
+        20
+      ],
+      "bleed_mm": 1,
+      "file": "navy/Retatrutide-10mg_navy.pdf",
+      "svg": "navy/Retatrutide-10mg_navy.svg",
+      "preview": "navy/Retatrutide-10mg_navy.png",
+      "sha256": "c233b5b33552092017dcd4518f2b401fcdd2a0867640df4a337126bafad40e99"
+    },
+    {
+      "sku": "Retatrutide-15mg",
+      "product": "RETATRUTIDE",
+      "amount": "15 mg",
+      "tier": "graphite",
+      "status": "draft",
+      "trim_mm": [
+        40,
+        20
+      ],
+      "bleed_mm": 1,
+      "file": "graphite/Retatrutide-15mg_graphite.pdf",
+      "svg": "graphite/Retatrutide-15mg_graphite.svg",
+      "preview": "graphite/Retatrutide-15mg_graphite.png",
+      "sha256": "c3ac5a3dbbec96030e96213206abfdae7111859a7f73b7581335754a84204358"
+    },
+    {
+      "sku": "Retatrutide-15mg",
+      "product": "RETATRUTIDE",
+      "amount": "15 mg",
+      "tier": "black",
+      "status": "draft",
+      "trim_mm": [
+        40,
+        20
+      ],
+      "bleed_mm": 1,
+      "file": "black/Retatrutide-15mg_black.pdf",
+      "svg": "black/Retatrutide-15mg_black.svg",
+      "preview": "black/Retatrutide-15mg_black.png",
+      "sha256": "499b171af51c6c361e9bb908818195f7626dd43b215353fd3f7cdbaa83eba800"
+    },
+    {
+      "sku": "Retatrutide-15mg",
+      "product": "RETATRUTIDE",
+      "amount": "15 mg",
+      "tier": "navy",
+      "status": "draft",
+      "trim_mm": [
+        40,
+        20
+      ],
+      "bleed_mm": 1,
+      "file": "navy/Retatrutide-15mg_navy.pdf",
+      "svg": "navy/Retatrutide-15mg_navy.svg",
+      "preview": "navy/Retatrutide-15mg_navy.png",
+      "sha256": "a40a7eb78034ab93631a638b7976bb317b697663649bb2acfd89b9ae317728a4"
+    },
+    {
+      "sku": "Retatrutide-20mg",
+      "product": "RETATRUTIDE",
+      "amount": "20 mg",
+      "tier": "graphite",
+      "status": "catalog",
+      "trim_mm": [
+        40,
+        20
+      ],
+      "bleed_mm": 1,
+      "file": "graphite/Retatrutide-20mg_graphite.pdf",
+      "svg": "graphite/Retatrutide-20mg_graphite.svg",
+      "preview": "graphite/Retatrutide-20mg_graphite.png",
+      "sha256": "b1c4a8f80a038a76276d0651991e24fdb4568369d3fc73750b733d827817adda"
+    },
+    {
+      "sku": "Retatrutide-20mg",
+      "product": "RETATRUTIDE",
+      "amount": "20 mg",
+      "tier": "black",
+      "status": "catalog",
+      "trim_mm": [
+        40,
+        20
+      ],
+      "bleed_mm": 1,
+      "file": "black/Retatrutide-20mg_black.pdf",
+      "svg": "black/Retatrutide-20mg_black.svg",
+      "preview": "black/Retatrutide-20mg_black.png",
+      "sha256": "ca4dac217662613fff02916d247446e2193161a331071f7b9b783c32e8e246bd"
+    },
+    {
+      "sku": "Retatrutide-20mg",
+      "product": "RETATRUTIDE",
+      "amount": "20 mg",
+      "tier": "navy",
+      "status": "catalog",
+      "trim_mm": [
+        40,
+        20
+      ],
+      "bleed_mm": 1,
+      "file": "navy/Retatrutide-20mg_navy.pdf",
+      "svg": "navy/Retatrutide-20mg_navy.svg",
+      "preview": "navy/Retatrutide-20mg_navy.png",
+      "sha256": "bf08311b1476ee043700aedbaeb67fd226687e28f95629e175210cefa9ab4c84"
+    },
+    {
+      "sku": "Retatrutide-30mg",
+      "product": "RETATRUTIDE",
+      "amount": "30 mg",
+      "tier": "graphite",
+      "status": "catalog",
+      "trim_mm": [
+        40,
+        20
+      ],
+      "bleed_mm": 1,
+      "file": "graphite/Retatrutide-30mg_graphite.pdf",
+      "svg": "graphite/Retatrutide-30mg_graphite.svg",
+      "preview": "graphite/Retatrutide-30mg_graphite.png",
+      "sha256": "c6a000b2a64f962957d61c3bab50f7bb0f22af1b299223bb748c701eeaad55ff"
+    },
+    {
+      "sku": "Retatrutide-30mg",
+      "product": "RETATRUTIDE",
+      "amount": "30 mg",
+      "tier": "black",
+      "status": "catalog",
+      "trim_mm": [
+        40,
+        20
+      ],
+      "bleed_mm": 1,
+      "file": "black/Retatrutide-30mg_black.pdf",
+      "svg": "black/Retatrutide-30mg_black.svg",
+      "preview": "black/Retatrutide-30mg_black.png",
+      "sha256": "353b22a3e6f240d525e2fafecc7499011597550371565a1942ef90e8973fae2f"
+    },
+    {
+      "sku": "Retatrutide-30mg",
+      "product": "RETATRUTIDE",
+      "amount": "30 mg",
+      "tier": "navy",
+      "status": "catalog",
+      "trim_mm": [
+        40,
+        20
+      ],
+      "bleed_mm": 1,
+      "file": "navy/Retatrutide-30mg_navy.pdf",
+      "svg": "navy/Retatrutide-30mg_navy.svg",
+      "preview": "navy/Retatrutide-30mg_navy.png",
+      "sha256": "649c8a59459147415038f1527bbefa1bcf40f90fafc9ce4004ea6f3a919ddb2a"
+    },
+    {
+      "sku": "SS-31-30mg",
+      "product": "SS-31",
+      "amount": "30 mg",
+      "tier": "graphite",
+      "status": "catalog",
+      "trim_mm": [
+        40,
+        20
+      ],
+      "bleed_mm": 1,
+      "file": "graphite/SS-31-30mg_graphite.pdf",
+      "svg": "graphite/SS-31-30mg_graphite.svg",
+      "preview": "graphite/SS-31-30mg_graphite.png",
+      "sha256": "3e9e0e89f54843368dd4405ec727963de33a283a4f9081c3123607501b9bb57e"
+    },
+    {
+      "sku": "SS-31-30mg",
+      "product": "SS-31",
+      "amount": "30 mg",
+      "tier": "black",
+      "status": "catalog",
+      "trim_mm": [
+        40,
+        20
+      ],
+      "bleed_mm": 1,
+      "file": "black/SS-31-30mg_black.pdf",
+      "svg": "black/SS-31-30mg_black.svg",
+      "preview": "black/SS-31-30mg_black.png",
+      "sha256": "bfa8f1a745615e63adbb0eaf870253c29b9dd4ca51fdf43cf1079e849ac4acac"
+    },
+    {
+      "sku": "SS-31-30mg",
+      "product": "SS-31",
+      "amount": "30 mg",
+      "tier": "navy",
+      "status": "catalog",
+      "trim_mm": [
+        40,
+        20
+      ],
+      "bleed_mm": 1,
+      "file": "navy/SS-31-30mg_navy.pdf",
+      "svg": "navy/SS-31-30mg_navy.svg",
+      "preview": "navy/SS-31-30mg_navy.png",
+      "sha256": "9001c7512691ea2b8105848710d51a089c555de283404101c25679fc8b2a7c06"
+    },
+    {
+      "sku": "Tesamorelin-20mg",
+      "product": "TESAMORELIN",
+      "amount": "20 mg",
+      "tier": "graphite",
+      "status": "catalog",
+      "trim_mm": [
+        40,
+        20
+      ],
+      "bleed_mm": 1,
+      "file": "graphite/Tesamorelin-20mg_graphite.pdf",
+      "svg": "graphite/Tesamorelin-20mg_graphite.svg",
+      "preview": "graphite/Tesamorelin-20mg_graphite.png",
+      "sha256": "bfe8e58cfdc94cd5fcd8b21656a4e605c56c9e2b7f6c5fbd8307ec2ad708f540"
+    },
+    {
+      "sku": "Tesamorelin-20mg",
+      "product": "TESAMORELIN",
+      "amount": "20 mg",
+      "tier": "black",
+      "status": "catalog",
+      "trim_mm": [
+        40,
+        20
+      ],
+      "bleed_mm": 1,
+      "file": "black/Tesamorelin-20mg_black.pdf",
+      "svg": "black/Tesamorelin-20mg_black.svg",
+      "preview": "black/Tesamorelin-20mg_black.png",
+      "sha256": "f36f727bd75d9dd4df128ea65459b00299696356843331f25a1ea663b2556ebb"
+    },
+    {
+      "sku": "Tesamorelin-20mg",
+      "product": "TESAMORELIN",
+      "amount": "20 mg",
+      "tier": "navy",
+      "status": "catalog",
+      "trim_mm": [
+        40,
+        20
+      ],
+      "bleed_mm": 1,
+      "file": "navy/Tesamorelin-20mg_navy.pdf",
+      "svg": "navy/Tesamorelin-20mg_navy.svg",
+      "preview": "navy/Tesamorelin-20mg_navy.png",
+      "sha256": "41c1b30305e8e904399c13f7318c43c37417fd7503db062f6a98ece265528e31"
+    },
+    {
+      "sku": "Tirzepatide-10mg",
+      "product": "TIRZEPATIDE",
+      "amount": "10 mg",
+      "tier": "graphite",
+      "status": "catalog",
+      "trim_mm": [
+        40,
+        20
+      ],
+      "bleed_mm": 1,
+      "file": "graphite/Tirzepatide-10mg_graphite.pdf",
+      "svg": "graphite/Tirzepatide-10mg_graphite.svg",
+      "preview": "graphite/Tirzepatide-10mg_graphite.png",
+      "sha256": "c282ced38cdf4e50de92d77a712883ad91e297b7b72438797d9db62f73e674f3"
+    },
+    {
+      "sku": "Tirzepatide-10mg",
+      "product": "TIRZEPATIDE",
+      "amount": "10 mg",
+      "tier": "black",
+      "status": "catalog",
+      "trim_mm": [
+        40,
+        20
+      ],
+      "bleed_mm": 1,
+      "file": "black/Tirzepatide-10mg_black.pdf",
+      "svg": "black/Tirzepatide-10mg_black.svg",
+      "preview": "black/Tirzepatide-10mg_black.png",
+      "sha256": "003cfd0027b7893b6989e7fb4c7b0c61f02fecd5701616aea871ca13b4691a01"
+    },
+    {
+      "sku": "Tirzepatide-10mg",
+      "product": "TIRZEPATIDE",
+      "amount": "10 mg",
+      "tier": "navy",
+      "status": "catalog",
+      "trim_mm": [
+        40,
+        20
+      ],
+      "bleed_mm": 1,
+      "file": "navy/Tirzepatide-10mg_navy.pdf",
+      "svg": "navy/Tirzepatide-10mg_navy.svg",
+      "preview": "navy/Tirzepatide-10mg_navy.png",
+      "sha256": "b7bc61b793b30f87be4d055f63c5a8cf497235bcc325fe760aec49c7c68a9f8e"
+    },
+    {
+      "sku": "Tirzepatide-15mg",
+      "product": "TIRZEPATIDE",
+      "amount": "15 mg",
+      "tier": "graphite",
+      "status": "catalog",
+      "trim_mm": [
+        40,
+        20
+      ],
+      "bleed_mm": 1,
+      "file": "graphite/Tirzepatide-15mg_graphite.pdf",
+      "svg": "graphite/Tirzepatide-15mg_graphite.svg",
+      "preview": "graphite/Tirzepatide-15mg_graphite.png",
+      "sha256": "ea41d65fca54c1308b3e2fdb56d29cd874357f2da8a67abfd345ab387fe845d7"
+    },
+    {
+      "sku": "Tirzepatide-15mg",
+      "product": "TIRZEPATIDE",
+      "amount": "15 mg",
+      "tier": "black",
+      "status": "catalog",
+      "trim_mm": [
+        40,
+        20
+      ],
+      "bleed_mm": 1,
+      "file": "black/Tirzepatide-15mg_black.pdf",
+      "svg": "black/Tirzepatide-15mg_black.svg",
+      "preview": "black/Tirzepatide-15mg_black.png",
+      "sha256": "7472ca7778f0e2aa85cc20d1af8d4f8d004fb717eda520cbe4155e5fe3db96e0"
+    },
+    {
+      "sku": "Tirzepatide-15mg",
+      "product": "TIRZEPATIDE",
+      "amount": "15 mg",
+      "tier": "navy",
+      "status": "catalog",
+      "trim_mm": [
+        40,
+        20
+      ],
+      "bleed_mm": 1,
+      "file": "navy/Tirzepatide-15mg_navy.pdf",
+      "svg": "navy/Tirzepatide-15mg_navy.svg",
+      "preview": "navy/Tirzepatide-15mg_navy.png",
+      "sha256": "d4aecc0127a23097442f6ca1859c995f1c2adc82db518fb221cf52b99a373fe3"
+    },
+    {
+      "sku": "Tirzepatide-20mg",
+      "product": "TIRZEPATIDE",
+      "amount": "20 mg",
+      "tier": "graphite",
+      "status": "catalog",
+      "trim_mm": [
+        40,
+        20
+      ],
+      "bleed_mm": 1,
+      "file": "graphite/Tirzepatide-20mg_graphite.pdf",
+      "svg": "graphite/Tirzepatide-20mg_graphite.svg",
+      "preview": "graphite/Tirzepatide-20mg_graphite.png",
+      "sha256": "f72b2a2b7c78c02970eb1b26fa7b3b906ed04952ac27cef7ff65304a5e7b00db"
+    },
+    {
+      "sku": "Tirzepatide-20mg",
+      "product": "TIRZEPATIDE",
+      "amount": "20 mg",
+      "tier": "black",
+      "status": "catalog",
+      "trim_mm": [
+        40,
+        20
+      ],
+      "bleed_mm": 1,
+      "file": "black/Tirzepatide-20mg_black.pdf",
+      "svg": "black/Tirzepatide-20mg_black.svg",
+      "preview": "black/Tirzepatide-20mg_black.png",
+      "sha256": "2a864b4b9b885c956e294de3dd13c48a5402507153bbef4d6395f0bc903d2a6c"
+    },
+    {
+      "sku": "Tirzepatide-20mg",
+      "product": "TIRZEPATIDE",
+      "amount": "20 mg",
+      "tier": "navy",
+      "status": "catalog",
+      "trim_mm": [
+        40,
+        20
+      ],
+      "bleed_mm": 1,
+      "file": "navy/Tirzepatide-20mg_navy.pdf",
+      "svg": "navy/Tirzepatide-20mg_navy.svg",
+      "preview": "navy/Tirzepatide-20mg_navy.png",
+      "sha256": "5b2f0b2d2790346bf9a25dac0aab5db9fc4fe3964ddf16f1427c25cb2b3e37a4"
+    },
+    {
+      "sku": "Tirzepatide-30mg",
+      "product": "TIRZEPATIDE",
+      "amount": "30 mg",
+      "tier": "graphite",
+      "status": "catalog",
+      "trim_mm": [
+        40,
+        20
+      ],
+      "bleed_mm": 1,
+      "file": "graphite/Tirzepatide-30mg_graphite.pdf",
+      "svg": "graphite/Tirzepatide-30mg_graphite.svg",
+      "preview": "graphite/Tirzepatide-30mg_graphite.png",
+      "sha256": "ff37e37fc8acf650b23dec2f797b6e77be85a75690077f335cf43f89885ea6b5"
+    },
+    {
+      "sku": "Tirzepatide-30mg",
+      "product": "TIRZEPATIDE",
+      "amount": "30 mg",
+      "tier": "black",
+      "status": "catalog",
+      "trim_mm": [
+        40,
+        20
+      ],
+      "bleed_mm": 1,
+      "file": "black/Tirzepatide-30mg_black.pdf",
+      "svg": "black/Tirzepatide-30mg_black.svg",
+      "preview": "black/Tirzepatide-30mg_black.png",
+      "sha256": "daee19895788eb0d3deaf9d08fcf7ee191275fccc4b0f7fd2838042411b1fa59"
+    },
+    {
+      "sku": "Tirzepatide-30mg",
+      "product": "TIRZEPATIDE",
+      "amount": "30 mg",
+      "tier": "navy",
+      "status": "catalog",
+      "trim_mm": [
+        40,
+        20
+      ],
+      "bleed_mm": 1,
+      "file": "navy/Tirzepatide-30mg_navy.pdf",
+      "svg": "navy/Tirzepatide-30mg_navy.svg",
+      "preview": "navy/Tirzepatide-30mg_navy.png",
+      "sha256": "c0d840110075a92e2188748852bbc2aa82e1c68adb26307e5832dd1e9d52dca1"
+    }
+  ]
+}

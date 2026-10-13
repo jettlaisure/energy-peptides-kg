@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" width="40mm" height="20mm" viewBox="0 0 1568 780">
+<g inkscape:groupmode="layer" inkscape:label="Field" id="layer-field">
+<rect x="-50" y="-50" width="1668" height="880" fill="#2B2F34" stroke="none" stroke-width="1"/>
+</g>
+<g inkscape:groupmode="layer" inkscape:label="Gold border" id="layer-gold-border">
+<rect x="31" y="31" width="1506" height="718" fill="none" stroke="#C6A34A" stroke-width="7.5"/>
+</g>
+<g inkscape:groupmode="layer" inkscape:label="Wordmark" id="layer-wordmark">
+<text x="260" y="155" font-family="Arial" font-size="56" font-weight="700" letter-spacing="12" fill="#C6A34A">ENERGY PEPTIDES</text>
+</g>
+<g inkscape:groupmode="layer" inkscape:label="Product name" id="layer-product-name">
+<text id="product-name-0" x="260" y="350" font-family="Arial" font-size="102" font-weight="700" letter-spacing="0" fill="#FFFFFF">MELANOTAN II</text>
+</g>
+<g inkscape:groupmode="layer" inkscape:label="Amount" id="layer-amount">
+<text id="product-amount" x="260" y="467" font-family="Arial" font-size="84" font-weight="700" letter-spacing="0" fill="#E2C47E">10 mg</text>
+</g>
+<g transform="translate(1258 350) scale(0.60) translate(-1219.5 -408.5)" inkscape:groupmode="layer" inkscape:label="Terminal ring glow" id="layer-terminal-ring-glow">
+<defs><radialGradient id="halo"><stop offset="0" stop-color="#746B52"/><stop offset="0.35" stop-color="#625C4A"/><stop offset="0.7" stop-color="#3D3E3B"/><stop offset="1" stop-color="#2B2F34"/></radialGradient></defs>
+<circle cx="1432" cy="267" r="91" fill="url(#halo)"/>
+</g>
+<g transform="translate(1258 350) scale(0.60) translate(-1219.5 -408.5)" inkscape:groupmode="layer" inkscape:label="Bonds" id="layer-bonds">
+<path d="M 1007,501 L 1007,462 L 1049,437" fill="none" stroke="#6E8CB8" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 1050,526 L 1090,502 L 1090,463" fill="none" stroke="#6E8CB8" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 1134,430 L 1177,453" fill="none" stroke="#6E8CB8" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 1263,451 L 1306,428" fill="none" stroke="#6E8CB8" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 1392,378 L 1432,355 L 1432,319" fill="none" stroke="#6E8CB8" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 1349,353 L 1349,315 L 1389,291" fill="none" stroke="#6E8CB8" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 1220,396 L 1220,350 L 1181,327" fill="none" stroke="#6E8CB8" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 1349,451 L 1349,498 L 1310,521" fill="none" stroke="#6E8CB8" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+<g transform="translate(1258 350) scale(0.60) translate(-1219.5 -408.5)" inkscape:groupmode="layer" inkscape:label="Gold amino rings" id="layer-gold-amino-rings">
+<defs><linearGradient id="gold-1" x1="0" y1="0" x2="1" y2="1"><stop offset="0.0" stop-color="#B9913C"/><stop offset="0.5" stop-color="#F0D77A"/><stop offset="1.0" stop-color="#CEAE55"/></linearGradient></defs>
+<path d="M 1007,498 L 1052,524 L 1052,576 L 1007,602 L 962,576 L 962,524 Z" fill="url(#gold-1)"/>
+<path d="M 1007,498 L 1052,524 L 1052,576 L 1007,602 L 962,576 L 962,524 Z" fill="none" stroke="#E2C47E" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 975,530 L 1005,512" fill="none" stroke="#2B2F34" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 1040,532 L 1040,568" fill="none" stroke="#2B2F34" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 975,570 L 1005,588" fill="none" stroke="#2B2F34" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+<defs><linearGradient id="gold-2" x1="0" y1="0" x2="1" y2="1"><stop offset="0.0" stop-color="#B9913C"/><stop offset="0.5" stop-color="#F0D77A"/><stop offset="1.0" stop-color="#CEAE55"/></linearGradient></defs>
+<path d="M 1090,363 L 1135,389 L 1135,441 L 1090,467 L 1045,441 L 1045,389 Z" fill="url(#gold-2)"/>
+<path d="M 1090,363 L 1135,389 L 1135,441 L 1090,467 L 1045,441 L 1045,389 Z" fill="none" stroke="#E2C47E" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 1058,395 L 1088,377" fill="none" stroke="#2B2F34" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 1123,397 L 1123,433" fill="none" stroke="#2B2F34" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 1058,435 L 1088,453" fill="none" stroke="#2B2F34" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+<defs><linearGradient id="gold-3" x1="0" y1="0" x2="1" y2="1"><stop offset="0.0" stop-color="#B9913C"/><stop offset="0.5" stop-color="#F0D77A"/><stop offset="1.0" stop-color="#CEAE55"/></linearGradient></defs>
+<path d="M 1220,394 L 1265,420 L 1265,472 L 1220,498 L 1175,472 L 1175,420 Z" fill="url(#gold-3)"/>
+<path d="M 1220,394 L 1265,420 L 1265,472 L 1220,498 L 1175,472 L 1175,420 Z" fill="none" stroke="#E2C47E" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 1188,426 L 1218,408" fill="none" stroke="#2B2F34" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 1253,428 L 1253,464" fill="none" stroke="#2B2F34" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 1188,466 L 1218,484" fill="none" stroke="#2B2F34" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+<defs><linearGradient id="gold-4" x1="0" y1="0" x2="1" y2="1"><stop offset="0.0" stop-color="#B9913C"/><stop offset="0.5" stop-color="#F0D77A"/><stop offset="1.0" stop-color="#CEAE55"/></linearGradient></defs>
+<path d="M 1349,350 L 1394,376 L 1394,428 L 1349,454 L 1304,428 L 1304,376 Z" fill="url(#gold-4)"/>
+<path d="M 1349,350 L 1394,376 L 1394,428 L 1349,454 L 1304,428 L 1304,376 Z" fill="none" stroke="#E2C47E" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 1317,382 L 1347,364" fill="none" stroke="#2B2F34" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 1382,384 L 1382,420" fill="none" stroke="#2B2F34" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 1317,422 L 1347,440" fill="none" stroke="#2B2F34" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+<defs><linearGradient id="gold-5" x1="0" y1="0" x2="1" y2="1"><stop offset="0.0" stop-color="#F8EAC4"/><stop offset="0.5" stop-color="#FFEAC0"/><stop offset="1.0" stop-color="#DAC07E"/></linearGradient></defs>
+<path d="M 1432,215 L 1477,241 L 1477,293 L 1432,319 L 1387,293 L 1387,241 Z" fill="url(#gold-5)"/>
+<path d="M 1432,215 L 1477,241 L 1477,293 L 1432,319 L 1387,293 L 1387,241 Z" fill="none" stroke="#E2C47E" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 1400,247 L 1430,229" fill="none" stroke="#746B52" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 1465,249 L 1465,285" fill="none" stroke="#746B52" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 1400,287 L 1430,305" fill="none" stroke="#746B52" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+<g inkscape:groupmode="layer" inkscape:label="Compliance" id="layer-compliance">
+<text x="260" y="655" font-family="Arial" font-size="48" font-weight="700" letter-spacing="0" fill="#C6A34A">FOR RESEARCH USE ONLY - NOT FOR HUMAN USE</text>
+</g>
+<g inkscape:groupmode="layer" inkscape:label="Vial size" id="layer-vial-size">
+<text x="260" y="716" font-family="Arial" font-size="48" font-weight="700" letter-spacing="0" fill="#A9AEB5">3 mL VIAL SIZE</text>
+</g>
+</svg>

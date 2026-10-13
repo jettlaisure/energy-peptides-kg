@@ -59,8 +59,14 @@ items:
   - rel: BELONGS_TO
     to: ResearchArea:Metabolic research
   - rel: USES
-    to: Asset:inbox/labels/Retatrutide-10mg_label.png
-    source: inbox/labels (2026-09-10)
+    to: Asset:inbox/labels/current-print/navy/Retatrutide-10mg_navy.pdf
+    source: Owner-approved uncircled print design, October 2026
+  - rel: USES
+    to: Asset:inbox/labels/current-print/graphite/Retatrutide-10mg_graphite.pdf
+    source: Owner-approved uncircled print design, October 2026
+  - rel: USES
+    to: Asset:inbox/labels/current-print/black/Retatrutide-10mg_black.pdf
+    source: Owner-approved uncircled print design, October 2026
 - name: Retatrutide 20mg
   valid_from: '2026-09-10'
   attrs:
@@ -96,8 +102,14 @@ items:
   - rel: BELONGS_TO
     to: ResearchArea:Metabolic research
   - rel: USES
-    to: Asset:inbox/labels/Retatrutide-20mg_label.png
-    source: inbox/labels (2026-09-10)
+    to: Asset:inbox/labels/current-print/navy/Retatrutide-20mg_navy.pdf
+    source: Owner-approved uncircled print design, October 2026
+  - rel: USES
+    to: Asset:inbox/labels/current-print/graphite/Retatrutide-20mg_graphite.pdf
+    source: Owner-approved uncircled print design, October 2026
+  - rel: USES
+    to: Asset:inbox/labels/current-print/black/Retatrutide-20mg_black.pdf
+    source: Owner-approved uncircled print design, October 2026
   aliases:
   - rt20
 - name: Retatrutide 30mg
@@ -134,8 +146,14 @@ items:
   - rel: BELONGS_TO
     to: ResearchArea:Metabolic research
   - rel: USES
-    to: Asset:inbox/labels/Retatrutide-30mg_label.png
-    source: inbox/labels (2026-09-10)
+    to: Asset:inbox/labels/current-print/navy/Retatrutide-30mg_navy.pdf
+    source: Owner-approved uncircled print design, October 2026
+  - rel: USES
+    to: Asset:inbox/labels/current-print/graphite/Retatrutide-30mg_graphite.pdf
+    source: Owner-approved uncircled print design, October 2026
+  - rel: USES
+    to: Asset:inbox/labels/current-print/black/Retatrutide-30mg_black.pdf
+    source: Owner-approved uncircled print design, October 2026
 - name: Tirzepatide 10mg
   valid_from: '2026-09-10'
   attrs:
@@ -171,8 +189,14 @@ items:
   - rel: BELONGS_TO
     to: ResearchArea:Metabolic research
   - rel: USES
-    to: Asset:inbox/labels/Tirzepatide-10mg_label.png
-    source: inbox/labels (2026-09-10)
+    to: Asset:inbox/labels/current-print/navy/Tirzepatide-10mg_navy.pdf
+    source: Owner-approved uncircled print design, October 2026
+  - rel: USES
+    to: Asset:inbox/labels/current-print/graphite/Tirzepatide-10mg_graphite.pdf
+    source: Owner-approved uncircled print design, October 2026
+  - rel: USES
+    to: Asset:inbox/labels/current-print/black/Tirzepatide-10mg_black.pdf
+    source: Owner-approved uncircled print design, October 2026
 - name: Tirzepatide 15mg
   valid_from: '2026-09-10'
   attrs:
@@ -201,8 +225,14 @@ items:
   - rel: BELONGS_TO
     to: ResearchArea:Metabolic research
   - rel: USES
-    to: Asset:inbox/labels/Tirzepatide-15mg_label.png
-    source: inbox/labels (2026-09-10)
+    to: Asset:inbox/labels/current-print/navy/Tirzepatide-15mg_navy.pdf
+    source: Owner-approved uncircled print design, October 2026
+  - rel: USES
+    to: Asset:inbox/labels/current-print/graphite/Tirzepatide-15mg_graphite.pdf
+    source: Owner-approved uncircled print design, October 2026
+  - rel: USES
+    to: Asset:inbox/labels/current-print/black/Tirzepatide-15mg_black.pdf
+    source: Owner-approved uncircled print design, October 2026
 - name: Tirzepatide 20mg
   valid_from: '2026-10-09'
   attrs:
@@ -238,8 +268,14 @@ items:
   - rel: BELONGS_TO
     to: ResearchArea:Metabolic research
   - rel: USES
-    to: Asset:inbox/labels/Tirzepatide-20mg_label.png
-    source: inbox/labels (2026-09-10)
+    to: Asset:inbox/labels/current-print/navy/Tirzepatide-20mg_navy.pdf
+    source: Owner-approved uncircled print design, October 2026
+  - rel: USES
+    to: Asset:inbox/labels/current-print/graphite/Tirzepatide-20mg_graphite.pdf
+    source: Owner-approved uncircled print design, October 2026
+  - rel: USES
+    to: Asset:inbox/labels/current-print/black/Tirzepatide-20mg_black.pdf
+    source: Owner-approved uncircled print design, October 2026
 - name: Tirzepatide 30mg
   valid_from: '2026-10-09'
   attrs:
@@ -275,8 +311,14 @@ items:
   - rel: BELONGS_TO
     to: ResearchArea:Metabolic research
   - rel: USES
-    to: Asset:inbox/labels/Tirzepatide-30mg_label.png
-    source: inbox/labels (2026-09-10)
+    to: Asset:inbox/labels/current-print/navy/Tirzepatide-30mg_navy.pdf
+    source: Owner-approved uncircled print design, October 2026
+  - rel: USES
+    to: Asset:inbox/labels/current-print/graphite/Tirzepatide-30mg_graphite.pdf
+    source: Owner-approved uncircled print design, October 2026
+  - rel: USES
+    to: Asset:inbox/labels/current-print/black/Tirzepatide-30mg_black.pdf
+    source: Owner-approved uncircled print design, October 2026
 - name: BPC-157 10mg
   valid_from: '2026-09-10'
   attrs:
@@ -312,8 +354,14 @@ items:
   - rel: BELONGS_TO
     to: ResearchArea:Tissue repair and recovery
   - rel: USES
-    to: Asset:inbox/labels/BPC-157-10mg_label.png
-    source: inbox/labels (2026-09-10)
+    to: Asset:inbox/labels/current-print/navy/BPC-157-10mg_navy.pdf
+    source: Owner-approved uncircled print design, October 2026
+  - rel: USES
+    to: Asset:inbox/labels/current-print/graphite/BPC-157-10mg_graphite.pdf
+    source: Owner-approved uncircled print design, October 2026
+  - rel: USES
+    to: Asset:inbox/labels/current-print/black/BPC-157-10mg_black.pdf
+    source: Owner-approved uncircled print design, October 2026
   aliases:
   - bpc10
 - name: BPC-157 / TB-500 20mg
@@ -354,8 +402,14 @@ items:
   - rel: BELONGS_TO
     to: ResearchArea:Tissue repair and recovery
   - rel: USES
-    to: Asset:inbox/labels/BPC-157-TB-500-20mg_label.png
-    source: inbox/labels (2026-09-10)
+    to: Asset:inbox/labels/current-print/navy/BPC-157-TB-500-20mg_navy.pdf
+    source: Owner-approved uncircled print design, October 2026
+  - rel: USES
+    to: Asset:inbox/labels/current-print/graphite/BPC-157-TB-500-20mg_graphite.pdf
+    source: Owner-approved uncircled print design, October 2026
+  - rel: USES
+    to: Asset:inbox/labels/current-print/black/BPC-157-TB-500-20mg_black.pdf
+    source: Owner-approved uncircled print design, October 2026
   aliases:
   - Wolverine
   - Wolverine (BPC-157 + TB-500)
@@ -417,8 +471,14 @@ items:
   - rel: BELONGS_TO
     to: ResearchArea:Tissue repair and recovery
   - rel: USES
-    to: Asset:inbox/labels/KLOW-80mg_label.png
-    source: inbox/labels (2026-09-10)
+    to: Asset:inbox/labels/current-print/navy/KLOW-80mg_navy.pdf
+    source: Owner-approved uncircled print design, October 2026
+  - rel: USES
+    to: Asset:inbox/labels/current-print/graphite/KLOW-80mg_graphite.pdf
+    source: Owner-approved uncircled print design, October 2026
+  - rel: USES
+    to: Asset:inbox/labels/current-print/black/KLOW-80mg_black.pdf
+    source: Owner-approved uncircled print design, October 2026
   aliases:
   - KLOW
   - Blend B-2
@@ -457,8 +517,14 @@ items:
   - rel: BELONGS_TO
     to: ResearchArea:Inflammation research
   - rel: USES
-    to: Asset:inbox/labels/KPV-10mg_label.png
-    source: inbox/labels (2026-09-10)
+    to: Asset:inbox/labels/current-print/navy/KPV-10mg_navy.pdf
+    source: Owner-approved uncircled print design, October 2026
+  - rel: USES
+    to: Asset:inbox/labels/current-print/graphite/KPV-10mg_graphite.pdf
+    source: Owner-approved uncircled print design, October 2026
+  - rel: USES
+    to: Asset:inbox/labels/current-print/black/KPV-10mg_black.pdf
+    source: Owner-approved uncircled print design, October 2026
 - name: GHK-Cu 50mg
   valid_from: '2026-09-10'
   attrs:
@@ -487,8 +553,14 @@ items:
   - rel: BELONGS_TO
     to: ResearchArea:Skin and cosmetic research
   - rel: USES
-    to: Asset:inbox/labels/GHK-Cu-50mg_label.png
-    source: inbox/labels (2026-09-10)
+    to: Asset:inbox/labels/current-print/navy/GHK-Cu-50mg_navy.pdf
+    source: Owner-approved uncircled print design, October 2026
+  - rel: USES
+    to: Asset:inbox/labels/current-print/graphite/GHK-Cu-50mg_graphite.pdf
+    source: Owner-approved uncircled print design, October 2026
+  - rel: USES
+    to: Asset:inbox/labels/current-print/black/GHK-Cu-50mg_black.pdf
+    source: Owner-approved uncircled print design, October 2026
   aliases:
   - cu50
 - name: GHK-Cu 100mg
@@ -526,8 +598,14 @@ items:
   - rel: BELONGS_TO
     to: ResearchArea:Skin and cosmetic research
   - rel: USES
-    to: Asset:inbox/labels/GHK-Cu-100mg_label.png
-    source: inbox/labels (2026-09-10)
+    to: Asset:inbox/labels/current-print/navy/GHK-Cu-100mg_navy.pdf
+    source: Owner-approved uncircled print design, October 2026
+  - rel: USES
+    to: Asset:inbox/labels/current-print/graphite/GHK-Cu-100mg_graphite.pdf
+    source: Owner-approved uncircled print design, October 2026
+  - rel: USES
+    to: Asset:inbox/labels/current-print/black/GHK-Cu-100mg_black.pdf
+    source: Owner-approved uncircled print design, October 2026
   aliases:
   - cu100
 - name: Ipamorelin 10mg
@@ -564,8 +642,14 @@ items:
   - rel: BELONGS_TO
     to: ResearchArea:Growth hormone axis
   - rel: USES
-    to: Asset:inbox/labels/Ipamorelin-10mg_label.png
-    source: inbox/labels (2026-09-10)
+    to: Asset:inbox/labels/current-print/navy/Ipamorelin-10mg_navy.pdf
+    source: Owner-approved uncircled print design, October 2026
+  - rel: USES
+    to: Asset:inbox/labels/current-print/graphite/Ipamorelin-10mg_graphite.pdf
+    source: Owner-approved uncircled print design, October 2026
+  - rel: USES
+    to: Asset:inbox/labels/current-print/black/Ipamorelin-10mg_black.pdf
+    source: Owner-approved uncircled print design, October 2026
 - name: Tesamorelin 20mg
   valid_from: '2026-09-10'
   attrs:
@@ -600,8 +684,14 @@ items:
   - rel: BELONGS_TO
     to: ResearchArea:Growth hormone axis
   - rel: USES
-    to: Asset:inbox/labels/Tesamorelin-20mg_label.png
-    source: inbox/labels (2026-09-10)
+    to: Asset:inbox/labels/current-print/navy/Tesamorelin-20mg_navy.pdf
+    source: Owner-approved uncircled print design, October 2026
+  - rel: USES
+    to: Asset:inbox/labels/current-print/graphite/Tesamorelin-20mg_graphite.pdf
+    source: Owner-approved uncircled print design, October 2026
+  - rel: USES
+    to: Asset:inbox/labels/current-print/black/Tesamorelin-20mg_black.pdf
+    source: Owner-approved uncircled print design, October 2026
   aliases:
   - Tesamorelin (2x10mg)
 - name: MOTS-c 10mg
@@ -632,8 +722,14 @@ items:
   - rel: BELONGS_TO
     to: ResearchArea:Mitochondrial research
   - rel: USES
-    to: Asset:inbox/labels/MOTS-c-10mg_label.png
-    source: inbox/labels (2026-09-10)
+    to: Asset:inbox/labels/current-print/navy/MOTS-c-10mg_navy.pdf
+    source: Owner-approved uncircled print design, October 2026
+  - rel: USES
+    to: Asset:inbox/labels/current-print/graphite/MOTS-c-10mg_graphite.pdf
+    source: Owner-approved uncircled print design, October 2026
+  - rel: USES
+    to: Asset:inbox/labels/current-print/black/MOTS-c-10mg_black.pdf
+    source: Owner-approved uncircled print design, October 2026
 - name: SS-31 30mg
   valid_from: '2026-09-10'
   attrs:
@@ -662,8 +758,14 @@ items:
   - rel: BELONGS_TO
     to: ResearchArea:Mitochondrial research
   - rel: USES
-    to: Asset:inbox/labels/SS-31-30mg_label.png
-    source: inbox/labels (2026-09-10)
+    to: Asset:inbox/labels/current-print/navy/SS-31-30mg_navy.pdf
+    source: Owner-approved uncircled print design, October 2026
+  - rel: USES
+    to: Asset:inbox/labels/current-print/graphite/SS-31-30mg_graphite.pdf
+    source: Owner-approved uncircled print design, October 2026
+  - rel: USES
+    to: Asset:inbox/labels/current-print/black/SS-31-30mg_black.pdf
+    source: Owner-approved uncircled print design, October 2026
   aliases:
   - SS-31 (3x10mg)
   - Elamipretide 30mg
@@ -702,8 +804,14 @@ items:
   - rel: BELONGS_TO
     to: ResearchArea:Melanocortin research
   - rel: USES
-    to: Asset:inbox/labels/Melanotan-2-10mg_label.png
-    source: inbox/labels (2026-09-10)
+    to: Asset:inbox/labels/current-print/navy/Melanotan-2-10mg_navy.pdf
+    source: Owner-approved uncircled print design, October 2026
+  - rel: USES
+    to: Asset:inbox/labels/current-print/graphite/Melanotan-2-10mg_graphite.pdf
+    source: Owner-approved uncircled print design, October 2026
+  - rel: USES
+    to: Asset:inbox/labels/current-print/black/Melanotan-2-10mg_black.pdf
+    source: Owner-approved uncircled print design, October 2026
   aliases:
   - Melanotan 2 10mg
 - name: Melanotan I 10mg
@@ -741,8 +849,14 @@ items:
   - rel: BELONGS_TO
     to: ResearchArea:Melanocortin research
   - rel: USES
-    to: Asset:inbox/labels/Melanotan-1-10mg_label.png
-    source: inbox/labels (2026-09-10)
+    to: Asset:inbox/labels/current-print/navy/Melanotan-1-10mg_navy.pdf
+    source: Owner-approved uncircled print design, October 2026
+  - rel: USES
+    to: Asset:inbox/labels/current-print/graphite/Melanotan-1-10mg_graphite.pdf
+    source: Owner-approved uncircled print design, October 2026
+  - rel: USES
+    to: Asset:inbox/labels/current-print/black/Melanotan-1-10mg_black.pdf
+    source: Owner-approved uncircled print design, October 2026
   aliases:
   - Melanotan 1 10mg
 - name: NAD+ 500mg
@@ -781,8 +895,14 @@ items:
   - rel: BELONGS_TO
     to: ResearchArea:Longevity and aging research
   - rel: USES
-    to: Asset:inbox/labels/NAD-plus-500mg_label.png
-    source: inbox/labels (2026-09-10)
+    to: Asset:inbox/labels/current-print/navy/NAD-plus-500mg_navy.pdf
+    source: Owner-approved uncircled print design, October 2026
+  - rel: USES
+    to: Asset:inbox/labels/current-print/graphite/NAD-plus-500mg_graphite.pdf
+    source: Owner-approved uncircled print design, October 2026
+  - rel: USES
+    to: Asset:inbox/labels/current-print/black/NAD-plus-500mg_black.pdf
+    source: Owner-approved uncircled print design, October 2026
   aliases:
   - NAD+ (buffered) 500mg
   - Nad500
@@ -831,8 +951,14 @@ items:
   - rel: BELONGS_TO
     to: ResearchArea:Metabolic research
   - rel: USES
-    to: Asset:inbox/labels/Retatrutide-15mg_label.png
-    source: inbox/labels (2026-09-10)
+    to: Asset:inbox/labels/current-print/navy/Retatrutide-15mg_navy.pdf
+    source: Owner-approved uncircled print design, October 2026
+  - rel: USES
+    to: Asset:inbox/labels/current-print/graphite/Retatrutide-15mg_graphite.pdf
+    source: Owner-approved uncircled print design, October 2026
+  - rel: USES
+    to: Asset:inbox/labels/current-print/black/Retatrutide-15mg_black.pdf
+    source: Owner-approved uncircled print design, October 2026
 - name: GLOW 70mg
   aliases:
   - GLOW
@@ -858,5 +984,11 @@ items:
     confidence: high
     valid_from: '2026-09-01'
   - rel: USES
-    to: Asset:inbox/labels/GLOW-70mg_label.png
-    source: inbox/labels (2026-09-10)
+    to: Asset:inbox/labels/current-print/navy/GLOW-70mg_navy.pdf
+    source: Owner-approved uncircled print design, October 2026
+  - rel: USES
+    to: Asset:inbox/labels/current-print/graphite/GLOW-70mg_graphite.pdf
+    source: Owner-approved uncircled print design, October 2026
+  - rel: USES
+    to: Asset:inbox/labels/current-print/black/GLOW-70mg_black.pdf
+    source: Owner-approved uncircled print design, October 2026

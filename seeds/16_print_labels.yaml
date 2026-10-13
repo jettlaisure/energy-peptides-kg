@@ -1,0 +1,2645 @@
+# Current print masters; photography remains in 15_product_photos.yaml.
+type: Asset
+source: Owner-approved previous-B uncircled design and print sizing, October 2026
+confidence: high
+items:
+- name: inbox/labels/current-print/graphite/BPC-157-10mg_graphite.pdf
+  attrs:
+    asset_type: document
+    alt_text: 'Current approved uncircled graphite label: BPC-157 10 mg; trim 40.0000
+      x 20 mm; 1 mm PDF bleed; pdf label artwork'
+  edges:
+  - rel: DEPICTS
+    to: Product:BPC-157 10mg
+- name: inbox/labels/current-print/graphite/BPC-157-10mg_graphite.svg
+  attrs:
+    asset_type: document
+    alt_text: 'Current approved uncircled graphite label: BPC-157 10 mg; trim 40.0000
+      x 20 mm; 1 mm PDF bleed; svg label artwork'
+  edges:
+  - rel: DEPICTS
+    to: Product:BPC-157 10mg
+- name: inbox/labels/current-print/graphite/BPC-157-10mg_graphite.png
+  attrs:
+    asset_type: image
+    alt_text: 'Current approved uncircled graphite label: BPC-157 10 mg; trim 40.0000
+      x 20 mm; 1 mm PDF bleed; png label artwork'
+  edges:
+  - rel: DEPICTS
+    to: Product:BPC-157 10mg
+- name: inbox/labels/current-print/graphite/foil/BPC-157-10mg_graphite_foil.pdf
+  attrs:
+    asset_type: document
+    alt_text: 'Current approved uncircled graphite label: BPC-157 10 mg; trim 40.0000
+      x 20 mm; 1 mm PDF bleed; pdf foil separation'
+  edges:
+  - rel: DEPICTS
+    to: Product:BPC-157 10mg
+- name: inbox/labels/current-print/graphite/foil/BPC-157-10mg_graphite_underprint.pdf
+  attrs:
+    asset_type: document
+    alt_text: 'Current approved uncircled graphite label: BPC-157 10 mg; trim 40.0000
+      x 20 mm; 1 mm PDF bleed; pdf underprint'
+  edges:
+  - rel: DEPICTS
+    to: Product:BPC-157 10mg
+- name: inbox/labels/current-print/black/BPC-157-10mg_black.pdf
+  attrs:
+    asset_type: document
+    alt_text: 'Current approved uncircled black label: BPC-157 10 mg; trim 40.0000
+      x 20 mm; 1 mm PDF bleed; pdf label artwork'
+  edges:
+  - rel: DEPICTS
+    to: Product:BPC-157 10mg
+- name: inbox/labels/current-print/black/BPC-157-10mg_black.svg
+  attrs:
+    asset_type: document
+    alt_text: 'Current approved uncircled black label: BPC-157 10 mg; trim 40.0000
+      x 20 mm; 1 mm PDF bleed; svg label artwork'
+  edges:
+  - rel: DEPICTS
+    to: Product:BPC-157 10mg
+- name: inbox/labels/current-print/black/BPC-157-10mg_black.png
+  attrs:
+    asset_type: image
+    alt_text: 'Current approved uncircled black label: BPC-157 10 mg; trim 40.0000
+      x 20 mm; 1 mm PDF bleed; png label artwork'
+  edges:
+  - rel: DEPICTS
+    to: Product:BPC-157 10mg
+- name: inbox/labels/current-print/black/foil/BPC-157-10mg_black_foil.pdf
+  attrs:
+    asset_type: document
+    alt_text: 'Current approved uncircled black label: BPC-157 10 mg; trim 40.0000
+      x 20 mm; 1 mm PDF bleed; pdf foil separation'
+  edges:
+  - rel: DEPICTS
+    to: Product:BPC-157 10mg
+- name: inbox/labels/current-print/black/foil/BPC-157-10mg_black_underprint.pdf
+  attrs:
+    asset_type: document
+    alt_text: 'Current approved uncircled black label: BPC-157 10 mg; trim 40.0000
+      x 20 mm; 1 mm PDF bleed; pdf underprint'
+  edges:
+  - rel: DEPICTS
+    to: Product:BPC-157 10mg
+- name: inbox/labels/current-print/navy/BPC-157-10mg_navy.pdf
+  attrs:
+    asset_type: document
+    alt_text: 'Current approved uncircled navy label: BPC-157 10 mg; trim 40.0000
+      x 20 mm; 1 mm PDF bleed; pdf label artwork'
+  edges:
+  - rel: DEPICTS
+    to: Product:BPC-157 10mg
+- name: inbox/labels/current-print/navy/BPC-157-10mg_navy.svg
+  attrs:
+    asset_type: document
+    alt_text: 'Current approved uncircled navy label: BPC-157 10 mg; trim 40.0000
+      x 20 mm; 1 mm PDF bleed; svg label artwork'
+  edges:
+  - rel: DEPICTS
+    to: Product:BPC-157 10mg
+- name: inbox/labels/current-print/navy/BPC-157-10mg_navy.png
+  attrs:
+    asset_type: image
+    alt_text: 'Current approved uncircled navy label: BPC-157 10 mg; trim 40.0000
+      x 20 mm; 1 mm PDF bleed; png label artwork'
+  edges:
+  - rel: DEPICTS
+    to: Product:BPC-157 10mg
+- name: inbox/labels/current-print/navy/foil/BPC-157-10mg_navy_foil.pdf
+  attrs:
+    asset_type: document
+    alt_text: 'Current approved uncircled navy label: BPC-157 10 mg; trim 40.0000
+      x 20 mm; 1 mm PDF bleed; pdf foil separation'
+  edges:
+  - rel: DEPICTS
+    to: Product:BPC-157 10mg
+- name: inbox/labels/current-print/navy/foil/BPC-157-10mg_navy_underprint.pdf
+  attrs:
+    asset_type: document
+    alt_text: 'Current approved uncircled navy label: BPC-157 10 mg; trim 40.0000
+      x 20 mm; 1 mm PDF bleed; pdf underprint'
+  edges:
+  - rel: DEPICTS
+    to: Product:BPC-157 10mg
+- name: inbox/labels/current-print/graphite/BPC-157-TB-500-20mg_graphite.pdf
+  attrs:
+    asset_type: document
+    alt_text: 'Current approved uncircled graphite label: BPC-157 + TB-500 20 mg (10+10);
+      trim 40.0000 x 20 mm; 1 mm PDF bleed; pdf label artwork'
+  edges:
+  - rel: DEPICTS
+    to: Product:BPC-157 / TB-500 20mg
+- name: inbox/labels/current-print/graphite/BPC-157-TB-500-20mg_graphite.svg
+  attrs:
+    asset_type: document
+    alt_text: 'Current approved uncircled graphite label: BPC-157 + TB-500 20 mg (10+10);
+      trim 40.0000 x 20 mm; 1 mm PDF bleed; svg label artwork'
+  edges:
+  - rel: DEPICTS
+    to: Product:BPC-157 / TB-500 20mg
+- name: inbox/labels/current-print/graphite/BPC-157-TB-500-20mg_graphite.png
+  attrs:
+    asset_type: image
+    alt_text: 'Current approved uncircled graphite label: BPC-157 + TB-500 20 mg (10+10);
+      trim 40.0000 x 20 mm; 1 mm PDF bleed; png label artwork'
+  edges:
+  - rel: DEPICTS
+    to: Product:BPC-157 / TB-500 20mg
+- name: inbox/labels/current-print/graphite/foil/BPC-157-TB-500-20mg_graphite_foil.pdf
+  attrs:
+    asset_type: document
+    alt_text: 'Current approved uncircled graphite label: BPC-157 + TB-500 20 mg (10+10);
+      trim 40.0000 x 20 mm; 1 mm PDF bleed; pdf foil separation'
+  edges:
+  - rel: DEPICTS
+    to: Product:BPC-157 / TB-500 20mg
+- name: inbox/labels/current-print/graphite/foil/BPC-157-TB-500-20mg_graphite_underprint.pdf
+  attrs:
+    asset_type: document
+    alt_text: 'Current approved uncircled graphite label: BPC-157 + TB-500 20 mg (10+10);
+      trim 40.0000 x 20 mm; 1 mm PDF bleed; pdf underprint'
+  edges:
+  - rel: DEPICTS
+    to: Product:BPC-157 / TB-500 20mg
+- name: inbox/labels/current-print/black/BPC-157-TB-500-20mg_black.pdf
+  attrs:
+    asset_type: document
+    alt_text: 'Current approved uncircled black label: BPC-157 + TB-500 20 mg (10+10);
+      trim 40.0000 x 20 mm; 1 mm PDF bleed; pdf label artwork'
+  edges:
+  - rel: DEPICTS
+    to: Product:BPC-157 / TB-500 20mg
+- name: inbox/labels/current-print/black/BPC-157-TB-500-20mg_black.svg
+  attrs:
+    asset_type: document
+    alt_text: 'Current approved uncircled black label: BPC-157 + TB-500 20 mg (10+10);
+      trim 40.0000 x 20 mm; 1 mm PDF bleed; svg label artwork'
+  edges:
+  - rel: DEPICTS
+    to: Product:BPC-157 / TB-500 20mg
+- name: inbox/labels/current-print/black/BPC-157-TB-500-20mg_black.png
+  attrs:
+    asset_type: image
+    alt_text: 'Current approved uncircled black label: BPC-157 + TB-500 20 mg (10+10);
+      trim 40.0000 x 20 mm; 1 mm PDF bleed; png label artwork'
+  edges:
+  - rel: DEPICTS
+    to: Product:BPC-157 / TB-500 20mg
+- name: inbox/labels/current-print/black/foil/BPC-157-TB-500-20mg_black_foil.pdf
+  attrs:
+    asset_type: document
+    alt_text: 'Current approved uncircled black label: BPC-157 + TB-500 20 mg (10+10);
+      trim 40.0000 x 20 mm; 1 mm PDF bleed; pdf foil separation'
+  edges:
+  - rel: DEPICTS
+    to: Product:BPC-157 / TB-500 20mg
+- name: inbox/labels/current-print/black/foil/BPC-157-TB-500-20mg_black_underprint.pdf
+  attrs:
+    asset_type: document
+    alt_text: 'Current approved uncircled black label: BPC-157 + TB-500 20 mg (10+10);
+      trim 40.0000 x 20 mm; 1 mm PDF bleed; pdf underprint'
+  edges:
+  - rel: DEPICTS
+    to: Product:BPC-157 / TB-500 20mg
+- name: inbox/labels/current-print/navy/BPC-157-TB-500-20mg_navy.pdf
+  attrs:
+    asset_type: document
+    alt_text: 'Current approved uncircled navy label: BPC-157 + TB-500 20 mg (10+10);
+      trim 40.0000 x 20 mm; 1 mm PDF bleed; pdf label artwork'
+  edges:
+  - rel: DEPICTS
+    to: Product:BPC-157 / TB-500 20mg
+- name: inbox/labels/current-print/navy/BPC-157-TB-500-20mg_navy.svg
+  attrs:
+    asset_type: document
+    alt_text: 'Current approved uncircled navy label: BPC-157 + TB-500 20 mg (10+10);
+      trim 40.0000 x 20 mm; 1 mm PDF bleed; svg label artwork'
+  edges:
+  - rel: DEPICTS
+    to: Product:BPC-157 / TB-500 20mg
+- name: inbox/labels/current-print/navy/BPC-157-TB-500-20mg_navy.png
+  attrs:
+    asset_type: image
+    alt_text: 'Current approved uncircled navy label: BPC-157 + TB-500 20 mg (10+10);
+      trim 40.0000 x 20 mm; 1 mm PDF bleed; png label artwork'
+  edges:
+  - rel: DEPICTS
+    to: Product:BPC-157 / TB-500 20mg
+- name: inbox/labels/current-print/navy/foil/BPC-157-TB-500-20mg_navy_foil.pdf
+  attrs:
+    asset_type: document
+    alt_text: 'Current approved uncircled navy label: BPC-157 + TB-500 20 mg (10+10);
+      trim 40.0000 x 20 mm; 1 mm PDF bleed; pdf foil separation'
+  edges:
+  - rel: DEPICTS
+    to: Product:BPC-157 / TB-500 20mg
+- name: inbox/labels/current-print/navy/foil/BPC-157-TB-500-20mg_navy_underprint.pdf
+  attrs:
+    asset_type: document
+    alt_text: 'Current approved uncircled navy label: BPC-157 + TB-500 20 mg (10+10);
+      trim 40.0000 x 20 mm; 1 mm PDF bleed; pdf underprint'
+  edges:
+  - rel: DEPICTS
+    to: Product:BPC-157 / TB-500 20mg
+- name: inbox/labels/current-print/graphite/GHK-Cu-50mg_graphite.pdf
+  attrs:
+    asset_type: document
+    alt_text: 'Current approved uncircled graphite label: GHK-Cu 50 mg; trim 40.0000
+      x 20 mm; 1 mm PDF bleed; pdf label artwork'
+  edges:
+  - rel: DEPICTS
+    to: Product:GHK-Cu 50mg
+- name: inbox/labels/current-print/graphite/GHK-Cu-50mg_graphite.svg
+  attrs:
+    asset_type: document
+    alt_text: 'Current approved uncircled graphite label: GHK-Cu 50 mg; trim 40.0000
+      x 20 mm; 1 mm PDF bleed; svg label artwork'
+  edges:
+  - rel: DEPICTS
+    to: Product:GHK-Cu 50mg
+- name: inbox/labels/current-print/graphite/GHK-Cu-50mg_graphite.png
+  attrs:
+    asset_type: image
+    alt_text: 'Current approved uncircled graphite label: GHK-Cu 50 mg; trim 40.0000
+      x 20 mm; 1 mm PDF bleed; png label artwork'
+  edges:
+  - rel: DEPICTS
+    to: Product:GHK-Cu 50mg
+- name: inbox/labels/current-print/graphite/foil/GHK-Cu-50mg_graphite_foil.pdf
+  attrs:
+    asset_type: document
+    alt_text: 'Current approved uncircled graphite label: GHK-Cu 50 mg; trim 40.0000
+      x 20 mm; 1 mm PDF bleed; pdf foil separation'
+  edges:
+  - rel: DEPICTS
+    to: Product:GHK-Cu 50mg
+- name: inbox/labels/current-print/graphite/foil/GHK-Cu-50mg_graphite_underprint.pdf
+  attrs:
+    asset_type: document
+    alt_text: 'Current approved uncircled graphite label: GHK-Cu 50 mg; trim 40.0000
+      x 20 mm; 1 mm PDF bleed; pdf underprint'
+  edges:
+  - rel: DEPICTS
+    to: Product:GHK-Cu 50mg
+- name: inbox/labels/current-print/black/GHK-Cu-50mg_black.pdf
+  attrs:
+    asset_type: document
+    alt_text: 'Current approved uncircled black label: GHK-Cu 50 mg; trim 40.0000
+      x 20 mm; 1 mm PDF bleed; pdf label artwork'
+  edges:
+  - rel: DEPICTS
+    to: Product:GHK-Cu 50mg
+- name: inbox/labels/current-print/black/GHK-Cu-50mg_black.svg
+  attrs:
+    asset_type: document
+    alt_text: 'Current approved uncircled black label: GHK-Cu 50 mg; trim 40.0000
+      x 20 mm; 1 mm PDF bleed; svg label artwork'
+  edges:
+  - rel: DEPICTS
+    to: Product:GHK-Cu 50mg
+- name: inbox/labels/current-print/black/GHK-Cu-50mg_black.png
+  attrs:
+    asset_type: image
+    alt_text: 'Current approved uncircled black label: GHK-Cu 50 mg; trim 40.0000
+      x 20 mm; 1 mm PDF bleed; png label artwork'
+  edges:
+  - rel: DEPICTS
+    to: Product:GHK-Cu 50mg
+- name: inbox/labels/current-print/black/foil/GHK-Cu-50mg_black_foil.pdf
+  attrs:
+    asset_type: document
+    alt_text: 'Current approved uncircled black label: GHK-Cu 50 mg; trim 40.0000
+      x 20 mm; 1 mm PDF bleed; pdf foil separation'
+  edges:
+  - rel: DEPICTS
+    to: Product:GHK-Cu 50mg
+- name: inbox/labels/current-print/black/foil/GHK-Cu-50mg_black_underprint.pdf
+  attrs:
+    asset_type: document
+    alt_text: 'Current approved uncircled black label: GHK-Cu 50 mg; trim 40.0000
+      x 20 mm; 1 mm PDF bleed; pdf underprint'
+  edges:
+  - rel: DEPICTS
+    to: Product:GHK-Cu 50mg
+- name: inbox/labels/current-print/navy/GHK-Cu-50mg_navy.pdf
+  attrs:
+    asset_type: document
+    alt_text: 'Current approved uncircled navy label: GHK-Cu 50 mg; trim 40.0000 x
+      20 mm; 1 mm PDF bleed; pdf label artwork'
+  edges:
+  - rel: DEPICTS
+    to: Product:GHK-Cu 50mg
+- name: inbox/labels/current-print/navy/GHK-Cu-50mg_navy.svg
+  attrs:
+    asset_type: document
+    alt_text: 'Current approved uncircled navy label: GHK-Cu 50 mg; trim 40.0000 x
+      20 mm; 1 mm PDF bleed; svg label artwork'
+  edges:
+  - rel: DEPICTS
+    to: Product:GHK-Cu 50mg
+- name: inbox/labels/current-print/navy/GHK-Cu-50mg_navy.png
+  attrs:
+    asset_type: image
+    alt_text: 'Current approved uncircled navy label: GHK-Cu 50 mg; trim 40.0000 x
+      20 mm; 1 mm PDF bleed; png label artwork'
+  edges:
+  - rel: DEPICTS
+    to: Product:GHK-Cu 50mg
+- name: inbox/labels/current-print/navy/foil/GHK-Cu-50mg_navy_foil.pdf
+  attrs:
+    asset_type: document
+    alt_text: 'Current approved uncircled navy label: GHK-Cu 50 mg; trim 40.0000 x
+      20 mm; 1 mm PDF bleed; pdf foil separation'
+  edges:
+  - rel: DEPICTS
+    to: Product:GHK-Cu 50mg
+- name: inbox/labels/current-print/navy/foil/GHK-Cu-50mg_navy_underprint.pdf
+  attrs:
+    asset_type: document
+    alt_text: 'Current approved uncircled navy label: GHK-Cu 50 mg; trim 40.0000 x
+      20 mm; 1 mm PDF bleed; pdf underprint'
+  edges:
+  - rel: DEPICTS
+    to: Product:GHK-Cu 50mg
+- name: inbox/labels/current-print/graphite/GHK-Cu-100mg_graphite.pdf
+  attrs:
+    asset_type: document
+    alt_text: 'Current approved uncircled graphite label: GHK-Cu 100 mg; trim 40.0000
+      x 20 mm; 1 mm PDF bleed; pdf label artwork'
+  edges:
+  - rel: DEPICTS
+    to: Product:GHK-Cu 100mg
+- name: inbox/labels/current-print/graphite/GHK-Cu-100mg_graphite.svg
+  attrs:
+    asset_type: document
+    alt_text: 'Current approved uncircled graphite label: GHK-Cu 100 mg; trim 40.0000
+      x 20 mm; 1 mm PDF bleed; svg label artwork'
+  edges:
+  - rel: DEPICTS
+    to: Product:GHK-Cu 100mg
+- name: inbox/labels/current-print/graphite/GHK-Cu-100mg_graphite.png
+  attrs:
+    asset_type: image
+    alt_text: 'Current approved uncircled graphite label: GHK-Cu 100 mg; trim 40.0000
+      x 20 mm; 1 mm PDF bleed; png label artwork'
+  edges:
+  - rel: DEPICTS
+    to: Product:GHK-Cu 100mg
+- name: inbox/labels/current-print/graphite/foil/GHK-Cu-100mg_graphite_foil.pdf
+  attrs:
+    asset_type: document
+    alt_text: 'Current approved uncircled graphite label: GHK-Cu 100 mg; trim 40.0000
+      x 20 mm; 1 mm PDF bleed; pdf foil separation'
+  edges:
+  - rel: DEPICTS
+    to: Product:GHK-Cu 100mg
+- name: inbox/labels/current-print/graphite/foil/GHK-Cu-100mg_graphite_underprint.pdf
+  attrs:
+    asset_type: document
+    alt_text: 'Current approved uncircled graphite label: GHK-Cu 100 mg; trim 40.0000
+      x 20 mm; 1 mm PDF bleed; pdf underprint'
+  edges:
+  - rel: DEPICTS
+    to: Product:GHK-Cu 100mg
+- name: inbox/labels/current-print/black/GHK-Cu-100mg_black.pdf
+  attrs:
+    asset_type: document
+    alt_text: 'Current approved uncircled black label: GHK-Cu 100 mg; trim 40.0000
+      x 20 mm; 1 mm PDF bleed; pdf label artwork'
+  edges:
+  - rel: DEPICTS
+    to: Product:GHK-Cu 100mg
+- name: inbox/labels/current-print/black/GHK-Cu-100mg_black.svg
+  attrs:
+    asset_type: document
+    alt_text: 'Current approved uncircled black label: GHK-Cu 100 mg; trim 40.0000
+      x 20 mm; 1 mm PDF bleed; svg label artwork'
+  edges:
+  - rel: DEPICTS
+    to: Product:GHK-Cu 100mg
+- name: inbox/labels/current-print/black/GHK-Cu-100mg_black.png
+  attrs:
+    asset_type: image
+    alt_text: 'Current approved uncircled black label: GHK-Cu 100 mg; trim 40.0000
+      x 20 mm; 1 mm PDF bleed; png label artwork'
+  edges:
+  - rel: DEPICTS
+    to: Product:GHK-Cu 100mg
+- name: inbox/labels/current-print/black/foil/GHK-Cu-100mg_black_foil.pdf
+  attrs:
+    asset_type: document
+    alt_text: 'Current approved uncircled black label: GHK-Cu 100 mg; trim 40.0000
+      x 20 mm; 1 mm PDF bleed; pdf foil separation'
+  edges:
+  - rel: DEPICTS
+    to: Product:GHK-Cu 100mg
+- name: inbox/labels/current-print/black/foil/GHK-Cu-100mg_black_underprint.pdf
+  attrs:
+    asset_type: document
+    alt_text: 'Current approved uncircled black label: GHK-Cu 100 mg; trim 40.0000
+      x 20 mm; 1 mm PDF bleed; pdf underprint'
+  edges:
+  - rel: DEPICTS
+    to: Product:GHK-Cu 100mg
+- name: inbox/labels/current-print/navy/GHK-Cu-100mg_navy.pdf
+  attrs:
+    asset_type: document
+    alt_text: 'Current approved uncircled navy label: GHK-Cu 100 mg; trim 40.0000
+      x 20 mm; 1 mm PDF bleed; pdf label artwork'
+  edges:
+  - rel: DEPICTS
+    to: Product:GHK-Cu 100mg
+- name: inbox/labels/current-print/navy/GHK-Cu-100mg_navy.svg
+  attrs:
+    asset_type: document
+    alt_text: 'Current approved uncircled navy label: GHK-Cu 100 mg; trim 40.0000
+      x 20 mm; 1 mm PDF bleed; svg label artwork'
+  edges:
+  - rel: DEPICTS
+    to: Product:GHK-Cu 100mg
+- name: inbox/labels/current-print/navy/GHK-Cu-100mg_navy.png
+  attrs:
+    asset_type: image
+    alt_text: 'Current approved uncircled navy label: GHK-Cu 100 mg; trim 40.0000
+      x 20 mm; 1 mm PDF bleed; png label artwork'
+  edges:
+  - rel: DEPICTS
+    to: Product:GHK-Cu 100mg
+- name: inbox/labels/current-print/navy/foil/GHK-Cu-100mg_navy_foil.pdf
+  attrs:
+    asset_type: document
+    alt_text: 'Current approved uncircled navy label: GHK-Cu 100 mg; trim 40.0000
+      x 20 mm; 1 mm PDF bleed; pdf foil separation'
+  edges:
+  - rel: DEPICTS
+    to: Product:GHK-Cu 100mg
+- name: inbox/labels/current-print/navy/foil/GHK-Cu-100mg_navy_underprint.pdf
+  attrs:
+    asset_type: document
+    alt_text: 'Current approved uncircled navy label: GHK-Cu 100 mg; trim 40.0000
+      x 20 mm; 1 mm PDF bleed; pdf underprint'
+  edges:
+  - rel: DEPICTS
+    to: Product:GHK-Cu 100mg
+- name: inbox/labels/current-print/graphite/GLOW-70mg_graphite.pdf
+  attrs:
+    asset_type: document
+    alt_text: 'Current approved uncircled graphite label: GLOW 70 mg; trim 40.0000
+      x 20 mm; 1 mm PDF bleed; draft SKU; pdf label artwork'
+  edges:
+  - rel: DEPICTS
+    to: Product:GLOW 70mg
+- name: inbox/labels/current-print/graphite/GLOW-70mg_graphite.svg
+  attrs:
+    asset_type: document
+    alt_text: 'Current approved uncircled graphite label: GLOW 70 mg; trim 40.0000
+      x 20 mm; 1 mm PDF bleed; draft SKU; svg label artwork'
+  edges:
+  - rel: DEPICTS
+    to: Product:GLOW 70mg
+- name: inbox/labels/current-print/graphite/GLOW-70mg_graphite.png
+  attrs:
+    asset_type: image
+    alt_text: 'Current approved uncircled graphite label: GLOW 70 mg; trim 40.0000
+      x 20 mm; 1 mm PDF bleed; draft SKU; png label artwork'
+  edges:
+  - rel: DEPICTS
+    to: Product:GLOW 70mg
+- name: inbox/labels/current-print/graphite/foil/GLOW-70mg_graphite_foil.pdf
+  attrs:
+    asset_type: document
+    alt_text: 'Current approved uncircled graphite label: GLOW 70 mg; trim 40.0000
+      x 20 mm; 1 mm PDF bleed; draft SKU; pdf foil separation'
+  edges:
+  - rel: DEPICTS
+    to: Product:GLOW 70mg
+- name: inbox/labels/current-print/graphite/foil/GLOW-70mg_graphite_underprint.pdf
+  attrs:
+    asset_type: document
+    alt_text: 'Current approved uncircled graphite label: GLOW 70 mg; trim 40.0000
+      x 20 mm; 1 mm PDF bleed; draft SKU; pdf underprint'
+  edges:
+  - rel: DEPICTS
+    to: Product:GLOW 70mg
+- name: inbox/labels/current-print/black/GLOW-70mg_black.pdf
+  attrs:
+    asset_type: document
+    alt_text: 'Current approved uncircled black label: GLOW 70 mg; trim 40.0000 x
+      20 mm; 1 mm PDF bleed; draft SKU; pdf label artwork'
+  edges:
+  - rel: DEPICTS
+    to: Product:GLOW 70mg
+- name: inbox/labels/current-print/black/GLOW-70mg_black.svg
+  attrs:
+    asset_type: document
+    alt_text: 'Current approved uncircled black label: GLOW 70 mg; trim 40.0000 x
+      20 mm; 1 mm PDF bleed; draft SKU; svg label artwork'
+  edges:
+  - rel: DEPICTS
+    to: Product:GLOW 70mg
+- name: inbox/labels/current-print/black/GLOW-70mg_black.png
+  attrs:
+    asset_type: image
+    alt_text: 'Current approved uncircled black label: GLOW 70 mg; trim 40.0000 x
+      20 mm; 1 mm PDF bleed; draft SKU; png label artwork'
+  edges:
+  - rel: DEPICTS
+    to: Product:GLOW 70mg
+- name: inbox/labels/current-print/black/foil/GLOW-70mg_black_foil.pdf
+  attrs:
+    asset_type: document
+    alt_text: 'Current approved uncircled black label: GLOW 70 mg; trim 40.0000 x
+      20 mm; 1 mm PDF bleed; draft SKU; pdf foil separation'
+  edges:
+  - rel: DEPICTS
+    to: Product:GLOW 70mg
+- name: inbox/labels/current-print/black/foil/GLOW-70mg_black_underprint.pdf
+  attrs:
+    asset_type: document
+    alt_text: 'Current approved uncircled black label: GLOW 70 mg; trim 40.0000 x
+      20 mm; 1 mm PDF bleed; draft SKU; pdf underprint'
+  edges:
+  - rel: DEPICTS
+    to: Product:GLOW 70mg
+- name: inbox/labels/current-print/navy/GLOW-70mg_navy.pdf
+  attrs:
+    asset_type: document
+    alt_text: 'Current approved uncircled navy label: GLOW 70 mg; trim 40.0000 x 20
+      mm; 1 mm PDF bleed; draft SKU; pdf label artwork'
+  edges:
+  - rel: DEPICTS
+    to: Product:GLOW 70mg
+- name: inbox/labels/current-print/navy/GLOW-70mg_navy.svg
+  attrs:
+    asset_type: document
+    alt_text: 'Current approved uncircled navy label: GLOW 70 mg; trim 40.0000 x 20
+      mm; 1 mm PDF bleed; draft SKU; svg label artwork'
+  edges:
+  - rel: DEPICTS
+    to: Product:GLOW 70mg
+- name: inbox/labels/current-print/navy/GLOW-70mg_navy.png
+  attrs:
+    asset_type: image
+    alt_text: 'Current approved uncircled navy label: GLOW 70 mg; trim 40.0000 x 20
+      mm; 1 mm PDF bleed; draft SKU; png label artwork'
+  edges:
+  - rel: DEPICTS
+    to: Product:GLOW 70mg
+- name: inbox/labels/current-print/navy/foil/GLOW-70mg_navy_foil.pdf
+  attrs:
+    asset_type: document
+    alt_text: 'Current approved uncircled navy label: GLOW 70 mg; trim 40.0000 x 20
+      mm; 1 mm PDF bleed; draft SKU; pdf foil separation'
+  edges:
+  - rel: DEPICTS
+    to: Product:GLOW 70mg
+- name: inbox/labels/current-print/navy/foil/GLOW-70mg_navy_underprint.pdf
+  attrs:
+    asset_type: document
+    alt_text: 'Current approved uncircled navy label: GLOW 70 mg; trim 40.0000 x 20
+      mm; 1 mm PDF bleed; draft SKU; pdf underprint'
+  edges:
+  - rel: DEPICTS
+    to: Product:GLOW 70mg
+- name: inbox/labels/current-print/graphite/KLOW-80mg_graphite.pdf
+  attrs:
+    asset_type: document
+    alt_text: 'Current approved uncircled graphite label: KLOW 80 mg; trim 40.0000
+      x 20 mm; 1 mm PDF bleed; pdf label artwork'
+  edges:
+  - rel: DEPICTS
+    to: Product:BPC-157 / TB-500 / KPV / GHK-Cu 80mg
+- name: inbox/labels/current-print/graphite/KLOW-80mg_graphite.svg
+  attrs:
+    asset_type: document
+    alt_text: 'Current approved uncircled graphite label: KLOW 80 mg; trim 40.0000
+      x 20 mm; 1 mm PDF bleed; svg label artwork'
+  edges:
+  - rel: DEPICTS
+    to: Product:BPC-157 / TB-500 / KPV / GHK-Cu 80mg
+- name: inbox/labels/current-print/graphite/KLOW-80mg_graphite.png
+  attrs:
+    asset_type: image
+    alt_text: 'Current approved uncircled graphite label: KLOW 80 mg; trim 40.0000
+      x 20 mm; 1 mm PDF bleed; png label artwork'
+  edges:
+  - rel: DEPICTS
+    to: Product:BPC-157 / TB-500 / KPV / GHK-Cu 80mg
+- name: inbox/labels/current-print/graphite/foil/KLOW-80mg_graphite_foil.pdf
+  attrs:
+    asset_type: document
+    alt_text: 'Current approved uncircled graphite label: KLOW 80 mg; trim 40.0000
+      x 20 mm; 1 mm PDF bleed; pdf foil separation'
+  edges:
+  - rel: DEPICTS
+    to: Product:BPC-157 / TB-500 / KPV / GHK-Cu 80mg
+- name: inbox/labels/current-print/graphite/foil/KLOW-80mg_graphite_underprint.pdf
+  attrs:
+    asset_type: document
+    alt_text: 'Current approved uncircled graphite label: KLOW 80 mg; trim 40.0000
+      x 20 mm; 1 mm PDF bleed; pdf underprint'
+  edges:
+  - rel: DEPICTS
+    to: Product:BPC-157 / TB-500 / KPV / GHK-Cu 80mg
+- name: inbox/labels/current-print/black/KLOW-80mg_black.pdf
+  attrs:
+    asset_type: document
+    alt_text: 'Current approved uncircled black label: KLOW 80 mg; trim 40.0000 x
+      20 mm; 1 mm PDF bleed; pdf label artwork'
+  edges:
+  - rel: DEPICTS
+    to: Product:BPC-157 / TB-500 / KPV / GHK-Cu 80mg
+- name: inbox/labels/current-print/black/KLOW-80mg_black.svg
+  attrs:
+    asset_type: document
+    alt_text: 'Current approved uncircled black label: KLOW 80 mg; trim 40.0000 x
+      20 mm; 1 mm PDF bleed; svg label artwork'
+  edges:
+  - rel: DEPICTS
+    to: Product:BPC-157 / TB-500 / KPV / GHK-Cu 80mg
+- name: inbox/labels/current-print/black/KLOW-80mg_black.png
+  attrs:
+    asset_type: image
+    alt_text: 'Current approved uncircled black label: KLOW 80 mg; trim 40.0000 x
+      20 mm; 1 mm PDF bleed; png label artwork'
+  edges:
+  - rel: DEPICTS
+    to: Product:BPC-157 / TB-500 / KPV / GHK-Cu 80mg
+- name: inbox/labels/current-print/black/foil/KLOW-80mg_black_foil.pdf
+  attrs:
+    asset_type: document
+    alt_text: 'Current approved uncircled black label: KLOW 80 mg; trim 40.0000 x
+      20 mm; 1 mm PDF bleed; pdf foil separation'
+  edges:
+  - rel: DEPICTS
+    to: Product:BPC-157 / TB-500 / KPV / GHK-Cu 80mg
+- name: inbox/labels/current-print/black/foil/KLOW-80mg_black_underprint.pdf
+  attrs:
+    asset_type: document
+    alt_text: 'Current approved uncircled black label: KLOW 80 mg; trim 40.0000 x
+      20 mm; 1 mm PDF bleed; pdf underprint'
+  edges:
+  - rel: DEPICTS
+    to: Product:BPC-157 / TB-500 / KPV / GHK-Cu 80mg
+- name: inbox/labels/current-print/navy/KLOW-80mg_navy.pdf
+  attrs:
+    asset_type: document
+    alt_text: 'Current approved uncircled navy label: KLOW 80 mg; trim 40.0000 x 20
+      mm; 1 mm PDF bleed; pdf label artwork'
+  edges:
+  - rel: DEPICTS
+    to: Product:BPC-157 / TB-500 / KPV / GHK-Cu 80mg
+- name: inbox/labels/current-print/navy/KLOW-80mg_navy.svg
+  attrs:
+    asset_type: document
+    alt_text: 'Current approved uncircled navy label: KLOW 80 mg; trim 40.0000 x 20
+      mm; 1 mm PDF bleed; svg label artwork'
+  edges:
+  - rel: DEPICTS
+    to: Product:BPC-157 / TB-500 / KPV / GHK-Cu 80mg
+- name: inbox/labels/current-print/navy/KLOW-80mg_navy.png
+  attrs:
+    asset_type: image
+    alt_text: 'Current approved uncircled navy label: KLOW 80 mg; trim 40.0000 x 20
+      mm; 1 mm PDF bleed; png label artwork'
+  edges:
+  - rel: DEPICTS
+    to: Product:BPC-157 / TB-500 / KPV / GHK-Cu 80mg
+- name: inbox/labels/current-print/navy/foil/KLOW-80mg_navy_foil.pdf
+  attrs:
+    asset_type: document
+    alt_text: 'Current approved uncircled navy label: KLOW 80 mg; trim 40.0000 x 20
+      mm; 1 mm PDF bleed; pdf foil separation'
+  edges:
+  - rel: DEPICTS
+    to: Product:BPC-157 / TB-500 / KPV / GHK-Cu 80mg
+- name: inbox/labels/current-print/navy/foil/KLOW-80mg_navy_underprint.pdf
+  attrs:
+    asset_type: document
+    alt_text: 'Current approved uncircled navy label: KLOW 80 mg; trim 40.0000 x 20
+      mm; 1 mm PDF bleed; pdf underprint'
+  edges:
+  - rel: DEPICTS
+    to: Product:BPC-157 / TB-500 / KPV / GHK-Cu 80mg
+- name: inbox/labels/current-print/graphite/Ipamorelin-10mg_graphite.pdf
+  attrs:
+    asset_type: document
+    alt_text: 'Current approved uncircled graphite label: IPAMORELIN 10 mg; trim 40.0000
+      x 20 mm; 1 mm PDF bleed; pdf label artwork'
+  edges:
+  - rel: DEPICTS
+    to: Product:Ipamorelin 10mg
+- name: inbox/labels/current-print/graphite/Ipamorelin-10mg_graphite.svg
+  attrs:
+    asset_type: document
+    alt_text: 'Current approved uncircled graphite label: IPAMORELIN 10 mg; trim 40.0000
+      x 20 mm; 1 mm PDF bleed; svg label artwork'
+  edges:
+  - rel: DEPICTS
+    to: Product:Ipamorelin 10mg
+- name: inbox/labels/current-print/graphite/Ipamorelin-10mg_graphite.png
+  attrs:
+    asset_type: image
+    alt_text: 'Current approved uncircled graphite label: IPAMORELIN 10 mg; trim 40.0000
+      x 20 mm; 1 mm PDF bleed; png label artwork'
+  edges:
+  - rel: DEPICTS
+    to: Product:Ipamorelin 10mg
+- name: inbox/labels/current-print/graphite/foil/Ipamorelin-10mg_graphite_foil.pdf
+  attrs:
+    asset_type: document
+    alt_text: 'Current approved uncircled graphite label: IPAMORELIN 10 mg; trim 40.0000
+      x 20 mm; 1 mm PDF bleed; pdf foil separation'
+  edges:
+  - rel: DEPICTS
+    to: Product:Ipamorelin 10mg
+- name: inbox/labels/current-print/graphite/foil/Ipamorelin-10mg_graphite_underprint.pdf
+  attrs:
+    asset_type: document
+    alt_text: 'Current approved uncircled graphite label: IPAMORELIN 10 mg; trim 40.0000
+      x 20 mm; 1 mm PDF bleed; pdf underprint'
+  edges:
+  - rel: DEPICTS
+    to: Product:Ipamorelin 10mg
+- name: inbox/labels/current-print/black/Ipamorelin-10mg_black.pdf
+  attrs:
+    asset_type: document
+    alt_text: 'Current approved uncircled black label: IPAMORELIN 10 mg; trim 40.0000
+      x 20 mm; 1 mm PDF bleed; pdf label artwork'
+  edges:
+  - rel: DEPICTS
+    to: Product:Ipamorelin 10mg
+- name: inbox/labels/current-print/black/Ipamorelin-10mg_black.svg
+  attrs:
+    asset_type: document
+    alt_text: 'Current approved uncircled black label: IPAMORELIN 10 mg; trim 40.0000
+      x 20 mm; 1 mm PDF bleed; svg label artwork'
+  edges:
+  - rel: DEPICTS
+    to: Product:Ipamorelin 10mg
+- name: inbox/labels/current-print/black/Ipamorelin-10mg_black.png
+  attrs:
+    asset_type: image
+    alt_text: 'Current approved uncircled black label: IPAMORELIN 10 mg; trim 40.0000
+      x 20 mm; 1 mm PDF bleed; png label artwork'
+  edges:
+  - rel: DEPICTS
+    to: Product:Ipamorelin 10mg
+- name: inbox/labels/current-print/black/foil/Ipamorelin-10mg_black_foil.pdf
+  attrs:
+    asset_type: document
+    alt_text: 'Current approved uncircled black label: IPAMORELIN 10 mg; trim 40.0000
+      x 20 mm; 1 mm PDF bleed; pdf foil separation'
+  edges:
+  - rel: DEPICTS
+    to: Product:Ipamorelin 10mg
+- name: inbox/labels/current-print/black/foil/Ipamorelin-10mg_black_underprint.pdf
+  attrs:
+    asset_type: document
+    alt_text: 'Current approved uncircled black label: IPAMORELIN 10 mg; trim 40.0000
+      x 20 mm; 1 mm PDF bleed; pdf underprint'
+  edges:
+  - rel: DEPICTS
+    to: Product:Ipamorelin 10mg
+- name: inbox/labels/current-print/navy/Ipamorelin-10mg_navy.pdf
+  attrs:
+    asset_type: document
+    alt_text: 'Current approved uncircled navy label: IPAMORELIN 10 mg; trim 40.0000
+      x 20 mm; 1 mm PDF bleed; pdf label artwork'
+  edges:
+  - rel: DEPICTS
+    to: Product:Ipamorelin 10mg
+- name: inbox/labels/current-print/navy/Ipamorelin-10mg_navy.svg
+  attrs:
+    asset_type: document
+    alt_text: 'Current approved uncircled navy label: IPAMORELIN 10 mg; trim 40.0000
+      x 20 mm; 1 mm PDF bleed; svg label artwork'
+  edges:
+  - rel: DEPICTS
+    to: Product:Ipamorelin 10mg
+- name: inbox/labels/current-print/navy/Ipamorelin-10mg_navy.png
+  attrs:
+    asset_type: image
+    alt_text: 'Current approved uncircled navy label: IPAMORELIN 10 mg; trim 40.0000
+      x 20 mm; 1 mm PDF bleed; png label artwork'
+  edges:
+  - rel: DEPICTS
+    to: Product:Ipamorelin 10mg
+- name: inbox/labels/current-print/navy/foil/Ipamorelin-10mg_navy_foil.pdf
+  attrs:
+    asset_type: document
+    alt_text: 'Current approved uncircled navy label: IPAMORELIN 10 mg; trim 40.0000
+      x 20 mm; 1 mm PDF bleed; pdf foil separation'
+  edges:
+  - rel: DEPICTS
+    to: Product:Ipamorelin 10mg
+- name: inbox/labels/current-print/navy/foil/Ipamorelin-10mg_navy_underprint.pdf
+  attrs:
+    asset_type: document
+    alt_text: 'Current approved uncircled navy label: IPAMORELIN 10 mg; trim 40.0000
+      x 20 mm; 1 mm PDF bleed; pdf underprint'
+  edges:
+  - rel: DEPICTS
+    to: Product:Ipamorelin 10mg
+- name: inbox/labels/current-print/graphite/KPV-10mg_graphite.pdf
+  attrs:
+    asset_type: document
+    alt_text: 'Current approved uncircled graphite label: KPV 10 mg; trim 40.0000
+      x 20 mm; 1 mm PDF bleed; pdf label artwork'
+  edges:
+  - rel: DEPICTS
+    to: Product:KPV 10mg
+- name: inbox/labels/current-print/graphite/KPV-10mg_graphite.svg
+  attrs:
+    asset_type: document
+    alt_text: 'Current approved uncircled graphite label: KPV 10 mg; trim 40.0000
+      x 20 mm; 1 mm PDF bleed; svg label artwork'
+  edges:
+  - rel: DEPICTS
+    to: Product:KPV 10mg
+- name: inbox/labels/current-print/graphite/KPV-10mg_graphite.png
+  attrs:
+    asset_type: image
+    alt_text: 'Current approved uncircled graphite label: KPV 10 mg; trim 40.0000
+      x 20 mm; 1 mm PDF bleed; png label artwork'
+  edges:
+  - rel: DEPICTS
+    to: Product:KPV 10mg
+- name: inbox/labels/current-print/graphite/foil/KPV-10mg_graphite_foil.pdf
+  attrs:
+    asset_type: document
+    alt_text: 'Current approved uncircled graphite label: KPV 10 mg; trim 40.0000
+      x 20 mm; 1 mm PDF bleed; pdf foil separation'
+  edges:
+  - rel: DEPICTS
+    to: Product:KPV 10mg
+- name: inbox/labels/current-print/graphite/foil/KPV-10mg_graphite_underprint.pdf
+  attrs:
+    asset_type: document
+    alt_text: 'Current approved uncircled graphite label: KPV 10 mg; trim 40.0000
+      x 20 mm; 1 mm PDF bleed; pdf underprint'
+  edges:
+  - rel: DEPICTS
+    to: Product:KPV 10mg
+- name: inbox/labels/current-print/black/KPV-10mg_black.pdf
+  attrs:
+    asset_type: document
+    alt_text: 'Current approved uncircled black label: KPV 10 mg; trim 40.0000 x 20
+      mm; 1 mm PDF bleed; pdf label artwork'
+  edges:
+  - rel: DEPICTS
+    to: Product:KPV 10mg
+- name: inbox/labels/current-print/black/KPV-10mg_black.svg
+  attrs:
+    asset_type: document
+    alt_text: 'Current approved uncircled black label: KPV 10 mg; trim 40.0000 x 20
+      mm; 1 mm PDF bleed; svg label artwork'
+  edges:
+  - rel: DEPICTS
+    to: Product:KPV 10mg
+- name: inbox/labels/current-print/black/KPV-10mg_black.png
+  attrs:
+    asset_type: image
+    alt_text: 'Current approved uncircled black label: KPV 10 mg; trim 40.0000 x 20
+      mm; 1 mm PDF bleed; png label artwork'
+  edges:
+  - rel: DEPICTS
+    to: Product:KPV 10mg
+- name: inbox/labels/current-print/black/foil/KPV-10mg_black_foil.pdf
+  attrs:
+    asset_type: document
+    alt_text: 'Current approved uncircled black label: KPV 10 mg; trim 40.0000 x 20
+      mm; 1 mm PDF bleed; pdf foil separation'
+  edges:
+  - rel: DEPICTS
+    to: Product:KPV 10mg
+- name: inbox/labels/current-print/black/foil/KPV-10mg_black_underprint.pdf
+  attrs:
+    asset_type: document
+    alt_text: 'Current approved uncircled black label: KPV 10 mg; trim 40.0000 x 20
+      mm; 1 mm PDF bleed; pdf underprint'
+  edges:
+  - rel: DEPICTS
+    to: Product:KPV 10mg
+- name: inbox/labels/current-print/navy/KPV-10mg_navy.pdf
+  attrs:
+    asset_type: document
+    alt_text: 'Current approved uncircled navy label: KPV 10 mg; trim 40.0000 x 20
+      mm; 1 mm PDF bleed; pdf label artwork'
+  edges:
+  - rel: DEPICTS
+    to: Product:KPV 10mg
+- name: inbox/labels/current-print/navy/KPV-10mg_navy.svg
+  attrs:
+    asset_type: document
+    alt_text: 'Current approved uncircled navy label: KPV 10 mg; trim 40.0000 x 20
+      mm; 1 mm PDF bleed; svg label artwork'
+  edges:
+  - rel: DEPICTS
+    to: Product:KPV 10mg
+- name: inbox/labels/current-print/navy/KPV-10mg_navy.png
+  attrs:
+    asset_type: image
+    alt_text: 'Current approved uncircled navy label: KPV 10 mg; trim 40.0000 x 20
+      mm; 1 mm PDF bleed; png label artwork'
+  edges:
+  - rel: DEPICTS
+    to: Product:KPV 10mg
+- name: inbox/labels/current-print/navy/foil/KPV-10mg_navy_foil.pdf
+  attrs:
+    asset_type: document
+    alt_text: 'Current approved uncircled navy label: KPV 10 mg; trim 40.0000 x 20
+      mm; 1 mm PDF bleed; pdf foil separation'
+  edges:
+  - rel: DEPICTS
+    to: Product:KPV 10mg
+- name: inbox/labels/current-print/navy/foil/KPV-10mg_navy_underprint.pdf
+  attrs:
+    asset_type: document
+    alt_text: 'Current approved uncircled navy label: KPV 10 mg; trim 40.0000 x 20
+      mm; 1 mm PDF bleed; pdf underprint'
+  edges:
+  - rel: DEPICTS
+    to: Product:KPV 10mg
+- name: inbox/labels/current-print/graphite/MOTS-c-10mg_graphite.pdf
+  attrs:
+    asset_type: document
+    alt_text: 'Current approved uncircled graphite label: MOTS-c 10 mg; trim 40.0000
+      x 20 mm; 1 mm PDF bleed; pdf label artwork'
+  edges:
+  - rel: DEPICTS
+    to: Product:MOTS-c 10mg
+- name: inbox/labels/current-print/graphite/MOTS-c-10mg_graphite.svg
+  attrs:
+    asset_type: document
+    alt_text: 'Current approved uncircled graphite label: MOTS-c 10 mg; trim 40.0000
+      x 20 mm; 1 mm PDF bleed; svg label artwork'
+  edges:
+  - rel: DEPICTS
+    to: Product:MOTS-c 10mg
+- name: inbox/labels/current-print/graphite/MOTS-c-10mg_graphite.png
+  attrs:
+    asset_type: image
+    alt_text: 'Current approved uncircled graphite label: MOTS-c 10 mg; trim 40.0000
+      x 20 mm; 1 mm PDF bleed; png label artwork'
+  edges:
+  - rel: DEPICTS
+    to: Product:MOTS-c 10mg
+- name: inbox/labels/current-print/graphite/foil/MOTS-c-10mg_graphite_foil.pdf
+  attrs:
+    asset_type: document
+    alt_text: 'Current approved uncircled graphite label: MOTS-c 10 mg; trim 40.0000
+      x 20 mm; 1 mm PDF bleed; pdf foil separation'
+  edges:
+  - rel: DEPICTS
+    to: Product:MOTS-c 10mg
+- name: inbox/labels/current-print/graphite/foil/MOTS-c-10mg_graphite_underprint.pdf
+  attrs:
+    asset_type: document
+    alt_text: 'Current approved uncircled graphite label: MOTS-c 10 mg; trim 40.0000
+      x 20 mm; 1 mm PDF bleed; pdf underprint'
+  edges:
+  - rel: DEPICTS
+    to: Product:MOTS-c 10mg
+- name: inbox/labels/current-print/black/MOTS-c-10mg_black.pdf
+  attrs:
+    asset_type: document
+    alt_text: 'Current approved uncircled black label: MOTS-c 10 mg; trim 40.0000
+      x 20 mm; 1 mm PDF bleed; pdf label artwork'
+  edges:
+  - rel: DEPICTS
+    to: Product:MOTS-c 10mg
+- name: inbox/labels/current-print/black/MOTS-c-10mg_black.svg
+  attrs:
+    asset_type: document
+    alt_text: 'Current approved uncircled black label: MOTS-c 10 mg; trim 40.0000
+      x 20 mm; 1 mm PDF bleed; svg label artwork'
+  edges:
+  - rel: DEPICTS
+    to: Product:MOTS-c 10mg
+- name: inbox/labels/current-print/black/MOTS-c-10mg_black.png
+  attrs:
+    asset_type: image
+    alt_text: 'Current approved uncircled black label: MOTS-c 10 mg; trim 40.0000
+      x 20 mm; 1 mm PDF bleed; png label artwork'
+  edges:
+  - rel: DEPICTS
+    to: Product:MOTS-c 10mg
+- name: inbox/labels/current-print/black/foil/MOTS-c-10mg_black_foil.pdf
+  attrs:
+    asset_type: document
+    alt_text: 'Current approved uncircled black label: MOTS-c 10 mg; trim 40.0000
+      x 20 mm; 1 mm PDF bleed; pdf foil separation'
+  edges:
+  - rel: DEPICTS
+    to: Product:MOTS-c 10mg
+- name: inbox/labels/current-print/black/foil/MOTS-c-10mg_black_underprint.pdf
+  attrs:
+    asset_type: document
+    alt_text: 'Current approved uncircled black label: MOTS-c 10 mg; trim 40.0000
+      x 20 mm; 1 mm PDF bleed; pdf underprint'
+  edges:
+  - rel: DEPICTS
+    to: Product:MOTS-c 10mg
+- name: inbox/labels/current-print/navy/MOTS-c-10mg_navy.pdf
+  attrs:
+    asset_type: document
+    alt_text: 'Current approved uncircled navy label: MOTS-c 10 mg; trim 40.0000 x
+      20 mm; 1 mm PDF bleed; pdf label artwork'
+  edges:
+  - rel: DEPICTS
+    to: Product:MOTS-c 10mg
+- name: inbox/labels/current-print/navy/MOTS-c-10mg_navy.svg
+  attrs:
+    asset_type: document
+    alt_text: 'Current approved uncircled navy label: MOTS-c 10 mg; trim 40.0000 x
+      20 mm; 1 mm PDF bleed; svg label artwork'
+  edges:
+  - rel: DEPICTS
+    to: Product:MOTS-c 10mg
+- name: inbox/labels/current-print/navy/MOTS-c-10mg_navy.png
+  attrs:
+    asset_type: image
+    alt_text: 'Current approved uncircled navy label: MOTS-c 10 mg; trim 40.0000 x
+      20 mm; 1 mm PDF bleed; png label artwork'
+  edges:
+  - rel: DEPICTS
+    to: Product:MOTS-c 10mg
+- name: inbox/labels/current-print/navy/foil/MOTS-c-10mg_navy_foil.pdf
+  attrs:
+    asset_type: document
+    alt_text: 'Current approved uncircled navy label: MOTS-c 10 mg; trim 40.0000 x
+      20 mm; 1 mm PDF bleed; pdf foil separation'
+  edges:
+  - rel: DEPICTS
+    to: Product:MOTS-c 10mg
+- name: inbox/labels/current-print/navy/foil/MOTS-c-10mg_navy_underprint.pdf
+  attrs:
+    asset_type: document
+    alt_text: 'Current approved uncircled navy label: MOTS-c 10 mg; trim 40.0000 x
+      20 mm; 1 mm PDF bleed; pdf underprint'
+  edges:
+  - rel: DEPICTS
+    to: Product:MOTS-c 10mg
+- name: inbox/labels/current-print/graphite/Melanotan-1-10mg_graphite.pdf
+  attrs:
+    asset_type: document
+    alt_text: 'Current approved uncircled graphite label: MELANOTAN I 10 mg; trim
+      40.0000 x 20 mm; 1 mm PDF bleed; pdf label artwork'
+  edges:
+  - rel: DEPICTS
+    to: Product:Melanotan I 10mg
+- name: inbox/labels/current-print/graphite/Melanotan-1-10mg_graphite.svg
+  attrs:
+    asset_type: document
+    alt_text: 'Current approved uncircled graphite label: MELANOTAN I 10 mg; trim
+      40.0000 x 20 mm; 1 mm PDF bleed; svg label artwork'
+  edges:
+  - rel: DEPICTS
+    to: Product:Melanotan I 10mg
+- name: inbox/labels/current-print/graphite/Melanotan-1-10mg_graphite.png
+  attrs:
+    asset_type: image
+    alt_text: 'Current approved uncircled graphite label: MELANOTAN I 10 mg; trim
+      40.0000 x 20 mm; 1 mm PDF bleed; png label artwork'
+  edges:
+  - rel: DEPICTS
+    to: Product:Melanotan I 10mg
+- name: inbox/labels/current-print/graphite/foil/Melanotan-1-10mg_graphite_foil.pdf
+  attrs:
+    asset_type: document
+    alt_text: 'Current approved uncircled graphite label: MELANOTAN I 10 mg; trim
+      40.0000 x 20 mm; 1 mm PDF bleed; pdf foil separation'
+  edges:
+  - rel: DEPICTS
+    to: Product:Melanotan I 10mg
+- name: inbox/labels/current-print/graphite/foil/Melanotan-1-10mg_graphite_underprint.pdf
+  attrs:
+    asset_type: document
+    alt_text: 'Current approved uncircled graphite label: MELANOTAN I 10 mg; trim
+      40.0000 x 20 mm; 1 mm PDF bleed; pdf underprint'
+  edges:
+  - rel: DEPICTS
+    to: Product:Melanotan I 10mg
+- name: inbox/labels/current-print/black/Melanotan-1-10mg_black.pdf
+  attrs:
+    asset_type: document
+    alt_text: 'Current approved uncircled black label: MELANOTAN I 10 mg; trim 40.0000
+      x 20 mm; 1 mm PDF bleed; pdf label artwork'
+  edges:
+  - rel: DEPICTS
+    to: Product:Melanotan I 10mg
+- name: inbox/labels/current-print/black/Melanotan-1-10mg_black.svg
+  attrs:
+    asset_type: document
+    alt_text: 'Current approved uncircled black label: MELANOTAN I 10 mg; trim 40.0000
+      x 20 mm; 1 mm PDF bleed; svg label artwork'
+  edges:
+  - rel: DEPICTS
+    to: Product:Melanotan I 10mg
+- name: inbox/labels/current-print/black/Melanotan-1-10mg_black.png
+  attrs:
+    asset_type: image
+    alt_text: 'Current approved uncircled black label: MELANOTAN I 10 mg; trim 40.0000
+      x 20 mm; 1 mm PDF bleed; png label artwork'
+  edges:
+  - rel: DEPICTS
+    to: Product:Melanotan I 10mg
+- name: inbox/labels/current-print/black/foil/Melanotan-1-10mg_black_foil.pdf
+  attrs:
+    asset_type: document
+    alt_text: 'Current approved uncircled black label: MELANOTAN I 10 mg; trim 40.0000
+      x 20 mm; 1 mm PDF bleed; pdf foil separation'
+  edges:
+  - rel: DEPICTS
+    to: Product:Melanotan I 10mg
+- name: inbox/labels/current-print/black/foil/Melanotan-1-10mg_black_underprint.pdf
+  attrs:
+    asset_type: document
+    alt_text: 'Current approved uncircled black label: MELANOTAN I 10 mg; trim 40.0000
+      x 20 mm; 1 mm PDF bleed; pdf underprint'
+  edges:
+  - rel: DEPICTS
+    to: Product:Melanotan I 10mg
+- name: inbox/labels/current-print/navy/Melanotan-1-10mg_navy.pdf
+  attrs:
+    asset_type: document
+    alt_text: 'Current approved uncircled navy label: MELANOTAN I 10 mg; trim 40.0000
+      x 20 mm; 1 mm PDF bleed; pdf label artwork'
+  edges:
+  - rel: DEPICTS
+    to: Product:Melanotan I 10mg
+- name: inbox/labels/current-print/navy/Melanotan-1-10mg_navy.svg
+  attrs:
+    asset_type: document
+    alt_text: 'Current approved uncircled navy label: MELANOTAN I 10 mg; trim 40.0000
+      x 20 mm; 1 mm PDF bleed; svg label artwork'
+  edges:
+  - rel: DEPICTS
+    to: Product:Melanotan I 10mg
+- name: inbox/labels/current-print/navy/Melanotan-1-10mg_navy.png
+  attrs:
+    asset_type: image
+    alt_text: 'Current approved uncircled navy label: MELANOTAN I 10 mg; trim 40.0000
+      x 20 mm; 1 mm PDF bleed; png label artwork'
+  edges:
+  - rel: DEPICTS
+    to: Product:Melanotan I 10mg
+- name: inbox/labels/current-print/navy/foil/Melanotan-1-10mg_navy_foil.pdf
+  attrs:
+    asset_type: document
+    alt_text: 'Current approved uncircled navy label: MELANOTAN I 10 mg; trim 40.0000
+      x 20 mm; 1 mm PDF bleed; pdf foil separation'
+  edges:
+  - rel: DEPICTS
+    to: Product:Melanotan I 10mg
+- name: inbox/labels/current-print/navy/foil/Melanotan-1-10mg_navy_underprint.pdf
+  attrs:
+    asset_type: document
+    alt_text: 'Current approved uncircled navy label: MELANOTAN I 10 mg; trim 40.0000
+      x 20 mm; 1 mm PDF bleed; pdf underprint'
+  edges:
+  - rel: DEPICTS
+    to: Product:Melanotan I 10mg
+- name: inbox/labels/current-print/graphite/Melanotan-2-10mg_graphite.pdf
+  attrs:
+    asset_type: document
+    alt_text: 'Current approved uncircled graphite label: MELANOTAN II 10 mg; trim
+      40.0000 x 20 mm; 1 mm PDF bleed; pdf label artwork'
+  edges:
+  - rel: DEPICTS
+    to: Product:Melanotan II 10mg
+- name: inbox/labels/current-print/graphite/Melanotan-2-10mg_graphite.svg
+  attrs:
+    asset_type: document
+    alt_text: 'Current approved uncircled graphite label: MELANOTAN II 10 mg; trim
+      40.0000 x 20 mm; 1 mm PDF bleed; svg label artwork'
+  edges:
+  - rel: DEPICTS
+    to: Product:Melanotan II 10mg
+- name: inbox/labels/current-print/graphite/Melanotan-2-10mg_graphite.png
+  attrs:
+    asset_type: image
+    alt_text: 'Current approved uncircled graphite label: MELANOTAN II 10 mg; trim
+      40.0000 x 20 mm; 1 mm PDF bleed; png label artwork'
+  edges:
+  - rel: DEPICTS
+    to: Product:Melanotan II 10mg
+- name: inbox/labels/current-print/graphite/foil/Melanotan-2-10mg_graphite_foil.pdf
+  attrs:
+    asset_type: document
+    alt_text: 'Current approved uncircled graphite label: MELANOTAN II 10 mg; trim
+      40.0000 x 20 mm; 1 mm PDF bleed; pdf foil separation'
+  edges:
+  - rel: DEPICTS
+    to: Product:Melanotan II 10mg
+- name: inbox/labels/current-print/graphite/foil/Melanotan-2-10mg_graphite_underprint.pdf
+  attrs:
+    asset_type: document
+    alt_text: 'Current approved uncircled graphite label: MELANOTAN II 10 mg; trim
+      40.0000 x 20 mm; 1 mm PDF bleed; pdf underprint'
+  edges:
+  - rel: DEPICTS
+    to: Product:Melanotan II 10mg
+- name: inbox/labels/current-print/black/Melanotan-2-10mg_black.pdf
+  attrs:
+    asset_type: document
+    alt_text: 'Current approved uncircled black label: MELANOTAN II 10 mg; trim 40.0000
+      x 20 mm; 1 mm PDF bleed; pdf label artwork'
+  edges:
+  - rel: DEPICTS
+    to: Product:Melanotan II 10mg
+- name: inbox/labels/current-print/black/Melanotan-2-10mg_black.svg
+  attrs:
+    asset_type: document
+    alt_text: 'Current approved uncircled black label: MELANOTAN II 10 mg; trim 40.0000
+      x 20 mm; 1 mm PDF bleed; svg label artwork'
+  edges:
+  - rel: DEPICTS
+    to: Product:Melanotan II 10mg
+- name: inbox/labels/current-print/black/Melanotan-2-10mg_black.png
+  attrs:
+    asset_type: image
+    alt_text: 'Current approved uncircled black label: MELANOTAN II 10 mg; trim 40.0000
+      x 20 mm; 1 mm PDF bleed; png label artwork'
+  edges:
+  - rel: DEPICTS
+    to: Product:Melanotan II 10mg
+- name: inbox/labels/current-print/black/foil/Melanotan-2-10mg_black_foil.pdf
+  attrs:
+    asset_type: document
+    alt_text: 'Current approved uncircled black label: MELANOTAN II 10 mg; trim 40.0000
+      x 20 mm; 1 mm PDF bleed; pdf foil separation'
+  edges:
+  - rel: DEPICTS
+    to: Product:Melanotan II 10mg
+- name: inbox/labels/current-print/black/foil/Melanotan-2-10mg_black_underprint.pdf
+  attrs:
+    asset_type: document
+    alt_text: 'Current approved uncircled black label: MELANOTAN II 10 mg; trim 40.0000
+      x 20 mm; 1 mm PDF bleed; pdf underprint'
+  edges:
+  - rel: DEPICTS
+    to: Product:Melanotan II 10mg
+- name: inbox/labels/current-print/navy/Melanotan-2-10mg_navy.pdf
+  attrs:
+    asset_type: document
+    alt_text: 'Current approved uncircled navy label: MELANOTAN II 10 mg; trim 40.0000
+      x 20 mm; 1 mm PDF bleed; pdf label artwork'
+  edges:
+  - rel: DEPICTS
+    to: Product:Melanotan II 10mg
+- name: inbox/labels/current-print/navy/Melanotan-2-10mg_navy.svg
+  attrs:
+    asset_type: document
+    alt_text: 'Current approved uncircled navy label: MELANOTAN II 10 mg; trim 40.0000
+      x 20 mm; 1 mm PDF bleed; svg label artwork'
+  edges:
+  - rel: DEPICTS
+    to: Product:Melanotan II 10mg
+- name: inbox/labels/current-print/navy/Melanotan-2-10mg_navy.png
+  attrs:
+    asset_type: image
+    alt_text: 'Current approved uncircled navy label: MELANOTAN II 10 mg; trim 40.0000
+      x 20 mm; 1 mm PDF bleed; png label artwork'
+  edges:
+  - rel: DEPICTS
+    to: Product:Melanotan II 10mg
+- name: inbox/labels/current-print/navy/foil/Melanotan-2-10mg_navy_foil.pdf
+  attrs:
+    asset_type: document
+    alt_text: 'Current approved uncircled navy label: MELANOTAN II 10 mg; trim 40.0000
+      x 20 mm; 1 mm PDF bleed; pdf foil separation'
+  edges:
+  - rel: DEPICTS
+    to: Product:Melanotan II 10mg
+- name: inbox/labels/current-print/navy/foil/Melanotan-2-10mg_navy_underprint.pdf
+  attrs:
+    asset_type: document
+    alt_text: 'Current approved uncircled navy label: MELANOTAN II 10 mg; trim 40.0000
+      x 20 mm; 1 mm PDF bleed; pdf underprint'
+  edges:
+  - rel: DEPICTS
+    to: Product:Melanotan II 10mg
+- name: inbox/labels/current-print/graphite/NAD-plus-500mg_graphite.pdf
+  attrs:
+    asset_type: document
+    alt_text: 'Current approved uncircled graphite label: NAD+ (BUFFERED) 500 mg;
+      trim 44.2256 x 22 mm; 1 mm PDF bleed; pdf label artwork'
+  edges:
+  - rel: DEPICTS
+    to: Product:NAD+ 500mg
+- name: inbox/labels/current-print/graphite/NAD-plus-500mg_graphite.svg
+  attrs:
+    asset_type: document
+    alt_text: 'Current approved uncircled graphite label: NAD+ (BUFFERED) 500 mg;
+      trim 44.2256 x 22 mm; 1 mm PDF bleed; svg label artwork'
+  edges:
+  - rel: DEPICTS
+    to: Product:NAD+ 500mg
+- name: inbox/labels/current-print/graphite/NAD-plus-500mg_graphite.png
+  attrs:
+    asset_type: image
+    alt_text: 'Current approved uncircled graphite label: NAD+ (BUFFERED) 500 mg;
+      trim 44.2256 x 22 mm; 1 mm PDF bleed; png label artwork'
+  edges:
+  - rel: DEPICTS
+    to: Product:NAD+ 500mg
+- name: inbox/labels/current-print/graphite/foil/NAD-plus-500mg_graphite_foil.pdf
+  attrs:
+    asset_type: document
+    alt_text: 'Current approved uncircled graphite label: NAD+ (BUFFERED) 500 mg;
+      trim 44.2256 x 22 mm; 1 mm PDF bleed; pdf foil separation'
+  edges:
+  - rel: DEPICTS
+    to: Product:NAD+ 500mg
+- name: inbox/labels/current-print/graphite/foil/NAD-plus-500mg_graphite_underprint.pdf
+  attrs:
+    asset_type: document
+    alt_text: 'Current approved uncircled graphite label: NAD+ (BUFFERED) 500 mg;
+      trim 44.2256 x 22 mm; 1 mm PDF bleed; pdf underprint'
+  edges:
+  - rel: DEPICTS
+    to: Product:NAD+ 500mg
+- name: inbox/labels/current-print/black/NAD-plus-500mg_black.pdf
+  attrs:
+    asset_type: document
+    alt_text: 'Current approved uncircled black label: NAD+ (BUFFERED) 500 mg; trim
+      44.2256 x 22 mm; 1 mm PDF bleed; pdf label artwork'
+  edges:
+  - rel: DEPICTS
+    to: Product:NAD+ 500mg
+- name: inbox/labels/current-print/black/NAD-plus-500mg_black.svg
+  attrs:
+    asset_type: document
+    alt_text: 'Current approved uncircled black label: NAD+ (BUFFERED) 500 mg; trim
+      44.2256 x 22 mm; 1 mm PDF bleed; svg label artwork'
+  edges:
+  - rel: DEPICTS
+    to: Product:NAD+ 500mg
+- name: inbox/labels/current-print/black/NAD-plus-500mg_black.png
+  attrs:
+    asset_type: image
+    alt_text: 'Current approved uncircled black label: NAD+ (BUFFERED) 500 mg; trim
+      44.2256 x 22 mm; 1 mm PDF bleed; png label artwork'
+  edges:
+  - rel: DEPICTS
+    to: Product:NAD+ 500mg
+- name: inbox/labels/current-print/black/foil/NAD-plus-500mg_black_foil.pdf
+  attrs:
+    asset_type: document
+    alt_text: 'Current approved uncircled black label: NAD+ (BUFFERED) 500 mg; trim
+      44.2256 x 22 mm; 1 mm PDF bleed; pdf foil separation'
+  edges:
+  - rel: DEPICTS
+    to: Product:NAD+ 500mg
+- name: inbox/labels/current-print/black/foil/NAD-plus-500mg_black_underprint.pdf
+  attrs:
+    asset_type: document
+    alt_text: 'Current approved uncircled black label: NAD+ (BUFFERED) 500 mg; trim
+      44.2256 x 22 mm; 1 mm PDF bleed; pdf underprint'
+  edges:
+  - rel: DEPICTS
+    to: Product:NAD+ 500mg
+- name: inbox/labels/current-print/navy/NAD-plus-500mg_navy.pdf
+  attrs:
+    asset_type: document
+    alt_text: 'Current approved uncircled navy label: NAD+ (BUFFERED) 500 mg; trim
+      44.2256 x 22 mm; 1 mm PDF bleed; pdf label artwork'
+  edges:
+  - rel: DEPICTS
+    to: Product:NAD+ 500mg
+- name: inbox/labels/current-print/navy/NAD-plus-500mg_navy.svg
+  attrs:
+    asset_type: document
+    alt_text: 'Current approved uncircled navy label: NAD+ (BUFFERED) 500 mg; trim
+      44.2256 x 22 mm; 1 mm PDF bleed; svg label artwork'
+  edges:
+  - rel: DEPICTS
+    to: Product:NAD+ 500mg
+- name: inbox/labels/current-print/navy/NAD-plus-500mg_navy.png
+  attrs:
+    asset_type: image
+    alt_text: 'Current approved uncircled navy label: NAD+ (BUFFERED) 500 mg; trim
+      44.2256 x 22 mm; 1 mm PDF bleed; png label artwork'
+  edges:
+  - rel: DEPICTS
+    to: Product:NAD+ 500mg
+- name: inbox/labels/current-print/navy/foil/NAD-plus-500mg_navy_foil.pdf
+  attrs:
+    asset_type: document
+    alt_text: 'Current approved uncircled navy label: NAD+ (BUFFERED) 500 mg; trim
+      44.2256 x 22 mm; 1 mm PDF bleed; pdf foil separation'
+  edges:
+  - rel: DEPICTS
+    to: Product:NAD+ 500mg
+- name: inbox/labels/current-print/navy/foil/NAD-plus-500mg_navy_underprint.pdf
+  attrs:
+    asset_type: document
+    alt_text: 'Current approved uncircled navy label: NAD+ (BUFFERED) 500 mg; trim
+      44.2256 x 22 mm; 1 mm PDF bleed; pdf underprint'
+  edges:
+  - rel: DEPICTS
+    to: Product:NAD+ 500mg
+- name: inbox/labels/current-print/graphite/Retatrutide-10mg_graphite.pdf
+  attrs:
+    asset_type: document
+    alt_text: 'Current approved uncircled graphite label: RETATRUTIDE 10 mg; trim
+      40.0000 x 20 mm; 1 mm PDF bleed; pdf label artwork'
+  edges:
+  - rel: DEPICTS
+    to: Product:Retatrutide 10mg
+- name: inbox/labels/current-print/graphite/Retatrutide-10mg_graphite.svg
+  attrs:
+    asset_type: document
+    alt_text: 'Current approved uncircled graphite label: RETATRUTIDE 10 mg; trim
+      40.0000 x 20 mm; 1 mm PDF bleed; svg label artwork'
+  edges:
+  - rel: DEPICTS
+    to: Product:Retatrutide 10mg
+- name: inbox/labels/current-print/graphite/Retatrutide-10mg_graphite.png
+  attrs:
+    asset_type: image
+    alt_text: 'Current approved uncircled graphite label: RETATRUTIDE 10 mg; trim
+      40.0000 x 20 mm; 1 mm PDF bleed; png label artwork'
+  edges:
+  - rel: DEPICTS
+    to: Product:Retatrutide 10mg
+- name: inbox/labels/current-print/graphite/foil/Retatrutide-10mg_graphite_foil.pdf
+  attrs:
+    asset_type: document
+    alt_text: 'Current approved uncircled graphite label: RETATRUTIDE 10 mg; trim
+      40.0000 x 20 mm; 1 mm PDF bleed; pdf foil separation'
+  edges:
+  - rel: DEPICTS
+    to: Product:Retatrutide 10mg
+- name: inbox/labels/current-print/graphite/foil/Retatrutide-10mg_graphite_underprint.pdf
+  attrs:
+    asset_type: document
+    alt_text: 'Current approved uncircled graphite label: RETATRUTIDE 10 mg; trim
+      40.0000 x 20 mm; 1 mm PDF bleed; pdf underprint'
+  edges:
+  - rel: DEPICTS
+    to: Product:Retatrutide 10mg
+- name: inbox/labels/current-print/black/Retatrutide-10mg_black.pdf
+  attrs:
+    asset_type: document
+    alt_text: 'Current approved uncircled black label: RETATRUTIDE 10 mg; trim 40.0000
+      x 20 mm; 1 mm PDF bleed; pdf label artwork'
+  edges:
+  - rel: DEPICTS
+    to: Product:Retatrutide 10mg
+- name: inbox/labels/current-print/black/Retatrutide-10mg_black.svg
+  attrs:
+    asset_type: document
+    alt_text: 'Current approved uncircled black label: RETATRUTIDE 10 mg; trim 40.0000
+      x 20 mm; 1 mm PDF bleed; svg label artwork'
+  edges:
+  - rel: DEPICTS
+    to: Product:Retatrutide 10mg
+- name: inbox/labels/current-print/black/Retatrutide-10mg_black.png
+  attrs:
+    asset_type: image
+    alt_text: 'Current approved uncircled black label: RETATRUTIDE 10 mg; trim 40.0000
+      x 20 mm; 1 mm PDF bleed; png label artwork'
+  edges:
+  - rel: DEPICTS
+    to: Product:Retatrutide 10mg
+- name: inbox/labels/current-print/black/foil/Retatrutide-10mg_black_foil.pdf
+  attrs:
+    asset_type: document
+    alt_text: 'Current approved uncircled black label: RETATRUTIDE 10 mg; trim 40.0000
+      x 20 mm; 1 mm PDF bleed; pdf foil separation'
+  edges:
+  - rel: DEPICTS
+    to: Product:Retatrutide 10mg
+- name: inbox/labels/current-print/black/foil/Retatrutide-10mg_black_underprint.pdf
+  attrs:
+    asset_type: document
+    alt_text: 'Current approved uncircled black label: RETATRUTIDE 10 mg; trim 40.0000
+      x 20 mm; 1 mm PDF bleed; pdf underprint'
+  edges:
+  - rel: DEPICTS
+    to: Product:Retatrutide 10mg
+- name: inbox/labels/current-print/navy/Retatrutide-10mg_navy.pdf
+  attrs:
+    asset_type: document
+    alt_text: 'Current approved uncircled navy label: RETATRUTIDE 10 mg; trim 40.0000
+      x 20 mm; 1 mm PDF bleed; pdf label artwork'
+  edges:
+  - rel: DEPICTS
+    to: Product:Retatrutide 10mg
+- name: inbox/labels/current-print/navy/Retatrutide-10mg_navy.svg
+  attrs:
+    asset_type: document
+    alt_text: 'Current approved uncircled navy label: RETATRUTIDE 10 mg; trim 40.0000
+      x 20 mm; 1 mm PDF bleed; svg label artwork'
+  edges:
+  - rel: DEPICTS
+    to: Product:Retatrutide 10mg
+- name: inbox/labels/current-print/navy/Retatrutide-10mg_navy.png
+  attrs:
+    asset_type: image
+    alt_text: 'Current approved uncircled navy label: RETATRUTIDE 10 mg; trim 40.0000
+      x 20 mm; 1 mm PDF bleed; png label artwork'
+  edges:
+  - rel: DEPICTS
+    to: Product:Retatrutide 10mg
+- name: inbox/labels/current-print/navy/foil/Retatrutide-10mg_navy_foil.pdf
+  attrs:
+    asset_type: document
+    alt_text: 'Current approved uncircled navy label: RETATRUTIDE 10 mg; trim 40.0000
+      x 20 mm; 1 mm PDF bleed; pdf foil separation'
+  edges:
+  - rel: DEPICTS
+    to: Product:Retatrutide 10mg
+- name: inbox/labels/current-print/navy/foil/Retatrutide-10mg_navy_underprint.pdf
+  attrs:
+    asset_type: document
+    alt_text: 'Current approved uncircled navy label: RETATRUTIDE 10 mg; trim 40.0000
+      x 20 mm; 1 mm PDF bleed; pdf underprint'
+  edges:
+  - rel: DEPICTS
+    to: Product:Retatrutide 10mg
+- name: inbox/labels/current-print/graphite/Retatrutide-15mg_graphite.pdf
+  attrs:
+    asset_type: document
+    alt_text: 'Current approved uncircled graphite label: RETATRUTIDE 15 mg; trim
+      40.0000 x 20 mm; 1 mm PDF bleed; draft SKU; pdf label artwork'
+  edges:
+  - rel: DEPICTS
+    to: Product:Retatrutide 15mg
+- name: inbox/labels/current-print/graphite/Retatrutide-15mg_graphite.svg
+  attrs:
+    asset_type: document
+    alt_text: 'Current approved uncircled graphite label: RETATRUTIDE 15 mg; trim
+      40.0000 x 20 mm; 1 mm PDF bleed; draft SKU; svg label artwork'
+  edges:
+  - rel: DEPICTS
+    to: Product:Retatrutide 15mg
+- name: inbox/labels/current-print/graphite/Retatrutide-15mg_graphite.png
+  attrs:
+    asset_type: image
+    alt_text: 'Current approved uncircled graphite label: RETATRUTIDE 15 mg; trim
+      40.0000 x 20 mm; 1 mm PDF bleed; draft SKU; png label artwork'
+  edges:
+  - rel: DEPICTS
+    to: Product:Retatrutide 15mg
+- name: inbox/labels/current-print/graphite/foil/Retatrutide-15mg_graphite_foil.pdf
+  attrs:
+    asset_type: document
+    alt_text: 'Current approved uncircled graphite label: RETATRUTIDE 15 mg; trim
+      40.0000 x 20 mm; 1 mm PDF bleed; draft SKU; pdf foil separation'
+  edges:
+  - rel: DEPICTS
+    to: Product:Retatrutide 15mg
+- name: inbox/labels/current-print/graphite/foil/Retatrutide-15mg_graphite_underprint.pdf
+  attrs:
+    asset_type: document
+    alt_text: 'Current approved uncircled graphite label: RETATRUTIDE 15 mg; trim
+      40.0000 x 20 mm; 1 mm PDF bleed; draft SKU; pdf underprint'
+  edges:
+  - rel: DEPICTS
+    to: Product:Retatrutide 15mg
+- name: inbox/labels/current-print/black/Retatrutide-15mg_black.pdf
+  attrs:
+    asset_type: document
+    alt_text: 'Current approved uncircled black label: RETATRUTIDE 15 mg; trim 40.0000
+      x 20 mm; 1 mm PDF bleed; draft SKU; pdf label artwork'
+  edges:
+  - rel: DEPICTS
+    to: Product:Retatrutide 15mg
+- name: inbox/labels/current-print/black/Retatrutide-15mg_black.svg
+  attrs:
+    asset_type: document
+    alt_text: 'Current approved uncircled black label: RETATRUTIDE 15 mg; trim 40.0000
+      x 20 mm; 1 mm PDF bleed; draft SKU; svg label artwork'
+  edges:
+  - rel: DEPICTS
+    to: Product:Retatrutide 15mg
+- name: inbox/labels/current-print/black/Retatrutide-15mg_black.png
+  attrs:
+    asset_type: image
+    alt_text: 'Current approved uncircled black label: RETATRUTIDE 15 mg; trim 40.0000
+      x 20 mm; 1 mm PDF bleed; draft SKU; png label artwork'
+  edges:
+  - rel: DEPICTS
+    to: Product:Retatrutide 15mg
+- name: inbox/labels/current-print/black/foil/Retatrutide-15mg_black_foil.pdf
+  attrs:
+    asset_type: document
+    alt_text: 'Current approved uncircled black label: RETATRUTIDE 15 mg; trim 40.0000
+      x 20 mm; 1 mm PDF bleed; draft SKU; pdf foil separation'
+  edges:
+  - rel: DEPICTS
+    to: Product:Retatrutide 15mg
+- name: inbox/labels/current-print/black/foil/Retatrutide-15mg_black_underprint.pdf
+  attrs:
+    asset_type: document
+    alt_text: 'Current approved uncircled black label: RETATRUTIDE 15 mg; trim 40.0000
+      x 20 mm; 1 mm PDF bleed; draft SKU; pdf underprint'
+  edges:
+  - rel: DEPICTS
+    to: Product:Retatrutide 15mg
+- name: inbox/labels/current-print/navy/Retatrutide-15mg_navy.pdf
+  attrs:
+    asset_type: document
+    alt_text: 'Current approved uncircled navy label: RETATRUTIDE 15 mg; trim 40.0000
+      x 20 mm; 1 mm PDF bleed; draft SKU; pdf label artwork'
+  edges:
+  - rel: DEPICTS
+    to: Product:Retatrutide 15mg
+- name: inbox/labels/current-print/navy/Retatrutide-15mg_navy.svg
+  attrs:
+    asset_type: document
+    alt_text: 'Current approved uncircled navy label: RETATRUTIDE 15 mg; trim 40.0000
+      x 20 mm; 1 mm PDF bleed; draft SKU; svg label artwork'
+  edges:
+  - rel: DEPICTS
+    to: Product:Retatrutide 15mg
+- name: inbox/labels/current-print/navy/Retatrutide-15mg_navy.png
+  attrs:
+    asset_type: image
+    alt_text: 'Current approved uncircled navy label: RETATRUTIDE 15 mg; trim 40.0000
+      x 20 mm; 1 mm PDF bleed; draft SKU; png label artwork'
+  edges:
+  - rel: DEPICTS
+    to: Product:Retatrutide 15mg
+- name: inbox/labels/current-print/navy/foil/Retatrutide-15mg_navy_foil.pdf
+  attrs:
+    asset_type: document
+    alt_text: 'Current approved uncircled navy label: RETATRUTIDE 15 mg; trim 40.0000
+      x 20 mm; 1 mm PDF bleed; draft SKU; pdf foil separation'
+  edges:
+  - rel: DEPICTS
+    to: Product:Retatrutide 15mg
+- name: inbox/labels/current-print/navy/foil/Retatrutide-15mg_navy_underprint.pdf
+  attrs:
+    asset_type: document
+    alt_text: 'Current approved uncircled navy label: RETATRUTIDE 15 mg; trim 40.0000
+      x 20 mm; 1 mm PDF bleed; draft SKU; pdf underprint'
+  edges:
+  - rel: DEPICTS
+    to: Product:Retatrutide 15mg
+- name: inbox/labels/current-print/graphite/Retatrutide-20mg_graphite.pdf
+  attrs:
+    asset_type: document
+    alt_text: 'Current approved uncircled graphite label: RETATRUTIDE 20 mg; trim
+      40.0000 x 20 mm; 1 mm PDF bleed; pdf label artwork'
+  edges:
+  - rel: DEPICTS
+    to: Product:Retatrutide 20mg
+- name: inbox/labels/current-print/graphite/Retatrutide-20mg_graphite.svg
+  attrs:
+    asset_type: document
+    alt_text: 'Current approved uncircled graphite label: RETATRUTIDE 20 mg; trim
+      40.0000 x 20 mm; 1 mm PDF bleed; svg label artwork'
+  edges:
+  - rel: DEPICTS
+    to: Product:Retatrutide 20mg
+- name: inbox/labels/current-print/graphite/Retatrutide-20mg_graphite.png
+  attrs:
+    asset_type: image
+    alt_text: 'Current approved uncircled graphite label: RETATRUTIDE 20 mg; trim
+      40.0000 x 20 mm; 1 mm PDF bleed; png label artwork'
+  edges:
+  - rel: DEPICTS
+    to: Product:Retatrutide 20mg
+- name: inbox/labels/current-print/graphite/foil/Retatrutide-20mg_graphite_foil.pdf
+  attrs:
+    asset_type: document
+    alt_text: 'Current approved uncircled graphite label: RETATRUTIDE 20 mg; trim
+      40.0000 x 20 mm; 1 mm PDF bleed; pdf foil separation'
+  edges:
+  - rel: DEPICTS
+    to: Product:Retatrutide 20mg
+- name: inbox/labels/current-print/graphite/foil/Retatrutide-20mg_graphite_underprint.pdf
+  attrs:
+    asset_type: document
+    alt_text: 'Current approved uncircled graphite label: RETATRUTIDE 20 mg; trim
+      40.0000 x 20 mm; 1 mm PDF bleed; pdf underprint'
+  edges:
+  - rel: DEPICTS
+    to: Product:Retatrutide 20mg
+- name: inbox/labels/current-print/black/Retatrutide-20mg_black.pdf
+  attrs:
+    asset_type: document
+    alt_text: 'Current approved uncircled black label: RETATRUTIDE 20 mg; trim 40.0000
+      x 20 mm; 1 mm PDF bleed; pdf label artwork'
+  edges:
+  - rel: DEPICTS
+    to: Product:Retatrutide 20mg
+- name: inbox/labels/current-print/black/Retatrutide-20mg_black.svg
+  attrs:
+    asset_type: document
+    alt_text: 'Current approved uncircled black label: RETATRUTIDE 20 mg; trim 40.0000
+      x 20 mm; 1 mm PDF bleed; svg label artwork'
+  edges:
+  - rel: DEPICTS
+    to: Product:Retatrutide 20mg
+- name: inbox/labels/current-print/black/Retatrutide-20mg_black.png
+  attrs:
+    asset_type: image
+    alt_text: 'Current approved uncircled black label: RETATRUTIDE 20 mg; trim 40.0000
+      x 20 mm; 1 mm PDF bleed; png label artwork'
+  edges:
+  - rel: DEPICTS
+    to: Product:Retatrutide 20mg
+- name: inbox/labels/current-print/black/foil/Retatrutide-20mg_black_foil.pdf
+  attrs:
+    asset_type: document
+    alt_text: 'Current approved uncircled black label: RETATRUTIDE 20 mg; trim 40.0000
+      x 20 mm; 1 mm PDF bleed; pdf foil separation'
+  edges:
+  - rel: DEPICTS
+    to: Product:Retatrutide 20mg
+- name: inbox/labels/current-print/black/foil/Retatrutide-20mg_black_underprint.pdf
+  attrs:
+    asset_type: document
+    alt_text: 'Current approved uncircled black label: RETATRUTIDE 20 mg; trim 40.0000
+      x 20 mm; 1 mm PDF bleed; pdf underprint'
+  edges:
+  - rel: DEPICTS
+    to: Product:Retatrutide 20mg
+- name: inbox/labels/current-print/navy/Retatrutide-20mg_navy.pdf
+  attrs:
+    asset_type: document
+    alt_text: 'Current approved uncircled navy label: RETATRUTIDE 20 mg; trim 40.0000
+      x 20 mm; 1 mm PDF bleed; pdf label artwork'
+  edges:
+  - rel: DEPICTS
+    to: Product:Retatrutide 20mg
+- name: inbox/labels/current-print/navy/Retatrutide-20mg_navy.svg
+  attrs:
+    asset_type: document
+    alt_text: 'Current approved uncircled navy label: RETATRUTIDE 20 mg; trim 40.0000
+      x 20 mm; 1 mm PDF bleed; svg label artwork'
+  edges:
+  - rel: DEPICTS
+    to: Product:Retatrutide 20mg
+- name: inbox/labels/current-print/navy/Retatrutide-20mg_navy.png
+  attrs:
+    asset_type: image
+    alt_text: 'Current approved uncircled navy label: RETATRUTIDE 20 mg; trim 40.0000
+      x 20 mm; 1 mm PDF bleed; png label artwork'
+  edges:
+  - rel: DEPICTS
+    to: Product:Retatrutide 20mg
+- name: inbox/labels/current-print/navy/foil/Retatrutide-20mg_navy_foil.pdf
+  attrs:
+    asset_type: document
+    alt_text: 'Current approved uncircled navy label: RETATRUTIDE 20 mg; trim 40.0000
+      x 20 mm; 1 mm PDF bleed; pdf foil separation'
+  edges:
+  - rel: DEPICTS
+    to: Product:Retatrutide 20mg
+- name: inbox/labels/current-print/navy/foil/Retatrutide-20mg_navy_underprint.pdf
+  attrs:
+    asset_type: document
+    alt_text: 'Current approved uncircled navy label: RETATRUTIDE 20 mg; trim 40.0000
+      x 20 mm; 1 mm PDF bleed; pdf underprint'
+  edges:
+  - rel: DEPICTS
+    to: Product:Retatrutide 20mg
+- name: inbox/labels/current-print/graphite/Retatrutide-30mg_graphite.pdf
+  attrs:
+    asset_type: document
+    alt_text: 'Current approved uncircled graphite label: RETATRUTIDE 30 mg; trim
+      40.0000 x 20 mm; 1 mm PDF bleed; pdf label artwork'
+  edges:
+  - rel: DEPICTS
+    to: Product:Retatrutide 30mg
+- name: inbox/labels/current-print/graphite/Retatrutide-30mg_graphite.svg
+  attrs:
+    asset_type: document
+    alt_text: 'Current approved uncircled graphite label: RETATRUTIDE 30 mg; trim
+      40.0000 x 20 mm; 1 mm PDF bleed; svg label artwork'
+  edges:
+  - rel: DEPICTS
+    to: Product:Retatrutide 30mg
+- name: inbox/labels/current-print/graphite/Retatrutide-30mg_graphite.png
+  attrs:
+    asset_type: image
+    alt_text: 'Current approved uncircled graphite label: RETATRUTIDE 30 mg; trim
+      40.0000 x 20 mm; 1 mm PDF bleed; png label artwork'
+  edges:
+  - rel: DEPICTS
+    to: Product:Retatrutide 30mg
+- name: inbox/labels/current-print/graphite/foil/Retatrutide-30mg_graphite_foil.pdf
+  attrs:
+    asset_type: document
+    alt_text: 'Current approved uncircled graphite label: RETATRUTIDE 30 mg; trim
+      40.0000 x 20 mm; 1 mm PDF bleed; pdf foil separation'
+  edges:
+  - rel: DEPICTS
+    to: Product:Retatrutide 30mg
+- name: inbox/labels/current-print/graphite/foil/Retatrutide-30mg_graphite_underprint.pdf
+  attrs:
+    asset_type: document
+    alt_text: 'Current approved uncircled graphite label: RETATRUTIDE 30 mg; trim
+      40.0000 x 20 mm; 1 mm PDF bleed; pdf underprint'
+  edges:
+  - rel: DEPICTS
+    to: Product:Retatrutide 30mg
+- name: inbox/labels/current-print/black/Retatrutide-30mg_black.pdf
+  attrs:
+    asset_type: document
+    alt_text: 'Current approved uncircled black label: RETATRUTIDE 30 mg; trim 40.0000
+      x 20 mm; 1 mm PDF bleed; pdf label artwork'
+  edges:
+  - rel: DEPICTS
+    to: Product:Retatrutide 30mg
+- name: inbox/labels/current-print/black/Retatrutide-30mg_black.svg
+  attrs:
+    asset_type: document
+    alt_text: 'Current approved uncircled black label: RETATRUTIDE 30 mg; trim 40.0000
+      x 20 mm; 1 mm PDF bleed; svg label artwork'
+  edges:
+  - rel: DEPICTS
+    to: Product:Retatrutide 30mg
+- name: inbox/labels/current-print/black/Retatrutide-30mg_black.png
+  attrs:
+    asset_type: image
+    alt_text: 'Current approved uncircled black label: RETATRUTIDE 30 mg; trim 40.0000
+      x 20 mm; 1 mm PDF bleed; png label artwork'
+  edges:
+  - rel: DEPICTS
+    to: Product:Retatrutide 30mg
+- name: inbox/labels/current-print/black/foil/Retatrutide-30mg_black_foil.pdf
+  attrs:
+    asset_type: document
+    alt_text: 'Current approved uncircled black label: RETATRUTIDE 30 mg; trim 40.0000
+      x 20 mm; 1 mm PDF bleed; pdf foil separation'
+  edges:
+  - rel: DEPICTS
+    to: Product:Retatrutide 30mg
+- name: inbox/labels/current-print/black/foil/Retatrutide-30mg_black_underprint.pdf
+  attrs:
+    asset_type: document
+    alt_text: 'Current approved uncircled black label: RETATRUTIDE 30 mg; trim 40.0000
+      x 20 mm; 1 mm PDF bleed; pdf underprint'
+  edges:
+  - rel: DEPICTS
+    to: Product:Retatrutide 30mg
+- name: inbox/labels/current-print/navy/Retatrutide-30mg_navy.pdf
+  attrs:
+    asset_type: document
+    alt_text: 'Current approved uncircled navy label: RETATRUTIDE 30 mg; trim 40.0000
+      x 20 mm; 1 mm PDF bleed; pdf label artwork'
+  edges:
+  - rel: DEPICTS
+    to: Product:Retatrutide 30mg
+- name: inbox/labels/current-print/navy/Retatrutide-30mg_navy.svg
+  attrs:
+    asset_type: document
+    alt_text: 'Current approved uncircled navy label: RETATRUTIDE 30 mg; trim 40.0000
+      x 20 mm; 1 mm PDF bleed; svg label artwork'
+  edges:
+  - rel: DEPICTS
+    to: Product:Retatrutide 30mg
+- name: inbox/labels/current-print/navy/Retatrutide-30mg_navy.png
+  attrs:
+    asset_type: image
+    alt_text: 'Current approved uncircled navy label: RETATRUTIDE 30 mg; trim 40.0000
+      x 20 mm; 1 mm PDF bleed; png label artwork'
+  edges:
+  - rel: DEPICTS
+    to: Product:Retatrutide 30mg
+- name: inbox/labels/current-print/navy/foil/Retatrutide-30mg_navy_foil.pdf
+  attrs:
+    asset_type: document
+    alt_text: 'Current approved uncircled navy label: RETATRUTIDE 30 mg; trim 40.0000
+      x 20 mm; 1 mm PDF bleed; pdf foil separation'
+  edges:
+  - rel: DEPICTS
+    to: Product:Retatrutide 30mg
+- name: inbox/labels/current-print/navy/foil/Retatrutide-30mg_navy_underprint.pdf
+  attrs:
+    asset_type: document
+    alt_text: 'Current approved uncircled navy label: RETATRUTIDE 30 mg; trim 40.0000
+      x 20 mm; 1 mm PDF bleed; pdf underprint'
+  edges:
+  - rel: DEPICTS
+    to: Product:Retatrutide 30mg
+- name: inbox/labels/current-print/graphite/SS-31-30mg_graphite.pdf
+  attrs:
+    asset_type: document
+    alt_text: 'Current approved uncircled graphite label: SS-31 30 mg; trim 40.0000
+      x 20 mm; 1 mm PDF bleed; pdf label artwork'
+  edges:
+  - rel: DEPICTS
+    to: Product:SS-31 30mg
+- name: inbox/labels/current-print/graphite/SS-31-30mg_graphite.svg
+  attrs:
+    asset_type: document
+    alt_text: 'Current approved uncircled graphite label: SS-31 30 mg; trim 40.0000
+      x 20 mm; 1 mm PDF bleed; svg label artwork'
+  edges:
+  - rel: DEPICTS
+    to: Product:SS-31 30mg
+- name: inbox/labels/current-print/graphite/SS-31-30mg_graphite.png
+  attrs:
+    asset_type: image
+    alt_text: 'Current approved uncircled graphite label: SS-31 30 mg; trim 40.0000
+      x 20 mm; 1 mm PDF bleed; png label artwork'
+  edges:
+  - rel: DEPICTS
+    to: Product:SS-31 30mg
+- name: inbox/labels/current-print/graphite/foil/SS-31-30mg_graphite_foil.pdf
+  attrs:
+    asset_type: document
+    alt_text: 'Current approved uncircled graphite label: SS-31 30 mg; trim 40.0000
+      x 20 mm; 1 mm PDF bleed; pdf foil separation'
+  edges:
+  - rel: DEPICTS
+    to: Product:SS-31 30mg
+- name: inbox/labels/current-print/graphite/foil/SS-31-30mg_graphite_underprint.pdf
+  attrs:
+    asset_type: document
+    alt_text: 'Current approved uncircled graphite label: SS-31 30 mg; trim 40.0000
+      x 20 mm; 1 mm PDF bleed; pdf underprint'
+  edges:
+  - rel: DEPICTS
+    to: Product:SS-31 30mg
+- name: inbox/labels/current-print/black/SS-31-30mg_black.pdf
+  attrs:
+    asset_type: document
+    alt_text: 'Current approved uncircled black label: SS-31 30 mg; trim 40.0000 x
+      20 mm; 1 mm PDF bleed; pdf label artwork'
+  edges:
+  - rel: DEPICTS
+    to: Product:SS-31 30mg
+- name: inbox/labels/current-print/black/SS-31-30mg_black.svg
+  attrs:
+    asset_type: document
+    alt_text: 'Current approved uncircled black label: SS-31 30 mg; trim 40.0000 x
+      20 mm; 1 mm PDF bleed; svg label artwork'
+  edges:
+  - rel: DEPICTS
+    to: Product:SS-31 30mg
+- name: inbox/labels/current-print/black/SS-31-30mg_black.png
+  attrs:
+    asset_type: image
+    alt_text: 'Current approved uncircled black label: SS-31 30 mg; trim 40.0000 x
+      20 mm; 1 mm PDF bleed; png label artwork'
+  edges:
+  - rel: DEPICTS
+    to: Product:SS-31 30mg
+- name: inbox/labels/current-print/black/foil/SS-31-30mg_black_foil.pdf
+  attrs:
+    asset_type: document
+    alt_text: 'Current approved uncircled black label: SS-31 30 mg; trim 40.0000 x
+      20 mm; 1 mm PDF bleed; pdf foil separation'
+  edges:
+  - rel: DEPICTS
+    to: Product:SS-31 30mg
+- name: inbox/labels/current-print/black/foil/SS-31-30mg_black_underprint.pdf
+  attrs:
+    asset_type: document
+    alt_text: 'Current approved uncircled black label: SS-31 30 mg; trim 40.0000 x
+      20 mm; 1 mm PDF bleed; pdf underprint'
+  edges:
+  - rel: DEPICTS
+    to: Product:SS-31 30mg
+- name: inbox/labels/current-print/navy/SS-31-30mg_navy.pdf
+  attrs:
+    asset_type: document
+    alt_text: 'Current approved uncircled navy label: SS-31 30 mg; trim 40.0000 x
+      20 mm; 1 mm PDF bleed; pdf label artwork'
+  edges:
+  - rel: DEPICTS
+    to: Product:SS-31 30mg
+- name: inbox/labels/current-print/navy/SS-31-30mg_navy.svg
+  attrs:
+    asset_type: document
+    alt_text: 'Current approved uncircled navy label: SS-31 30 mg; trim 40.0000 x
+      20 mm; 1 mm PDF bleed; svg label artwork'
+  edges:
+  - rel: DEPICTS
+    to: Product:SS-31 30mg
+- name: inbox/labels/current-print/navy/SS-31-30mg_navy.png
+  attrs:
+    asset_type: image
+    alt_text: 'Current approved uncircled navy label: SS-31 30 mg; trim 40.0000 x
+      20 mm; 1 mm PDF bleed; png label artwork'
+  edges:
+  - rel: DEPICTS
+    to: Product:SS-31 30mg
+- name: inbox/labels/current-print/navy/foil/SS-31-30mg_navy_foil.pdf
+  attrs:
+    asset_type: document
+    alt_text: 'Current approved uncircled navy label: SS-31 30 mg; trim 40.0000 x
+      20 mm; 1 mm PDF bleed; pdf foil separation'
+  edges:
+  - rel: DEPICTS
+    to: Product:SS-31 30mg
+- name: inbox/labels/current-print/navy/foil/SS-31-30mg_navy_underprint.pdf
+  attrs:
+    asset_type: document
+    alt_text: 'Current approved uncircled navy label: SS-31 30 mg; trim 40.0000 x
+      20 mm; 1 mm PDF bleed; pdf underprint'
+  edges:
+  - rel: DEPICTS
+    to: Product:SS-31 30mg
+- name: inbox/labels/current-print/graphite/Tesamorelin-20mg_graphite.pdf
+  attrs:
+    asset_type: document
+    alt_text: 'Current approved uncircled graphite label: TESAMORELIN 20 mg; trim
+      40.0000 x 20 mm; 1 mm PDF bleed; pdf label artwork'
+  edges:
+  - rel: DEPICTS
+    to: Product:Tesamorelin 20mg
+- name: inbox/labels/current-print/graphite/Tesamorelin-20mg_graphite.svg
+  attrs:
+    asset_type: document
+    alt_text: 'Current approved uncircled graphite label: TESAMORELIN 20 mg; trim
+      40.0000 x 20 mm; 1 mm PDF bleed; svg label artwork'
+  edges:
+  - rel: DEPICTS
+    to: Product:Tesamorelin 20mg
+- name: inbox/labels/current-print/graphite/Tesamorelin-20mg_graphite.png
+  attrs:
+    asset_type: image
+    alt_text: 'Current approved uncircled graphite label: TESAMORELIN 20 mg; trim
+      40.0000 x 20 mm; 1 mm PDF bleed; png label artwork'
+  edges:
+  - rel: DEPICTS
+    to: Product:Tesamorelin 20mg
+- name: inbox/labels/current-print/graphite/foil/Tesamorelin-20mg_graphite_foil.pdf
+  attrs:
+    asset_type: document
+    alt_text: 'Current approved uncircled graphite label: TESAMORELIN 20 mg; trim
+      40.0000 x 20 mm; 1 mm PDF bleed; pdf foil separation'
+  edges:
+  - rel: DEPICTS
+    to: Product:Tesamorelin 20mg
+- name: inbox/labels/current-print/graphite/foil/Tesamorelin-20mg_graphite_underprint.pdf
+  attrs:
+    asset_type: document
+    alt_text: 'Current approved uncircled graphite label: TESAMORELIN 20 mg; trim
+      40.0000 x 20 mm; 1 mm PDF bleed; pdf underprint'
+  edges:
+  - rel: DEPICTS
+    to: Product:Tesamorelin 20mg
+- name: inbox/labels/current-print/black/Tesamorelin-20mg_black.pdf
+  attrs:
+    asset_type: document
+    alt_text: 'Current approved uncircled black label: TESAMORELIN 20 mg; trim 40.0000
+      x 20 mm; 1 mm PDF bleed; pdf label artwork'
+  edges:
+  - rel: DEPICTS
+    to: Product:Tesamorelin 20mg
+- name: inbox/labels/current-print/black/Tesamorelin-20mg_black.svg
+  attrs:
+    asset_type: document
+    alt_text: 'Current approved uncircled black label: TESAMORELIN 20 mg; trim 40.0000
+      x 20 mm; 1 mm PDF bleed; svg label artwork'
+  edges:
+  - rel: DEPICTS
+    to: Product:Tesamorelin 20mg
+- name: inbox/labels/current-print/black/Tesamorelin-20mg_black.png
+  attrs:
+    asset_type: image
+    alt_text: 'Current approved uncircled black label: TESAMORELIN 20 mg; trim 40.0000
+      x 20 mm; 1 mm PDF bleed; png label artwork'
+  edges:
+  - rel: DEPICTS
+    to: Product:Tesamorelin 20mg
+- name: inbox/labels/current-print/black/foil/Tesamorelin-20mg_black_foil.pdf
+  attrs:
+    asset_type: document
+    alt_text: 'Current approved uncircled black label: TESAMORELIN 20 mg; trim 40.0000
+      x 20 mm; 1 mm PDF bleed; pdf foil separation'
+  edges:
+  - rel: DEPICTS
+    to: Product:Tesamorelin 20mg
+- name: inbox/labels/current-print/black/foil/Tesamorelin-20mg_black_underprint.pdf
+  attrs:
+    asset_type: document
+    alt_text: 'Current approved uncircled black label: TESAMORELIN 20 mg; trim 40.0000
+      x 20 mm; 1 mm PDF bleed; pdf underprint'
+  edges:
+  - rel: DEPICTS
+    to: Product:Tesamorelin 20mg
+- name: inbox/labels/current-print/navy/Tesamorelin-20mg_navy.pdf
+  attrs:
+    asset_type: document
+    alt_text: 'Current approved uncircled navy label: TESAMORELIN 20 mg; trim 40.0000
+      x 20 mm; 1 mm PDF bleed; pdf label artwork'
+  edges:
+  - rel: DEPICTS
+    to: Product:Tesamorelin 20mg
+- name: inbox/labels/current-print/navy/Tesamorelin-20mg_navy.svg
+  attrs:
+    asset_type: document
+    alt_text: 'Current approved uncircled navy label: TESAMORELIN 20 mg; trim 40.0000
+      x 20 mm; 1 mm PDF bleed; svg label artwork'
+  edges:
+  - rel: DEPICTS
+    to: Product:Tesamorelin 20mg
+- name: inbox/labels/current-print/navy/Tesamorelin-20mg_navy.png
+  attrs:
+    asset_type: image
+    alt_text: 'Current approved uncircled navy label: TESAMORELIN 20 mg; trim 40.0000
+      x 20 mm; 1 mm PDF bleed; png label artwork'
+  edges:
+  - rel: DEPICTS
+    to: Product:Tesamorelin 20mg
+- name: inbox/labels/current-print/navy/foil/Tesamorelin-20mg_navy_foil.pdf
+  attrs:
+    asset_type: document
+    alt_text: 'Current approved uncircled navy label: TESAMORELIN 20 mg; trim 40.0000
+      x 20 mm; 1 mm PDF bleed; pdf foil separation'
+  edges:
+  - rel: DEPICTS
+    to: Product:Tesamorelin 20mg
+- name: inbox/labels/current-print/navy/foil/Tesamorelin-20mg_navy_underprint.pdf
+  attrs:
+    asset_type: document
+    alt_text: 'Current approved uncircled navy label: TESAMORELIN 20 mg; trim 40.0000
+      x 20 mm; 1 mm PDF bleed; pdf underprint'
+  edges:
+  - rel: DEPICTS
+    to: Product:Tesamorelin 20mg
+- name: inbox/labels/current-print/graphite/Tirzepatide-10mg_graphite.pdf
+  attrs:
+    asset_type: document
+    alt_text: 'Current approved uncircled graphite label: TIRZEPATIDE 10 mg; trim
+      40.0000 x 20 mm; 1 mm PDF bleed; pdf label artwork'
+  edges:
+  - rel: DEPICTS
+    to: Product:Tirzepatide 10mg
+- name: inbox/labels/current-print/graphite/Tirzepatide-10mg_graphite.svg
+  attrs:
+    asset_type: document
+    alt_text: 'Current approved uncircled graphite label: TIRZEPATIDE 10 mg; trim
+      40.0000 x 20 mm; 1 mm PDF bleed; svg label artwork'
+  edges:
+  - rel: DEPICTS
+    to: Product:Tirzepatide 10mg
+- name: inbox/labels/current-print/graphite/Tirzepatide-10mg_graphite.png
+  attrs:
+    asset_type: image
+    alt_text: 'Current approved uncircled graphite label: TIRZEPATIDE 10 mg; trim
+      40.0000 x 20 mm; 1 mm PDF bleed; png label artwork'
+  edges:
+  - rel: DEPICTS
+    to: Product:Tirzepatide 10mg
+- name: inbox/labels/current-print/graphite/foil/Tirzepatide-10mg_graphite_foil.pdf
+  attrs:
+    asset_type: document
+    alt_text: 'Current approved uncircled graphite label: TIRZEPATIDE 10 mg; trim
+      40.0000 x 20 mm; 1 mm PDF bleed; pdf foil separation'
+  edges:
+  - rel: DEPICTS
+    to: Product:Tirzepatide 10mg
+- name: inbox/labels/current-print/graphite/foil/Tirzepatide-10mg_graphite_underprint.pdf
+  attrs:
+    asset_type: document
+    alt_text: 'Current approved uncircled graphite label: TIRZEPATIDE 10 mg; trim
+      40.0000 x 20 mm; 1 mm PDF bleed; pdf underprint'
+  edges:
+  - rel: DEPICTS
+    to: Product:Tirzepatide 10mg
+- name: inbox/labels/current-print/black/Tirzepatide-10mg_black.pdf
+  attrs:
+    asset_type: document
+    alt_text: 'Current approved uncircled black label: TIRZEPATIDE 10 mg; trim 40.0000
+      x 20 mm; 1 mm PDF bleed; pdf label artwork'
+  edges:
+  - rel: DEPICTS
+    to: Product:Tirzepatide 10mg
+- name: inbox/labels/current-print/black/Tirzepatide-10mg_black.svg
+  attrs:
+    asset_type: document
+    alt_text: 'Current approved uncircled black label: TIRZEPATIDE 10 mg; trim 40.0000
+      x 20 mm; 1 mm PDF bleed; svg label artwork'
+  edges:
+  - rel: DEPICTS
+    to: Product:Tirzepatide 10mg
+- name: inbox/labels/current-print/black/Tirzepatide-10mg_black.png
+  attrs:
+    asset_type: image
+    alt_text: 'Current approved uncircled black label: TIRZEPATIDE 10 mg; trim 40.0000
+      x 20 mm; 1 mm PDF bleed; png label artwork'
+  edges:
+  - rel: DEPICTS
+    to: Product:Tirzepatide 10mg
+- name: inbox/labels/current-print/black/foil/Tirzepatide-10mg_black_foil.pdf
+  attrs:
+    asset_type: document
+    alt_text: 'Current approved uncircled black label: TIRZEPATIDE 10 mg; trim 40.0000
+      x 20 mm; 1 mm PDF bleed; pdf foil separation'
+  edges:
+  - rel: DEPICTS
+    to: Product:Tirzepatide 10mg
+- name: inbox/labels/current-print/black/foil/Tirzepatide-10mg_black_underprint.pdf
+  attrs:
+    asset_type: document
+    alt_text: 'Current approved uncircled black label: TIRZEPATIDE 10 mg; trim 40.0000
+      x 20 mm; 1 mm PDF bleed; pdf underprint'
+  edges:
+  - rel: DEPICTS
+    to: Product:Tirzepatide 10mg
+- name: inbox/labels/current-print/navy/Tirzepatide-10mg_navy.pdf
+  attrs:
+    asset_type: document
+    alt_text: 'Current approved uncircled navy label: TIRZEPATIDE 10 mg; trim 40.0000
+      x 20 mm; 1 mm PDF bleed; pdf label artwork'
+  edges:
+  - rel: DEPICTS
+    to: Product:Tirzepatide 10mg
+- name: inbox/labels/current-print/navy/Tirzepatide-10mg_navy.svg
+  attrs:
+    asset_type: document
+    alt_text: 'Current approved uncircled navy label: TIRZEPATIDE 10 mg; trim 40.0000
+      x 20 mm; 1 mm PDF bleed; svg label artwork'
+  edges:
+  - rel: DEPICTS
+    to: Product:Tirzepatide 10mg
+- name: inbox/labels/current-print/navy/Tirzepatide-10mg_navy.png
+  attrs:
+    asset_type: image
+    alt_text: 'Current approved uncircled navy label: TIRZEPATIDE 10 mg; trim 40.0000
+      x 20 mm; 1 mm PDF bleed; png label artwork'
+  edges:
+  - rel: DEPICTS
+    to: Product:Tirzepatide 10mg
+- name: inbox/labels/current-print/navy/foil/Tirzepatide-10mg_navy_foil.pdf
+  attrs:
+    asset_type: document
+    alt_text: 'Current approved uncircled navy label: TIRZEPATIDE 10 mg; trim 40.0000
+      x 20 mm; 1 mm PDF bleed; pdf foil separation'
+  edges:
+  - rel: DEPICTS
+    to: Product:Tirzepatide 10mg
+- name: inbox/labels/current-print/navy/foil/Tirzepatide-10mg_navy_underprint.pdf
+  attrs:
+    asset_type: document
+    alt_text: 'Current approved uncircled navy label: TIRZEPATIDE 10 mg; trim 40.0000
+      x 20 mm; 1 mm PDF bleed; pdf underprint'
+  edges:
+  - rel: DEPICTS
+    to: Product:Tirzepatide 10mg
+- name: inbox/labels/current-print/graphite/Tirzepatide-15mg_graphite.pdf
+  attrs:
+    asset_type: document
+    alt_text: 'Current approved uncircled graphite label: TIRZEPATIDE 15 mg; trim
+      40.0000 x 20 mm; 1 mm PDF bleed; pdf label artwork'
+  edges:
+  - rel: DEPICTS
+    to: Product:Tirzepatide 15mg
+- name: inbox/labels/current-print/graphite/Tirzepatide-15mg_graphite.svg
+  attrs:
+    asset_type: document
+    alt_text: 'Current approved uncircled graphite label: TIRZEPATIDE 15 mg; trim
+      40.0000 x 20 mm; 1 mm PDF bleed; svg label artwork'
+  edges:
+  - rel: DEPICTS
+    to: Product:Tirzepatide 15mg
+- name: inbox/labels/current-print/graphite/Tirzepatide-15mg_graphite.png
+  attrs:
+    asset_type: image
+    alt_text: 'Current approved uncircled graphite label: TIRZEPATIDE 15 mg; trim
+      40.0000 x 20 mm; 1 mm PDF bleed; png label artwork'
+  edges:
+  - rel: DEPICTS
+    to: Product:Tirzepatide 15mg
+- name: inbox/labels/current-print/graphite/foil/Tirzepatide-15mg_graphite_foil.pdf
+  attrs:
+    asset_type: document
+    alt_text: 'Current approved uncircled graphite label: TIRZEPATIDE 15 mg; trim
+      40.0000 x 20 mm; 1 mm PDF bleed; pdf foil separation'
+  edges:
+  - rel: DEPICTS
+    to: Product:Tirzepatide 15mg
+- name: inbox/labels/current-print/graphite/foil/Tirzepatide-15mg_graphite_underprint.pdf
+  attrs:
+    asset_type: document
+    alt_text: 'Current approved uncircled graphite label: TIRZEPATIDE 15 mg; trim
+      40.0000 x 20 mm; 1 mm PDF bleed; pdf underprint'
+  edges:
+  - rel: DEPICTS
+    to: Product:Tirzepatide 15mg
+- name: inbox/labels/current-print/black/Tirzepatide-15mg_black.pdf
+  attrs:
+    asset_type: document
+    alt_text: 'Current approved uncircled black label: TIRZEPATIDE 15 mg; trim 40.0000
+      x 20 mm; 1 mm PDF bleed; pdf label artwork'
+  edges:
+  - rel: DEPICTS
+    to: Product:Tirzepatide 15mg
+- name: inbox/labels/current-print/black/Tirzepatide-15mg_black.svg
+  attrs:
+    asset_type: document
+    alt_text: 'Current approved uncircled black label: TIRZEPATIDE 15 mg; trim 40.0000
+      x 20 mm; 1 mm PDF bleed; svg label artwork'
+  edges:
+  - rel: DEPICTS
+    to: Product:Tirzepatide 15mg
+- name: inbox/labels/current-print/black/Tirzepatide-15mg_black.png
+  attrs:
+    asset_type: image
+    alt_text: 'Current approved uncircled black label: TIRZEPATIDE 15 mg; trim 40.0000
+      x 20 mm; 1 mm PDF bleed; png label artwork'
+  edges:
+  - rel: DEPICTS
+    to: Product:Tirzepatide 15mg
+- name: inbox/labels/current-print/black/foil/Tirzepatide-15mg_black_foil.pdf
+  attrs:
+    asset_type: document
+    alt_text: 'Current approved uncircled black label: TIRZEPATIDE 15 mg; trim 40.0000
+      x 20 mm; 1 mm PDF bleed; pdf foil separation'
+  edges:
+  - rel: DEPICTS
+    to: Product:Tirzepatide 15mg
+- name: inbox/labels/current-print/black/foil/Tirzepatide-15mg_black_underprint.pdf
+  attrs:
+    asset_type: document
+    alt_text: 'Current approved uncircled black label: TIRZEPATIDE 15 mg; trim 40.0000
+      x 20 mm; 1 mm PDF bleed; pdf underprint'
+  edges:
+  - rel: DEPICTS
+    to: Product:Tirzepatide 15mg
+- name: inbox/labels/current-print/navy/Tirzepatide-15mg_navy.pdf
+  attrs:
+    asset_type: document
+    alt_text: 'Current approved uncircled navy label: TIRZEPATIDE 15 mg; trim 40.0000
+      x 20 mm; 1 mm PDF bleed; pdf label artwork'
+  edges:
+  - rel: DEPICTS
+    to: Product:Tirzepatide 15mg
+- name: inbox/labels/current-print/navy/Tirzepatide-15mg_navy.svg
+  attrs:
+    asset_type: document
+    alt_text: 'Current approved uncircled navy label: TIRZEPATIDE 15 mg; trim 40.0000
+      x 20 mm; 1 mm PDF bleed; svg label artwork'
+  edges:
+  - rel: DEPICTS
+    to: Product:Tirzepatide 15mg
+- name: inbox/labels/current-print/navy/Tirzepatide-15mg_navy.png
+  attrs:
+    asset_type: image
+    alt_text: 'Current approved uncircled navy label: TIRZEPATIDE 15 mg; trim 40.0000
+      x 20 mm; 1 mm PDF bleed; png label artwork'
+  edges:
+  - rel: DEPICTS
+    to: Product:Tirzepatide 15mg
+- name: inbox/labels/current-print/navy/foil/Tirzepatide-15mg_navy_foil.pdf
+  attrs:
+    asset_type: document
+    alt_text: 'Current approved uncircled navy label: TIRZEPATIDE 15 mg; trim 40.0000
+      x 20 mm; 1 mm PDF bleed; pdf foil separation'
+  edges:
+  - rel: DEPICTS
+    to: Product:Tirzepatide 15mg
+- name: inbox/labels/current-print/navy/foil/Tirzepatide-15mg_navy_underprint.pdf
+  attrs:
+    asset_type: document
+    alt_text: 'Current approved uncircled navy label: TIRZEPATIDE 15 mg; trim 40.0000
+      x 20 mm; 1 mm PDF bleed; pdf underprint'
+  edges:
+  - rel: DEPICTS
+    to: Product:Tirzepatide 15mg
+- name: inbox/labels/current-print/graphite/Tirzepatide-20mg_graphite.pdf
+  attrs:
+    asset_type: document
+    alt_text: 'Current approved uncircled graphite label: TIRZEPATIDE 20 mg; trim
+      40.0000 x 20 mm; 1 mm PDF bleed; pdf label artwork'
+  edges:
+  - rel: DEPICTS
+    to: Product:Tirzepatide 20mg
+- name: inbox/labels/current-print/graphite/Tirzepatide-20mg_graphite.svg
+  attrs:
+    asset_type: document
+    alt_text: 'Current approved uncircled graphite label: TIRZEPATIDE 20 mg; trim
+      40.0000 x 20 mm; 1 mm PDF bleed; svg label artwork'
+  edges:
+  - rel: DEPICTS
+    to: Product:Tirzepatide 20mg
+- name: inbox/labels/current-print/graphite/Tirzepatide-20mg_graphite.png
+  attrs:
+    asset_type: image
+    alt_text: 'Current approved uncircled graphite label: TIRZEPATIDE 20 mg; trim
+      40.0000 x 20 mm; 1 mm PDF bleed; png label artwork'
+  edges:
+  - rel: DEPICTS
+    to: Product:Tirzepatide 20mg
+- name: inbox/labels/current-print/graphite/foil/Tirzepatide-20mg_graphite_foil.pdf
+  attrs:
+    asset_type: document
+    alt_text: 'Current approved uncircled graphite label: TIRZEPATIDE 20 mg; trim
+      40.0000 x 20 mm; 1 mm PDF bleed; pdf foil separation'
+  edges:
+  - rel: DEPICTS
+    to: Product:Tirzepatide 20mg
+- name: inbox/labels/current-print/graphite/foil/Tirzepatide-20mg_graphite_underprint.pdf
+  attrs:
+    asset_type: document
+    alt_text: 'Current approved uncircled graphite label: TIRZEPATIDE 20 mg; trim
+      40.0000 x 20 mm; 1 mm PDF bleed; pdf underprint'
+  edges:
+  - rel: DEPICTS
+    to: Product:Tirzepatide 20mg
+- name: inbox/labels/current-print/black/Tirzepatide-20mg_black.pdf
+  attrs:
+    asset_type: document
+    alt_text: 'Current approved uncircled black label: TIRZEPATIDE 20 mg; trim 40.0000
+      x 20 mm; 1 mm PDF bleed; pdf label artwork'
+  edges:
+  - rel: DEPICTS
+    to: Product:Tirzepatide 20mg
+- name: inbox/labels/current-print/black/Tirzepatide-20mg_black.svg
+  attrs:
+    asset_type: document
+    alt_text: 'Current approved uncircled black label: TIRZEPATIDE 20 mg; trim 40.0000
+      x 20 mm; 1 mm PDF bleed; svg label artwork'
+  edges:
+  - rel: DEPICTS
+    to: Product:Tirzepatide 20mg
+- name: inbox/labels/current-print/black/Tirzepatide-20mg_black.png
+  attrs:
+    asset_type: image
+    alt_text: 'Current approved uncircled black label: TIRZEPATIDE 20 mg; trim 40.0000
+      x 20 mm; 1 mm PDF bleed; png label artwork'
+  edges:
+  - rel: DEPICTS
+    to: Product:Tirzepatide 20mg
+- name: inbox/labels/current-print/black/foil/Tirzepatide-20mg_black_foil.pdf
+  attrs:
+    asset_type: document
+    alt_text: 'Current approved uncircled black label: TIRZEPATIDE 20 mg; trim 40.0000
+      x 20 mm; 1 mm PDF bleed; pdf foil separation'
+  edges:
+  - rel: DEPICTS
+    to: Product:Tirzepatide 20mg
+- name: inbox/labels/current-print/black/foil/Tirzepatide-20mg_black_underprint.pdf
+  attrs:
+    asset_type: document
+    alt_text: 'Current approved uncircled black label: TIRZEPATIDE 20 mg; trim 40.0000
+      x 20 mm; 1 mm PDF bleed; pdf underprint'
+  edges:
+  - rel: DEPICTS
+    to: Product:Tirzepatide 20mg
+- name: inbox/labels/current-print/navy/Tirzepatide-20mg_navy.pdf
+  attrs:
+    asset_type: document
+    alt_text: 'Current approved uncircled navy label: TIRZEPATIDE 20 mg; trim 40.0000
+      x 20 mm; 1 mm PDF bleed; pdf label artwork'
+  edges:
+  - rel: DEPICTS
+    to: Product:Tirzepatide 20mg
+- name: inbox/labels/current-print/navy/Tirzepatide-20mg_navy.svg
+  attrs:
+    asset_type: document
+    alt_text: 'Current approved uncircled navy label: TIRZEPATIDE 20 mg; trim 40.0000
+      x 20 mm; 1 mm PDF bleed; svg label artwork'
+  edges:
+  - rel: DEPICTS
+    to: Product:Tirzepatide 20mg
+- name: inbox/labels/current-print/navy/Tirzepatide-20mg_navy.png
+  attrs:
+    asset_type: image
+    alt_text: 'Current approved uncircled navy label: TIRZEPATIDE 20 mg; trim 40.0000
+      x 20 mm; 1 mm PDF bleed; png label artwork'
+  edges:
+  - rel: DEPICTS
+    to: Product:Tirzepatide 20mg
+- name: inbox/labels/current-print/navy/foil/Tirzepatide-20mg_navy_foil.pdf
+  attrs:
+    asset_type: document
+    alt_text: 'Current approved uncircled navy label: TIRZEPATIDE 20 mg; trim 40.0000
+      x 20 mm; 1 mm PDF bleed; pdf foil separation'
+  edges:
+  - rel: DEPICTS
+    to: Product:Tirzepatide 20mg
+- name: inbox/labels/current-print/navy/foil/Tirzepatide-20mg_navy_underprint.pdf
+  attrs:
+    asset_type: document
+    alt_text: 'Current approved uncircled navy label: TIRZEPATIDE 20 mg; trim 40.0000
+      x 20 mm; 1 mm PDF bleed; pdf underprint'
+  edges:
+  - rel: DEPICTS
+    to: Product:Tirzepatide 20mg
+- name: inbox/labels/current-print/graphite/Tirzepatide-30mg_graphite.pdf
+  attrs:
+    asset_type: document
+    alt_text: 'Current approved uncircled graphite label: TIRZEPATIDE 30 mg; trim
+      40.0000 x 20 mm; 1 mm PDF bleed; pdf label artwork'
+  edges:
+  - rel: DEPICTS
+    to: Product:Tirzepatide 30mg
+- name: inbox/labels/current-print/graphite/Tirzepatide-30mg_graphite.svg
+  attrs:
+    asset_type: document
+    alt_text: 'Current approved uncircled graphite label: TIRZEPATIDE 30 mg; trim
+      40.0000 x 20 mm; 1 mm PDF bleed; svg label artwork'
+  edges:
+  - rel: DEPICTS
+    to: Product:Tirzepatide 30mg
+- name: inbox/labels/current-print/graphite/Tirzepatide-30mg_graphite.png
+  attrs:
+    asset_type: image
+    alt_text: 'Current approved uncircled graphite label: TIRZEPATIDE 30 mg; trim
+      40.0000 x 20 mm; 1 mm PDF bleed; png label artwork'
+  edges:
+  - rel: DEPICTS
+    to: Product:Tirzepatide 30mg
+- name: inbox/labels/current-print/graphite/foil/Tirzepatide-30mg_graphite_foil.pdf
+  attrs:
+    asset_type: document
+    alt_text: 'Current approved uncircled graphite label: TIRZEPATIDE 30 mg; trim
+      40.0000 x 20 mm; 1 mm PDF bleed; pdf foil separation'
+  edges:
+  - rel: DEPICTS
+    to: Product:Tirzepatide 30mg
+- name: inbox/labels/current-print/graphite/foil/Tirzepatide-30mg_graphite_underprint.pdf
+  attrs:
+    asset_type: document
+    alt_text: 'Current approved uncircled graphite label: TIRZEPATIDE 30 mg; trim
+      40.0000 x 20 mm; 1 mm PDF bleed; pdf underprint'
+  edges:
+  - rel: DEPICTS
+    to: Product:Tirzepatide 30mg
+- name: inbox/labels/current-print/black/Tirzepatide-30mg_black.pdf
+  attrs:
+    asset_type: document
+    alt_text: 'Current approved uncircled black label: TIRZEPATIDE 30 mg; trim 40.0000
+      x 20 mm; 1 mm PDF bleed; pdf label artwork'
+  edges:
+  - rel: DEPICTS
+    to: Product:Tirzepatide 30mg
+- name: inbox/labels/current-print/black/Tirzepatide-30mg_black.svg
+  attrs:
+    asset_type: document
+    alt_text: 'Current approved uncircled black label: TIRZEPATIDE 30 mg; trim 40.0000
+      x 20 mm; 1 mm PDF bleed; svg label artwork'
+  edges:
+  - rel: DEPICTS
+    to: Product:Tirzepatide 30mg
+- name: inbox/labels/current-print/black/Tirzepatide-30mg_black.png
+  attrs:
+    asset_type: image
+    alt_text: 'Current approved uncircled black label: TIRZEPATIDE 30 mg; trim 40.0000
+      x 20 mm; 1 mm PDF bleed; png label artwork'
+  edges:
+  - rel: DEPICTS
+    to: Product:Tirzepatide 30mg
+- name: inbox/labels/current-print/black/foil/Tirzepatide-30mg_black_foil.pdf
+  attrs:
+    asset_type: document
+    alt_text: 'Current approved uncircled black label: TIRZEPATIDE 30 mg; trim 40.0000
+      x 20 mm; 1 mm PDF bleed; pdf foil separation'
+  edges:
+  - rel: DEPICTS
+    to: Product:Tirzepatide 30mg
+- name: inbox/labels/current-print/black/foil/Tirzepatide-30mg_black_underprint.pdf
+  attrs:
+    asset_type: document
+    alt_text: 'Current approved uncircled black label: TIRZEPATIDE 30 mg; trim 40.0000
+      x 20 mm; 1 mm PDF bleed; pdf underprint'
+  edges:
+  - rel: DEPICTS
+    to: Product:Tirzepatide 30mg
+- name: inbox/labels/current-print/navy/Tirzepatide-30mg_navy.pdf
+  attrs:
+    asset_type: document
+    alt_text: 'Current approved uncircled navy label: TIRZEPATIDE 30 mg; trim 40.0000
+      x 20 mm; 1 mm PDF bleed; pdf label artwork'
+  edges:
+  - rel: DEPICTS
+    to: Product:Tirzepatide 30mg
+- name: inbox/labels/current-print/navy/Tirzepatide-30mg_navy.svg
+  attrs:
+    asset_type: document
+    alt_text: 'Current approved uncircled navy label: TIRZEPATIDE 30 mg; trim 40.0000
+      x 20 mm; 1 mm PDF bleed; svg label artwork'
+  edges:
+  - rel: DEPICTS
+    to: Product:Tirzepatide 30mg
+- name: inbox/labels/current-print/navy/Tirzepatide-30mg_navy.png
+  attrs:
+    asset_type: image
+    alt_text: 'Current approved uncircled navy label: TIRZEPATIDE 30 mg; trim 40.0000
+      x 20 mm; 1 mm PDF bleed; png label artwork'
+  edges:
+  - rel: DEPICTS
+    to: Product:Tirzepatide 30mg
+- name: inbox/labels/current-print/navy/foil/Tirzepatide-30mg_navy_foil.pdf
+  attrs:
+    asset_type: document
+    alt_text: 'Current approved uncircled navy label: TIRZEPATIDE 30 mg; trim 40.0000
+      x 20 mm; 1 mm PDF bleed; pdf foil separation'
+  edges:
+  - rel: DEPICTS
+    to: Product:Tirzepatide 30mg
+- name: inbox/labels/current-print/navy/foil/Tirzepatide-30mg_navy_underprint.pdf
+  attrs:
+    asset_type: document
+    alt_text: 'Current approved uncircled navy label: TIRZEPATIDE 30 mg; trim 40.0000
+      x 20 mm; 1 mm PDF bleed; pdf underprint'
+  edges:
+  - rel: DEPICTS
+    to: Product:Tirzepatide 30mg

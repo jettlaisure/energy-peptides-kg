@@ -1,0 +1,9 @@
+{
+  "designs": 66,
+  "pdf_boxes": "passed all 66",
+  "copy": "passed all 66",
+  "fonts": "embedded TrueType in all 66",
+  "foil_separations": "FOIL_GOLD in all 66",
+  "name_clearance": "all names end at or before x=1020; logo begins approximately x=1103",
+  "physical_proof": "required"
+}
