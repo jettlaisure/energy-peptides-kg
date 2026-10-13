@@ -25,8 +25,8 @@ This repo is the company's memory and its playbook. Read this file, then use the
 - Renders from `kg export --format site` (catalog.json). Never hand-edit product data in `web/`; change seeds.
 - `cd web && npm run preview` for a local build on :8788 (test-mode checkout). See `web/README.md` for deploy.
 - Orders live in Cloudflare D1, not the graph. `kg orders pull [--remote] --apply` writes `sold` ledger events;
-  `.github/workflows/ledger.yml` does it every 2 hours, commits as `energy-peptides-ledger` and redeploys. `git pull` before
-  editing `seeds/06_inventory_events.yaml`.
+  `.github/workflows/ledger.yml` does it every 2 hours, commits as `energy-peptides-ledger` and redeploys. A SessionStart
+  hook in `.claude/settings.json` fast-forwards `main` at the start of every Claude session; if it reports it skipped, `git pull` by hand.
 - Membership status: Navy / Graphite ($500) / Black ($1,500) over 12 months, 10% / 15% off; config in `site.yaml`, see
   `web/README.md`. Label and card colour mark status only; never imply better contents at a higher level.
 - Just-in-time SKUs (`fulfilment: just_in_time`, cap: kit cost minus one sale ≤ $120) sell at zero on hand; a paid order
