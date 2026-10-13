@@ -1,14 +1,14 @@
-# Approved Navy product mockups, October 2026. Includes final tinted NAD+ powder.
+# Approved Navy product mockups on seamless white, October 2026.
 # Maintained independently of the legacy render/composite.py workflow.
 type: Asset
 source: Owner-approved Navy studio mockups, October 2026
 confidence: high
 items:
-- name: web/public/img/products/bpc-157-10mg-navy-v2.png
+- name: web/public/img/products/bpc-157-10mg-navy-white-v3.png
   attrs:
     asset_type: image
     format: square
-    url: /img/products/bpc-157-10mg-navy-v2.png
+    url: /img/products/bpc-157-10mg-navy-white-v3.png
     width_px: 1254
     height_px: 1254
     alt_text: BPC-157 10 mg vial with the navy Energy Peptides label. For research
@@ -18,11 +18,11 @@ items:
   edges:
   - rel: DEPICTS
     to: Product:BPC-157 10mg
-- name: web/public/img/products/bpc-157-tb-500-20mg-navy-v2.png
+- name: web/public/img/products/bpc-157-tb-500-20mg-navy-white-v3.png
   attrs:
     asset_type: image
     format: square
-    url: /img/products/bpc-157-tb-500-20mg-navy-v2.png
+    url: /img/products/bpc-157-tb-500-20mg-navy-white-v3.png
     width_px: 1254
     height_px: 1254
     alt_text: BPC-157 / TB-500 20 mg vial with the navy Energy Peptides label. For
@@ -32,11 +32,11 @@ items:
   edges:
   - rel: DEPICTS
     to: Product:BPC-157 / TB-500 20mg
-- name: web/public/img/products/ghk-cu-100mg-navy-v2.png
+- name: web/public/img/products/ghk-cu-100mg-navy-white-v3.png
   attrs:
     asset_type: image
     format: square
-    url: /img/products/ghk-cu-100mg-navy-v2.png
+    url: /img/products/ghk-cu-100mg-navy-white-v3.png
     width_px: 1254
     height_px: 1254
     alt_text: GHK-Cu 100 mg vial with the navy Energy Peptides label. For research
@@ -46,11 +46,11 @@ items:
   edges:
   - rel: DEPICTS
     to: Product:GHK-Cu 100mg
-- name: web/public/img/products/ghk-cu-50mg-navy-v2.png
+- name: web/public/img/products/ghk-cu-50mg-navy-white-v3.png
   attrs:
     asset_type: image
     format: square
-    url: /img/products/ghk-cu-50mg-navy-v2.png
+    url: /img/products/ghk-cu-50mg-navy-white-v3.png
     width_px: 1254
     height_px: 1254
     alt_text: GHK-Cu 50 mg vial with the navy Energy Peptides label. For research
@@ -60,11 +60,11 @@ items:
   edges:
   - rel: DEPICTS
     to: Product:GHK-Cu 50mg
-- name: web/public/img/products/glow-70mg-navy-v2.png
+- name: web/public/img/products/glow-70mg-navy-white-v3.png
   attrs:
     asset_type: image
     format: square
-    url: /img/products/glow-70mg-navy-v2.png
+    url: /img/products/glow-70mg-navy-white-v3.png
     width_px: 1254
     height_px: 1254
     alt_text: GLOW 70 mg vial with the navy Energy Peptides label. For research use
@@ -74,11 +74,11 @@ items:
   edges:
   - rel: DEPICTS
     to: Product:GLOW 70mg
-- name: web/public/img/products/ipamorelin-10mg-navy-v2.png
+- name: web/public/img/products/ipamorelin-10mg-navy-white-v3.png
   attrs:
     asset_type: image
     format: square
-    url: /img/products/ipamorelin-10mg-navy-v2.png
+    url: /img/products/ipamorelin-10mg-navy-white-v3.png
     width_px: 1254
     height_px: 1254
     alt_text: Ipamorelin 10 mg vial with the navy Energy Peptides label. For research
@@ -88,11 +88,11 @@ items:
   edges:
   - rel: DEPICTS
     to: Product:Ipamorelin 10mg
-- name: web/public/img/products/klow-80mg-navy-v2.png
+- name: web/public/img/products/klow-80mg-navy-white-v3.png
   attrs:
     asset_type: image
     format: square
-    url: /img/products/klow-80mg-navy-v2.png
+    url: /img/products/klow-80mg-navy-white-v3.png
     width_px: 1254
     height_px: 1254
     alt_text: KLOW (BPC-157 / TB-500 / KPV / GHK-Cu) 80 mg vial with the navy Energy
@@ -102,11 +102,11 @@ items:
   edges:
   - rel: DEPICTS
     to: Product:BPC-157 / TB-500 / KPV / GHK-Cu 80mg
-- name: web/public/img/products/kpv-10mg-navy-v2.png
+- name: web/public/img/products/kpv-10mg-navy-white-v3.png
   attrs:
     asset_type: image
     format: square
-    url: /img/products/kpv-10mg-navy-v2.png
+    url: /img/products/kpv-10mg-navy-white-v3.png
     width_px: 1254
     height_px: 1254
     alt_text: KPV 10 mg vial with the navy Energy Peptides label. For research use
@@ -116,11 +116,11 @@ items:
   edges:
   - rel: DEPICTS
     to: Product:KPV 10mg
-- name: web/public/img/products/melanotan-i-10mg-navy-v2.png
+- name: web/public/img/products/melanotan-i-10mg-navy-white-v3.png
   attrs:
     asset_type: image
     format: square
-    url: /img/products/melanotan-i-10mg-navy-v2.png
+    url: /img/products/melanotan-i-10mg-navy-white-v3.png
     width_px: 1254
     height_px: 1254
     alt_text: Melanotan I 10 mg vial with the navy Energy Peptides label. For research
@@ -130,11 +130,11 @@ items:
   edges:
   - rel: DEPICTS
     to: Product:Melanotan I 10mg
-- name: web/public/img/products/melanotan-ii-10mg-navy-v2.png
+- name: web/public/img/products/melanotan-ii-10mg-navy-white-v3.png
   attrs:
     asset_type: image
     format: square
-    url: /img/products/melanotan-ii-10mg-navy-v2.png
+    url: /img/products/melanotan-ii-10mg-navy-white-v3.png
     width_px: 1254
     height_px: 1254
     alt_text: Melanotan II 10 mg vial with the navy Energy Peptides label. For research
@@ -144,11 +144,11 @@ items:
   edges:
   - rel: DEPICTS
     to: Product:Melanotan II 10mg
-- name: web/public/img/products/mots-c-10mg-navy-v2.png
+- name: web/public/img/products/mots-c-10mg-navy-white-v3.png
   attrs:
     asset_type: image
     format: square
-    url: /img/products/mots-c-10mg-navy-v2.png
+    url: /img/products/mots-c-10mg-navy-white-v3.png
     width_px: 1254
     height_px: 1254
     alt_text: MOTS-c 10 mg vial with the navy Energy Peptides label. For research
@@ -158,11 +158,11 @@ items:
   edges:
   - rel: DEPICTS
     to: Product:MOTS-c 10mg
-- name: web/public/img/products/nad-plus-500mg-navy-v2.png
+- name: web/public/img/products/nad-plus-500mg-navy-white-v3.png
   attrs:
     asset_type: image
     format: square
-    url: /img/products/nad-plus-500mg-navy-v2.png
+    url: /img/products/nad-plus-500mg-navy-white-v3.png
     width_px: 1254
     height_px: 1254
     alt_text: NAD+ (buffered) 500 mg vial with the navy Energy Peptides label. For
@@ -172,11 +172,11 @@ items:
   edges:
   - rel: DEPICTS
     to: Product:NAD+ 500mg
-- name: web/public/img/products/retatrutide-10mg-navy-v2.png
+- name: web/public/img/products/retatrutide-10mg-navy-white-v3.png
   attrs:
     asset_type: image
     format: square
-    url: /img/products/retatrutide-10mg-navy-v2.png
+    url: /img/products/retatrutide-10mg-navy-white-v3.png
     width_px: 1254
     height_px: 1254
     alt_text: Retatrutide 10 mg vial with the navy Energy Peptides label. For research
@@ -186,11 +186,11 @@ items:
   edges:
   - rel: DEPICTS
     to: Product:Retatrutide 10mg
-- name: web/public/img/products/retatrutide-15mg-navy-v2.png
+- name: web/public/img/products/retatrutide-15mg-navy-white-v3.png
   attrs:
     asset_type: image
     format: square
-    url: /img/products/retatrutide-15mg-navy-v2.png
+    url: /img/products/retatrutide-15mg-navy-white-v3.png
     width_px: 1254
     height_px: 1254
     alt_text: Retatrutide 15 mg vial with the navy Energy Peptides label. For research
@@ -200,11 +200,11 @@ items:
   edges:
   - rel: DEPICTS
     to: Product:Retatrutide 15mg
-- name: web/public/img/products/retatrutide-20mg-navy-v2.png
+- name: web/public/img/products/retatrutide-20mg-navy-white-v3.png
   attrs:
     asset_type: image
     format: square
-    url: /img/products/retatrutide-20mg-navy-v2.png
+    url: /img/products/retatrutide-20mg-navy-white-v3.png
     width_px: 1254
     height_px: 1254
     alt_text: Retatrutide 20 mg vial with the navy Energy Peptides label. For research
@@ -214,11 +214,11 @@ items:
   edges:
   - rel: DEPICTS
     to: Product:Retatrutide 20mg
-- name: web/public/img/products/retatrutide-30mg-navy-v2.png
+- name: web/public/img/products/retatrutide-30mg-navy-white-v3.png
   attrs:
     asset_type: image
     format: square
-    url: /img/products/retatrutide-30mg-navy-v2.png
+    url: /img/products/retatrutide-30mg-navy-white-v3.png
     width_px: 1254
     height_px: 1254
     alt_text: Retatrutide 30 mg vial with the navy Energy Peptides label. For research
@@ -228,11 +228,11 @@ items:
   edges:
   - rel: DEPICTS
     to: Product:Retatrutide 30mg
-- name: web/public/img/products/ss-31-30mg-navy-v2.png
+- name: web/public/img/products/ss-31-30mg-navy-white-v3.png
   attrs:
     asset_type: image
     format: square
-    url: /img/products/ss-31-30mg-navy-v2.png
+    url: /img/products/ss-31-30mg-navy-white-v3.png
     width_px: 1254
     height_px: 1254
     alt_text: SS-31 30 mg vial with the navy Energy Peptides label. For research use
@@ -242,11 +242,11 @@ items:
   edges:
   - rel: DEPICTS
     to: Product:SS-31 30mg
-- name: web/public/img/products/tesamorelin-20mg-navy-v2.png
+- name: web/public/img/products/tesamorelin-20mg-navy-white-v3.png
   attrs:
     asset_type: image
     format: square
-    url: /img/products/tesamorelin-20mg-navy-v2.png
+    url: /img/products/tesamorelin-20mg-navy-white-v3.png
     width_px: 1254
     height_px: 1254
     alt_text: Tesamorelin 20 mg vial with the navy Energy Peptides label. For research
@@ -256,11 +256,11 @@ items:
   edges:
   - rel: DEPICTS
     to: Product:Tesamorelin 20mg
-- name: web/public/img/products/tirzepatide-10mg-navy-v2.png
+- name: web/public/img/products/tirzepatide-10mg-navy-white-v3.png
   attrs:
     asset_type: image
     format: square
-    url: /img/products/tirzepatide-10mg-navy-v2.png
+    url: /img/products/tirzepatide-10mg-navy-white-v3.png
     width_px: 1254
     height_px: 1254
     alt_text: Tirzepatide 10 mg vial with the navy Energy Peptides label. For research
@@ -270,11 +270,11 @@ items:
   edges:
   - rel: DEPICTS
     to: Product:Tirzepatide 10mg
-- name: web/public/img/products/tirzepatide-15mg-navy-v2.png
+- name: web/public/img/products/tirzepatide-15mg-navy-white-v3.png
   attrs:
     asset_type: image
     format: square
-    url: /img/products/tirzepatide-15mg-navy-v2.png
+    url: /img/products/tirzepatide-15mg-navy-white-v3.png
     width_px: 1254
     height_px: 1254
     alt_text: Tirzepatide 15 mg vial with the navy Energy Peptides label. For research
@@ -284,11 +284,11 @@ items:
   edges:
   - rel: DEPICTS
     to: Product:Tirzepatide 15mg
-- name: web/public/img/products/tirzepatide-20mg-navy-v2.png
+- name: web/public/img/products/tirzepatide-20mg-navy-white-v3.png
   attrs:
     asset_type: image
     format: square
-    url: /img/products/tirzepatide-20mg-navy-v2.png
+    url: /img/products/tirzepatide-20mg-navy-white-v3.png
     width_px: 1254
     height_px: 1254
     alt_text: Tirzepatide 20 mg vial with the navy Energy Peptides label. For research
@@ -298,11 +298,11 @@ items:
   edges:
   - rel: DEPICTS
     to: Product:Tirzepatide 20mg
-- name: web/public/img/products/tirzepatide-30mg-navy-v2.png
+- name: web/public/img/products/tirzepatide-30mg-navy-white-v3.png
   attrs:
     asset_type: image
     format: square
-    url: /img/products/tirzepatide-30mg-navy-v2.png
+    url: /img/products/tirzepatide-30mg-navy-white-v3.png
     width_px: 1254
     height_px: 1254
     alt_text: Tirzepatide 30 mg vial with the navy Energy Peptides label. For research
