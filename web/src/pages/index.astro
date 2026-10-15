@@ -230,3 +230,20 @@ const faqPreview = catalog.faq.filter((f) => ['FAQ-3', 'FAQ-2', 'FAQ-6'].include
     .membership-section .section-head, .membership-foot { align-items: start; flex-direction: column; gap: 20px; }
   }
 </style>
+
+<style>
+  @media (max-width: 767px) {
+    .hero { gap: 20px; padding-top: 32px; }
+    .hero-copy { display: contents; }
+    .hero-copy > .eyebrow { order: 0; }
+    .hero-copy > h1 { order: 1; }
+    .hero-product { order: 2; }
+    .hero-copy > .t-lede { order: 3; }
+    .hero-copy > .hero-actions { order: 4; }
+    .hero-copy > .hero-note { order: 5; }
+    .hero-product figcaption { padding-top: 8px; }
+    .hero-actions { flex-direction: column; align-items: stretch; gap: 8px; }
+    .hero-actions .btn { width: 100%; justify-content: space-between; }
+    .hero-actions .text-link { justify-content: center; }
+  }
+</style>
