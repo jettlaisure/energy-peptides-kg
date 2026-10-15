@@ -7,13 +7,13 @@ const visibleCards = '[data-product-card]:visible';
 
 test('homepage preserves the compound catalog and links to every composition class', async ({ page }) => {
   await page.goto('/');
-  await expect(page.locator('h1')).toContainText('Research-grade peptides');
+  await expect(page.locator('h1')).toContainText('Precision.In every detail.');
   await expect(page.locator('[data-product-card]')).toHaveCount(catalog.products.filter(p => p.category !== 'accessory').length);
   for (const link of await page.locator('.classes a').all()) {
     const href = await link.getAttribute('href');
     expect(href).toMatch(/^\/products\/#.+/);
   }
-  await expect(page.getByRole('link', { name: 'Explore the catalog' })).toHaveAttribute('href', '/products/');
+  await expect(page.getByRole('link', { name: 'Shop the collection' })).toHaveAttribute('href', '/products/');
 });
 
 test('catalog search tolerates punctuation and supports empty, reset, and stock states', async ({ page }) => {
@@ -93,10 +93,10 @@ test('main pages fit mobile, tablet, and desktop widths', async ({ page }) => {
   }
 });
 
-test('catalog and mobile navigation remain usable without JavaScript', async ({ browser }) => {
+test('catalog and mobile navigation remain usable without JavaScript', async ({ browser, baseURL }) => {
   const context = await browser.newContext({ javaScriptEnabled: false, viewport: { width: 390, height: 844 } });
   const page = await context.newPage();
-  await page.goto('http://127.0.0.1:4322/products/');
+  await page.goto(`${baseURL}/products/`);
   await expect(page.locator(visibleCards)).toHaveCount(catalog.products.length);
   await expect(page.locator('[data-catalog-tools]')).not.toBeVisible();
   await page.getByLabel('Toggle navigation').click();

@@ -5,12 +5,12 @@ import { orderingOpen } from '../lib/ordering';
 const path = Astro.url.pathname;
 const nav = [
   { href: '/products/', label: 'Catalog' },
+  { href: '/membership/', label: 'Membership' },
   { href: '/faq/', label: 'FAQ & testing' },
-  { href: '/legal/research-use-only/', label: 'Research use policy' },
 ];
 ---
 <a class="skip-link" href="#main">Skip to content</a>
-<div class="announcement"><div class="container announcement-inner"><p>{site.compliance_line}</p><a href="/legal/shipping-returns/">Free US shipping on orders {money(cents(site.free_shipping_over_usd))}+ <span aria-hidden="true">↗</span></a></div></div>
+<div class="announcement"><div class="container announcement-inner"><p><a href="/membership/">Meet Navy, Graphite & Black · Explore membership <span aria-hidden="true">↗</span></a></p><a href="/legal/shipping-returns/">Free US shipping on orders {money(cents(site.free_shipping_over_usd))}+ <span aria-hidden="true">↗</span></a></div></div>
 <header class="site-header">
   <div class:list={['container', 'bar', { 'no-cart': !orderingOpen }]}>
     <a class="brand" href="/" aria-label="Energy Peptides home"><Lockup height={38} /></a>

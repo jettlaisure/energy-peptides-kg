@@ -1,0 +1,44 @@
+---
+import { site } from '../lib/catalog';
+import type { Level } from '../lib/membership-rules';
+const levels: Level[] = (site as typeof site & { membership: { levels: Level[] } }).membership.levels;
+const usd = (n: number) => `$${n.toLocaleString('en-US')}`;
+---
+<div class="tiers">
+  {levels.map((level, i) => (
+    <article class:list={['tier', level.name.toLowerCase()]}>
+      <div class="tier-top"><span class="eyebrow">{i === 0 ? 'Where it begins' : i === 1 ? 'A step further' : 'Our highest status'}</span><span class="tier-number" aria-hidden="true">0{i + 1}</span></div>
+      <h3>{level.name}</h3>
+      <p class="threshold">{level.min_usd ? `${usd(level.min_usd)} in 12 months` : 'Every customer starts here'}</p>
+      <div class="tier-benefit">{level.discount_pct ? <><strong>{level.discount_pct}%</strong><span>off every order</span></> : <><strong>Welcome.</strong><span>Your first order starts your membership.</span></>}</div>
+      <ul>
+        <li>{level.free_shipping ? 'Free shipping on every order' : `Free US shipping on orders ${usd(site.free_shipping_over_usd)}+`}</li>
+        <li>{level.name} vial labels & membership card</li>
+        {i === 2 && <><li>In-stock orders ship the same business day</li><li>First to hear about new products</li></>}
+        {i === 1 && <li>Status held for 12 months once earned</li>}
+        {i === 0 && <li>No sign-up or membership fee</li>}
+      </ul>
+      <a href="/membership/">Explore {level.name}<span aria-hidden="true">↗</span></a>
+    </article>
+  ))}
+</div>
+<style>
+  .tiers { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
+  .tier { padding: 28px; border: 1px solid #42516a; border-top: 2px solid var(--gold); display: flex; flex-direction: column; color: #eef2f9; background: #0d1b39; border-radius: 3px; }
+  .graphite { background: #2b2f34; border-color: #585b5f; border-top-color: var(--gold); }
+  .black { background: #0b0b0c; border-color: #655739; border-top-color: var(--gold-hi); }
+  .tier-top { display: flex; justify-content: space-between; gap: 12px; align-items: center; }
+  .eyebrow { color: #d5c18f; font-size: 9px; letter-spacing: .12em; }
+  .tier-number { color: #a9aeb5; font-size: 11px; }
+  h3 { font-size: 30px; font-weight: 500; letter-spacing: -.04em; margin-top: 30px; }
+  .threshold { color: #bac4d3; font-size: 12px; margin-top: 4px; }
+  .tier-benefit { min-height: 130px; padding-block: 28px 24px; display: grid; align-content: start; gap: 4px; }
+  .tier-benefit strong { font-size: 38px; font-weight: 500; line-height: 1.1; letter-spacing: -.04em; color: var(--gold-hi); }
+  .tier-benefit span { color: #d7dce5; font-size: 12px; }
+  ul { list-style: none; padding: 22px 0 26px; margin: 0; border-top: 1px solid #ffffff26; display: grid; gap: 12px; }
+  li { font-size: 12px; line-height: 1.55; display: flex; gap: 10px; color: #d7dce5; }
+  li::before { content: '✓'; color: var(--gold-hi); }
+  a { margin-top: auto; padding-top: 14px; min-height: 44px; border-top: 1px solid #ffffff26; display: flex; justify-content: space-between; align-items: center; font-size: 12px; color: var(--gold-hi); }
+  @media (max-width: 900px) { .tier { padding: 22px; } }
+  @media (max-width: 767px) { .tiers { grid-template-columns: 1fr; } .tier { padding: 26px; } h3 { margin-top: 20px; } .tier-benefit { min-height: auto; } }
+</style>
