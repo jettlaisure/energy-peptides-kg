@@ -24,8 +24,8 @@ const faqPreview = catalog.faq.filter((f) => ['FAQ-3', 'FAQ-2', 'FAQ-6'].include
           <p class="hero-note">For Research Use Only — Not for Human Consumption</p>
         </div>
         <figure class="hero-product">
-          <img src="/img/brand/membership-editorial-1200.webp" srcset="/img/brand/membership-editorial-600.webp 600w, /img/brand/membership-editorial-900.webp 900w, /img/brand/membership-editorial-1200.webp 1200w, /img/brand/membership-editorial-1536.webp 1536w" width="1536" height="1024" alt="Energy Peptides BPC-157 vials with Navy, Graphite and Black membership labels" sizes="(max-width: 767px) 100vw, 58vw" loading="eager" fetchpriority="high" />
-          <figcaption><span class="hero-tiers"><span><i class="navy-dot" aria-hidden="true"></i>Navy</span><span><i class="graphite-dot" aria-hidden="true"></i>Graphite</span><span><i class="black-dot" aria-hidden="true"></i>Black</span></span><a href="/membership/">Three levels. One standard. <span aria-hidden="true">↗</span></a></figcaption>
+          <img src="/img/brand/membership-photo-finish-1200.webp" srcset="/img/brand/membership-photo-finish-600.webp 600w, /img/brand/membership-photo-finish-900.webp 900w, /img/brand/membership-photo-finish-1200.webp 1200w, /img/brand/membership-photo-finish-1536.webp 1536w" width="1536" height="1024" alt="Energy Peptides BPC-157 vials with Navy, Graphite and Black membership labels" sizes="(max-width: 767px) 100vw, 58vw" loading="eager" fetchpriority="high" />
+          <figcaption><span>Navy · Graphite · Black</span><a href="/membership/">Three levels. One standard. <span aria-hidden="true">↗</span></a></figcaption>
         </figure>
       </div>
       <div class="trust-strip container" aria-label="Testing and documentation">
@@ -251,23 +251,5 @@ const faqPreview = catalog.faq.filter((f) => ['FAQ-3', 'FAQ-2', 'FAQ-6'].include
     .hero-actions { flex-direction: column; align-items: stretch; gap: 8px; }
     .hero-actions .btn { width: 100%; justify-content: space-between; }
     .hero-actions .text-link { justify-content: center; }
-  }
-</style>
-
-<style>
-  /* A quieter product composition lets the typography and real material detail breathe. */
-  .hero-product { width: min(100%, 560px); justify-self: center; }
-  .hero-product figcaption { border-top: 1px solid var(--rule-soft); margin-top: 16px; padding-top: 18px; }
-  .hero-tiers { display: flex; gap: 14px; align-items: center; }
-  .hero-tiers > span { display: inline-flex; gap: 6px; align-items: center; }
-  .hero-tiers i { width: 7px; height: 7px; border: 1px solid #ffffff40; border-radius: 50%; }
-  .navy-dot { background: #253253; }
-  .graphite-dot { background: #55585d; }
-  .black-dot { background: #090a0d; }
-  @media (max-width: 767px) {
-    .hero-product { width: min(100%, 430px); }
-    .hero-product figcaption { margin-top: 8px; padding-top: 12px; gap: 8px; }
-    .hero-tiers { gap: 8px; }
-    .hero-tiers > span { gap: 4px; }
   }
 </style>
