@@ -1,30 +1,32 @@
-/* Energy Peptides — design tokens v1.0 (from the brand reference, inbox/brand.html).
-   Dark-ground identity: navy carries the page; paper is reserved for documents and forms. Single theme by design. */
+/* Energy Peptides — website palette: Midnight + Seedpearl, approved by Jett.
+   Midnight anchors the identity; soft white supports shopping, gold is a restrained brand detail. */
 :root {
   color-scheme: dark;
   /* surface */
-  --void: #060C1F;
-  --navy: #0D1B3E;
-  --navy-lift: #13224A;
-  --rule: #21386E;
-  --rule-soft: #182B58;
-  --paper: #F4F6FA;
+  --void: #11162A;
+  --navy: #11162A;
+  --navy-lift: #1B2238;
+  --rule: #343B50;
+  --rule-soft: #282F43;
+  --paper: #FAF9F6;
   /* brand */
+  --seedpearl: #E6DAC4;
+  --seedpearl-hover: #F1E8D8;
   --gold-hi: #F0D48A;
   --gold: #D4AF5F;
   --gold-lo: #B8860B;
   --gold-ink: #8A6410;                       /* the only gold for text on light surfaces */
   --gold-grad: linear-gradient(135deg, #F5E3B0, #D9B96B 42%, #C39A45 72%, #B8860B);
-  --steel: #6E8CB8;
-  --powder: #A8B4DC;                         /* spec values, figures */
+  --steel: #A5ABBA;
+  --powder: #D2D5DF;                         /* spec values, figures */
   /* text on navy */
-  --text: #EEF2F9;
-  --text-dim: #9FB2CE;
-  --text-faint: #6C82A6;
+  --text: #F7F4EE;
+  --text-dim: #B9BBC5;
+  --text-faint: #9297A7;
   /* text on paper */
-  --paper-text: #0D1B3E;
-  --paper-dim: #4A5C80;
-  --paper-rule: #CDD5E4;
+  --paper-text: #11162A;
+  --paper-dim: #535867;
+  --paper-rule: #DDDAD2;
   --paper-field: #FFFFFF;
   /* one semantic colour for form errors only */
   --danger: #E8A3A3;

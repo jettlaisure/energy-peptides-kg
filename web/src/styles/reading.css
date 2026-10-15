@@ -1,14 +1,14 @@
 /* Scoped editorial surface: product details and FAQ, never the home hero. */
 .reading-surface {
   color-scheme: light;
-  --text: #14213a;
+  --text: #11162A;
   --text-dim: #4d5869;
   --text-faint: #5d6776;
   --steel: #5d6776;
-  --powder: #14213a;
+  --powder: #11162A;
   --rule: #d8d8d2;
   --hairline: 1px solid var(--rule);
-  --paper: #f5f4ef;
+  --paper: #FAF9F6;
   --paper-text: var(--text);
   --paper-dim: var(--text-dim);
   --paper-rule: var(--rule);
