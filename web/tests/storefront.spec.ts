@@ -7,13 +7,13 @@ const visibleCards = '[data-product-card]:visible';
 
 test('homepage preserves the compound catalog and links to every composition class', async ({ page }) => {
   await page.goto('/');
-  await expect(page.locator('h1')).toContainText('Precision.In every detail.');
+  await expect(page.locator('h1')).toContainText('Peptides forlaboratory research.');
   await expect(page.locator('[data-product-card]')).toHaveCount(catalog.products.filter(p => p.category !== 'accessory').length);
   for (const link of await page.locator('.classes a').all()) {
     const href = await link.getAttribute('href');
     expect(href).toMatch(/^\/products\/#.+/);
   }
-  await expect(page.getByRole('link', { name: 'Shop the collection' })).toHaveAttribute('href', '/products/');
+  await expect(page.getByRole('link', { name: 'Browse peptides' })).toHaveAttribute('href', '/products/');
 });
 
 test('catalog search tolerates punctuation and supports empty, reset, and stock states', async ({ page }) => {

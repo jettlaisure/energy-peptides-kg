@@ -1,76 +1,80 @@
 # Product mockups; current photo selection is maintained here.
 type: Asset
-source: Owner-approved Navy studio mockups, October 2026
+source: Owner-directed Navy studio mockups, November 2026
 confidence: high
 items:
-- name: web/public/img/products/bpc-157-10mg-navy-natural-v4.webp
+- name: web/public/img/products/bpc-157-10mg-studio-v5.webp
   attrs:
     asset_type: image
     format: square
-    url: /img/products/bpc-157-10mg-navy-natural-v4.webp
+    url: /img/products/bpc-157-10mg-studio-v5.webp
     width_px: 1254
     height_px: 1254
     alt_text: BPC-157 10 mg vial with the navy Energy Peptides label. For research
       use only.
     derived_from:
+    - web/public/img/products/bpc-157-10mg-navy-natural-v4.webp
     - inbox/labels/BPC-157-10mg_label.png
     - web/public/img/products/bpc-157-10mg-navy-white-v3.png
   edges:
   - rel: DEPICTS
     to: Product:BPC-157 10mg
-  source: Built-in imagegen studio-lighting refinement of owner-approved Navy mockup,
-    requested by Jett, 2026-10-14
-- name: web/public/img/products/bpc-157-tb-500-20mg-navy-natural-v4.webp
+  source: Built-in imagegen product mockup based on owner-supplied vial photography;
+    visual direction approved by Jett, 2026-11-24. Not a photograph of a specific lot.
+- name: web/public/img/products/bpc-157-tb-500-20mg-studio-v5.webp
   attrs:
     asset_type: image
     format: square
-    url: /img/products/bpc-157-tb-500-20mg-navy-natural-v4.webp
+    url: /img/products/bpc-157-tb-500-20mg-studio-v5.webp
     width_px: 1254
     height_px: 1254
     alt_text: BPC-157 / TB-500 20 mg vial with the navy Energy Peptides label. For
       research use only.
     derived_from:
+    - web/public/img/products/bpc-157-tb-500-20mg-navy-natural-v4.webp
     - inbox/labels/BPC-157-TB-500-20mg_label.png
     - web/public/img/products/bpc-157-tb-500-20mg-navy-white-v3.png
   edges:
   - rel: DEPICTS
     to: Product:BPC-157 / TB-500 20mg
-  source: Built-in imagegen studio-lighting refinement of owner-approved Navy mockup,
-    requested by Jett, 2026-10-14
-- name: web/public/img/products/ghk-cu-100mg-navy-natural-v4.webp
+  source: Built-in imagegen product mockup based on owner-supplied vial photography;
+    visual direction approved by Jett, 2026-11-24. Not a photograph of a specific lot.
+- name: web/public/img/products/ghk-cu-100mg-studio-v5.webp
   attrs:
     asset_type: image
     format: square
-    url: /img/products/ghk-cu-100mg-navy-natural-v4.webp
+    url: /img/products/ghk-cu-100mg-studio-v5.webp
     width_px: 1254
     height_px: 1254
     alt_text: GHK-Cu 100 mg vial with the navy Energy Peptides label. For research
       use only.
     derived_from:
+    - web/public/img/products/ghk-cu-100mg-navy-natural-v4.webp
     - inbox/labels/GHK-Cu-100mg_label.png
     - web/public/img/products/ghk-cu-100mg-navy-white-v3.png
   edges:
   - rel: DEPICTS
     to: Product:GHK-Cu 100mg
-  source: Built-in imagegen studio-lighting refinement of owner-approved Navy mockup,
-    requested by Jett, 2026-10-14
-- name: web/public/img/products/ghk-cu-50mg-navy-natural-v4.webp
+  source: Built-in imagegen product mockup based on owner-supplied vial photography;
+    visual direction approved by Jett, 2026-11-24. Not a photograph of a specific lot.
+- name: web/public/img/products/ghk-cu-50mg-studio-v5.webp
   attrs:
     asset_type: image
     format: square
-    url: /img/products/ghk-cu-50mg-navy-natural-v4.webp
+    url: /img/products/ghk-cu-50mg-studio-v5.webp
     width_px: 1254
     height_px: 1254
     alt_text: GHK-Cu 50 mg vial with the navy Energy Peptides label. For research
       use only.
     derived_from:
+    - web/public/img/products/ghk-cu-50mg-navy-natural-v4.webp
     - inbox/labels/GHK-Cu-50mg_label.png
     - web/public/img/products/ghk-cu-50mg-navy-white-v3.png
   edges:
   - rel: DEPICTS
     to: Product:GHK-Cu 50mg
-  source: Built-in imagegen studio-lighting refinement of owner-approved Navy mockup,
-    requested by Jett, 2026-10-14
+  source: Built-in imagegen product mockup based on owner-supplied vial photography;
+    visual direction approved by Jett, 2026-11-24. Not a photograph of a specific lot.
 - name: web/public/img/products/glow-70mg-navy-white-v3.png
   attrs:
     asset_type: image
@@ -85,142 +89,150 @@ items:
   edges:
   - rel: DEPICTS
     to: Product:GLOW 70mg
-- name: web/public/img/products/ipamorelin-10mg-navy-natural-v4.webp
+- name: web/public/img/products/ipamorelin-10mg-studio-v5.webp
   attrs:
     asset_type: image
     format: square
-    url: /img/products/ipamorelin-10mg-navy-natural-v4.webp
+    url: /img/products/ipamorelin-10mg-studio-v5.webp
     width_px: 1254
     height_px: 1254
     alt_text: Ipamorelin 10 mg vial with the navy Energy Peptides label. For research
       use only.
     derived_from:
+    - web/public/img/products/ipamorelin-10mg-navy-natural-v4.webp
     - inbox/labels/Ipamorelin-10mg_label.png
     - web/public/img/products/ipamorelin-10mg-navy-white-v3.png
   edges:
   - rel: DEPICTS
     to: Product:Ipamorelin 10mg
-  source: Built-in imagegen studio-lighting refinement of owner-approved Navy mockup,
-    requested by Jett, 2026-10-14
-- name: web/public/img/products/klow-80mg-navy-natural-v4.webp
+  source: Built-in imagegen product mockup based on owner-supplied vial photography;
+    visual direction approved by Jett, 2026-11-24. Not a photograph of a specific lot.
+- name: web/public/img/products/klow-80mg-studio-v5.webp
   attrs:
     asset_type: image
     format: square
-    url: /img/products/klow-80mg-navy-natural-v4.webp
+    url: /img/products/klow-80mg-studio-v5.webp
     width_px: 1254
     height_px: 1254
     alt_text: KLOW (BPC-157 / TB-500 / KPV / GHK-Cu) 80 mg vial with the navy Energy
       Peptides label. For research use only.
     derived_from:
+    - web/public/img/products/klow-80mg-navy-natural-v4.webp
     - inbox/labels/KLOW-80mg_label.png
     - web/public/img/products/klow-80mg-navy-white-v3.png
   edges:
   - rel: DEPICTS
     to: Product:BPC-157 / TB-500 / KPV / GHK-Cu 80mg
-  source: Built-in imagegen studio-lighting refinement of owner-approved Navy mockup,
-    requested by Jett, 2026-10-14
-- name: web/public/img/products/kpv-10mg-navy-natural-v4.webp
+  source: Built-in imagegen product mockup based on owner-supplied vial photography;
+    visual direction approved by Jett, 2026-11-24. Not a photograph of a specific lot.
+- name: web/public/img/products/kpv-10mg-studio-v5.webp
   attrs:
     asset_type: image
     format: square
-    url: /img/products/kpv-10mg-navy-natural-v4.webp
+    url: /img/products/kpv-10mg-studio-v5.webp
     width_px: 1254
     height_px: 1254
     alt_text: KPV 10 mg vial with the navy Energy Peptides label. For research use
       only.
     derived_from:
+    - web/public/img/products/kpv-10mg-navy-natural-v4.webp
     - inbox/labels/KPV-10mg_label.png
     - web/public/img/products/kpv-10mg-navy-white-v3.png
   edges:
   - rel: DEPICTS
     to: Product:KPV 10mg
-  source: Built-in imagegen studio-lighting refinement of owner-approved Navy mockup,
-    requested by Jett, 2026-10-14
-- name: web/public/img/products/melanotan-i-10mg-navy-natural-v4.webp
+  source: Built-in imagegen product mockup based on owner-supplied vial photography;
+    visual direction approved by Jett, 2026-11-24. Not a photograph of a specific lot.
+- name: web/public/img/products/melanotan-i-10mg-studio-v5.webp
   attrs:
     asset_type: image
     format: square
-    url: /img/products/melanotan-i-10mg-navy-natural-v4.webp
+    url: /img/products/melanotan-i-10mg-studio-v5.webp
     width_px: 1254
     height_px: 1254
     alt_text: Melanotan I 10 mg vial with the navy Energy Peptides label. For research
       use only.
     derived_from:
+    - web/public/img/products/melanotan-i-10mg-navy-natural-v4.webp
     - inbox/labels/Melanotan-1-10mg_label.png
     - web/public/img/products/melanotan-i-10mg-navy-white-v3.png
   edges:
   - rel: DEPICTS
     to: Product:Melanotan I 10mg
-  source: Built-in imagegen studio-lighting refinement of owner-approved Navy mockup,
-    requested by Jett, 2026-10-14
-- name: web/public/img/products/melanotan-ii-10mg-navy-natural-v4.webp
+  source: Built-in imagegen product mockup based on owner-supplied vial photography;
+    visual direction approved by Jett, 2026-11-24. Not a photograph of a specific lot.
+- name: web/public/img/products/melanotan-ii-10mg-studio-v5.webp
   attrs:
     asset_type: image
     format: square
-    url: /img/products/melanotan-ii-10mg-navy-natural-v4.webp
+    url: /img/products/melanotan-ii-10mg-studio-v5.webp
     width_px: 1254
     height_px: 1254
     alt_text: Melanotan II 10 mg vial with the navy Energy Peptides label. For research
       use only.
     derived_from:
+    - web/public/img/products/melanotan-ii-10mg-navy-natural-v4.webp
     - inbox/labels/Melanotan-2-10mg_label.png
     - web/public/img/products/melanotan-ii-10mg-navy-white-v3.png
   edges:
   - rel: DEPICTS
     to: Product:Melanotan II 10mg
-  source: Built-in imagegen studio-lighting refinement of owner-approved Navy mockup,
-    requested by Jett, 2026-10-14
-- name: web/public/img/products/mots-c-10mg-navy-natural-v4.webp
+  source: Built-in imagegen product mockup based on owner-supplied vial photography;
+    visual direction approved by Jett, 2026-11-24. Not a photograph of a specific lot.
+- name: web/public/img/products/mots-c-10mg-studio-v5.webp
   attrs:
     asset_type: image
     format: square
-    url: /img/products/mots-c-10mg-navy-natural-v4.webp
+    url: /img/products/mots-c-10mg-studio-v5.webp
     width_px: 1254
     height_px: 1254
     alt_text: MOTS-c 10 mg vial with the navy Energy Peptides label. For research
       use only.
     derived_from:
+    - web/public/img/products/mots-c-10mg-navy-natural-v4.webp
     - inbox/labels/MOTS-c-10mg_label.png
     - web/public/img/products/mots-c-10mg-navy-white-v3.png
   edges:
   - rel: DEPICTS
     to: Product:MOTS-c 10mg
-  source: Built-in imagegen studio-lighting refinement of owner-approved Navy mockup,
-    requested by Jett, 2026-10-14
-- name: web/public/img/products/nad-plus-500mg-navy-natural-v4.webp
+  source: Built-in imagegen product mockup based on owner-supplied vial photography;
+    visual direction approved by Jett, 2026-11-24. Not a photograph of a specific lot.
+- name: web/public/img/products/nad-plus-500mg-studio-v5.webp
   attrs:
     asset_type: image
     format: square
-    url: /img/products/nad-plus-500mg-navy-natural-v4.webp
+    url: /img/products/nad-plus-500mg-studio-v5.webp
     width_px: 1254
     height_px: 1254
     alt_text: NAD+ (buffered) 500 mg vial with the navy Energy Peptides label. For
       research use only.
     derived_from:
+    - web/public/img/products/nad-plus-500mg-navy-natural-v4.webp
     - inbox/labels/NAD-plus-500mg_label.png
     - web/public/img/products/nad-plus-500mg-navy-white-v3.png
   edges:
   - rel: DEPICTS
     to: Product:NAD+ 500mg
-  source: Built-in imagegen studio-lighting refinement of owner-approved Navy mockup,
-    requested by Jett, 2026-10-14
-- name: web/public/img/products/retatrutide-10mg-navy-natural-v4.webp
+  source: Built-in imagegen product mockup based on owner-supplied vial photography;
+    visual direction approved by Jett, 2026-11-24. Not a photograph of a specific lot.
+- name: web/public/img/products/retatrutide-10mg-studio-v5.webp
   attrs:
     asset_type: image
     format: square
-    url: /img/products/retatrutide-10mg-navy-natural-v4.webp
+    url: /img/products/retatrutide-10mg-studio-v5.webp
     width_px: 1254
     height_px: 1254
     alt_text: Retatrutide 10 mg vial with the navy Energy Peptides label. For research
       use only.
     derived_from:
+    - web/public/img/products/retatrutide-10mg-navy-natural-v4.webp
     - inbox/labels/Retatrutide-10mg_label.png
     - web/public/img/products/retatrutide-10mg-navy-white-v3.png
   edges:
   - rel: DEPICTS
     to: Product:Retatrutide 10mg
-  source: Built-in imagegen studio-lighting refinement of owner-approved Navy mockup,
-    requested by Jett, 2026-10-14
+  source: Built-in imagegen product mockup based on owner-supplied vial photography;
+    visual direction approved by Jett, 2026-11-24. Not a photograph of a specific lot.
 - name: web/public/img/products/retatrutide-15mg-navy-white-v3.png
   attrs:
     asset_type: image
@@ -235,139 +247,147 @@ items:
   edges:
   - rel: DEPICTS
     to: Product:Retatrutide 15mg
-- name: web/public/img/products/retatrutide-20mg-navy-natural-v4.webp
+- name: web/public/img/products/retatrutide-20mg-studio-v5.webp
   attrs:
     asset_type: image
     format: square
-    url: /img/products/retatrutide-20mg-navy-natural-v4.webp
+    url: /img/products/retatrutide-20mg-studio-v5.webp
     width_px: 1254
     height_px: 1254
     alt_text: Retatrutide 20 mg vial with the navy Energy Peptides label. For research
       use only.
     derived_from:
+    - web/public/img/products/retatrutide-20mg-navy-natural-v4.webp
     - inbox/labels/Retatrutide-20mg_label.png
     - web/public/img/products/retatrutide-20mg-navy-white-v3.png
   edges:
   - rel: DEPICTS
     to: Product:Retatrutide 20mg
-  source: Built-in imagegen studio-lighting refinement of owner-approved Navy mockup,
-    requested by Jett, 2026-10-14
-- name: web/public/img/products/retatrutide-30mg-navy-natural-v4.webp
+  source: Built-in imagegen product mockup based on owner-supplied vial photography;
+    visual direction approved by Jett, 2026-11-24. Not a photograph of a specific lot.
+- name: web/public/img/products/retatrutide-30mg-studio-v5.webp
   attrs:
     asset_type: image
     format: square
-    url: /img/products/retatrutide-30mg-navy-natural-v4.webp
+    url: /img/products/retatrutide-30mg-studio-v5.webp
     width_px: 1254
     height_px: 1254
     alt_text: Retatrutide 30 mg vial with the navy Energy Peptides label. For research
       use only.
     derived_from:
+    - web/public/img/products/retatrutide-30mg-navy-natural-v4.webp
     - inbox/labels/Retatrutide-30mg_label.png
     - web/public/img/products/retatrutide-30mg-navy-white-v3.png
   edges:
   - rel: DEPICTS
     to: Product:Retatrutide 30mg
-  source: Built-in imagegen studio-lighting refinement of owner-approved Navy mockup,
-    requested by Jett, 2026-10-14
-- name: web/public/img/products/ss-31-30mg-navy-natural-v4.webp
+  source: Built-in imagegen product mockup based on owner-supplied vial photography;
+    visual direction approved by Jett, 2026-11-24. Not a photograph of a specific lot.
+- name: web/public/img/products/ss-31-30mg-studio-v5.webp
   attrs:
     asset_type: image
     format: square
-    url: /img/products/ss-31-30mg-navy-natural-v4.webp
+    url: /img/products/ss-31-30mg-studio-v5.webp
     width_px: 1254
     height_px: 1254
     alt_text: SS-31 30 mg vial with the navy Energy Peptides label. For research use
       only.
     derived_from:
+    - web/public/img/products/ss-31-30mg-navy-natural-v4.webp
     - inbox/labels/SS-31-30mg_label.png
     - web/public/img/products/ss-31-30mg-navy-white-v3.png
   edges:
   - rel: DEPICTS
     to: Product:SS-31 30mg
-  source: Built-in imagegen studio-lighting refinement of owner-approved Navy mockup,
-    requested by Jett, 2026-10-14
-- name: web/public/img/products/tesamorelin-20mg-navy-natural-v4.webp
+  source: Built-in imagegen product mockup based on owner-supplied vial photography;
+    visual direction approved by Jett, 2026-11-24. Not a photograph of a specific lot.
+- name: web/public/img/products/tesamorelin-20mg-studio-v5.webp
   attrs:
     asset_type: image
     format: square
-    url: /img/products/tesamorelin-20mg-navy-natural-v4.webp
+    url: /img/products/tesamorelin-20mg-studio-v5.webp
     width_px: 1254
     height_px: 1254
     alt_text: Tesamorelin 20 mg vial with the navy Energy Peptides label. For research
       use only.
     derived_from:
+    - web/public/img/products/tesamorelin-20mg-navy-natural-v4.webp
     - inbox/labels/Tesamorelin-20mg_label.png
     - web/public/img/products/tesamorelin-20mg-navy-white-v3.png
   edges:
   - rel: DEPICTS
     to: Product:Tesamorelin 20mg
-  source: Built-in imagegen studio-lighting refinement of owner-approved Navy mockup,
-    requested by Jett, 2026-10-14
-- name: web/public/img/products/tirzepatide-10mg-navy-natural-v4.webp
+  source: Built-in imagegen product mockup based on owner-supplied vial photography;
+    visual direction approved by Jett, 2026-11-24. Not a photograph of a specific lot.
+- name: web/public/img/products/tirzepatide-10mg-studio-v5.webp
   attrs:
     asset_type: image
     format: square
-    url: /img/products/tirzepatide-10mg-navy-natural-v4.webp
+    url: /img/products/tirzepatide-10mg-studio-v5.webp
     width_px: 1254
     height_px: 1254
     alt_text: Tirzepatide 10 mg vial with the navy Energy Peptides label. For research
       use only.
     derived_from:
+    - web/public/img/products/tirzepatide-10mg-navy-natural-v4.webp
     - inbox/labels/Tirzepatide-10mg_label.png
     - web/public/img/products/tirzepatide-10mg-navy-white-v3.png
   edges:
   - rel: DEPICTS
     to: Product:Tirzepatide 10mg
-  source: Built-in imagegen studio-lighting refinement of owner-approved Navy mockup,
-    requested by Jett, 2026-10-14
-- name: web/public/img/products/tirzepatide-15mg-navy-natural-v4.webp
+  source: Built-in imagegen product mockup based on owner-supplied vial photography;
+    visual direction approved by Jett, 2026-11-24. Not a photograph of a specific lot.
+- name: web/public/img/products/tirzepatide-15mg-studio-v5.webp
   attrs:
     asset_type: image
     format: square
-    url: /img/products/tirzepatide-15mg-navy-natural-v4.webp
+    url: /img/products/tirzepatide-15mg-studio-v5.webp
     width_px: 1254
     height_px: 1254
     alt_text: Tirzepatide 15 mg vial with the navy Energy Peptides label. For research
       use only.
     derived_from:
+    - web/public/img/products/tirzepatide-15mg-navy-natural-v4.webp
     - inbox/labels/Tirzepatide-15mg_label.png
     - web/public/img/products/tirzepatide-15mg-navy-white-v3.png
   edges:
   - rel: DEPICTS
     to: Product:Tirzepatide 15mg
-  source: Built-in imagegen studio-lighting refinement of owner-approved Navy mockup,
-    requested by Jett, 2026-10-14
-- name: web/public/img/products/tirzepatide-20mg-navy-natural-v4.webp
+  source: Built-in imagegen product mockup based on owner-supplied vial photography;
+    visual direction approved by Jett, 2026-11-24. Not a photograph of a specific lot.
+- name: web/public/img/products/tirzepatide-20mg-studio-v5.webp
   attrs:
     asset_type: image
     format: square
-    url: /img/products/tirzepatide-20mg-navy-natural-v4.webp
+    url: /img/products/tirzepatide-20mg-studio-v5.webp
     width_px: 1254
     height_px: 1254
     alt_text: Tirzepatide 20 mg vial with the navy Energy Peptides label. For research
       use only.
     derived_from:
+    - web/public/img/products/tirzepatide-20mg-navy-natural-v4.webp
     - inbox/labels/Tirzepatide-20mg_label.png
     - web/public/img/products/tirzepatide-20mg-navy-white-v3.png
   edges:
   - rel: DEPICTS
     to: Product:Tirzepatide 20mg
-  source: Built-in imagegen studio-lighting refinement of owner-approved Navy mockup,
-    requested by Jett, 2026-10-14
-- name: web/public/img/products/tirzepatide-30mg-navy-natural-v4.webp
+  source: Built-in imagegen product mockup based on owner-supplied vial photography;
+    visual direction approved by Jett, 2026-11-24. Not a photograph of a specific lot.
+- name: web/public/img/products/tirzepatide-30mg-studio-v5.webp
   attrs:
     asset_type: image
     format: square
-    url: /img/products/tirzepatide-30mg-navy-natural-v4.webp
+    url: /img/products/tirzepatide-30mg-studio-v5.webp
     width_px: 1254
     height_px: 1254
     alt_text: Tirzepatide 30 mg vial with the navy Energy Peptides label. For research
       use only.
     derived_from:
+    - web/public/img/products/tirzepatide-30mg-navy-natural-v4.webp
     - inbox/labels/Tirzepatide-30mg_label.png
     - web/public/img/products/tirzepatide-30mg-navy-white-v3.png
   edges:
   - rel: DEPICTS
     to: Product:Tirzepatide 30mg
-  source: Built-in imagegen studio-lighting refinement of owner-approved Navy mockup,
-    requested by Jett, 2026-10-14
+  source: Built-in imagegen product mockup based on owner-supplied vial photography;
+    visual direction approved by Jett, 2026-11-24. Not a photograph of a specific lot.

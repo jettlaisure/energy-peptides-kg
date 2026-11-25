@@ -7,10 +7,10 @@ const usd = (n: number) => `$${n.toLocaleString('en-US')}`;
 <div class="tiers">
   {levels.map((level, i) => (
     <article class:list={['tier', level.name.toLowerCase()]}>
-      <div class="tier-top"><span class="eyebrow">{i === 0 ? 'Where it begins' : i === 1 ? 'A step further' : 'Our highest status'}</span><span class="tier-number" aria-hidden="true">0{i + 1}</span></div>
+      <div class="tier-top"><span class="eyebrow">{i === 0 ? 'Standard pricing' : i === 1 ? 'Member pricing' : 'Member pricing'}</span><span class="tier-number" aria-hidden="true">0{i + 1}</span></div>
       <h3>{level.name}</h3>
-      <p class="threshold">{level.min_usd ? `${usd(level.min_usd)} in 12 months` : 'Every customer starts here'}</p>
-      <div class="tier-benefit">{level.discount_pct ? <><strong>{level.discount_pct}%</strong><span>off every order</span></> : <><strong>Welcome.</strong><span>Your first order starts your membership.</span></>}</div>
+      <p class="threshold">{level.min_usd ? `${usd(level.min_usd)} in 12 months` : 'Included with your first order'}</p>
+      <div class="tier-benefit">{level.discount_pct ? <><strong>{level.discount_pct}%</strong><span>off every order</span></> : <><strong>No fee</strong><span>Membership starts with your first order.</span></>}</div>
       <ul>
         <li>{level.free_shipping ? 'Free shipping on every order' : `Free US shipping on orders ${usd(site.free_shipping_over_usd)}+`}</li>
         <li>{level.name} vial labels & membership card</li>
@@ -18,7 +18,7 @@ const usd = (n: number) => `$${n.toLocaleString('en-US')}`;
         {i === 1 && <li>Status held for 12 months once earned</li>}
         {i === 0 && <li>No sign-up or membership fee</li>}
       </ul>
-      <a href="/membership/">Explore {level.name}<span aria-hidden="true">↗</span></a>
+      <a href="/membership/">{level.name} membership details</a>
     </article>
   ))}
 </div>
