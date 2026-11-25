@@ -39,11 +39,11 @@ items:
     to: Product:BPC-157 / TB-500 20mg
   source: Built-in imagegen product mockup based on owner-supplied vial photography;
     visual direction approved by Jett, 2026-11-24. Not a photograph of a specific lot.
-- name: web/public/img/products/ghk-cu-100mg-studio-v5.webp
+- name: web/public/img/products/ghk-cu-100mg-studio-v6.webp
   attrs:
     asset_type: image
     format: square
-    url: /img/products/ghk-cu-100mg-studio-v5.webp
+    url: /img/products/ghk-cu-100mg-studio-v6.webp
     width_px: 1254
     height_px: 1254
     alt_text: GHK-Cu 100 mg vial with the navy Energy Peptides label. For research
@@ -57,11 +57,11 @@ items:
     to: Product:GHK-Cu 100mg
   source: Built-in imagegen product mockup based on owner-supplied vial photography;
     visual direction approved by Jett, 2026-11-24. Not a photograph of a specific lot.
-- name: web/public/img/products/ghk-cu-50mg-studio-v5.webp
+- name: web/public/img/products/ghk-cu-50mg-studio-v6.webp
   attrs:
     asset_type: image
     format: square
-    url: /img/products/ghk-cu-50mg-studio-v5.webp
+    url: /img/products/ghk-cu-50mg-studio-v6.webp
     width_px: 1254
     height_px: 1254
     alt_text: GHK-Cu 50 mg vial with the navy Energy Peptides label. For research
@@ -107,11 +107,11 @@ items:
     to: Product:Ipamorelin 10mg
   source: Built-in imagegen product mockup based on owner-supplied vial photography;
     visual direction approved by Jett, 2026-11-24. Not a photograph of a specific lot.
-- name: web/public/img/products/klow-80mg-studio-v5.webp
+- name: web/public/img/products/klow-80mg-studio-v6.webp
   attrs:
     asset_type: image
     format: square
-    url: /img/products/klow-80mg-studio-v5.webp
+    url: /img/products/klow-80mg-studio-v6.webp
     width_px: 1254
     height_px: 1254
     alt_text: KLOW (BPC-157 / TB-500 / KPV / GHK-Cu) 80 mg vial with the navy Energy
