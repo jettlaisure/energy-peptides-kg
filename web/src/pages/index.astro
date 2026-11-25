@@ -24,8 +24,8 @@ const faqPreview = catalog.faq.filter((f) => ['FAQ-3', 'FAQ-2', 'FAQ-6'].include
           <p class="hero-note">For laboratory research only. Not for human consumption.</p>
         </div>
         <figure class="hero-product">
-          <img src="/img/brand/hero-smoke-v11-1200.webp"
-            srcset="/img/brand/hero-smoke-v11-600.webp 600w, /img/brand/hero-smoke-v11-900.webp 900w, /img/brand/hero-smoke-v11-1200.webp 1200w, /img/brand/hero-smoke-v11-1536.webp 1536w"
+          <img src="/img/brand/hero-dust-v12-1200.webp"
+            srcset="/img/brand/hero-dust-v12-600.webp 600w, /img/brand/hero-dust-v12-900.webp 900w, /img/brand/hero-dust-v12-1200.webp 1200w, /img/brand/hero-dust-v12-1536.webp 1536w"
             width="1536" height="1024"
             alt="Three Energy Peptides vials with Navy, Graphite and Black labels"
             sizes="(max-width: 767px) 100vw, 58vw" loading="eager" fetchpriority="high" />
@@ -206,7 +206,7 @@ const faqPreview = catalog.faq.filter((f) => ['FAQ-3', 'FAQ-2', 'FAQ-6'].include
 </style>
 
 <style>
-  .hero-wrap { background: var(--navy); }
+  .hero-wrap { background: var(--navy); overflow: clip; }
   .hero { grid-template-columns: .85fr 1.15fr; gap: 48px; padding-block: 72px 56px; }
   .hero-copy { gap: 24px; }
   .hero h1 { font-size: clamp(48px, 5.4vw, 78px); line-height: 1.02; letter-spacing: -.065em; font-weight: 500; }
@@ -217,10 +217,9 @@ const faqPreview = catalog.faq.filter((f) => ['FAQ-3', 'FAQ-2', 'FAQ-6'].include
   .hero-actions .btn:hover { background: var(--seedpearl-hover); color: var(--void); }
   .hero-note { color: var(--text-dim); font-size: 10px; letter-spacing: .025em; }
   .hero-product img {
-    width: 100%; height: auto;
-    /* Transparent smoke dissipates into the page; the mask softens any edge residue. */
-    mask-image: linear-gradient(to right, transparent, #000 16%, #000 84%, transparent), linear-gradient(to bottom, transparent, #000 12%, #000 88%, transparent);
-    mask-composite: intersect;
+    display: block; width: 118%; max-width: none; height: auto; margin-inline: -9%;
+    /* Preserve the wide native-alpha silhouette; gently fade the upper plume into navy. */
+    mask-image: linear-gradient(to bottom, transparent, #000 18%, #000 100%);
   }
   .hero-product figcaption { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding-top: 16px; font-size: 11px; color: var(--text-dim); }
   .hero-product figcaption a { padding: 0; font-size: 11px; gap: 12px; }
@@ -252,7 +251,7 @@ const faqPreview = catalog.faq.filter((f) => ['FAQ-3', 'FAQ-2', 'FAQ-6'].include
     .hero-copy > .eyebrow { order: 0; }
     .hero-copy > h1 { order: 1; }
     .hero-product { order: 2; }
-    .hero-product img { display: block; width: 100%; margin-inline: auto; transform: none; }
+    .hero-product img { width: 112%; margin-inline: -6%; transform: none; }
     .hero-copy > .t-lede { order: 3; }
     .hero-copy > .hero-actions { order: 4; }
     .hero-copy > .hero-note { order: 5; }
