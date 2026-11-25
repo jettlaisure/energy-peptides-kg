@@ -1,6 +1,5 @@
 ---
 import Base from '../layouts/Base.astro';
-import HeroBrand from '../components/HeroBrand.astro';
 import ProductGrid from '../components/ProductGrid.astro';
 import FaqList from '../components/FaqList.astro';
 import MembershipTiers from '../components/MembershipTiers.astro';
@@ -24,9 +23,14 @@ const faqPreview = catalog.faq.filter((f) => ['FAQ-3', 'FAQ-2', 'FAQ-6'].include
           </div>
           <p class="hero-note">For laboratory research only. Not for human consumption.</p>
         </div>
-        <div class="hero-product">
-          <HeroBrand />
-        </div>
+        <figure class="hero-product">
+          <img src="/img/brand/hero-trio-v9-1200.webp"
+            srcset="/img/brand/hero-trio-v9-600.webp 600w, /img/brand/hero-trio-v9-900.webp 900w, /img/brand/hero-trio-v9-1200.webp 1200w, /img/brand/hero-trio-v9-1536.webp 1536w"
+            width="1536" height="1024"
+            alt="Three Energy Peptides vials with Navy, Graphite and Black labels"
+            sizes="(max-width: 767px) 100vw, 58vw" loading="eager" fetchpriority="high" />
+          <figcaption><span>Navy · Graphite · Black</span><a href="/membership/">About membership labels</a></figcaption>
+        </figure>
       </div>
       <div class="trust-strip container" aria-label="Testing and documentation">
         <div><strong>Specs</strong><p>Composition and amount<span>Listed on each product page</span></p></div>
