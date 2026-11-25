@@ -1,0 +1,44 @@
+---
+import Mark from './Mark.astro';
+---
+<div class="brand-art" role="img" aria-label="Energy Peptides brand artwork in midnight navy, graphite and black">
+  <div class="brand-fields" aria-hidden="true"><span></span><span></span><span></span></div>
+  <div class="brand-content" aria-hidden="true">
+    <div class="brand-top"><span>ENERGY PEPTIDES</span><span>RESEARCH CATALOG</span></div>
+    <div class="brand-symbol"><Mark glow={false} height={180} /></div>
+    <div class="brand-wordmark"><span class="brand-energy">ENERGY</span><span class="brand-peptides">PEPTIDES</span></div>
+    <div class="brand-bottom"><span>NAVY</span><span>GRAPHITE</span><span>BLACK</span></div>
+  </div>
+</div>
+<style>
+  .brand-art { position: relative; isolation: isolate; width: 100%; aspect-ratio: 1.16; overflow: hidden; border: 1px solid #66708340; color: var(--seedpearl); }
+  .brand-fields { position: absolute; inset: 0; display: grid; grid-template-columns: repeat(3, 1fr); z-index: -1; }
+  .brand-fields span:nth-child(1) { background: #18223b; }
+  .brand-fields span:nth-child(2) { background: #292d34; }
+  .brand-fields span:nth-child(3) { background: #151619; }
+  .brand-fields span + span { border-left: 1px solid #ffffff0a; }
+  .brand-content { height: 100%; padding: 30px 32px 0; display: flex; flex-direction: column; }
+  .brand-top { display: flex; justify-content: space-between; gap: 16px; font-size: 10px; letter-spacing: .14em; color: #c4c4c7; line-height: 1.5; }
+  .brand-symbol { display: flex; flex: 1; align-items: center; justify-content: center; padding: 35px 10px 28px; }
+  .brand-symbol :global(.mark) { display: block; height: auto; width: 72%; max-width: 340px; }
+  .brand-symbol :global(svg) { display: block; }
+  .brand-symbol :global(g[filter]) { filter: none; }
+  .brand-symbol :global([stroke^="url("]) { stroke: #d4b979; }
+  .brand-wordmark { padding-bottom: 34px; text-align: center; display: flex; flex-direction: column; align-items: center; }
+  .brand-energy { font-size: clamp(48px, 6.2vw, 88px); font-weight: 700; letter-spacing: -.045em; line-height: 1; }
+  .brand-peptides { margin-top: 12px; font-size: 14px; letter-spacing: .57em; padding-left: .57em; font-weight: 400; }
+  .brand-bottom { margin-inline: -32px; display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid #d1c2a52b; }
+  .brand-bottom span { padding: 19px 6px; text-align: center; color: #b8bbc3; font-size: 10px; letter-spacing: .15em; }
+  @media(max-width:767px) {
+    .brand-art { aspect-ratio: 1; }
+    .brand-content { padding: 22px 22px 0; }
+    .brand-top { font-size: 9px; letter-spacing: .08em; }
+    .brand-symbol { padding: 18px 8px 14px; }
+    .brand-symbol :global(.mark) { width: 60%; }
+    .brand-energy { font-size: clamp(48px, 13vw, 78px); }
+    .brand-wordmark { padding-bottom: 26px; }
+    .brand-peptides { font-size: 12px; margin-top: 8px; }
+    .brand-bottom { margin-inline: -22px; }
+    .brand-bottom span { padding-block: 15px; font-size: 9px; }
+  }
+</style>

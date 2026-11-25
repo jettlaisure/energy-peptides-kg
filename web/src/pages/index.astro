@@ -1,5 +1,6 @@
 ---
 import Base from '../layouts/Base.astro';
+import HeroBrand from '../components/HeroBrand.astro';
 import ProductGrid from '../components/ProductGrid.astro';
 import FaqList from '../components/FaqList.astro';
 import MembershipTiers from '../components/MembershipTiers.astro';
@@ -23,10 +24,9 @@ const faqPreview = catalog.faq.filter((f) => ['FAQ-3', 'FAQ-2', 'FAQ-6'].include
           </div>
           <p class="hero-note">For laboratory research only. Not for human consumption.</p>
         </div>
-        <figure class="hero-product">
-          <img src="/img/brand/hero-editorial-v7-1200.webp" srcset="/img/brand/hero-editorial-v7-600.webp 600w, /img/brand/hero-editorial-v7-900.webp 900w, /img/brand/hero-editorial-v7-1200.webp 1200w, /img/brand/hero-editorial-v7-1536.webp 1536w" width="1536" height="1024" alt="Energy Peptides BPC-157 10 mg vial photographed against a navy background" sizes="(max-width: 767px) 100vw, 58vw" loading="eager" fetchpriority="high" />
-          <figcaption><span>BPC-157 · 10 mg</span><a href="/products/bpc-157-10mg/">Product specifications</a></figcaption>
-        </figure>
+        <div class="hero-product">
+          <HeroBrand />
+        </div>
       </div>
       <div class="trust-strip container" aria-label="Testing and documentation">
         <div><strong>Specs</strong><p>Composition and amount<span>Listed on each product page</span></p></div>
