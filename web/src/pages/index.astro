@@ -24,7 +24,7 @@ const faqPreview = catalog.faq.filter((f) => ['FAQ-3', 'FAQ-2', 'FAQ-6'].include
           <p class="hero-note">For laboratory research only. Not for human consumption.</p>
         </div>
         <figure class="hero-product">
-          <img src="/img/brand/membership-studio-v5-1200.webp" srcset="/img/brand/membership-studio-v5-600.webp 600w, /img/brand/membership-studio-v5-900.webp 900w, /img/brand/membership-studio-v5-1200.webp 1200w, /img/brand/membership-studio-v5-1536.webp 1536w" width="1536" height="1024" alt="Energy Peptides BPC-157 vials with Navy, Graphite and Black membership labels" sizes="(max-width: 767px) 100vw, 58vw" loading="eager" fetchpriority="high" />
+          <img src="/img/brand/membership-grouped-v6-1200.webp" srcset="/img/brand/membership-grouped-v6-600.webp 600w, /img/brand/membership-grouped-v6-900.webp 900w, /img/brand/membership-grouped-v6-1200.webp 1200w, /img/brand/membership-grouped-v6-1536.webp 1536w" width="1536" height="1024" alt="Energy Peptides BPC-157 vials with Navy, Graphite and Black membership labels" sizes="(max-width: 767px) 100vw, 58vw" loading="eager" fetchpriority="high" />
           <figcaption><span>Navy · Graphite · Black</span><a href="/membership/">About membership labels</a></figcaption>
         </figure>
       </div>
@@ -212,7 +212,12 @@ const faqPreview = catalog.faq.filter((f) => ['FAQ-3', 'FAQ-2', 'FAQ-6'].include
   .hero-actions .btn { background: var(--seedpearl); color: var(--void); border-color: var(--seedpearl); font-weight: 700; }
   .hero-actions .btn:hover { background: var(--seedpearl-hover); color: var(--void); }
   .hero-note { color: var(--text-dim); font-size: 10px; letter-spacing: .025em; }
-  .hero-product img { width: 100%; height: auto; }
+  .hero-product img {
+    width: 100%; height: auto;
+    /* Fade only the backdrop margin; preserve the complete product silhouettes. */
+    mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent), linear-gradient(to bottom, transparent, #000 8%, #000 91%, transparent);
+    mask-composite: intersect;
+  }
   .hero-product figcaption { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding-top: 16px; font-size: 11px; color: var(--text-dim); }
   .hero-product figcaption a { padding: 0; font-size: 11px; gap: 12px; }
   .trust-strip { padding-block: 24px; }
